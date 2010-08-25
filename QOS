@@ -1,0 +1,191 @@
+Quality of Service Plan
+
+<h2>Summary</h2>
+
+<p>This document outlines thecrag.com's Quality of Service Plan. Because thecrag.com website is a free community based site no guarantees are made to achieving any predefined quality levels. However this document has been written in order to provide a plan for continuous improvement in best effort with our limited resources.</p>
+
+<p>This document outlines the following quality of service areas:</p>
+
+<ul>
+  <li><p>Site performance;</p></li>
+  <li><p>Data integrity; and</p></li>
+  <li><p>System functionality.</p></li>
+</ul>
+
+
+<p>Please note that we are currenlty operating under the following constraints:</p>
+
+<ul>
+  <li><p>Low cost hosting (<100USD per month) until an ongoing sponsor is found;</p></li>
+  <li><p>Reading support emails and monitoring site performance done ad-hoc when the key persons are available (note that key persons may be unavailable for weeks at a time - eg on holidays);</p></li>
+</ul>
+
+
+
+<h2>Site Performance</h2>
+
+<p>This section discusses a continuous improvement plan for site performance.</p>
+
+<p>Key aspects of site performance is availability (ie can I get to the site when I want) and response time (ie is it quick when I get there). Note that site performance may be effected by the external factors such as:</p>
+
+<ul>
+  <li><p>Number of users accessing the site simultaneously;</p></li>
+  <li><p>Web robots (including search indexing engines, and consumer applications slurping deep links for offline browsing); and</p></li>
+  <li><p>Denial of service attacks.</p></li>
+</ul>
+
+<p>Site performance is also effected by internal factors such as:</p>
+<ul>
+  <li><p>Number of servers (currently just one virtual server);</p></li>
+  <li><p>CPU, disk and RAM specs;</p></li>
+  <li><p>Third party software on the servers; and</p></li>
+  <li><p>Our own software we have developed for the site.</p></li>
+</ul>
+
+<p>Web robots may or may not be well behaved (ie respect the robots.txt file). Effectively this means an overzealous web robot may look like a denial of service attack.</p>
+
+<p>The nature of the site is a vast network of interconnected links which show different slices of the database. The system quickly fans out to millions of unique web pages. We really don't need or want millions of pages indexed in multiple search engines, just the core pages (maybe 300k pages).</p>
+
+<p>The system also makes extensive use of graphics, in particular charts to represent statistics. The core area pages, which are the backbone of site navigation, may have 20 or more images on each page. We plan to reduce the load on the server by using pure CSS images where possible, external charts (eg Google's charting service) and image sprites for icons.</p>
+
+
+<p>The following is an outline of how we plan to improve performance:</p>
+
+<ol>
+  <li><p>Infrastructure improvements;</p></li>
+  <li><p>Access filtering;</p></li>
+  <li><p>Improve system configuration;</p></li>
+  <li><p>Re-dimension content; and</p></li>
+  <li><p>Improve code.</p></li>
+</ol>
+
+<p>(Have you got any other ideas?)</p>
+
+
+<h3>Infrastructure Improvements</h3>
+
+<p>We need to look for a primary long term sponsor that can fund ongoing infrastructure improvements. There needs to be a long term commitment (3 year plus) before we get a sponsor involved in this area, because significant ongoing infrastructure costs cannot be supported by thecrag.com alone and are very difficult to scale back. Sourced funding will go into the following infrastructure priorities:</p>
+
+<ul>
+  <li><p>Increase server memory (RAM) by upgrading hosting plan;</p></li>
+  <li><p>Separate database server and memcached server;</p></li>
+  <li><p>Dedicated servers;</p></li>
+  <li><p>Failover server; and</p></li>
+  <li><p>Firewall access filter server (this option needs to be investigated);</p></li>
+  <li><p>Load balancing cluster.</p></li>
+</ul>
+
+<p>We can start to make infrastructure improvements if we can get a sponsorship of ($100 to $200) per month.</p>
+
+
+<h3>Access Filtering</h3>
+
+<p>Investigate the use of a firewall to protect against:</p>
+
+<ul>
+  <li><p>Denial of service attacks by blocking unwanted traffic; and</p></li>
+  <li><p>Overzealous robots by throttling access requests from an overly active IP address.</p></li>
+</ul>
+
+
+<p>Initial investigations has not come up with any firewall which can throttle robots before they tie up an apache connection (it is probably more my lack of understanding then lack of firewall capability). But investigation will continue.</p>
+
+<p>Use of apache modules for throttling access was investigated (mod_throttle, mod_bandwidth and mod_cband) but was deemed inappropriate as they all still keep the apache connection open thus holding vital system resources. We really need filtering to take place before any web server resources are deployed.</p>
+
+<h3>System Configuration</h3>
+
+<p>Use robots.txt file to tell well behaved robots not to search search links to:</p>
+
+<ul>
+  <li><p>script areas;</p></li>
+  <li><p>charts;</p></li>
+  <li><p>images; and</p></li>
+  <li><p>any link starting with 'ni' standing for no index.</p></li>
+</ul>
+
+<p>Ideally we should limit robot to one access per second (or thereabouts). At that rate it would take about 4 days for a search engine to index the whole site. We are not currently sure how to do this for all (or the major) search engines.</p>
+
+<p>Verify that the robots.txt file is specified correctly. This includes verification that the major search engines (yahoo and google) are well behaved in accordance with the robots.txt file.</p>
+
+<p>A corollary to this is that any page that we don't want indexed in the system must have a url path starting with '/ni'. An apache request handler has been written to strip the '/ni' from the beginning of the path when it occurs.</p>
+
+<p>Dimension apache appropriately for the available RAM so that the system does not grind to a halt when there are a lot of accesses. Currently we are not sure exactly what dimensions to use for this - apache is configured to use MPM workers (ie multi-threaded multi-process) to serve connections configured with default dimensions. Using Apache in MPM mode is appropriate for server environments with limited memory.</p>
+
+<p>Extensive use of multi-level caching:</p>
+<ul>
+  <li><p>Cache static pages for faster search engine browsing and anonymous browsing;</p></li>
+  <li><p>Cache fast lookup data structures and intermediate results on disk for persistance;</p></li>
+  <li><p>Use of memcached for caching results in RAM;</p></li>
+  <li><p>Use of local RAM caching for smaller variables;</p></li>
+  <li><p>Processes to warm cache and refresh cache after database update; and</p></li>
+  <li><p>Processes to recycle the cache over time to avoid stale pages.</p></li>
+</ul>
+
+<h3>Re-dimension Content</h3>
+
+<p>Some pages may be re-dimensioned so that they are quicker to generate without significant adverse effects on the overall intention of the page. For example reducing the number of ascents shown on the area ascents page.</p>
+
+<p>Some charts may be approximated to a standard chart template and still be fit for purpose. For example climb popularity charts may be reduced to a scale of 1-50 levels and mapped to representative chart.</p>
+
+<p>More aggressive content re-dimensioning may be reluctantly required. The following temporary measures may be used if all other techniques have proved inadequate:</p>
+
+<ul>
+  <li><p>Stop using some images;</p></li>
+  <li><p>Reduce page content.</p></li>
+</ul>
+
+
+<h3>Improve Code</h3>
+
+<p>The system is built in native perl using mod_perl apache module to integrate the application directly into the apache web server. This hugely improves the speed of the system but at the trade off of increasing server memory usage. There have been some techniques used to reduce the memory imprint of the perl code in the apache server, but perl is notoriously memory hungry. Further improvements may be possible and should be investigated.</p>
+
+<p>It is probably not feasible to rewrite the entire system in another programming language given the amount of work that has gone into the application. Maybe there is a case to be made to improve the efficiency of process intensive components of the perl code by re-writing in C (note that perl allows for this sort of thing).</p>
+
+<p>The code for a large portion of the system is automatically generated based on configuration files. It may be feasible to make systemic improvements to these code files.</p>
+
+<p>The following actions should be taken in order to improve the code:</p>
+
+<ul>
+  <li><p>Assess performance bottlenecks;</p></li>
+  <li><p>Identify mechanisms to improve process intensive areas; and</p></li>
+  <li><p>Identify systematic improvements to code infrastructure.</p></li>
+</ul>
+
+
+<p>This is a continuous process and should be undertaken regularly.</p>
+
+
+<h2>Data Integrity</h2>
+
+<p>Avoiding data loss and/or corruption is a key consideration for thecrag.com. The following data protection mechanisms are in place:</p>
+
+<ul>
+  <li><p>Use of MySQL transaction database engine (InnoDB), with internal configuration variable set not to lose data if the mysql server fails, but may lose a couple of seconds data if the operating system fails (set as a compromise between performance and data integrity);</p></li>
+  <li><p>Extensive and systemic use of foreign key indexes in the database to protect against ghost data (for example linking to another record which is no longer there);</p></li>
+  <li><p>Extensive and systemic use of unique indexes in the database to eliminate unintended duplicate database entries;</p></li>
+  <li><p>Automatic database rollback in the web update templates unless all related database updates are completed successfully;</p></li>
+  <li><p>Application framework to protect the server from re-entering data if the web operator presses the reload button at the wrong time;</p></li>
+  <li><p>Logging of web application errors for post event investigation;</p></li>
+  <li><p>Database updates only through defined application processes;</p></li>
+  <li><p>Defined web system update procedure;</p></li>
+  <li><p>Use of role based process permissions to limit user access to system processes;</p></li>
+  <li><p>Use of data permissions to limit user access to read and update the database through web forms;</p></li>
+  <li><p>A failover server hosted at home (note that the failover server is not always on and that there are currently no automated procedures to switch over if main server fails); and</p></li>
+  <li><p>A database backup procedure backing up the failover server, which we intend to run on a weekly basis.</p></li>
+</ul>
+
+
+<h2>System Functionality</h2>
+
+<p>The system we have developed should be an efficient, self explainatory web system. The system interface is built on a process based design which should make the system fairly easy to use.</p>
+
+<p>We have also made the decision to utilise standard browser technologies for much of the site. This will keep access to the site as wide as possible, but will have the effect of looking a bit clunky for some processes. The HTML and CSS has been designed for use on Firefox web browser. At times the Microsoft Internet Explorer browser does not work as well, sorry about that.</p>
+
+<p>We do use a little bit of javascript and make limited use of some 'Web 2' techniques. In such situations where the javascript fails the site should still be functional, just may not look as pretty.</p>
+
+<p>The system interface has undergone limited testing. Ideally test scripts should have been written for testing the interfaces, but as this would significantly delay the release of the system, and therefore a pragmatic decision was made not to write test scripts. This means that from time-to-time you will come across bugs in the interfaces or the site will no longer work in areas where it use to after a an upgrade. In these situations just let us know and we will do our best to fix it.</p>
+
+<p>Improvements, suggestions and bug fixes should be reported to us via email. We have an internal back office issues register which we are using to prioritise fixes. We cannot make any guarantees as to how long a fix will take.</p>
+
+<p>At some point, we plan to integrate the issues register into the system so that issues may be directly logged and tracked in the system. This will also help site transparency.</p>
+

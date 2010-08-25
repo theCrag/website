@@ -1,0 +1,98 @@
+Grade Band
+
+<p>For use on www.thecrag.com we have divided climb difficulty ratings into 5 segments - Beginner, Intermediate, Experienced, Expert and Elite. These definitions are somewhat arbitrary, but they are based on many years of climbing experience and there are also some statistical reasons for breaking climbing into these segments.</p>
+
+
+<p> There are two difficulty graphs used throughout the site, the grade band and dual grade band.</p>
+
+<img src="/image/difficultybanddemo.gif" />
+
+<p> The grade band chart shows the relative number of climbs at the particular difficuly bands. This is shown at each area and should give you a quick summary of the area's relative difficulty.</p>
+
+<p> The dual grade band shows also what grades people are climbing at an area, based on the number of ascents at each grade. This is interesting, because some areas may have a lot of hard climbs, but the easier climbs are climbed more often (eg Arapiles) and other areas have a lot of easier climbs, but people go there for the hard climbs (eg Grampians).</p>
+
+<p> The table below fives a brief description of each band.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td scope="col">Beginner</td>
+      <td scope="col">The level of difficulty for your first couple of days of climbing (seconding or top roping). Many people may achieve these grades on their first day of climbing. There are still some very scary and/or dangerous climbs at this level (eg Bard). </td>
+    </tr>
+    <tr>
+      <td scope="col">Intermediate</td>
+      <td scope="col">Typical grades for people with less than a years climbing. Note that most people cannot climb this level on their first couple of days of climbing. Statistically speaking, most outdoor climbing is done in this band. A lot of experienced climbers end up backing off to this level as they enjoy their climbing into old age.</td>
+    </tr>
+    <tr>
+      <td scope="col">Experienced</td>
+      <td scope="col">People can achieve these levels if they have been climbing fairly regularily for a couple of years. These grades are where the social climbers start becoming rare.</td>
+    </tr>
+    <tr>
+      <td scope="col">Expert</td>
+      <td scope="col">You really need to be training in a focused way to climb at this level. Not so many people reach this level.</td>
+    </tr>
+    <tr>
+      <td scope="col">Elite</td>
+      <td scope="col">You climb for a living, are sponsored and have a full time trainer and massuer looking after you. This is the best of the best. If you are normal, you would not have a hope of even dogging up one of these climbs.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<p> Where relevant we have tried to keep the colour coding as a consistent theme throughout the site.</p>
+
+<table border="1">
+  <thead>
+    <tr>
+      <td scope="col"></td>
+      <td scope="col">YDS</td>
+      <td scope="col">AU</td>
+      <td scope="col">UKT</td>
+      <td scope="col">FR</td>
+      <td scope="col">UIAA</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr bgcolor="#00FF00"> 
+      <td scope="col">Beginner</td>
+      <td scope="col">&lt;5.5</td>
+      <td scope="col">&lt;12</td>
+      <td scope="col">&lt;3c</td>
+      <td scope="col">&lt;3c+</td>
+      <td scope="col">&lt;4</td>
+    </tr>
+    <tr bgcolor="#FFFF00">
+      <td scope="col">Intermediate</td>
+      <td scope="col">5.6-5.10a</td>
+      <td scope="col">13-18</td>
+      <td scope="col">4a-5a</td>
+      <td scope="col">4a-6a</td>
+      <td scope="col">4+-6+</td>
+    </tr>
+    <tr bgcolor="#FFA500">
+      <td scope="col">Experienced</td>
+      <td scope="col">5.10b-5.12a</td>
+      <td scope="col">19-24</td>
+      <td scope="col">5c-6a</td>
+      <td scope="col">6a+-7a+</td>
+      <td scope="col">7--8+</td>
+    </tr>
+    <tr bgcolor="#FF0000">
+      <td scope="col">Expert</td>
+      <td scope="col">5.12b-5.14a</td>
+      <td scope="col">25-32</td>
+      <td scope="col">7a-7b</td>
+      <td scope="col">7b-8b+</td>
+      <td scope="col">9--10+</td>
+    </tr>
+    <tr bgcolor="#CE0000">
+      <td scope="col">Elite</td>
+      <td scope="col">&gt;5.14b</td>
+      <td scope="col">&gt;33</td>
+      <td scope="col">&gt;7c+</td>
+      <td scope="col">&gt;8c</td>
+      <td scope="col">&gt;11-</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,149 @@
+Area Types
+
+<p>There are a number of area types used in thecrag.com. By default an area node will have the generic 'Area' type assigned to it.</p>
+
+<p>The area type of a node will determine enhanced features for system interfaces and web displays. This includes the available description fields and how description fields are inherited from the parent nodes.</p>
+
+<div class="tableWrapper">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Area</td>
+        <td>The generic area type for a new area.</td>
+      </tr>
+      <tr>
+        <td>Region</td>
+        <td>This covers all areas from the world node down to the top level crag. This includes country pages. All areas below the top level crag should not be assigned as a region. Generally these pages are controlled by site management with very restrictive user permissions. If in doubt you should not assign an area as a region.</td>
+      </tr>
+      <tr>
+        <td>Crag</td>
+        <td>A Crag area may be a major crag or minor crags. A crag can have crags as sub areas. The major crag could be a whole mountain range. Typically major crags feature in guidebook titles, and minor crags in guidebook chapter headings. A crag area type has additional description fields available. Assign Crag area types for all areas from a region down to a cliff.</td>
+      </tr>
+      <tr>
+        <td>Cliff</td>
+        <td>A Cliff area type should either have climbs or sector areas as children. Some description fields are inherited from the Crag level descriptions.</td>
+      </tr>
+      <tr>
+        <td>Sector</td>
+        <td>Sector areas are sub areas under the cliff level. A sector should not have any sub areas just climbs.</td>
+      </tr>
+      <tr>
+        <td>Boulder</td>
+        <td>A boulder area type is used to specify bouldering routes around a boulder.</td>
+      </tr>
+      <tr>
+        <td>Feature</td>
+        <td>A feature can be a feature of a cliff or boulder. Generally it is used as a sub-type for bouldering purposes.</td>
+      </tr>
+    </tbody>
+  <table>
+</div>
+
+<p>The following table shows the available description fields for each area type.</p>
+
+<div class="tableWrapper">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Field</th>
+        <th scope="col">Area</th>
+        <th scope="col">Region</th>
+        <th scope="col">Crag</th>
+        <th scope="col">Cliff</th>
+        <th scope="col">Sector</th>
+        <th scope="col">Boulder</th>
+        <th scope="col">Feature</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Access</td>
+        <td>.</td>
+        <td>.</td>
+        <td>Yes</td>
+        <td>Inherit</td>
+        <td>Inherit</td>
+        <td>Inherit</td>
+        <td>Inherit</td>
+      </tr>
+      <tr>
+        <td>Approach</td>
+        <td>.</td>
+        <td>.</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Descent Notes</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Ethic</td>
+        <td>.</td>
+        <td>.</td>
+        <td>Yes</td>
+        <td>Inherit</td>
+        <td>Inherit</td>
+        <td>Inherit</td>
+        <td>Inherit</td>
+      </tr>
+      <tr>
+        <td>Unique Features And Strength</td>
+        <td>.</td>
+        <td>.</td>
+        <td>Yes</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>Where To Stay</td>
+        <td>.</td>
+        <td>.</td>
+        <td>Yes</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>History</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+  <table>
+</div>
+
+
