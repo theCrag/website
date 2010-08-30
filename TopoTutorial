@@ -1,0 +1,183 @@
+How to make a topo
+
+<ol>
+  <li><a href="#step1">Getting started</a></li>
+  <li><a href="#step2">Select an image</a></li>
+  <li><a href="#step3">Add route(s)</a></li>
+  <li><a href="#step4">Draw the route(s)</a></li>
+  <li><a href="#step5">Save and view topo or return to index</a></li>
+  <li><a href="#step6">Notes re. View Mode</a></li>
+</ol>
+
+<h2><a name="step1">1. Getting started</a></h2>
+
+<p>In the media viewer</p>
+
+<ul>
+  <li>Click on the 'Topo' tab</li>
+</ul>
+
+<ul>
+  <li>Click on 'make topo'</li>
+</ul>
+
+<div class="figure">
+  <p>Figure 1: Media viewer in an area or route page</p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.0/image1.png" /></p>
+</div>
+
+
+
+<h2><a name="step2">2. Select an image</a></h2>
+
+<ul>
+  <li>Select an image</li>
+</ul>
+<p>There are 3 ways to select an image:</p>
+
+<ol>
+  <li>Upload an image from your computer (you must have copyright to the image)</li>
+  <li>Link to an image elsewhere on the web (you must have copyright to the image)</li>
+  <li>Select an image already published at thecrag.com</li>
+</ol>
+
+<ul>
+  <li>Click 'Next'</li>
+</ul>
+
+<div class="figure">
+  <p>Figure 2: Selecting an image</p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.0/image2.png" /></p>
+</div>
+
+
+<h2><a name="step3">3. Add route(s)</a></h2>
+
+<p>Select the routes you want to draw on the topo. (NB. If you are creating the topo from a route page, the photo topo tool will default to that route).</p>
+
+<ul>
+  <li>Click on 'Add Routes'</li>
+</ul>
+
+<ul>
+  <li>Select the routes you wish to add.</li>
+</ul>
+
+<ul>
+  <li>Click 'Add'</li>
+</ul>
+
+<div class="figure">
+  <p>Figure 3: Selecting routes to include in topo</p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.0/image3.png" /></p>
+</div>
+
+
+<h2><a name="step4">4. Draw the route(s)</a></h2>
+
+<ul>
+  <li>Click 'Edit mode'</li>
+</ul>
+
+<ul>
+  <li>In the table below the image, select the first route you wish to draw.</li>
+</ul>
+
+<div class="figure">
+  <p>Figure 4: Selecting the route to draw</p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.0/image4.png" /></p>
+</div>
+
+
+<ul>
+  <li>On the image, click on the base of the route</li>
+</ul>
+
+<div class="figure">
+  <p>Figure 5: Place first point at the base of the route</p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.0/image5.png" /></p>
+</div>
+
+
+<ul>
+  <li>Click along the line of the route to add additional points</li>
+</ul>
+
+<div class="figure">
+  <p>Figure 6: Adding points along the line of the route</p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.0/image6.png" /></p>
+</div>
+
+
+<h3>Editing your topo line</h3>
+
+<ul>
+  <li>Existing points can be selected with a single click then dragged to move.</li>
+</ul>
+
+<ul>
+  <li>Double click an existing point to delete it.</li>
+</ul>
+
+<ul>
+  <li>Click anywhere on the image to add a new point. (The new point will be added to the topo line above the point that is currently selected).</li>
+</ul>
+
+<ul>
+  <li>Click anywhere on the topo line to add a new point.</li>
+</ul>
+
+<p>NB Hints below the image guide you through this process.</p>
+
+<ul>
+  <li>Repeat this step to add extra routes as required.</li>
+</ul>
+
+<h3>Adding Features</h3>
+
+<ul>
+  <li>Select a point in an active topo line and right click to add the features shown in the figure below. (NB The features will appear offset while in edit mode but will appear directly above the line on the finished topo in view mode).</li>
+</ul>
+
+<div class="figure">
+  <p>Figure 7: Adding features</p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.0/image7.png" /></p>
+</div>
+
+
+<h2><a name="step5">5. Save and view topo or return to index</a></h2>
+
+<ul>
+  <li>Click on 'Save'</li>
+</ul>
+
+<ul>
+  <li>Click on 'View Mode' to see the finished topo or on 'Main Index' to return to the index. (Go back into 'Edit Mode' to make changes if required).</li>
+</ul>
+
+<h2><a name="step6">6. Notes re. View Mode</a></h2>
+
+<ul>
+  <li>The color of the topo line corresponds to its difficulty band.</li>
+</ul>
+
+<div class="figure">
+  <p>Figure 8: Topo in 'View Mode' (No routes selected)</p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.0/image8.png" /></p>
+</div>
+
+
+<ul>
+  <li>Placing the cursor above a route in the table highlights it on the topo; and placing the cursor above a topo line in the photo highlights it in the table.</li>
+</ul>
+
+<div class="figure">
+  <p>Figure 9: Topo in 'View Mode' (Route 3 selected)</p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.0/image9.png" /></p>
+</div>
+
+
+<ul>
+  <li>Click on 'Hide Routes' to make the topo lines disappear (handy if you want to inspect details/features in the photo).</li>
+</ul>
+

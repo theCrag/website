@@ -5,7 +5,7 @@ Grade Band
 
 <p> There are two difficulty graphs used throughout the site, the grade band and dual grade band.</p>
 
-<img src="/image/difficultybanddemo.gif" />
+<img src="/static/cids/images/difficultybanddemo-1.1.0.gif" />
 
 <p> The grade band chart shows the relative number of climbs at the particular difficuly bands. This is shown at each area and should give you a quick summary of the area's relative difficulty.</p>
 
