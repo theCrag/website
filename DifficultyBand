@@ -42,57 +42,60 @@ Grade Band
 
 <p> Where relevant we have tried to keep the colour coding as a consistent theme throughout the site.</p>
 
-<table border="1">
+<table>
   <thead>
     <tr>
       <td scope="col"></td>
-      <td scope="col">YDS</td>
-      <td scope="col">AU</td>
+      <td class="gb1" scope="col">Beginner</td>
+      <td class="gb2" scope="col">Intermediate</td>
+      <td class="gb3" scope="col">Experienced</td>
+      <td class="gb4" scope="col">Expert</td>
+      <td class="gb5" scope="col">Elite</td>
+    </tr>
+    <tr>
+      <td scope="col">Yosemite Decimal System</td>
+      <td class="gb1" scope="col">&lt; 5.5</td>
+      <td class="gb2" scope="col">5.6 - 5.10a</td>
+      <td class="gb3" scope="col">5.10b - 5.12a</td>
+      <td class="gb4" scope="col">5.12b - 5.14a</td>
+      <td class="gb5" scope="col">&gt; 5.14b</td>
+    </tr>
+    <tr>
+      <td scope="col">Australian Eubank</td>
+      <td class="gb1" scope="col">&lt; 12</td>
+      <td class="gb2" scope="col">13 - 18</td>
+      <td class="gb3" scope="col">19 - 24</td>
+      <td class="gb4" scope="col">25 - 32</td>
+      <td class="gb5" scope="col">&gt; 33</td>
+    </tr>
+    <tr>
       <td scope="col">UKT</td>
-      <td scope="col">FR</td>
+      <td class="gb1" scope="col">&lt; 3c</td>
+      <td class="gb2" scope="col">4a - 5a</td>
+      <td class="gb3" scope="col">5c - 6a</td>
+      <td class="gb4" scope="col">7a - 7b</td>
+      <td class="gb5" scope="col">&gt; 7c+</td>
+    </tr>
+    <tr>
+      <td scope="col">French</td>
+      <td class="gb1" scope="col">&lt; 3c+</td>
+      <td class="gb2" scope="col">4a - 6a</td>
+      <td class="gb3" scope="col">6a+ - 7a+</td>
+      <td class="gb4" scope="col">7b - 8b+</td>
+      <td class="gb5" scope="col">&gt; 8c</td>
+    </tr>
+    <tr>
       <td scope="col">UIAA</td>
+      <td class="gb1" scope="col">&lt; 4</td>
+      <td class="gb2" scope="col">4+ - 6+</td>
+      <td class="gb3" scope="col">7 - 8+</td>
+      <td class="gb4" scope="col">9 - 10+</td>
+      <td class="gb5" scope="col">&gt; 11-</td>
     </tr>
   </thead>
   <tbody>
-    <tr bgcolor="#00FF00"> 
-      <td scope="col">Beginner</td>
-      <td scope="col">&lt;5.5</td>
-      <td scope="col">&lt;12</td>
-      <td scope="col">&lt;3c</td>
-      <td scope="col">&lt;3c+</td>
-      <td scope="col">&lt;4</td>
-    </tr>
-    <tr bgcolor="#FFFF00">
-      <td scope="col">Intermediate</td>
-      <td scope="col">5.6-5.10a</td>
-      <td scope="col">13-18</td>
-      <td scope="col">4a-5a</td>
-      <td scope="col">4a-6a</td>
-      <td scope="col">4+-6+</td>
-    </tr>
-    <tr bgcolor="#FFA500">
-      <td scope="col">Experienced</td>
-      <td scope="col">5.10b-5.12a</td>
-      <td scope="col">19-24</td>
-      <td scope="col">5c-6a</td>
-      <td scope="col">6a+-7a+</td>
-      <td scope="col">7--8+</td>
-    </tr>
-    <tr bgcolor="#FF0000">
-      <td scope="col">Expert</td>
-      <td scope="col">5.12b-5.14a</td>
-      <td scope="col">25-32</td>
-      <td scope="col">7a-7b</td>
-      <td scope="col">7b-8b+</td>
-      <td scope="col">9--10+</td>
-    </tr>
-    <tr bgcolor="#CE0000">
-      <td scope="col">Elite</td>
-      <td scope="col">&gt;5.14b</td>
-      <td scope="col">&gt;33</td>
-      <td scope="col">&gt;7c+</td>
-      <td scope="col">&gt;8c</td>
-      <td scope="col">&gt;11-</td>
-    </tr>
   </tbody>
 </table>
+
+
+
