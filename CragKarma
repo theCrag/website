@@ -1,0 +1,69 @@
+Crag Karma
+
+<p>Crag Karma is a way of thecrag recognising user contributions to an area.</p>
+
+<p>When you provide an area or route description, make a topo or upload a photo you are contributing to a community authored Crag Guide - a free online guide written by the climbing community.</p>
+
+<p>Your contribution will add to your Karma points for the route or area. Karma points are rolled up to parent areas to give you an aggregate scrore for each area in the index.</p>
+
+<p>You get points for the following:</p>
+<table>
+  <tr>
+    <td>
+       Area Description
+    </td>
+    <td>
+       <% $ARGS{areaDescription} %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+       Route Description
+    </td>
+    <td>
+       <% $ARGS{routeDescription} %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+       Route Grade
+    </td>
+    <td>
+       <% $ARGS{routeGrade} %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+       Make Topo
+    </td>
+    <td>
+       <% $ARGS{makeTopo} %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+       Update Topo Points
+    </td>
+    <td>
+       <% $ARGS{topoPoints} %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+       Upload Photo
+    </td>
+    <td>
+       <% $ARGS{uploadPhoto} %>
+    </td>
+  </tr>
+</table>
+
+<p>For a particular contribution type you will only get the points once per route or area. For example, if you upload more than one photo for a particular route you will get <% $ARGS{uploadPhoto} %> points in total for all uploaded photos for that route.</p>
+
+<p>The maximum points you can get for contributions to a particular route is <% $ARGS{maxRoute} %> points (for uploading a photo, making a topo, updating topo points, adding a route grade and route description).</p>
+
+<p>The maximum un-rolled up points you can get for contributions to a particular area is <% $ARGS{maxArea} %> points (for uploading a photo, making a topo, updating topo points, adding an area description).</p>
+
+<p>More than one climber can get points for contributions. For example if more than one climber contributes to a climb description then each climber will get <% $ARGS{routeDescription} %> points for their discription contribution.</p>
+
+<p>In order to encourage quality contributions we record the account which made the contribution.</p>
