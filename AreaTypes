@@ -64,9 +64,9 @@ Area Types
     <tbody>
       <tr>
         <td>Access</td>
+        <td>Inherit</td>
         <td>.</td>
-        <td>.</td>
-        <td>Yes</td>
+        <td>Inherit</td>
         <td>Inherit</td>
         <td>Inherit</td>
         <td>Inherit</td>
@@ -104,9 +104,9 @@ Area Types
       </tr>
       <tr>
         <td>Ethic</td>
+        <td>Inherit</td>
         <td>.</td>
-        <td>.</td>
-        <td>Yes</td>
+        <td>Inherit</td>
         <td>Inherit</td>
         <td>Inherit</td>
         <td>Inherit</td>
