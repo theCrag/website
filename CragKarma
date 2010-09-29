@@ -1,12 +1,26 @@
 Crag Karma
 
-<p>Crag Karma is a way of thecrag recognising user contributions to an area.</p>
 
-<p>When you provide an area or route description, make a topo or upload a photo you are contributing to a community authored Crag Guide - a free online guide written by the climbing community.</p>
+<style>
+h2 {
+border: none !important;
+}
+</style>
 
-<p>Your contribution will add to your Karma points for the route or area. Karma points are rolled up to parent areas to give you an aggregate scrore for each area in the index.</p>
+<h2>Introducing Crag Karma</h2>
 
-<p>You get points for the following:</p>
+
+<p>Crag Karma is a way of thecrag recognising user contributions to the index.
+</p>
+<p>Every time you contribute to the index, you are helping to build and improve this free online guide for the benefit of the whole climbing community.
+</p>
+<p>Karma points are added up across the index to give you a score for each area, up to the World level at the top of the index.
+</p>
+<p>Each contribution will add to your Karma points. You currently get points for the following: *
+</p>
+<img width="200" style="float: right; margin: 0pt 0pt 1em 1em;" src="/image/web/tree.jpg">
+
+
 <table>
   <tr>
     <td>
@@ -58,7 +72,21 @@ Crag Karma
   </tr>
 </table>
 
-<p>For a particular contribution type you will only get the points once per route or area. For example, if you upload more than one photo for a particular route you will get <% $ARGS{uploadPhoto} %> points in total for all uploaded photos for that route.</p>
+<h2>A few details</h2>
+<p>
+For a particular contribution type you will only get the points once for each node in the index. For example, if you upload more than one photo for a particular route you will get <% $ARGS{uploadPhoto} %> points in total for all uploaded photos for that route.
+</p>
+<p>
+More than one person can get points for contributions to a particular node in the index.
+</p>
+
+<p>
+* These may change from time to time.
+</p>
+
+<!--
+
+<hr>
 
 <p>The maximum points you can get for contributions to a particular route is <% $ARGS{maxRoute} %> points (for uploading a photo, making a topo, updating topo points, adding a route grade and route description).</p>
 
@@ -67,3 +95,8 @@ Crag Karma
 <p>More than one climber can get points for contributions. For example if more than one climber contributes to a climb description then each climber will get <% $ARGS{routeDescription} %> points for their discription contribution.</p>
 
 <p>In order to encourage quality contributions we record the account which made the contribution.</p>
+
+-->
+
+
+
