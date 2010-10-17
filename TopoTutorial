@@ -127,6 +127,10 @@ How to make a topo
   <li>Click anywhere on the topo line to add a new point.</li>
 </ul>
 
+<ul>
+  <li>Where two routes share the same line- eg a shared start before diverging, draw the first route the normal way and when you draw the second route drag the points for the shared section so that they 'click' to the first route's up until the point where the routes diverge. In view mode the photo topo tool will display the two routes smoothly up against one another. (This sounds more complex than it really is - have a bit of a play and you'll get the feel for it).</li>
+</ul>
+
 <p>NB Hints below the image guide you through this process.</p>
 
 <ul>
