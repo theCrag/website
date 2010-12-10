@@ -20,61 +20,24 @@ border: none !important;
 </p>
 <img width="200" style="float: right; margin: 0pt 0pt 1em 1em;" src="http://static.thecrag.com/cids/images/tree-1.1.0.jpg">
 
+% my $karma = $ARGS{data}->{karma};
 
 <table>
+% foreach my $activity ( sort {$karma->{$b}<=>$karma->{$a}} keys %{$karma} )   {
   <tr>
     <td>
-       Area Description
+       <% $activity %>
     </td>
     <td>
-       <% $ARGS{areaDescription} %>
+       <% $karma->{$activity} %>
     </td>
   </tr>
-  <tr>
-    <td>
-       Route Description
-    </td>
-    <td>
-       <% $ARGS{routeDescription} %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-       Route Grade
-    </td>
-    <td>
-       <% $ARGS{routeGrade} %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-       Make Topo
-    </td>
-    <td>
-       <% $ARGS{makeTopo} %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-       Update Topo Points
-    </td>
-    <td>
-       <% $ARGS{topoPoints} %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-       Upload Photo
-    </td>
-    <td>
-       <% $ARGS{uploadPhoto} %>
-    </td>
-  </tr>
+% }
 </table>
 
 <h2>A few details</h2>
 <p>
-For a particular contribution type you will only get the points once for each node in the index. For example, if you upload more than one photo for a particular route you will get <% $ARGS{uploadPhoto} %> points in total for all uploaded photos for that route.
+For a particular contribution type you will only get the points once for each node in the index. For example, if you upload more than one photo for a particular route you will get <% $karma->{'Upload Photo'} %> points in total for all uploaded photos for that route.
 </p>
 <p>
 More than one person can get points for contributions to a particular node in the index.
@@ -83,20 +46,6 @@ More than one person can get points for contributions to a particular node in th
 <p>
 * These may change from time to time.
 </p>
-
-<!--
-
-<hr>
-
-<p>The maximum points you can get for contributions to a particular route is <% $ARGS{maxRoute} %> points (for uploading a photo, making a topo, updating topo points, adding a route grade and route description).</p>
-
-<p>The maximum un-rolled up points you can get for contributions to a particular area is <% $ARGS{maxArea} %> points (for uploading a photo, making a topo, updating topo points, adding an area description).</p>
-
-<p>More than one climber can get points for contributions. For example if more than one climber contributes to a climb description then each climber will get <% $ARGS{routeDescription} %> points for their discription contribution.</p>
-
-<p>In order to encourage quality contributions we record the account which made the contribution.</p>
-
--->
 
 
 
