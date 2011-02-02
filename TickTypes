@@ -1,0 +1,62 @@
+General info - Tick Types
+
+<h2>Tick Types</h2>
+
+<p>These are the different types of ticks you can use when logging ascents:</p>
+
+% my $groups = $ARGS{data}->{tickGroups};
+
+<table class="tickTable">
+  <thead>
+    <tr>
+      <th>
+        Image
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Meaning
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+% foreach my $group ( @{$groups} )   {
+    <tr class="groupRow">
+      <td colspan=3>
+        <strong><% $group->{name} %></strong><span> (<% $group->{description} %>)</span>
+      </td>
+    </tr>
+% my $ticks = $group->{ticks};
+% foreach my $tick ( @{$ticks} )   {
+    <tr>
+      <td>
+        <span class="tick_<% $tick->{label} %>" title="<% $tick->{name} %>"></span>
+      </td>
+      <td>
+        <% $tick->{name} %>
+      </td>
+      <td>
+        <% $tick->{description} %>
+      </td>
+    </tr>
+% }
+% }
+  </body>
+</table>
+
+<br />
+
+<p>
+NB. Unlike the other categories, the distinction between the different types of 'Attempted Ascents' is more about the psychology/style than detail/nuance. i.e. The tick types are identical physically (you tried a route but didn't make it), but psychologically from a sport climbing/bouldering point of view you might be 'working' a route (making muiltiple attempts as you work towards a Red Point or clean ascent); from a trad climber's perspective you might have tried and got spanked.
+</p>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
