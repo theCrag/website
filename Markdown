@@ -77,6 +77,77 @@ This is another deeply interesting paragraph about stuff.
 <p>You can also use a small number of html tags, but in general you shouldn't need to use these much.</p>
 <p>As always if you have any suggestions for ways this could be better please <a href="ContactUs">Let us know</a>.</p>
 
+
+<p>This is the first paragraph which contains a reference to a subarea 'Arapiles' and a route 'Kachoong'</p>
+
+
+<div class="example">
+
+
+<div class="bubble"><div>
+<strong>Spray: </strong>
+ Subjective info to provide some local colour 
+</div></div>
+
+<p class="target">A totally classic line!</p>
+
+<div class="bubble"><div>
+<strong>Start/location: </strong>
+ Any info to orient the climber and find the start
+</div></div>
+
+<p class="target">Start: At river level, at a cascade at the end of a small pool. The line wanders, hence the short pitches.</p>
+
+
+<div class="bubble"><div>
+<strong>Description: </strong>
+Fairly objective details on gear, crux, warnings
+</div></div>
+
+
+
+<p class='target'>Right trending seam right of Shooting Star. Along overhang past 3 bolts, then up past a 4th bolt over lip to top. 2 BR belay directly after lip.</p>
+
+<div class="bubble"><div>
+<strong>Pitches: </strong>
+Ideally start each pitch with the height and grade
+</div></div>
+ 
+<ol class='target'> 
+<li><p>23m. Up steps, a ramp and a corner to a
+large ledge.</p></li> 
+<li><p>17m. Left, up flake and into strenuous
+bottleneck chimney.</p></li> 
+<li><p>13m. Up body crack. Move right below
+long curving crack.</p></li> 
+<li><p>20m. Start up crack then move inside,
+chimney up and out to ledge.</p></li> 
+<li><p>10m. Up steep wide crack and wall to top.</p></li> 
+</ol>
+
+
+<div class="bubble"><div>
+<strong>Descent: </strong>
+Only add what is special to this route and isn't in the area's descent information
+</div></div>
+
+<p class="target">Step R then rap of chains.<br /></p>
+
+
+</div>
+
+
+<style>
+.target {
+	width: 330px;
+	border-right: 5px solid #eee;
+}
+
+</style>
+
+
+
+
 <br />
 <br />
 <br />
