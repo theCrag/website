@@ -1,5 +1,15 @@
 How to - How to make a topo
 
+<p>This 3 minute video shows you how to create a topo. Or follow the instructions below.</p>
+
+<div class="figure">
+  <p>Screencast 1: How to make a topo</p>
+  <p><iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/zbcmKKGCxvc?rel=0" frameborder="0" allowFullScreen></iframe></p>
+</div>
+
+&nbsp;<br>
+
+
 <ol>
   <li><a href="#step1">Getting started</a></li>
   <li><a href="#step2">Select an image</a></li>
@@ -9,26 +19,24 @@ How to - How to make a topo
   <li><a href="#step6">Notes re. View Mode</a></li>
 </ol>
 
-<p>Below is a video version of this tutorial.</p>
-
-<iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/zbcmKKGCxvc?rel=0" frameborder="0" allowFullScreen></iframe>
-
 <h2><a name="step1">1. Getting started</a></h2>
 
-<p>In the media viewer</p>
+<p>Log in to your account.</p>
+
+<p>Browse the index to the route or area page where you wan tto make your topo and Click on:.</p>
 
 <ul>
-  <li>Click on the 'Topo' tab</li>
+  <li>Action</li>
+  <li>'Make Topo'</li>
 </ul>
 
-<ul>
-  <li>Click on 'make topo'</li>
-</ul>
 
 <div class="figure">
-  <p>Figure 1: Media viewer in an area or route page</p>
+  <p>Figure 1: Getting started</p>
   <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image1.jpg" /></p>
 </div>
+
+&nbsp;<br>
 
 
 
@@ -40,9 +48,9 @@ How to - How to make a topo
 <p>There are 3 ways to select an image:</p>
 
 <ol>
-  <li>Upload an image from your computer (you must have copyright to the image)</li>
-  <li>Link to an image elsewhere on the web (you must have copyright to the image)</li>
-  <li>Select an image already published at thecrag.com</li>
+  <li>Upload an image from your computer (you must have copyright to the image).</li>
+  <li>Link to an image elsewhere on the web (you must have copyright to the image).</li>
+  <li>Select an image already published at thecrag.com.</li>
 </ol>
 
 <ul>
@@ -54,21 +62,17 @@ How to - How to make a topo
   <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image2.jpg" /></p>
 </div>
 
+&nbsp;<br>
+
 
 <h2><a name="step3">3. Add route(s)</a></h2>
 
 <p>Select the routes you want to draw on the topo. (NB. If you are creating the topo from a route page, the photo topo tool will default to that route).</p>
 
 <ul>
-  <li>Click on 'Add Routes'</li>
-</ul>
-
-<ul>
+  <li>Click on 'Add Routes'.</li>
   <li>Select the routes you wish to add.</li>
-</ul>
-
-<ul>
-  <li>Click 'Add'</li>
+  <li>Click 'Add'.</li>
 </ul>
 
 <div class="figure">
@@ -76,14 +80,13 @@ How to - How to make a topo
   <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image3.jpg" /></p>
 </div>
 
+&nbsp;<br>
+
 
 <h2><a name="step4">4. Draw the route(s)</a></h2>
 
 <ul>
-  <li>Click 'Edit mode'</li>
-</ul>
-
-<ul>
+  <li>Click 'Edit mode'.</li>
   <li>In the table below the image, select the first route you wish to draw.</li>
 </ul>
 
@@ -92,9 +95,11 @@ How to - How to make a topo
   <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image4.jpg" /></p>
 </div>
 
+&nbsp;<br>
+
 
 <ul>
-  <li>On the image, click on the base of the route</li>
+  <li>On the image, click on the base of the route.</li>
 </ul>
 
 <div class="figure">
@@ -102,9 +107,11 @@ How to - How to make a topo
   <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image5.jpg" /></p>
 </div>
 
+&nbsp;<br>
+
 
 <ul>
-  <li>Click along the line of the route to add additional points</li>
+  <li>Click along the line of the route to add additional points.</li>
 </ul>
 
 <div class="figure">
@@ -112,34 +119,24 @@ How to - How to make a topo
   <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image6.jpg" /></p>
 </div>
 
+&nbsp;<br>
+
 
 <h3>Editing your topo line</h3>
 
 <ul>
   <li>Existing points can be selected with a single click then dragged to move.</li>
-</ul>
-
-<ul>
   <li>Double click an existing point to delete it.</li>
-</ul>
-
-<ul>
   <li>Click anywhere on the image to add a new point. (The new point will be added to the topo line above the point that is currently selected).</li>
-</ul>
-
-<ul>
   <li>Click anywhere on the topo line to add a new point.</li>
 </ul>
 
-<ul>
-  <li>Where two routes share the same line- eg a shared start before diverging, draw the first route the normal way and when you draw the second route drag the points for the shared section so that they 'click' to the first route's up until the point where the routes diverge. In view mode the photo topo tool will display the two routes smoothly up against one another. (This sounds more complex than it really is - have a bit of a play and you'll get the feel for it).</li>
-</ul>
-
-<p>NB Hints below the image guide you through this process.</p>
+<p>NB: Hints below the image guide you through this process.</p>
 
 <ul>
   <li>Repeat this step to add extra routes as required.</li>
 </ul>
+
 
 <h3>Adding Features</h3>
 
@@ -152,14 +149,13 @@ How to - How to make a topo
   <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image7.jpg" /></p>
 </div>
 
+&nbsp;<br>
+
 
 <h2><a name="step5">5. Save and view topo or return to index</a></h2>
 
 <ul>
-  <li>Click on 'Save'</li>
-</ul>
-
-<ul>
+  <li>Click on 'Save'.</li>
   <li>Click on 'View Mode' to see the finished topo or on 'Main Index' to return to the index. (Go back into 'Edit Mode' to make changes if required).</li>
 </ul>
 
@@ -174,15 +170,19 @@ How to - How to make a topo
   <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image8.jpg" /></p>
 </div>
 
+&nbsp;<br>
+
 
 <ul>
   <li>Placing the cursor above a route in the table highlights it on the topo; and placing the cursor above a topo line in the photo highlights it in the table.</li>
 </ul>
 
 <div class="figure">
-  <p>Figure 9: Topo in 'View Mode' (Route 3 selected)</p>
+  <p>Figure 9: Topo in 'View Mode' (Route 2 selected)</p>
   <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image9.jpg" /></p>
 </div>
+
+&nbsp;<br>
 
 
 <ul>

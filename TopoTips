@@ -17,36 +17,52 @@ How to - Topo tips
 <p>In general topos look better if routes are ordered from left to right on the site, so that the numbers run from left to right on the topo.</p>
 
 
-<iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/3D1ZE4ryKV0?rel=0" frameborder="0" allowFullScreen></iframe>
+<div class="figure">
+  <p>Screencast 1: How to resequence routes</p>
+  <p><iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/3D1ZE4ryKV0?rel=0" frameborder="0" allowFullScreen></iframe></p>
+</div>
 
-<p>The order of the routes linked in the topo is independant of the order in the cliff, boulder or area that they come from. The order of the route in a topo should always be from left to right - see the section below 'Twisted and tangled', even if the guide is ordered differently (eg from right to left).</p>
+&nbsp;<br>
 
-<p>The reason is that photos in many cases don't match reality. You might have two boulders side by side and the problems are ordered clockwise around boulder 1 and then boulder 2. A photo however might show just the north side of both boulders.</p>
+<p>The order of the routes linked in the topo is independent of the order in the cliff, boulder or area that they come from. The order of the route in a topo should always be from left to right even if the guide is ordered differently (eg sometimes a guide might be ordered from right to left) - see the section below 'Twisted and tangled'.</p>
+
+<p>The reason for this is that photos in many cases don't match the 'natural' order. In a guidebook you might have two boulders side by side and the problems are ordered clockwise around boulder 1 and then boulder 2. A photo however might show just the north side of both boulders.</p>
 
 
 <h2><a name="tip2">2. Variant routes- Direct starts, alternate starts, etc</a></h2>
 
-<p>When a route has a direct start/finish or an alternate start/finish, it is best to draw the topo line for the whole route. Depending on where the route is shown (eg it could be on the web, iphone, in print), it may be less cluttered to display just the route of interest and not all the other routes. In these cases it won't make sense to start a climb 20m of the deck.</p>
+<p>When a route has a direct start/finish or an alternate start/finish, it is best to draw the topo line for the whole route.</p>
+
+<p>This gives us greater flexibility in how and where routes are displayed.</p>
 
 <div class="figure">
   <p>Figure 1: Don't do variants like this.</p>
   <p><img src="/static/cids/images/phototopo-topotips-1.1.0/image1.jpg" /></p>
 </div>
 
+&nbsp;<br>
+
 <div class="figure">
   <p>Figure 2: Do variants like this.</p>
   <p><img src="/static/cids/images/phototopo-topotips-1.1.0/image2.jpg" /></p>
 </div>
 
+&nbsp;<br>
+
 
 <h2><a name="tip3">3. Different routes share a common belay or sector</a></h2>
 
-<p>Sometimes two routes follow the same path for a while or share a belay. We've designed the topo tool so that shared points and sectors ‘snap’ together. This locks the routes together for the bits that they share and means that the topos will display properly at different sizes.</p>
+<p>Sometimes two routes follow the same path for a while or share a belay. We've designed the topo tool so that shared points and sectors 'snap' together. This locks the routes together for the bits that they share and means that the topos will display properly at different sizes.</p>
 
 
-<iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/zRFm7CLLlws?rel=0" frameborder="0" allowFullScreen></iframe>
+<div class="figure">
+  <p>Screencast 2: Snapping together</p>
+  <p><iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/zRFm7CLLlws?rel=0" frameborder="0" allowFullScreen></iframe></p>
+</div>
 
-<p>Note: Sometimes the snapping isn't perfect, try dragging above and left of the point you want to snap to. We'll make this better in a future release.</p>
+&nbsp;<br>
+
+<p>(NB:Sometimes the snapping isn't perfect, try dragging above and left of the point you want to snap to. We'll make this better in a future release.)</p>
 
 
 <h2><a name="tip4">4. Topo lines get twisted/tangled</a></h2>
@@ -58,14 +74,20 @@ How to - Topo tips
   <p><img src="/static/cids/images/phototopo-topotips-1.1.0/image3.jpg" /></p>
 </div>
 
-<p>The topo tool assumes that all the routes will be linked in order from left to right. Even if the routes in the area are described and ordered differently, eg right to left, or something more complicated with multipitch routes, the routes linked to each topo should be order from left to right as they appear in the photo. If no routes share segments of each other then the order doesn't really matter. If you're routes aren't in the correct order, 're-sequence' them.</p>
+&nbsp;<br>
 
 <div class="figure">
   <p>Figure 3: An untangled topo.</p>
   <p><img src="/static/cids/images/phototopo-topotips-1.1.0/image4.jpg" /></p>
 </div>
 
-<p>When a route has multiple variants order the routes first by where they start, left to right, and then by where they finish. Here is an example cliff with fairly simple routes that split and merge:</p>
+&nbsp;<br>
+
+<p>Most of the time tangled topos can be fixed by <a href="#tip1">ordering the routes</a> from left to right.</p>
+
+<p>This is because the topo tool assumes that all the routes will be linked in order from left to right. Even if the routes in the area are described and ordered differently, eg right to left, or something more complicated with multipitch routes, the routes linked to each topo should be order from left to right as they appear in the photo. If no routes share segments of each other then the order doesn't really matter.</p>
+
+<p>When a route has multiple variants order the routes first by where they start, left to right, and then by where they finish. (ie. Routes that all start at the same point should be ordered L-R by where they finish). Here is an topo with routes that split and merge:</p>
 
 <p><a href="http://www.thecrag.com/area/12094969/topo">Illusion Buttress</a></p>
 
