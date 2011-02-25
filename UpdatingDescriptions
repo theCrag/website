@@ -12,7 +12,7 @@ textarea, .output div {
 	padding: 1em;
 	width: 80%;
 	margin: 0 auto;
-	height: 170px;
+	height: 180px;
 	text-align: left;
 }
 </style>
@@ -90,7 +90,7 @@ Other names for the route. Options are:<br>
   </tr>
   <tr>
     <td>Style</td>
-    <td>The style of the route is broadly defined by what sort of gear you're likely to need.</td>
+    <td>The <a href="/article/Styles">style</a> of the route is broadly defined by what sort of gear you're likely to need.</td>
   </tr>
   <tr>
     <td>Local grade systems</td>
@@ -98,7 +98,7 @@ Other names for the route. Options are:<br>
   </tr>
   <tr>
     <td>Grade</td>
-    <td>The route's grade. Can include starts (eg. '18***'). For multipitch routes you can use commas to separate the grade of each pitch (eg. '18, 15, 17, 18') - the system will assign the highest grade to the route. Can include grade ranges (eg '15-17' or '5.12a-c'). Can include aid and free climbing grades (eg. '5.10a A3'). The system accepts a wide range of grades, pretty much anything you would expect to see in a guidebook.</td>
+    <td>The route's grade. Can include stars (eg. '18***'). For multipitch routes you can use commas to separate the grade of each pitch (eg. '18, 15, 17, 18') - the system will assign the highest grade to the route. Can include grade ranges (eg '15-17' or '5.12a-c'). Can include aid and free climbing grades (eg. '5.10a A3'). The system accepts a wide range of grades, pretty much anything you would expect to see in a guidebook.</td>
   </tr>
   <tr>
     <td>Registered grade</td>
@@ -278,9 +278,9 @@ Ironically, the Garra boulders area was discovered by accident by Rob Dixon and 
 
 <p>Links to external sites and email addresses will be automatically converted. However these should be kept to a minimum.</p>
 
-<p>In most cases external links are only relevant to the web chanel, so when we produce printed or iphone guides they become useless. It is better to bring content to the site then link to it so that the information can be properly distributed.</p>
+<p>In most cases external links are only relevant to the web channel, so when we produce printed or iphone guides they become useless. It is better to bring content to the site then link to it so that the information can be properly distributed.</p>
 
-<p>Also using this capability for blantent advertising is not permitted.<p>
+<p>Also using this capability for blatant advertising is not permitted.<p>
 
 <p>External links facility will be under ongoing review and may be discontinued if it is abused or no longer suites thecrag's longer term goals.</p>
 
@@ -324,7 +324,7 @@ You will find me at <a href='http://www.thecrag.com'>www.thecrag.com</a> or <a h
 
 <div class="bubble"><div>
 <strong>Start/location: </strong>
- For a simple route this may be all that is needed (eg. "The crack 2m Lo of Bard").
+ For a simple route this may be all that is needed (eg. "The crack 2m L of Bard").
 </div></div>
 <p class="target">Start 1m L of 'Barbara Streisand'.</p>
 &nbsp;<br>
@@ -338,7 +338,7 @@ You will find me at <a href='http://www.thecrag.com'>www.thecrag.com</a> or <a h
 
 <div class="bubble"><div>
 <strong>Descent: </strong>
- Usually only required if te descent ofr the route is different to the descent described in th earea information for the cliff or sector.
+ Usually only required if the descent of the route is different to the descent described in the area information for the cliff or sector.
 </div></div>
 <p class="target">Step R to descend from Barbara's chains.</p>
 &nbsp;<br>
