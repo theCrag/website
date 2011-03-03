@@ -1,0 +1,80 @@
+General info - Index permissions
+
+<p>Your permissions to contribute to and edit the site are determined by your level of contribution. The four key roles are:</p>
+
+<ol>
+  <li><a href="#user">User</a></li>
+  <li><a href="#editor">Editor</a></li>
+  <li><a href="#coordinator">Area Coordinator</a></li>
+  <li><a href="#administrator">Administrator</a></li>
+</ol>
+
+<p>The permission levels for each role are detailed below.</p>
+
+
+<h2><a name="user">User</a></h2>
+
+<p>As soon as you've created an account you will automatically have permission to:</p>
+
+<ul>
+  <li>Add routes and areas to any crag.</li>
+  <li>Create a topo for any route or area.</li>
+  <li>Add descriptions, history, approach times and locations for any crag or route that doesn't already have a description.</li>
+</ul>
+
+
+<h2><a name="editor">Editor</a></h2>
+
+<p>Once you start contributing to the index you will start to earn <a href="/article/cragkarma">Crag Karma</a> points. When your Crag Karma for any crag reaches 201 you will automatically granted Editor rights for that crag (it may take 24 hours). As an example, you would earn 201 Crag Karma points for a crag if you contribute:</p>
+
+<ul>
+  <li>One area description,</li>
+  <li>Four route descriptions, and</li>
+  <li>One topo.</li>
+</ul>
+
+<p>There can be more than one Editor per crag. In addition to User's permissions you will now also be able to:</p>
+
+<ul>
+  <li>Move, merge, resequence and delete routes and areas.</li>
+  <li>Review and update area descriptions that others have contributed.</li>
+  <li>Update Topos that others have contributed.</li>
+</ul>
+
+<p>You will receive email notification when you have achieved 'Editor' rights for a crag.</p>
+
+<p>If you would like to request Editor rights for a crag where you have not yet earned sufficient Crag Karma or to create a completely new crag please <a href="/article/contactus">contact us</a>.</p>
+
+
+<h2><a name="coordinator">Area Coordinator</a></h2>
+
+<p>The position of Area Coordinator may be granted to one person at each top-level crag in the index.  (A top-level crag is the first point in the index where the area type changes from 'Region' to 'Crag'). The Area Coordinator positions will be granted manually by site Administrators. When appointing and reviewing the appointment of Area Coordinators, site Administrators will consider things like:</p>
+
+<ul>
+  <li>Crag Karma levels</li>
+  <li>Willingness to take on additional permissions and responsibilities</li>
+  <li>The views of other Editors</li>
+</ul>
+
+<p>Area coordinators will have the following additional permissions and responsibilities:</p>
+
+<ul>
+  <li>Monitor and improve the breadth and quality of the information for the crag.</li>
+  <li>Manually grant Editor permissions.</li>
+  <li>Right of 'final say' in matters of disagreement among editors (eg. If two different editors have differing views on something like whether routes at a particular cliff should be ordered from Right to Left or Left to Right the Area Coordinator would make a decision).</li>
+</ul>
+
+<p>If you are interested in taking on the role of Area Coordinator for any crags please <a href="/article/contactus">contact us</a>.</p>
+
+
+<h2><a name="administrator">Administrator</a></h2>
+
+<p>There will be a small number of Administrators who are able to:</p>
+
+<ul>
+  <li>Assign new top level crags.</li>
+  <li>Update the published URL of any crag, area or route.</li>
+  <li>Appoint Area coordinators.</li>
+</ul>
+
+<p>Current administrators are Simon Dale, Brendan Heywood and Campbell Gome (site developers).</p>
