@@ -1,21 +1,25 @@
-About theCrag - Credits and Thanks
+1 About theCrag - Credits and Thanks
 
 
-<p>Many people have contributed lot of time and effort to make this site what it is.<p>
-
+<p>Many people have contributed lot of time and effort to make this site what it is.
+ In addition to all the work our members do entering data, behind the scenes we use lots of tools and software that mostly don't have anything to do with climbing. 
+</p>
 
 <h2>Open source stuff</h2>
-<p>Many parts of this service are built using open source stuff. These include:</p>
+<p>Many parts of theCrag are built using open source libraries and 3rd party services. These include:</p>
 <ul>
-<li>
-	<a href="http://www.famfamfam.com/lab/icons/silk/">Silk</a> icon set from FamFamFam
-</li>
-<li>
-	<a href="http://openlayers.org/">OpenLayers</a> javascript mapping library with <a href="http://maps.google.com/">Google Maps</a>
-</li>
-<li>
-	<a href="http://jquery.com">jQuery</a> and plugins <a href="http://bassistance.de/jquery-plugins/jquery-plugin-tooltip/">Tooltip</a>
-</li>
+	<li><a href="http://www.famfamfam.com/lab/icons/silk/">Silk</a> icon set from FamFamFam</li>
+	<li><a href="http://openlayers.org/">OpenLayers</a> javascript mapping library with <a href="http://maps.google.com/">Google Maps</a></li>
+	<li><a href="http://jquery.com">jQuery</a><ul>
+		<li><a href="http://bassistance.de/jquery-plugins/jquery-plugin-tooltip/">Tooltip</a></li>
+		<li><a href="http://abeautifulsite.net/blog/2008/09/jquery-context-menu-plugin/">jQuery Context Menu</a></li>
+		<li><a href="ihttp://plugins.jquery.com/project/NobleCount">NobleCount</a></li>
+	</ul></li>
+	<li><a href="http://www.plupload.com/">Plupload</a></li>
+	<li><a href="http://raphaeljs.com/">Raphael</a></li>
+	<li><a href="http://tinymce.moxiecode.com/">TinyMCE</a></li>
+	<li><a href=""></a></li>
+	<li><a href=""></a></li>
 </ul>
 
 

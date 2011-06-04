@@ -1,4 +1,4 @@
-About theCrag - Reporting bugs and feature requests
+1 About theCrag - 2 Contact us - Bugs and new features
 
 <p>We love <a href="http://github.com">github.com</a>! Github is a place where people can share open source code and track bugs and features requests.</p>
 <p>Parts of theCrag are released as open source and github is where we will host that code. We are also using github's issue's tracker for all bugs and feature requests related to our general website.</p>
@@ -7,9 +7,9 @@ About theCrag - Reporting bugs and feature requests
 <h3>House rules</h3>
 <p><strong>Bug reports:</strong></p>
 <ul>
-<li>Please search the issues first to ensure it isn't a duplicate</li>
+<li>Please search the issues first to ensure it isn't already reported</li>
 <li>Please give the url of the page where the bug happens, even if it looks like the bug is on many pages</li>
-<li>Please include the browser you used</li>
+<li>Please include the browser and version you use (eg Firefox, IE, Chrome, Safari...)</li>
 <li>If possible take a screen shot and stick it on facebook and provide a link to it</li>
 <li>Please give a idea of what you consider the correct behaviour or display to be</li>
 </ul>

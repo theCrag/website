@@ -1,12 +1,6 @@
-General info
+1 About theCrag
 
 <p>Our main aim is to collect and distribute climbing information for the benefit of rock climbers. Where possible we would like to do this for free. The development and ongoing operation of the site is personally funded by one of the site founders and our time is limited. To improve the service provided by thecrag.com we need help from the climbing community.</p>
-
-<p>We specifically need help in the following areas right now:</p>
-<ul>
-  <li><p>Web expert who can provide advice on site performance (see <a href="/article/QOS">site performance</a>); and</p></li>
-  <li><p>MySQL expert to help with with database performance.</p></li>
-</ul>
 
 <p>There are some general areas that we will need ongoing help, including:</p>
 <ul>
@@ -17,15 +11,6 @@ General info
 </ul>
 
 
-<h2>Content</h2>
-
-<p>The more quality content the site collects the better the service.</p>
-
-<p>If you have done a climb and the climbing description is missing then please consider adding a description.</p>
-
-<p>We are also after some climbers who are willing to put a bit more into particular areas by becoming area champions. Area champions will be granted more permissions to maintain quality content for a particular area.</p>
-
-<p>Finally if you want a more serious content role in the site then you can volunteer to become a country co-ordinator.</p>
 
 
 <h2>Publications</h2>
@@ -39,12 +24,4 @@ General info
 
 <p>If you have any good ideas that you wish to persue for the site, then please let us know (see the <a href="/processmap/projectspolicy">Special Projects</a> policy section for more details). If the idea meets our objectives then we can list it as a project and hopefully provide you support to complete the project.</p>
 
-
-<h2>Sponsorship</h2>
-
-<p>We need sponsorship in order for us to improve the site infrastructure and site performance. We are really after longer term sponsorship relationships rather than one offs so we can provide ongoing improvements.</p>
-
-<p>We are currently paying about 80 USD per month for site hosting on a virtual machine. While we are able to pay this for now, it does not give us the server grunt we would like. For $160 USD a month we can upgrade to the next level, which will almost double the number of people that can use the site simultaneously. For the same amount again we could split the system across two servers providing further increase in site performance.</p>
-
-<p>Of course we would eventually like to get a dedicated server (or servers) in a high availability data center. This will cost significantly more money.</p>
 
