@@ -3,11 +3,11 @@
 
 <h2>A collaborative climbing database</h2>
 
-<p>thecrag.com is a hub for gathering and sharing climbing information. Climbers and publishers can share climbing information and distribute it through multiple channels, including thecrag.com's website, third party websites, rss feeds, Facebook, pdf publications, iphone, ipad and others.</p>
+<p>thecCag.com is a hub for gathering and sharing climbing information. Climbers and publishers can share climbing information and distribute it through multiple channels, including theCrag.com's website, third party websites, rss feeds, Facebook, pdf publications, iphone, ipad and others.</p>
 
-<p>Climbers can access quality climbing information on the web for free, either directly through thecrag.com's website or through other third party portals. This will be supported by sponsorship and advertising.</p>
+<p>Climbers can access quality climbing information on the web for free, either directly through theCrag.com's website or through other third party portals. This will be supported by sponsorship and advertising.</p>
 
-<p>Publishers can use thecrag.com's system to control and distribute their information through non-web channels. They may also choose to supply this information for free on the web. This is supported by revenue sharing.</p>
+<p>Publishers can use theCrag.com's system to control and distribute their information through non-web channels. They may also choose to supply this information for free on the web. This is supported by revenue sharing.</p>
 
 
 <h2>Community generated guidebooks</h2>
@@ -19,29 +19,29 @@
 
 <h2>Public versus private content</h2>
 
-<p>Both public and private data are supported by thecrag.com.</p>
+<p>Both public and private data are supported by theCrag.com.</p>
 
 <p>Content contributed directly by climbers is publicly available (under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons - Attribution Non-Commercial Share Alike</a> license) and available to publishers under agreement.</p>
 
-<p>Content contributed by third party publishers is owned by the publisher under their copyright with thecrag.com acting as data custodian according to publisher agreements.</p>
+<p>Content contributed by third party publishers is owned by the publisher under their copyright with theCrag.com acting as data custodian according to publisher agreements.</p>
 
 
 <h2>Content license and sharing</h2>
 
-<p>Essentially our philosophy is to act as 'data custodians' for a range of other copyright holders. thecrag.com's content license needs to meet the needs of a range of users including individual members of the climbing community, clubs and publishers so that their contributions and content can be displayed with the appropriate license and acknowledgments (see <a href="/article/mixedcopyright">Mixed Copyright</a> site article).</p>
+<p>Essentially our philosophy is to act as 'data custodians' for a range of other copyright holders. theCrag.com's content license needs to meet the needs of a range of users including individual members of the climbing community, clubs and publishers so that their contributions and content can be displayed with the appropriate license and acknowledgments (see <a href="/article/mixedcopyright">Mixed Copyright</a> site article).</p>
 
-<p>Content contributed by standard users is available to the general public and third parties under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons - Attribution Non-Commercial Share Alike</a> license. This allows the climbing community to use the content for non-commercial purposes, but also provides a potential source of revenue from commercial ventures so that thecrag.com can grow and continue to provide the best possible service to the climbing community.</p>
+<p>Content contributed by standard users is available to the general public and third parties under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons - Attribution Non-Commercial Share Alike</a> license. This allows the climbing community to use the content for non-commercial purposes, but also provides a potential source of revenue from commercial ventures so that theCrag.com can grow and continue to provide the best possible service to the climbing community.</p>
 
 <p>We are looking into ways to increase the sharing of data between databases. (See the section below regarding the API project). By distributing and sharing content to other websites and database, climbing information becomes better protected from issues around technology failures, organisation closures and dependence on individuals.</p>
 
 
 <h2>Financially viability</h2>
 
-<p>We would like thecrag.com to become financially viable, or at a minimum, be able to pay its own hosting and infrastructure costs.</p>
+<p>We would like theCrag.com to become financially viable, or at a minimum, be able to pay its own hosting and infrastructure costs.</p>
 
-<p>We plan to do this through advertising and sponsorship on thecrag.com's website. We will also explore other revenue opportunities when they come up.</p>
+<p>We plan to do this through advertising and sponsorship on theCrag.com's website. We will also explore other revenue opportunities when they come up.</p>
 
-<p>In order for us to be able to do this, standard users contributing to thecrag.com projects are required to grant broad permissions to thecrag.com, and the general public to re-distribute and re-use your contributions.  See <a href="/processmap/siteusagepolicy">Site Usage Policy</a> for details. Any user may choose to contribute to thecrag.com as a publisher under a different arrangement instead of as a standard user, please contact us.</p>
+<p>In order for us to be able to do this, standard users contributing to theCrag.com projects are required to grant broad permissions to theCrag.com, and the general public to re-distribute and re-use your contributions.  See <a href="/processmap/siteusagepolicy">Site Usage Policy</a> for details. Any user may choose to contribute to theCrag.com as a publisher under a different arrangement instead of as a standard user, please contact us.</p>
 
 <p>Once we become financially viable we plan to put in place financial initiatives that will directly benefit the climbing community. A percentage of takings will go to initiatives decided on by the climbing community (eg access funds, clubs, cliffcare groups, etc). It's way too early to work out the details yet, but we imagine that people's Crag Karma scores could determine their vote/allocation for such initiatives.</p>
 
@@ -51,7 +51,7 @@
 
 <h3>API</h3>
 
-<p>We are developing an API, which will allow third party applications to interface to the thecrag.com's database both to read and to contribute. This should be ready about March 2011 (actually there is more work and less of us than we expected so this will be significantly delayed). See <a href="/article/api">API</a> site article for more details.</p>
+<p>We are developing an API, which will allow third party applications to interface to the theCrag.com's database both to read and to contribute. This should be ready about March 2011 (actually there is more work and less of us than we expected so this will be significantly delayed). See <a href="/article/api">API</a> site article for more details.</p>
 
 
 <h3>Photo topos</h3>
@@ -83,7 +83,7 @@
 
 <h3>Publisher Content</h3>
 
-<p>We are in discussion with several publishers, to allow them to use thecrag.com's infrastructure for their content. There are lots of things to nut out here, but we should have content starting to trickle in late 2010. (Lots of data from UNEMC now available for <a href="http://www.thecrag.com/11741611">New England</a> - thanks guys).</p>
+<p>We are in discussion with several publishers, to allow them to use theCrag.com's infrastructure for their content. There are lots of things to nut out here, but we should have content starting to trickle in late 2010. (Lots of data from UNEMC now available for <a href="http://www.thecrag.com/11741611">New England</a> - thanks guys).</p>
 
 
 <h3>Targeting mobile devices</h3>
