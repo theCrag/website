@@ -1,0 +1,29 @@
+2 Using theCrag - 5 Searching
+
+<p>On any page in the top right corner you'll find the ubiquitious search box.</p>
+
+
+<h2>Advanced search</h2>
+
+<p>Coming soon: Advanced search filters, eg search for routes within a range of grades, stars, ehight etc</p>
+
+
+<h2>Search directly in your browser from anywhere on the internet</h2>
+
+<p>For the hardcore search fanatics you can setup theCrag as a custom search directly in your browser.</p>
+
+
+<h4>IE7+</h4>
+<p>Simply click the menu option next to the search icon and select 'Search theCrag'</p>
+<p><img width="458" height="380" src="/static/cids/images/opensearch-ie-1.1.0.jpg"></p>
+
+
+<h4>FireFox</h4>
+<p>Simple click the menu drop down next to the search bar and select 'Search theCrag'</p>
+<p><img width="458" height="380" src="/static/cids/images/opensearch-ff-1.1.0.jpg"></p>
+
+
+<h4>Chrome</h4>
+<p>Click the Spanner > Options, under Manage Search Engines find theCrag.com and click 'Make default'</p>
+
+
