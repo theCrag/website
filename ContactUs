@@ -10,9 +10,11 @@
 </ul>
 <p>You can jump onto our Facebook discussion site and have a chat:</p>
 
-<blockquote>
-	<a href="http://www.facebook.com/thecragcom">http://www.facebook.com/thecragcom</a>
-</blockquote>
+<div class="info_box">
+	<a href="http://www.facebook.com/thecragcom">
+ <img src="/static/cids/images/fb-1.1.0.png" width="14" height="14" alt="Facebook" title="Our facebook page" />
+http://www.facebook.com/thecragcom</a>
+</div>
 
 <br />
 <p>or you can contact us directly via email or phone:</p>
