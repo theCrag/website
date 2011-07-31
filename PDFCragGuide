@@ -4,9 +4,17 @@ General info - PDF Crag Guide
 
 <p>These guides can be produced for any crag in our index. A PDF Crag Guide puts all the available information from our site into a pre-formatted, personalized guidebook that is designed for easy printing as a folded booklet. Perfect for taking to a crag and on routes.</p>
 
-<p>[INSERT IMAGE- SAMPLE PAGE SHOWING TOPOS AND ROUTE LISTINGS INCL A GRADE ICON]</p>
+<div class="figure">
+  <p>Figure 1: Sample page.</p>
+  <p><img src="/static/cids/images/pdf-cragguide-1.1.0/sample.jpg" width="600" height="425" /></p>
+</div>
 
 <h2>Key features</h2>
+
+<div class="figure">
+  <p>Figure 2: Key features close up.</p>
+  <p><img src="/static/cids/images/pdf-cragguide-1.1.0/features.jpg" width="400" height="403" /></p>
+</div>
 
 <ul>
 <li><b>Quality ratings</b>: 1-3 stars based theCrag.com users' ratings.</li>
@@ -20,18 +28,20 @@ General info - PDF Crag Guide
 <li><b>Grade icons</b>: The 'must do' routes at each grade level are highlighted.</li>
 </ul>
 
-<p>[Maybe place these bullets on either side of the image with arrows showing each point on the image]</p>
-
 
 
 <h2>How to create a PDF Crag Guide</h2>
 
-<p>[Insert instructions]</p>
+<p>As you browse through the index, click on the 'Downloads' tab fo rthe area you want to generate a guide for.*</p>
+
+<p>Click on the 'PDF' inco to generate and download your personalised guide. Note that it may take some time to generate the PDF for you . Please do not keep clicking on the icon. If it is taking too long, use the 'email me' link and the guide will be sent to your inbox.</p>
+
+<p>* Please note, that currenlty you must be at a crag level or lower to generated a guide. You cannot download a guide for a whole region.</p>
 
 
 <h2>Updates</h2>
 
-<p>[Information re update process / options]</p>
+<p>Update your Crag Guide regularly to get the most recent stats, keywords, topos, descriptions, etc.</p>
 
 <h2><a name="printing">Tips for printing</a></h2>
 
