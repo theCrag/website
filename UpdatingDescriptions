@@ -165,7 +165,15 @@ Other names for the route. Options are:<br>
 
 <p>thecrag allows some basic formatting inside of area and route descriptions. It is based on a very natural text format called Markdown with a few extra twists that we're calling "thecrag Flavored Markdown".</p>
 
-<p>The examples below should show you almost everything you need to create great guides, but if you want more you can check out the <a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax Guide</a> at Daring Fireball.</p>
+<p>The examples below should show you almost everything you need to create great guides, but if you want more you can check out the <a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax Guide</a> at Daring Fireball. Please note that we have disabled all header functionality for thecrag Flavored Markdown.</p>
+
+<p>thecrag Flavored Markdown is available for:</p>
+<ul>
+<li>area descriptions</li>
+<li>route descriptions</li>
+<li>ascent comments</li>
+<li>route history diary entry</li>
+</ul>
 
 
 <h3>Adding paragraphs</h3>
@@ -256,7 +264,8 @@ Start at the R end of the base of the buttress.
 
 <h3>Internal links</h3>
 
-<p>Enclose the name of a crag, area or route within double (or single) quotation marks and it will get turned into an internal link when that name appears on the same page. This form of markup is contextual in that it will only create links for descendant areas or routes in Crag Guide.</p>
+<p>Enclose the name of a crag, area or route within double (or single) quotation marks and it will get turned into an internal link when that name appears on the same page. This should work on all pages for routes and areas that match (not case sensitive) within the top level crag. If the route name is a duplicate (eg 'Unknown') then the link will not be made. You can force a match by following the ending quote with '[nodeID]', where nodeID is the node identifier you want to linke to (eg 'Unknown'[12345]).</p>
+<p>You may also use route acronyms for sibling routes (eg '2 meters right of RIP', where there is a sibling route called 'Rest in Peace').</p>
 
 <div class="input">
 <h2>Enter text like this:</h2>
