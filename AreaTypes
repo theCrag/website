@@ -34,6 +34,10 @@
         <td>Sector areas are sub areas under the cliff level. A sector should not have any sub areas just climbs.</td>
       </tr>
       <tr>
+        <td>Field</td>
+        <td>Field areas are collector areas for boulders (read Boulder Field). A boulder field should only have boulder sub areas.</td>
+      </tr>
+      <tr>
         <td>Boulder</td>
         <td>A boulder area type is used to specify bouldering routes around a boulder.</td>
       </tr>
@@ -57,6 +61,7 @@
         <th scope="col">Crag</th>
         <th scope="col">Cliff</th>
         <th scope="col">Sector</th>
+        <th scope="col">Field</th>
         <th scope="col">Boulder</th>
         <th scope="col">Feature</th>
       </tr>
@@ -66,6 +71,7 @@
         <td>Access</td>
         <td>Inherit</td>
         <td>.</td>
+        <td>Inherit</td>
         <td>Inherit</td>
         <td>Inherit</td>
         <td>Inherit</td>
@@ -81,6 +87,7 @@
         <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
+        <td>Yes</td>
       </tr>
       <tr>
         <td>Descent Notes</td>
@@ -91,9 +98,11 @@
         <td>Yes</td>
         <td>.</td>
         <td>.</td>
+        <td>.</td>
       </tr>
       <tr>
         <td>Description</td>
+        <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
@@ -111,12 +120,14 @@
         <td>Inherit</td>
         <td>Inherit</td>
         <td>Inherit</td>
+        <td>Inherit</td>
       </tr>
       <tr>
         <td>Unique Features And Strength</td>
         <td>.</td>
         <td>.</td>
         <td>Yes</td>
+        <td>.</td>
         <td>.</td>
         <td>.</td>
         <td>.</td>
@@ -131,12 +142,14 @@
         <td>.</td>
         <td>.</td>
         <td>.</td>
+        <td>.</td>
       </tr>
       <tr>
         <td>History</td>
         <td>.</td>
         <td>.</td>
         <td>.</td>
+        <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
