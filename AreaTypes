@@ -1,8 +1,14 @@
 4 Contributing to theCrag - 6 Area Types
 
-<p>There are a number of area types used in thecrag.com. By default an area node will have the generic 'Area' type assigned to it.</p>
+<p>There are a number of area types used in thecrag.com.</p>
 
-<p>The area type of a node will determine enhanced features for system interfaces and web displays. This includes the available description fields and how description fields are inherited from the parent nodes.</p>
+<p>The area type will determine how the page will look, what description fields will be available and how description fields are inherited from the parent nodes. (See below for details).</p>
+
+<p>Area types can be changed at any time. Don’t panic if you change to an area type with fewer description fields available and data seems to disappear. The data will still be there, just change back to the original area type and either copy the data into a field that is available in the new area type, or stick with the original area type. (eg. If you change from a ‘Cliff’ to a ‘Crag’ and your descent notes disappear you can change back to ‘Crag’ and move the descent notes into the ‘Description’ box or just leave it as a ‘Crag’).</p>
+
+<p>If a node in the index has not had a specific type assigned, it will be given the generic ‘Area’ type.</p>
+
+<p>The table below describes each area type and how it should be used.</p>
 
 <div class="tableWrapper">
   <table>
@@ -14,42 +20,70 @@
     </thead>
     <tbody>
       <tr>
-        <td>Area</td>
-        <td>The generic area type for a new area.</td>
-      </tr>
-      <tr>
         <td>Region</td>
-        <td>This covers all areas from the world node down to the top level crag. This includes country pages. All areas below the top level crag should not be assigned as a region. Generally these pages are controlled by site management with very restrictive user permissions. If in doubt you should not assign an area as a region.</td>
+        <td>This covers all areas from the world down to the top level crag. This includes country pages. All areas below the top level crag should not be assigned as a region. Generally these pages are controlled by site management with very restrictive user permissions.</td>
       </tr>
       <tr>
-        <td>Crag</td>
-        <td>A Crag area may be a major crag or minor crags. A crag can have crags as sub areas. The major crag could be a whole mountain range. Typically major crags feature in guidebook titles, and minor crags in guidebook chapter headings. A crag area type has additional description fields available. Assign Crag area types for all areas from a region down to a cliff.</td>
+        <td>Area</td>
+        <td>The generic area type for a new node that has not had a specific type assigned.</td>
       </tr>
       <tr>
-        <td>Cliff</td>
-        <td>A Cliff area type should either have climbs or sector areas as children. Some description fields are inherited from the Crag level descriptions.</td>
+        <td>Crag*</td>
+        <td>A Crag is a climbing and/or bouldering area. A Crag could be a major crag or a minor one. A crag can have more crags as sub areas. Typically major crags feature in guidebook titles, and minor crags in guidebook chapter headings. Assign Crag area types for all climbing or mixed (climbing and bouldering) nodes from a region down to a cliff, field or boulder. When in doubt, if you make it a Crag you won’t go too far wrong.</td>
       </tr>
       <tr>
-        <td>Sector</td>
-        <td>Sector areas are sub areas under the cliff level. A sector should not have any sub areas just climbs.</td>
+        <td>Cliff*</td>
+        <td>The Cliff area type should be used for a node that has either routes or sectors as children.</td>
       </tr>
       <tr>
-        <td>Field</td>
-        <td>Field areas are collector areas for boulders (read Boulder Field). A boulder field should only have boulder sub areas.</td>
+        <td>Sector*</td>
+        <td>Sector areas are sub areas under the cliff level. A sector should not have any sub areas just climbing routes.</td>
       </tr>
       <tr>
-        <td>Boulder</td>
-        <td>A boulder area type is used to specify bouldering routes around a boulder.</td>
+        <td>Field*</td>
+        <td>The Field (read Boulder Field) area type is for nodes that have multiple boulders as sub areas.</td>
       </tr>
       <tr>
-        <td>Feature</td>
-        <td>A feature can be a feature of a cliff or boulder. Generally it is used as a sub-type for bouldering purposes.</td>
+        <td>Boulder*</td>
+        <td>The Boulder area type is used to specify a single boulder.</td>
+      </tr>
+      <tr>
+        <td>Feature*</td>
+        <td>The Feature area type can be a feature of a cliff or boulder. Generally it is used as a sub-type for bouldering purposes.</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<p>The following table shows the available description fields for each area type.</p>
+&nbsp;</br>
+
+<p>* Any area from crag down can have routes attached to it directly, or it could have sub areas, but we don't recommend having both sub areas and routes mixed together. So for example:</p>
+
+<blockquote>
+> Tiger Wall</br>
+> > Main Wall</br>
+> > > Route 1</br>
+> > > Route 2</br>
+> > > Route 3</br>
+> > Right hand end</br>
+> > > Route 4</br>
+> > > Route 5</br>
+</blockquote>
+
+<p>is better than</p>
+
+<blockquote>
+> Tiger Wall</br>
+> > Route 1</br>
+> > Route 2</br>
+> > Route 3</br>
+> > Right hand end</br>
+> > > Route 4</br>
+> > > Route 5</br>
+</blockquote>
+
+<p>The table below shows the description fields available for each area type. ‘Yes’ indicates that a field is available for that area type. ‘Inherit’ indicates that a field is available and that if it is left unpopulated the relevant information will be copied down (‘inherited’) from a parent field. This means, for example, that you only have to enter ‘Ethic’ information at the top level crag and it will appear at all sub areas. If a particular sub area has a different Ethic to the rest of the crag (eg a Trad cliff in a crag that has sport routes everywhere else) it can be edited at the relevant sub area.</p>
+
 
 <div class="tableWrapper">
   <table>
