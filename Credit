@@ -11,14 +11,14 @@
 	<li><a href="http://www.famfamfam.com/lab/icons/silk/">Silk</a> icon set from FamFamFam</li>
 	<li><a href="http://openlayers.org/">OpenLayers</a> javascript mapping library with <a href="http://maps.google.com/">Google Maps</a></li>
 	<li><a href="http://jquery.com">jQuery</a><ul>
-		<li><a href="http://bassistance.de/jquery-plugins/jquery-plugin-tooltip/">Tooltip</a></li>
+		<li><a href="http://vadikom.com/tools/poshy-tip-jquery-plugin-for-stylish-tooltips/">PoshyTip</a></li>
 		<li><a href="http://abeautifulsite.net/blog/2008/09/jquery-context-menu-plugin/">jQuery Context Menu</a></li>
 		<li><a href="ihttp://plugins.jquery.com/project/NobleCount">NobleCount</a></li>
 	</ul></li>
 	<li><a href="http://www.plupload.com/">Plupload</a></li>
 	<li><a href="http://raphaeljs.com/">Raphael</a></li>
 	<li><a href="http://tinymce.moxiecode.com/">TinyMCE</a></li>
-	<li><a href=""></a></li>
+	<li>Way too many Perl libraries to list</li>
 	<li><a href=""></a></li>
 </ul>
 
