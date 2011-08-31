@@ -173,6 +173,7 @@ Other names for the route. Options are:<br>
 <li>route descriptions</li>
 <li>ascent comments</li>
 <li>route history diary entry</li>
+<li>photo description</li>
 </ul>
 
 
@@ -183,7 +184,7 @@ Other names for the route. Options are:<br>
 <div class="input">
 <h2>Enter text like this:</h2>
 <textarea>
-Here is my first parapragh. When I get to the end I'll hit 'Enter' twice.
+Here is my first paragraph. When I get to the end I'll hit 'Enter' twice.
 
 And then start my next paragraph.
 </textarea>
@@ -191,7 +192,7 @@ And then start my next paragraph.
 <div class="output">
 <h2>And it will look like this:</h2>
 <div>
-<p>Here is my first parapragh. When I get to the end I'll hit 'Enter' twice.</p>
+<p>Here is my first paragraph. When I get to the end I'll hit 'Enter' twice.</p>
 
 <p>And then start my next paragraph.</p>
 </div>
