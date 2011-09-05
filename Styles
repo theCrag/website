@@ -32,6 +32,10 @@
         <td>A rope and quickdraws</td>
       </tr>
       <tr>
+        <td class="top rope">Top Rope</td>
+        <td>Just a rope. This is a special case where a route can ONLY be done as a top rope.</td>
+      </tr>
+      <tr>
         <td class="boulder">Bouldering</td>
         <td>A crash pad, spotters, bananas</td>
       </tr>
