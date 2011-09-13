@@ -1,8 +1,1395 @@
-4 Contributing to theCrag - 9 Sharing and embedding
+4 Contributing to theCrag - 9 Sharing and embedding (API)
 
-<p>thecrag.com will be releasing an Applicaton Programming Interface (API) to access and share rock climbing information in a programmatic way. For example you will be able to use this API to build your own applications, or present rock climbing information on your website.</p>
+<style type="text/css">
+table, th, td { border: 1px solid black; }
+</style>
 
-<p>Use of the API will broadly follow the sites copyright statement. Free to use for non-commercial use, but commercial use must be explicitly negotiated.</p>
+<p>thecrag.com Application Programming Interface (API) enables sharing of rock climbing information in a programmatic way. For example you will be able to use this API to build your own applications, or present rock climbing information on your website.</p>
 
-<p>Please <a href="/article/contactus">contact us</a> if you want to register interest in the API.</p>
+<p>The API is in Beta release, which means that it is subject to change. We will be using a couple of trial applications to help us stablise the specification, including the website itself and an Android mobile app. If you want to be one of the brave developers to work with Beta API release then <a href="/article/contactus">contact us</a>.</p>
 
+<p>An application may use the API to:</p>
+
+<ul>
+  <li>access read-only crag information;</li>
+  <li>update crag information;</li>
+  <li>access to read-only public account information;</li>
+  <li>access read-only private account information; or</li>
+  <li>update account information.</li>
+</ul>
+
+<p>This document covers the following topics:<p>
+
+<ol>
+  <li><a href="#s1">Projects</a></li>
+  <li><a href="#s2">Access</a></li>
+  <li><a href="#s3">Application key</a></li>
+  <li><a href="#s4">Protected resources</a></li>
+  <li><a href="#s5">Read access points</a></li>
+  <li><a href="#s6">Update access points</a></li>
+</ol>
+
+
+<h2><a name="s1">1. Projects</a></h2>
+
+<p>The current API projects are underway:</p>
+
+<ul>
+  <li>mobile app for Android; and</li>
+  <li>thecrag.com website.</li>
+</ul>
+
+
+
+
+<h2><a name="s2">2. Access</a></h2>
+
+<p>Access to the API is broadly in-line with our <a href="/processmap/copyright">copyright</a> (Creative Commons - Attribution Non-Commercial Share Alike). Access to the API is conditionally free for non-commecial initiatives, but commercial ventures must be negotiated with us.</p>
+
+<p>By conditionally free, we mean that the application cannot create significant load on the system. </p>
+
+<p>For commecial initiatives we may implement Quality of Service guarentees and provide priority access depending on how things pan out.</p>
+
+
+<h3>2.1 How do I get API access?</h3>
+
+<p>In order to get access to the API you must:</p>
+
+<ul>
+  <li><a href="/article/contactus">Contact us</a></li>
+  <li>Get us to allocate an API key</li>
+  <li>Trial application on the development server (dev.thecrag.com)</li>
+</ul>
+
+
+<h3>2.2 Copyright constraints</h3>
+
+<p>Please note that API implementations are bound by the copyright restrictions of thecrag.com or the contributing publisher. Thecrag.com's copyright requires attribution under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons - Attribution Non-Commercial Share Alike</a> licence. As a guide, for areas where contributions have come from lots of users we allow you to attribute the highest <a href="/article/CragKarma">Karma</a> contributors and reference how to get the original information from thecrag.com. Specific information like photos, or grade contributions should reference the particular user. Please note that we reserve the right to ask you to make additional attributions in your application (it's only fair that climber spending their time and effort for the benefit of the whole climbing community get properly attributed).</p>
+
+
+<p>Where the API is providing information under a third party publisher then you are bound by their copyright not thecrag.com's copyright. This information will be tagged with a copyright ID. You may retieve details of the publishers copyright through a separate copyright api call.</p>
+
+<p>You must check for publisher tagged copyright for the following entities:</p>
+
+<ul>
+  <li>Area descriptions</li>
+  <li>Route descriptions</li>
+  <li>Photos</li>
+  <li>Topos</li>
+</ul>
+
+
+
+<h2><a name="s3">3. Application key</a></h2>
+
+<p>All access to the API must use an API key. The API key may be supplied as a URL parameter ‘key=abc’ or though a custom HTTP header item ‘X-CData-Key: key=abc;’.</p>
+
+<p><strong>Developer style note</strong>: you should provide a global variable for setting the application key, and standardise the way you access the API. This will minimise the headaches if you have to change API keys for some reason.</p>
+
+<h3>3.1 As URL parameter</h3>
+
+<p>If the api key is supplied as a URL parameter the API call would look something like:</p>
+
+<pre>
+  www.thecrag.com/api/area/id/1234?key=abc
+</pre>
+&nbsp;<br>
+
+
+<h3>3.2 As HTTP header</h3>
+
+<p>If the api key is supplied as a HTTP header then the http GET call would look something like:</p>
+
+<pre>
+  GET www.thecrag.com/api/area/id/1234 HTTP/1.1
+  X-CData-Key: key=abc;
+</pre>
+&nbsp;<br>
+
+
+
+
+
+<h2><a name="s4">4. Protected resources</a></h2>
+
+<p>An application may get access to protected resources (ie private account data) using <a href="http://tools.ietf.org/html/rfc5849">OAuth</a> protocol. OAuth is an Internet standard protocol and is fairly well supported in popular development software. You will need to use OAuth for:</p>
+
+<ul>
+  <li>Access to private account data; and</li>
+  <li>Updating account data including logging ticks.</li>
+</ul>
+
+<p>thecrag.com’s OAuth implementation uses the following end points in the production system:</p>
+
+<ul>
+  <li><strong>Temporary Credentials</strong>: http://www.thecrag.com/oauth/request_token</li>
+  <li><strong>User Authorization</strong>: http://www.thecrag.com/oauth/authorize</li>
+  <li><strong>Access Token</strong>: http://www.thecrag.com/oauth/access_token</li>
+</ul>
+
+<p>In the development system use the following similar end points:</p>
+
+<ul>
+  <li><strong>Temporary Credentials</strong>: http://dev.thecrag.com/oauth/request_token</li>
+  <li><strong>User Authorization</strong>: http://dev.thecrag.com/oauth/authorize</li>
+  <li><strong>Access Token</strong>: http://dev.thecrag.com/oauth/access_token</li>
+</ul>
+
+<p><strong>Developer style note</strong>: As you will have to test the application in the development system you should create a global variable for the server and set it to either 'http://www.thecrag.com' or 'http://dev.thecrag.com'. This will eliminate the painful problems of only half cutting over from the development to production server. Please note also that we do intend to cut over to https in the near term.</p>
+
+<p>For all OAuth end points use HMAC-SHA1 as the oauth_signature_method. The <a href="http://tools.ietf.org/html/rfc5849">OAuth</a> spec has a nice explicit example of the information flow for Auth. The following discussion should be read in conjuction with the spec example to show how OAuth works on thecrag.com.</p>
+
+
+<h3>4.1 Temporary Credentials</h3>
+
+<p>When you apply for an API access key you will be given the Application key and secret. Use these as the consumer_key and consumer_secret for getting temporary token.</p>
+
+<pre>
+  http://www.thecrag.com/oauth/request_token
+  (note that Authorization fields must be included in the HTTP header request)
+</pre>
+&nbsp;<br>
+
+<p>Temporary credentials request requires the following OAuth fields in the Authorization header:</p>
+
+<ul>
+  <li>oauth_consumer_key</li>
+  <li>oauth_signature_method</li>
+  <li>oauth_timestamp</li>
+  <li>oauth_nonce</li>
+  <li>oauth_callback</li>
+  <li>oauth_signature</li>
+</ul>
+
+<p>A temporary auth_token and auth_secret will be returned if the signature is verified.</p>
+
+<pre>
+  HTTP/1.1 200 OK
+  Content-Type: application/x-www-form-urlencoded
+
+  oauth_token=ijk&oauth_token_secret=qrs
+</pre>
+&nbsp;<br>
+
+
+<h3>4.2 User Authorization</h3>
+
+<p>After you are given temporary credentials the client application must redirect to thecrag.com’s authorization URL using the auth_token (returned by the Temporary Credentials step above) as a URL parameter. You may also supply the user login if this is already known. For example:</p>
+
+<pre>
+  http://www.thecrag.com/oauth/authorize?auth_token=abc&login=XYZ
+</pre>
+&nbsp;<br>
+
+<p>Don’t worry if the login is not known then the user will be prompted for their login. Also note that if the user is already logged into thecrag via cookie sessions then this will be used to identify the default user for authorizing access.</p>
+
+<p>The user will be prompted for an account login name and a password. If the login and password are successfully verified by thecrag.com server then the client will be redirected to the oauth_callback (supplied in the Temporary Credentials step) using with URL parameters oauth_token and oauth_verifier.</p>
+
+<pre>
+  oauth_callback_url?oauth_token=abc&oauth_verifier=efg
+</pre>
+&nbsp;<br>
+
+<p>Please note the use of oauth_verifier, as this is a more recent change to the OAuth protocol. Please be aware that some of OAuth implementations may not include this.</p>
+
+
+<h3>4.3 Access Token</h3>
+
+<p>After the user has authorized access then the client API can get an access token for ongoing access to the account data.</p>
+
+<pre>
+  http://www.thecrag.com/oauth/access_token
+  (note that Authorization fields must be included in the HTTP header request)
+</pre>
+&nbsp;<br>
+
+<p>Access Token request request requires the following OAuth fields in the Authorization header:</p>
+
+<ul>
+  <li>oauth_consumer_key</li>
+  <li>oauth_token</li>
+  <li>oauth_signature_method</li>
+  <li>oauth_timestamp</li>
+  <li>oauth_nonce</li>
+  <li>oauth_verifier</li>
+  <li>oauth_signature</li>
+</ul>
+
+<p>A full auth_token and auth_secret will be returned if the signature is verified.</p>
+
+<pre>
+  HTTP/1.1 200 OK
+  Content-Type: application/x-www-form-urlencoded
+
+  oauth_token=tuv&oauth_token_secret=wxy
+</pre>
+&nbsp;<br>
+
+
+<h3>4.4 Protected Resource Access</h3>
+
+<p>Once a client app has the full access token the client will be able to access the protected resource (ie private account data associated with the account) by using the token in the Authorization header. For example</p>
+
+<pre>
+  http://www.thecrag.com/api/account/id/1234
+  (with the Authorization item included in the header)
+</pre>
+&nbsp;<br>
+
+<p>OAuth fields for access to a protected resource:</p>
+
+<ul>
+  <li>oauth_consumer_key</li>
+  <li>oauth_token</li>
+  <li>oauth_signature_method</li>
+  <li>oauth_timestamp</li>
+  <li>oauth_nonce</li>
+  <li>oauth_signature</li>
+</ul>
+
+
+
+
+<h2><a name="s5">5. Read access points</a></h2>
+
+<p>The API top level access point is:</p>
+
+<pre>
+  http://www.thecrag.com/api
+</pre>
+&nbsp;<br>
+
+<p>There are some secondary access points you may be able to use if you need web page style access. These secondary access points are not documented but replicate the data used by the website templates (note that these are not to be generally used by client apps without special permissions, and hence remain undocumented).</p>
+
+<p>Full definitions of the API access points may be found in the <a href="http://www.thecrag.com/api-wadl.xml">thecrag API reference</a>.</p>
+
+<p>The API returns JSON data (mime type of application/json). If you are using Firefox then you may find a plugin which displays this nicely.</p>
+
+<p>If you wish to return JSONP for a javascript function you use the URL paramater jsonp=myFunction. If JSONP is used then the API will return MIME type text/javascript. For example:</p>
+<pre>
+  http://www.thecrag.com/api/area/id/1234?jsonp=processArea
+</pre>
+&nbsp;<br>
+
+<p>Some of the read api functions return JSON data which contains <a href="http://www.thecrag.com/article/UpdatingDescriptions#section3">thecrag flavored markdown</a>. Normally for the website this markdown text is automatically marked up to HTML for website display, however with the API you may sometimes want it marked up as text or as html. For thecrag flavored markdown to be marked up as text use the URL parameter markupType=text, otherwise use markupType=html. Please note that the default is 'none' (ie the API does not do any conversion of markdown text and leaves that up to the client.<p>
+
+<p>For example if you wanted to convert area beta markdown into HTML you would use:</p>
+
+<pre>
+  http://www.thecrag.com/api/area/id/1234/beta?markupType=html
+</pre>
+&nbsp;<br>
+
+
+<p>The following sections outline some examples of api read calls.</p>
+
+<p>If general error was encountered with the API call then JSON data is returned indicating what the error was, for example:</p>
+
+<pre>
+  {
+    error: "bad uri",
+  }
+</pre>
+&nbsp;<br>
+
+
+<h3>5.1 Country</h3>
+
+<p>Note that you must also use an application if you were to implement any of the examples in this section or following sections. These examples use a application key associated with the API demo. You are not permitted to use this API key in your application. The demo API key will be changed from time to time, so your application will just stop working if you are using the demo API key.</p>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/country/list?key=abc">http://dev.thecrag.com/api/country/list</a></li>
+  <li><a href="http://dev.thecrag.com/api/country/id/7478254?key=abc">http://dev.thecrag.com/api/country/id/7478254</a></li>
+</ul>
+
+
+<h3>5.2 Climber</h3>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185?key=abc">http://dev.thecrag.com/api/climber/id/9068185</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/shortcuts?key=abc">http://dev.thecrag.com/api/climber/id/9068185/shortcuts</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/linkedto?key=abc">http://dev.thecrag.com/api/climber/id/9068185/linkedto</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/linkedfrom?key=abc">http://dev.thecrag.com/api/climber/id/9068185/linkedfrom</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/photo?key=abc">http://dev.thecrag.com/api/climber/id/9068185/photo</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/ascents?key=abc">http://dev.thecrag.com/api/climber/id/9068185/ascents</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/ascents/onsight?key=abc">http://dev.thecrag.com/api/climber/id/9068185/ascents/onsight</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/trips?key=abc">http://dev.thecrag.com/api/climber/id/9068185/trips</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/ids?id=9068185,11183449&key=abc">http://dev.thecrag.com/api/climber/ids?id=9068185,11183449</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/search?search=simon&key=abc">http://dev.thecrag.com/api/climber/search?search=simon</a></li>
+</ul>
+
+<p>If an account is public then you may access their data, however if an account is private then you need to use OAuth to access the data.</p>
+
+
+<h3>5.3 Node (Area/Route)</h3>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/node/id/11737699?key=abc">http://dev.thecrag.com/api/node/id/11737699</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699?show=info&show=ancestors&show=children&show=topo&show=karma&key=abc">http://dev.thecrag.com/api/area/id/11737699?show=info&show=ancestors&show=children&show=topo&show=karma</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699/children?key=abc">http://dev.thecrag.com/api/area/id/11737699/children</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699/children/area?key=abc">http://dev.thecrag.com/api/area/id/11737699/children/area</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699/photos?key=abc">http://dev.thecrag.com/api/area/id/11737699/photos</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699/publications?key=abc">http://dev.thecrag.com/api/area/id/11737699/publications</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699/publications/direct?key=abc">http://dev.thecrag.com/api/area/id/11737699/publications/direct</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699/karma?key=abc">http://dev.thecrag.com/api/area/id/11737699/karma</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699/iconcrags?key=abc">http://dev.thecrag.com/api/area/id/11737699/iconcrags</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699/popularareas?key=abc">http://dev.thecrag.com/api/area/id/11737699/popularareas</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699/beta?key=abc">http://dev.thecrag.com/api/area/id/11737699/beta</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699/search?search=bard&key=abc">http://dev.thecrag.com/api/area/id/11737699/search?search=bard</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11764759/topos?key=abc">http://dev.thecrag.com/api/area/id/11764759/topos</a></li>
+  <li><a href="http://dev.thecrag.com/api/route/id/11967355?key=abc">http://dev.thecrag.com/api/route/id/11967355</a></li>
+  <li><a href="http://dev.thecrag.com/api/route/id/11967355/ascents?key=abc">http://dev.thecrag.com/api/route/id/11967355/ascents</a> (this one is under review as it is expensive, so don't use it for now)</li>
+  <li><a href="http://dev.thecrag.com/api/route/id/11967355/ascents/account/9068185?key=abc">http://dev.thecrag.com/api/route/id/11967355/ascents/account/9068185</a></li>
+  <li><a href="http://dev.thecrag.com/api/route/id/11967355/ancestors?key=abc">http://dev.thecrag.com/api/route/id/11967355/ancestors</a></li>
+  <li><a href="http://dev.thecrag.com/api/route/id/11967355/beta?key=abc">http://dev.thecrag.com/api/route/id/11967355/beta</a></li>
+  <li><a href="http://dev.thecrag.com/api/route/id/11967355/beta?markupType=html&key=abc">http://dev.thecrag.com/api/route/id/11967355/beta?markupType=html</a></li>
+</ul>
+
+<p>Note that you may use ‘node’ instead of ‘area’ or ‘route’. This may be useful if you don’t know if the node is an area or a route.</p>
+
+<p><strong>Developer style note</strong>: You should always get only what you need in as few API calls as you need (ie use show URL parameter).</p>
+
+
+<h3>5.4 Ascent</h3>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/ascent/id/24831619?key=abc">http://dev.thecrag.com/api/ascent/id/24831619</a></li>
+  <li><a href="http://dev.thecrag.com/api/ascent/ids?id=24831619,23810479&key=abc">http://dev.thecrag.com/api/ascent/ids?id=24831619,23810479</a></li>
+</ul>
+
+<p><strong>Developer style note</strong>: You should always consider server load when retrieving information via the API. The API has been developed for flexibility so that you can make more efficient calls. For example if you need information about alot of ascents then you should use the multiple ids method of getting ascent information.</p>
+
+
+<h3>5.5 Trip</h3>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/trip/id/22549159?key=abc">http://dev.thecrag.com/api/trip/id/22549159</a></li>
+</ul>
+
+
+<h3>5.6 Photo</h3>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/photo/id/25464718?key=abc">http://dev.thecrag.com/api/photo/id/25464718</a></li>
+</ul>
+
+
+<h3>5.7 Copyright</h3>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/copyright/id/26096082?key=abc">http://dev.thecrag.com/api/copyright/id/26096082</a></li>
+</ul>
+
+
+
+
+<h2><a name="s6">6. Update access points</a></h2>
+
+<p>The update API end points require an application/json MIME type POST, with the POST content being json formatted utf8 text. The post can be a single update or multiple update. The format of a single update is:</p>
+
+<pre>
+  data: {
+   …
+  }
+</pre>
+&nbsp;<br>
+
+<p>The format of a multiple update is:</p>
+
+<pre>
+  data: [{
+     …
+   },{
+     …
+  }]
+</pre>
+&nbsp;<br>
+
+<p>Update API end points return either HTTP_ACCEPTED or HTTP_BAD_REQUEST, and application/json MIME type with the supplied data fields, and either an ‘ok’ or ‘error’ data field.</p>
+
+<p>If an error was encountered the error message has the same structure as the data field, for example:</p>
+
+<pre>
+  error: [{
+   loginError: “not unique”,
+  }]
+</pre>
+&nbsp;<br>
+
+<p>Where the ‘loginError’ corresponds to the ‘login’ input data field.</p>
+
+<p>If the update was successful then an ‘ok’ field is returned, for example:</p>
+
+<pre>
+  ok: [{
+   accountID: 1234
+   uri: ‘/climber/1234’
+  }]
+</pre>
+&nbsp;<br>
+
+<p>Note that if an entity has been created then the id of that entity and the canonical uri is returned. Core entities that can be created using the API include:</p>
+<ul>
+  <li><strong>climber</strong>: returns accountID if successfully created</li>
+  <li><strong>area</strong>: returns nodeID if successfully created</li>
+  <li><strong>route</strong>: returns nodeID if successfully created</li>
+  <li><strong>ascent</strong>: returns ascentID if successfully created</li>
+  <li><strong>trip</strong>: returns tripID if successfully created (not implemented yet)</li>
+</ul>
+
+<p>There are separate end points for each of the core entities for creating, updating and deleting. Each of these end points has a paired validate call. For example 'climber/create' is paired with 'climber/create/validate'. The paired validate API call is an end point in it's own right, but is also called internally by the update end point.</p>
+
+<p><strong>Developer style note</strong>: You should always call the paired validate API end point before calling the update end point.</p>
+
+<p>Note that none of the delete API end-points are implemented yet.</p>
+
+
+<h3>6.1 Create Climber</h3>
+
+<p><strong>Access points</strong>:</p>
+<pre>
+  http://www.thecrag.com/api/climber/create
+  http://www.thecrag.com/api/climber/create/validate
+</pre>
+&nbsp;<br>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>login</strong>: mandatory, must be unique in system.</li>
+  <li><strong>password</strong>: mandatory</li>
+  <li><strong>email</strong>: mandatory</li>
+  <li><strong>name</strong>: highly recommended, but optional if you really cannot supply a name.</li>
+  <li><strong>countryID</strong>: highly recommended, but optional if you really cannot supply a country ID.</li>
+  <li><strong>termsVersionID</strong>: for web signup</li>
+  <li><strong>list</strong>: flag to indicate whether to list account in public directories (default yes)</li>
+  <li><strong>private</strong>: flag to indicate that it is a private account (default no)</li>
+</ul>
+
+<p>The system has tens of thousands of login names registered so there is a very high probability that a create climber API request will return an error because the login already exists.</p>
+
+<p>The countryID is the country identifier in the system. This is not the node identifier associated with the country. You may get a list of country identifiers by using the following API call (also see examples above):</p>
+
+<pre>
+  http://www.thecrag.com/api/country/list
+</pre>
+&nbsp;<br>
+
+<p>The termsVersionID indicates that the user has accepted specific terms and conditions. Accepting terms and conditions is required if the user is accessing the system via thecrag.com website. If the user has not accepted the terms and conditions then they will be asked to accept them the first time they log into the website. It's good programing practice to get a user to accept terms and conditions, but from the API perspective this is seen as a client application responsibility. If you want to integrate your application to the systems terms and conditions then let us know because we will have to make some enhancements to the API.</p>
+
+<p><strong>Examples</strong>:</p>
+<table>
+  <tr>
+    <th>POST</th><th>Response</th>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/climber/create/validate HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "email" : "bla",
+     "password" : "abc",
+     "name" : "simon dale",
+     "login" : "SCD"
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "error": {
+     "loginError" : "login already in use"
+   },
+   "data": {
+     "email" : "bla",
+     "password" : "abc",
+     "name" : "simon dale",
+     "login" : "SCD"
+   }
+ }
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/climber/create/validate HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": [{
+       "email" : "bla",
+       "password" : "abc",
+     },{
+       "email" : "bla2",
+   }]
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "error": [{
+      "loginError" : "mandatory field",
+     },{
+      "loginError" : "mandatory field",
+      "passwordError" : "mandatory field",
+   }]
+   "data": [{
+       "email" : "bla",
+       "password" : "abc",
+     },{
+       "email" : "bla2",
+   }]
+ }
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/climber/create HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "email" : "bla",
+     "password" : "abc",
+     "name" : "simon dale",
+     "login" : "SOMEUNIQUENAME"
+     "list" : "yes",
+     "private" : 0,
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "accountID" : "1234",
+     "uri" : "/climber/1234"
+   },
+   "data": {
+     "email" : "bla",
+     "password" : "abc",
+     "name" : "simon dale",
+     "login" : "SOMEUNIQUENAME"
+     "list" : "yes",
+     "private" : 0,
+   }
+ }
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+<h3>6.2 Update Climber</h3>
+
+<p><strong>Access points</strong>:</p>
+<pre>
+  http://www.thecrag.com/api/climber/update
+  http://www.thecrag.com/api/climber/update/validate
+</pre>
+&nbsp;<br>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>accountID</strong>: </li>
+  <li><strong>favorite</strong>: hash identifying which node to (de)select as a shortcut.</li>
+  <li><strong>follow</strong>: hash identifying which account to (un)link as a linked account.</li>
+</ul>
+
+<p>The update climber accessp point is under development. Currently you can only (un)link to other accounts and (de)select shortcuts.</p>
+
+<p>To (de)select a node as a shortcut use the favorite variable, which has the following format:</p>
+<pre>
+  node: 1234,
+  status: 0/1
+</pre>
+&nbsp;<br>
+<p>Set status to 1 to select as favorite, set to 0 to deselect as favorite.</p>
+
+<p>To (un)link to another account use the follow variable, which has the following format:</p>
+<pre>
+  account: 1234,
+  status: 0/1
+</pre>
+&nbsp;<br>
+<p>Set status to 1 to follow an account, 0 to unfollow an account.</p>
+
+<p><strong>Examples</strong>:</p>
+<table>
+  <tr>
+    <th>POST</th><th>Response</th>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/climber/update HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "accountID" : "1234",
+     "favorite" : {
+       "node": "6789",
+       "status": "1",
+     }
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "uri" : "/climber/1234"
+   },
+   "data": {
+     "accountID" : "1234",
+     "favorite" : {
+       "node": "6789",
+       "status": "1",
+     }
+   }
+ }
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/climber/update HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "accountID" : "1234",
+     "follow" : {
+       "account": "4567",
+       "status": "1",
+     }
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "uri" : "/climber/1234"
+   },
+   "data": {
+     "accountID" : "1234",
+     "follow" : {
+       "account": "4567",
+       "status": "1",
+     }
+   }
+ }
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+
+<h3>6.3 Create Area</h3>
+
+<p><strong>Access points</strong>:</p>
+<pre>
+  http://www.thecrag.com/api/area/create
+  http://www.thecrag.com/api/area/create/validate
+</pre>
+&nbsp;<br>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>submittor</strong>: mandatory accountID submitting the area.</li>
+  <li><strong>parent</strong>: mandatory parent nodeID.</li>
+  <li><strong>name</strong>: mandatory name of area.</li>
+  <li><strong>alternateNames</strong>: optional hash describing alternate names.</li>
+  <li><strong>type</strong>: mandatory area type.</li>
+  <li><strong>insertBefore</strong>: optional nodeID for inserting before a sibling node.</li>
+  <li><strong>beta</strong>: optional hash for description fields.</li>
+  <li><strong>publisherID</strong>: optional publisherID if submission associated with a publisher.</li>
+  <li><strong>publicationID</strong>: optional publicationID if submission associated with a publication.</li>
+</ul>
+
+<p>The type variable may be one of (see <a href="/article/AreaTypes">Area Types</a> article):</p>
+<ul>
+  <li>Area</li>
+  <li>Region</li>
+  <li>Crag</li>
+  <li>Cliff</li>
+  <li>Sector</li>
+  <li>Field</li>
+  <li>Boulder</li>
+  <li>Feature</li>
+</ul>
+
+<p>The alternateNames variable is a hash with the following format:</p>
+<pre>
+  type: string,
+  name: string
+</pre>
+&nbsp;<br>
+<p>The type sub-variable may be one of:</p>
+<ul>
+  <li>Offensive</li>
+  <li>Language</li>
+  <li>Historical</li>
+  <li>Alternate</li>
+</ul>
+
+<p>The beta variable is a hash with the following format:</p>
+<pre>
+  type: string,
+  description: string
+</pre>
+&nbsp;<br>
+<p>The type sub-variable may be one of (see <a href="/article/UpdatingDescriptions">Write Descriptions</a> article):</p>
+<ul>
+  <li>Description</li>
+  <li>Access</li>
+  <li>Approach</li>
+  <li>Unique Features And Strengths</li>
+  <li>Where To Stay</li>
+  <li>Descent Notes</li>
+  <li>Ethic</li>
+  <li>Rest Day Activities</li>
+  <li>History</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<table>
+  <tr>
+    <th>POST</th><th>Response</th>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/area/create HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "name": "somecliff",
+     "type": "Cliff",
+     "alternateNames": [{
+       "type": "Historical",
+       "name": "historical name",
+     }],
+     "beta": [{
+       "type": "Description",
+       "description": "some description",
+     }],
+     "parent": 5678,
+     "submittor": 7890,
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "nodeID" : "1234",
+     "uri" : "/area/1234"
+   },
+   "data": {
+     "name": "somecliff",
+     "type": "Cliff",
+     "alternateNames": [{
+       "type": "Historical",
+       "name": "historical name",
+     }],
+     "beta": [{
+       "type": "Description",
+       "description": "some description",
+     }],
+     "parent": 5678,
+     "submittor": 7890,
+   }
+ }
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+
+<h3>6.4 Update Area</h3>
+
+<p><strong>Access points</strong>:</p>
+<pre>
+  http://www.thecrag.com/api/area/update
+  http://www.thecrag.com/api/area/update/validate
+</pre>
+&nbsp;<br>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>submittor</strong>: mandatory</li>
+  <li><strong>node</strong>: mandatory</li>
+  <li><strong>name</strong>: optional, only use if updating principle name</li>
+  <li><strong>alternateNames</strong>: optional hash if updating alternate names.</li>
+  <li><strong>insertBefore</strong>: optional, only use if reordering</li>
+  <li><strong>type</strong>: optional, only use if changing area type</li>
+  <li><strong>beta</strong>: optional, only use if updating beta</li>
+  <li><strong>publisher</strong>: optional, use if you want to add/update a description for a publisher.</li>
+  <li><strong>publication</strong>: optional, only use if updating the publication an area description is associated with</li>
+</ul>
+
+<p>The alternateNames variable includes an 'action' sub-variable which may be set to 'add' or 'delete'.</p>
+
+<p>To update community beta then you do not include a publisher, otherwise if you include a publisher the publishers beta will be updated.</p>
+
+<p><strong>Examples</strong>:</p>
+<table>
+  <tr>
+    <th>POST</th><th>Response</th>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/area/update HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "node": 1234,
+     "submittor": 7890,
+     "name": "new primary name",
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "uri" : "/area/1234"
+   },
+   "data": {
+     "node": 1234,
+     "submittor": 7890,
+     "name": "new primary name",
+   }
+ }
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/area/update HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "node": 1234,
+     "submittor": 7890,
+     "alternateNames": [{
+       "type": "Historical",
+       "name": "historical name",
+       "action": "delete",
+     }],
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "uri" : "/area/1234"
+   },
+   "data": {
+     "node": 1234,
+     "submittor": 7890,
+     "alternateNames": [{
+       "type": "Historical",
+       "name": "historical name",
+       "action": "delete",
+     }],
+   }
+ }
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+
+<h3>6.5 Create Route</h3>
+
+<p><strong>Access points</strong>:</p>
+<pre>
+  http://www.thecrag.com/api/route/create
+  http://www.thecrag.com/api/route/create/validate
+</pre>
+&nbsp;<br>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>submittor</strong>: mandatory</li>
+  <li><strong>parent</strong>: mandatory</li>
+  <li><strong>name</strong>: mandatory</li>
+  <li><strong>alternateNames</strong>: optional hash of alternate names.</li>
+  <li><strong>insertBefore</strong>: optional</li>
+  <li><strong>beta</strong>: optional hash (same as creating area, but only 'Description' field is available).</li>
+  <li><strong>publisher</strong>: optional publisherID</li>
+  <li><strong>publication</strong>: optional publicationID</li>
+  <li><strong>context</strong>: mandatory</li>
+  <li><strong>heightText</strong>: optional</li>
+  <li><strong>pitches</strong>: optional</li>
+  <li><strong>bolts</strong>: optional</li>
+  <li><strong>topRopeFlag</strong>: optional</li>
+  <li><strong>isProjectFlag</strong>: optional</li>
+  <li><strong>gearStyle</strong>: mandatory</li>
+  <li><strong>history</strong>: optional</li>
+  <li><strong>lat</strong>: optional</li>
+  <li><strong>long</strong>: optional</li>
+  <li><strong>gradeText</strong>: optional</li>
+  <li><strong>citation</strong>: optional</li>
+</ul>
+
+<p>The context variable sets the context for the system to parse grades. Note that globally some grading systems confict. You may get the context from the country and the country from the ancestor list. For example:</a>.
+
+<pre>
+  http://www.thecrag.com/api/area/id/11740915/ancestors
+  http://www.thecrag.com/api/country/id/7478254
+</pre>
+&nbsp;<br>
+
+<p>The gearStyle variable may be one of (see <a href="/article/Styles">Route Styles</a> article):</p>
+<ul>
+  <li>Unknown</li>
+  <li>Trad</li>
+  <li>Sport</li>
+  <li>DWS</li>
+  <li>Aid</li>
+  <li>Via ferrata</li>
+  <li>Boulder</li>
+  <li>Ice</li>
+  <li>Alpine</li>
+  <li>Top rope</li>
+</ul>
+
+<p>The history variable is a hash with the following format:</p>
+<pre>
+  type: string,
+  date: YYYY-MM-DD
+  climbers: string,
+  diary: string
+</pre>
+&nbsp;<br>
+<p>The type sub-variable may be one of:</p>
+<ul>
+  <li>First Ascent</li>
+  <li>First Free Ascent</li>
+</ul>
+<p>The date sub-variable may have either DD as '00' or both MM and DD as '00'.</p>
+
+<p>The heightText variable is a text string describing the height. If it is a single number it is assumed to be in metres. You may input using feet by using ft units (eg '100ft') or you may input multiple pitches using comma (eg '20,45,27').</p>
+
+<p>The gradeText variable is a text string describing the grade as it would be seen in a guidebook. This may be fairly complex and could include grade ranges, stars, protection ratings, partial grades, and aid. For example in the US context the system would understand the following grade texts:</p>
+<ul>
+  <li>5.10a</li>
+  <li>5.10</li>
+  <li>10a</li>
+  <li>5.11b-d</li>
+  <li>5.11c/d</li>
+  <li>5.11a A3</li>
+  <li>5.9, 5.10a, 5.10d, 5.8</li>
+  <li>5.10</li>
+  <li>5.10d X</li>
+  <li>5.10d **</li>
+</ul>
+
+<p>The citation variable must be used with a publicationID and describes references where the route grade may be found in the publication (can be a URL or page number) depending on the nature of the publication.</p>
+
+<p><strong>Examples</strong>:</p>
+<table>
+  <tr>
+    <th>POST</th><th>Response</th>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/route/create HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "name": "some route",
+     "beta": [{
+       "type": "Description",
+       "description": "some description",
+     }],
+     "parent": 82079136,
+     "submittor": 9068185,
+     "context": "AU",
+     "gearStyle": "Trad",
+     "heightText": "24,26",
+     "pitches": "3",
+     "bolts": "4",
+     "gradeText": "12,22M1",
+     "history": [{
+         "type" : "First Ascent",
+         "date" : "2011-02-09",
+         "climbers" : "some climber",
+         "diary" : "diary entry"
+       },{
+         "type" : "First Free Ascent",
+         "date" : "2011-00-00",
+         "climbers" : "another climber",
+         "diary" : "another entry"
+     }],
+     "lat": 45.45,
+     "long": -22.45,
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "nodeID" : "1234",
+     "uri" : "/route/1234"
+   },
+   "data": {
+     "name": "some route",
+     "beta": [{
+       "type": "Description",
+       "description": "some description",
+     }],
+     "parent": 82079136,
+     "submittor": 9068185,
+     "context": "AU",
+     "gearStyle": "Trad",
+     "heightText": "24,26",
+     "pitches": "3",
+     "bolts": "4",
+     "gradeText": "12,22M1",
+     "history": [{
+         "type" : "First Ascent",
+         "date" : "2011-02-09",
+         "climbers" : "some climber",
+         "diary" : "diary entry"
+       },{
+         "type" : "First Free Ascent",
+         "date" : "2011-00-00",
+         "climbers" : "another climber",
+         "diary" : "another entry"
+     }],
+     "lat": 45.45,
+     "long": -22.45,
+   }
+ }
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+
+<h3>6.6 Update Route</h3>
+
+<p><strong>Access points</strong>:</p>
+<pre>
+  http://www.thecrag.com/api/route/create
+  http://www.thecrag.com/api/route/create/validate
+</pre>
+&nbsp;<br>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>submittor</strong>: mandatory</li>
+  <li><strong>node</strong>: mandatory</li>
+  <li><strong>name</strong>: optional, use only if changing name</li>
+  <li><strong>alternateNames</strong>: optional hash as per update area end point</li>
+  <li><strong>insertBefore</strong>: optional, use if reordering</li>
+  <li><strong>beta</strong>: optional hash as per update area end point (only the Description type is available for routes)</li>
+  <li><strong>publisher</strong>: optional publisherID to be used with beta</li>
+  <li><strong>publication</strong>: optional publicationID to be used with beta or citation</li>
+  <li><strong>context</strong>: optional unless gradeText is used</li>
+  <li><strong>heightText</strong>: optional, use if changing height</li>
+  <li><strong>pitches</strong>: optional, use if changing pitches</li>
+  <li><strong>bolts</strong>: optional, use if changing bolts</li>
+  <li><strong>topRopeFlag</strong>: optional, use if changing top rope flag</li>
+  <li><strong>isProjectFlag</strong>: optional, use if changing project flag</li>
+  <li><strong>gearStyle</strong>: optional, use if changing gear style</li>
+  <li><strong>lat</strong>: optional, use if changing latidude and longitude</li>
+  <li><strong>long</strong>: optional, use if changing latidude and longitude</li>
+  <li><strong>citation</strong>: optional, use if changing publicication citation</li>
+  <li><strong>gradeText</strong>: optional, use if changing/adding grade contribution from a user or publication.</li>
+  <li><strong>registeredGrade</strong>: optional hash that you can use to add/update the registered grade of the route.</li>
+</ul>
+
+<p>Note that multiple users and/or publications may contribute a grade contribution. When you create a route it will initially have at most one grade contribution. To add multiple grade contributions you must use the update route end point. If a publication is provided with gradeText then then it is assumed that it is a publication contribution, otherwise the contribution is assumed to be a user contribution. If the publisher/user has already made a grade contribution then their entry is updated, otherwise a new entry is added.<p>
+
+<p>Updating gradeText will not update the registered grade for the climb unless there are no existing grade contributions.<p>
+
+<p>To update the registered grade for a route you must use the registeredGrade variable. This will not be associated with a user or publisher. The registeredGrade hash has the following format:<p>
+<pre>
+  system: string,
+  lower: grade,
+  upper: grade
+</pre>
+&nbsp;<br>
+
+<p>The system sub-variable should be one of AU, YDS, YDS_ALT, CLS, NCCST, FR, FR_ALT, UK, UKT, UIAA, SA, OLDSA, OLDSA_ALT, SX, SX_ALT, AUAID, AIDC, AID, BLDV, BLDB, BLDS, BLDP, BLDJT, AICE, WICE, MIXED, IFAS, or NCCS.</p>
+
+<p>The upper grade is optional and is used to specify a grade range.</p>
+
+<p>If the lower grade is not specified then the registered grade is removed from the system, otherwise the registered grade is either updated or added to the system.</p>
+
+<p>Both the lower and upper grades must exactly match the grade type.</p>
+
+<p>We will be developing an API call to give you a list of available grading systems and grades, but for now it is a bit of a guess so really hold off updating registered grades using the API until the grading system API is developed.</p>
+
+<p>A route may have registered grades for multiple systems (eg French and Australian registered grades in Thailand).</p>
+
+<p><strong>Examples</strong>:</p>
+<table>
+  <tr>
+    <th>POST</th><th>Response</th>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/route/update HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "node": 1234,
+     "submittor": 5678,
+     "registeredGrade": [{
+       "system": "YDS",
+       "lower": "5.10a",
+     }],
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "uri" : "/route/1234"
+   },
+   "data": {
+     "node": 1234,
+     "submittor": 5678,
+     "registeredGrade": [{
+       "system": "YDS",
+       "lower": "5.10a",
+     }],
+   }
+ }
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/route/update HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "node": 1234,
+     "submittor": 5678,
+     "context": "YDS",
+     "gradeText": "5.11a,5.11d,5.9,5.10",
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "uri" : "/route/1234"
+   },
+   "data": {
+     "node": 1234,
+     "submittor": 5678,
+     "context": "YDS",
+     "gradeText": "5.11a,5.11d,5.9,5.10",
+   }
+ }
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+<h3>6.7 Create Ascent</h3>
+
+<p><strong>Access points</strong>:</p>
+<pre>
+  http://www.thecrag.com/api/ascent/create
+  http://www.thecrag.com/api/ascent/create/validate
+</pre>
+&nbsp;<br>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>account</strong>: mandatory accountID</li>
+  <li><strong>node</strong>: mandatory nodeID</li>
+  <li><strong>tick</strong>: optional tick type (defaults to 'tick')</li>
+  <li><strong>date</strong>: optional, YYYY-MM-DD</li>
+  <li><strong>label</strong>: optional, use if you want to label the ascent with something other then the route name of the given node.</li>
+  <li><strong>shot</strong>: optional shot number</li>
+  <li><strong>quality</strong>: optional quality rating</li>
+  <li><strong>gradeSystem</strong>: optional but mandatory if using grade</li>
+  <li><strong>grade</strong>: optional, defaults to route grade of the given node.</li>
+  <li><strong>relativeDifficulty</strong>: optional relative difficulty rating (relative to given grade)</li>
+  <li><strong>trip</strong>: optional tripID</li>
+  <li><strong>comment</strong>: optional markdown comment</li>
+  <li><strong>isDefault</strong>: optional, use if you want to make this the default ascent for the node when you have multiple ascents associated with the node (please note that this feature is under review and may be automated at some point).</li>
+  <li><strong>postOnFacebook</strong>: optional flag indicating whether to post onto the users Facebook account. Note that they must have pre-configured this option in their account for it to work.</li>
+  <li><strong>shotAggregationToken</strong>: optional flag indicating that multiple ascent shots should be aggregated in a single facebook posting (must be used with the postOnFacebook flag)</li>
+</ul>
+
+<p>The tick variable may be one of:</p>
+<ul>
+  <li>firstfreeascent</li>
+  <li>attempt</li>
+  <li>working</li>
+  <li>retreat</li>
+  <li>target</li>
+  <li>mark</li>
+  <li>tick</li>
+  <li>clean</li>
+  <li>lead</li>
+  <li>onsight</li>
+  <li>flash</li>
+  <li>redpoint</li>
+  <li>pinkpoint</li>
+  <li>dog</li>
+  <li>second</li>
+  <li>secondclean</li>
+  <li>secondrest</li>
+  <li>solo</li>
+  <li>toprope</li>
+  <li>topropeclean</li>
+  <li>toproperest</li>
+  <li>aid</li>
+  <li>aidsolo</li>
+  <li>firstascent</li>
+  <li>ghost</li>
+  <li>hit</li>
+</ul>
+
+<p>The quality variable may be one of:</p>
+<ul>
+  <li>crap</li>
+  <li>poor</li>
+  <li>average</li>
+  <li>good</li>
+  <li>excellent</li>
+  <li>classic</li>
+  <li>megaclassic</li>
+</ul>
+
+<p>The relativeDifficulty variable may be one of:</p>
+<ul>
+  <li>soft</li>
+  <li>easy</li>
+  <li>average</li>
+  <li>hard</li>
+  <li>sand</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<table>
+  <tr>
+    <th>POST</th><th>Response</th>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/ascent/create HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "account": 1234,
+     "submittor": 5678,
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "ascentID" : "3344"
+     "uri" : "/ascent/3344"
+   },
+   "data": {
+     "account": 1234,
+     "submittor": 5678,
+   }
+ }
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/ascent/create HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "account": 1234,
+     "submittor": 5678,
+     "tick": "onsight",
+     "quality": "classic",
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "ascentID" : "3344"
+     "uri" : "/ascent/3344"
+   },
+   "data": {
+     "account": 1234,
+     "submittor": 5678,
+     "tick": "onsight",
+     "quality": "classic",
+   }
+ }
+</pre>
+    </td>
+  </tr>
+</table>
