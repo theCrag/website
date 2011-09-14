@@ -268,6 +268,7 @@ table, th, td { border: 1px solid black; }
  <img src="/static/silk/cog.png" width="16" height="16" alt="" />
 <a href="/api-wadl.xml">thecrag API endpoint reference</a></p>
 
+<p>Unless otherwise stated all API read access points return utf8 encoded text.</p>
 
 <p>The API returns JSON data (mime type of application/json). If you are using Firefox then you may find a plugin which displays this nicely.</p>
 
@@ -325,6 +326,8 @@ table, th, td { border: 1px solid black; }
 </ul>
 
 <p>If an account is public then you may access their data, however if an account is private then you need to use OAuth to access the data.</p>
+
+<p>You may substiture the alias 'user' or 'account' for the word 'climber' in the climber end points.<p>
 
 
 <h3>5.3 Node (Area/Route)</h3>
@@ -390,6 +393,8 @@ table, th, td { border: 1px solid black; }
 
 
 <h2><a name="s6">6. Update access points</a></h2>
+
+<p>Unless otherwise stated all API update access points require utf8 encoded text.</p>
 
 <p>The update API end points require an application/json MIME type POST, with the POST content being json formatted utf8 text. The post can be a single update or multiple update. The format of a single update is:</p>
 
