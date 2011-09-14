@@ -300,7 +300,22 @@ table, th, td { border: 1px solid black; }
 &nbsp;<br>
 
 
-<h3>5.1 Country</h3>
+<h3>5.1 System Configuration</h3>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/config/grade/context?key=abc">http://dev.thecrag.com/api/config/grade/context</a></li>
+  <li><a href="http://dev.thecrag.com/api/config/grade/type?key=abc">http://dev.thecrag.com/api/config/grade/type</a></li>
+  <li><a href="http://dev.thecrag.com/api/config/grade/system?key=abc">http://dev.thecrag.com/api/config/grade/system</a></li>
+</ul>
+
+<p>Grade context configuration is essentially used to resolve conflicts when parsing grades into potentially conflicting grades from grading systems around the world.</p>
+
+<p>Grade type configuration aggregates the grading systems to like types.</p>
+
+<p>Grade system configuration defines the grading systems used by thecrag. It includes variables for parsing, displaying and converting to an internal score (0-500).</p>
+
+
+<h3>5.2 Country</h3>
 
 <p>Note that you must also use an application if you were to implement any of the examples in this section or following sections. These examples use a application key associated with the API demo. You are not permitted to use this API key in your application. The demo API key will be changed from time to time, so your application will just stop working if you are using the demo API key.</p>
 
@@ -310,7 +325,7 @@ table, th, td { border: 1px solid black; }
 </ul>
 
 
-<h3>5.2 Climber</h3>
+<h3>5.3 Climber</h3>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/climber/id/9068185?key=abc">http://dev.thecrag.com/api/climber/id/9068185</a></li>
@@ -330,7 +345,7 @@ table, th, td { border: 1px solid black; }
 <p>You may substiture the alias 'user' or 'account' for the word 'climber' in the climber end points.<p>
 
 
-<h3>5.3 Node (Area/Route)</h3>
+<h3>5.4 Node (Area/Route)</h3>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/node/id/11737699?key=abc">http://dev.thecrag.com/api/node/id/11737699</a></li>
@@ -359,7 +374,7 @@ table, th, td { border: 1px solid black; }
 <p><strong>Developer style note</strong>: You should always get only what you need in as few API calls as you need (ie use show URL parameter).</p>
 
 
-<h3>5.4 Ascent</h3>
+<h3>5.5 Ascent</h3>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/ascent/id/24831619?key=abc">http://dev.thecrag.com/api/ascent/id/24831619</a></li>
@@ -369,21 +384,21 @@ table, th, td { border: 1px solid black; }
 <p><strong>Developer style note</strong>: You should always consider server load when retrieving information via the API. The API has been developed for flexibility so that you can make more efficient calls. For example if you need information about alot of ascents then you should use the multiple ids method of getting ascent information.</p>
 
 
-<h3>5.5 Trip</h3>
+<h3>5.6 Trip</h3>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/trip/id/22549159?key=abc">http://dev.thecrag.com/api/trip/id/22549159</a></li>
 </ul>
 
 
-<h3>5.6 Photo</h3>
+<h3>5.7 Photo</h3>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/photo/id/25464718?key=abc">http://dev.thecrag.com/api/photo/id/25464718</a></li>
 </ul>
 
 
-<h3>5.7 Copyright</h3>
+<h3>5.8 Copyright</h3>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/copyright/id/26096082?key=abc">http://dev.thecrag.com/api/copyright/id/26096082</a></li>
@@ -1166,15 +1181,17 @@ table, th, td { border: 1px solid black; }
 </pre>
 &nbsp;<br>
 
-<p>The system sub-variable should be one of AU, YDS, YDS_ALT, CLS, NCCST, FR, FR_ALT, UK, UKT, UIAA, SA, OLDSA, OLDSA_ALT, SX, SX_ALT, AUAID, AIDC, AID, BLDV, BLDB, BLDS, BLDP, BLDJT, AICE, WICE, MIXED, IFAS, or NCCS.</p>
+<p>The system sub-variable should be one the system labels defined by the following configuration end point:</p>
+<pre>
+  http://dev.thecrag.com/api/config/grade/system
+</pre>
+&nbsp;<br>
 
 <p>The upper grade is optional and is used to specify a grade range.</p>
 
 <p>If the lower grade is not specified then the registered grade is removed from the system, otherwise the registered grade is either updated or added to the system.</p>
 
-<p>Both the lower and upper grades must exactly match the grade type.</p>
-
-<p>We will be developing an API call to give you a list of available grading systems and grades, but for now it is a bit of a guess so really hold off updating registered grades using the API until the grading system API is developed.</p>
+<p>Both the lower and upper grades must exactly match the grade type (as defined by the grade system configuration end point above).</p>
 
 <p>A route may have registered grades for multiple systems (eg French and Australian registered grades in Thailand).</p>
 
