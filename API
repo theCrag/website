@@ -18,6 +18,11 @@ table, th, td { border: 1px solid black; }
   <li>update account information.</li>
 </ul>
 
+
+<p class="info_box">
+ <img src="/static/silk/cog.png" width="16" height="16" alt="" />
+<a href="/api-wadl.xml">thecrag API reference</a></p>
+
 <p>This document covers the following topics:<p>
 
 <ol>
