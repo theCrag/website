@@ -19,10 +19,6 @@ table, th, td { border: 1px solid black; }
 </ul>
 
 
-<p class="info_box">
- <img src="/static/silk/cog.png" width="16" height="16" alt="" />
-<a href="/api-wadl.xml">thecrag API reference</a></p>
-
 <p>This document covers the following topics:<p>
 
 <ol>
@@ -266,7 +262,12 @@ table, th, td { border: 1px solid black; }
 
 <p>There are some secondary access points you may be able to use if you need web page style access. These secondary access points are not documented but replicate the data used by the website templates (note that these are not to be generally used by client apps without special permissions, and hence remain undocumented).</p>
 
-<p>Full definitions of the API access points may be found in the <a href="/api-wadl.xml">thecrag API reference</a>.</p>
+<p>Full definitions of the API access points may be found here:</p>
+
+<p class="info_box">
+ <img src="/static/silk/cog.png" width="16" height="16" alt="" />
+<a href="/api-wadl.xml">thecrag API endpoint reference</a></p>
+
 
 <p>The API returns JSON data (mime type of application/json). If you are using Firefox then you may find a plugin which displays this nicely.</p>
 
