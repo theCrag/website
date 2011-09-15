@@ -1,3 +1,75 @@
 2 Using theCrag - 2 Grades
 
-This article is under development
+<p>This article is under development</p>
+
+% my $data = $ARGS{data};
+
+<style>
+.grades {
+	position: relative;
+	background: #EEE;
+	height: 1520px;
+}
+.grades div {
+	text-align: center;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	border-top: 1px solid white;
+}
+.gradesystem {
+	font-size: 10px;
+}
+.gradesystem th {
+	width: 50px;
+}
+
+.gradesystem td {
+	margin: 0;
+	padding: 0;
+}
+</style>
+<%perl>
+sub isVis {
+	my ($system) = @_;
+	if ($system->{label} ne 'BAND' && (
+		$system->{displayable} eq 0
+		|| $system->{priority} >= 28
+		|| defined $system->{mergeOverridenBy}) ){ return 0; }
+	return 1;
+}
+</%perl>
+
+<table class="gradesystem">
+<tr>
+% foreach my $system ( @{ $data->{systems} } ){
+%   if (!isVis $system ){ next; }
+<th title="<% $system->{name} |h %>"><% $system->{abbreviatedName}  %></th>
+% }
+</tr>
+<tr>
+% foreach my $system ( @{ $data->{systems} } ){
+%   if (!isVis $system ){ next; }
+<td><% $system->{type} eq 'Band' ? '' : $system->{type}  %></td>
+% }
+</tr>
+<tr>
+% my $scale = 3;
+% foreach my $system ( @{ $data->{systems} } ){
+%   if (!isVis $system ){ next; }
+<td>
+<div class="grades">
+%   foreach my $grade ( @{ $system->{grade} } ){
+%     if ($grade->{label} eq '--' || !defined $grade->{score}){ next; }
+%     my $size = $grade->{score}[2] - $grade->{score}[1] +1;
+%     my $gb = int(($grade->{score}[1]-1) / 100) +1 ;
+<div class="gb<% $gb %>" style="top: <% $grade->{score}[1] * $scale %>px; line-height: <% $size * $scale %>px; height:<% $size * $scale %>px"><% $grade->{label} %></div>\
+%   }
+</div>
+</td>
+% }
+</tr>
+</table>
+
+
+
