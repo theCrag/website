@@ -12,17 +12,16 @@
 }
 .grades div {
 	text-align: center;
-	font-size: 8px;
 	overflow: hidden;
 	position: absolute;
 	width: 100%;
 	border-top: 1px solid white;
 }
 .gradesystem {
+	font-size: 10px;
 }
 .gradesystem th {
 	width: 50px;
-	font-size: 8px;
 }
 
 .gradesystem td {
@@ -36,6 +35,7 @@
 % foreach my $system ( @{ $data->{systems} } ){
 %   if ($system->{label} ne 'BAND' &&
 %      ($system->{displayable} eq 0
+%    || $system->{priority} ge 28
 %    || $system->{mergeOverridenBy}) ){ next; }
 
 <th title="<% $system->{name} |h %>"><% $system->{abbreviatedName}  %>
@@ -52,6 +52,7 @@
 % foreach my $system ( @{ $data->{systems} } ){
 %   if ($system->{label} ne 'BAND' &&
 %      ($system->{displayable} eq 0
+%    || $system->{priority} ge 28
 %    || $system->{mergeOverridenBy}) ){ next; }
 <td>
 <div class="grades">
