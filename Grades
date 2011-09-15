@@ -1,3 +1,71 @@
 2 Using theCrag - 2 Grades
 
-This article is under development
+<p>This article is under development</p>
+
+% my $data = $ARGS{data};
+
+<style>
+.grades {
+	position: relative;
+	background: #EEE;
+	height: 1520px;
+}
+.grades div {
+	text-align: center;
+	font-size: 8px;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	border-top: 1px solid white;
+}
+.gradesystem {
+}
+.gradesystem th {
+	width: 50px;
+	font-size: 8px;
+}
+
+.gradesystem td {
+	margin: 0;
+	padding: 0;
+}
+</style>
+
+<table class="gradesystem">
+<tr>
+% foreach my $system ( @{ $data->{systems} } ){
+%   if ($system->{label} ne 'BAND' &&
+%      ($system->{displayable} eq 0
+%    || $system->{mergeOverridenBy}) ){ next; }
+
+<th title="<% $system->{name} |h %>"><% $system->{abbreviatedName}  %>
+%#<% $system->{grade}[-1]->{score}[2] %>
+
+%#<% $system->{displayable} %>
+%# <% $system->{mergeOverridenBy} %>
+%#<% $system->{displayMultiple} %>
+</th>
+% }
+</tr>
+<tr>
+% my $scale = 3;
+% foreach my $system ( @{ $data->{systems} } ){
+%   if ($system->{label} ne 'BAND' &&
+%      ($system->{displayable} eq 0
+%    || $system->{mergeOverridenBy}) ){ next; }
+<td>
+<div class="grades">
+%   foreach my $grade ( @{ $system->{grade} } ){
+%     if ($grade->{label} eq '--' || !defined $grade->{score}){ next; }
+%     my $size = $grade->{score}[2] - $grade->{score}[1] +1;
+%     my $gb = int(($grade->{score}[1]-1) / 100) +1 ;
+<div class="gb<% $gb %>" style="top: <% $grade->{score}[1] * $scale %>px; line-height: <% $size * $scale %>px; height:<% $size * $scale %>px"><% $grade->{label} %></div>\
+%   }
+</div>
+</td>
+% }
+</tr>
+</table>
+
+
+
