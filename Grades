@@ -29,31 +29,34 @@
 	padding: 0;
 }
 </style>
+<%perl>
+sub isVis {
+	my ($system) = @_;
+	if ($system->{label} ne 'BAND' && (
+		$system->{displayable} eq 0
+		|| $system->{priority} >= 28
+		|| defined $system->{mergeOverridenBy}) ){ return 0; }
+	return 1;
+}
+</%perl>
 
 <table class="gradesystem">
 <tr>
 % foreach my $system ( @{ $data->{systems} } ){
-%   if ($system->{label} ne 'BAND' &&
-%      ($system->{displayable} eq 0
-%    || $system->{priority} ge 28
-%    || $system->{mergeOverridenBy}) ){ next; }
-
-<th title="<% $system->{name} |h %>"><% $system->{abbreviatedName}  %>
-%#<% $system->{grade}[-1]->{score}[2] %>
-
-%#<% $system->{displayable} %>
-%# <% $system->{mergeOverridenBy} %>
-%#<% $system->{displayMultiple} %>
-</th>
+%   if (!isVis $system ){ next; }
+<th title="<% $system->{name} |h %>"><% $system->{abbreviatedName}  %></th>
+% }
+</tr>
+<tr>
+% foreach my $system ( @{ $data->{systems} } ){
+%   if (!isVis $system ){ next; }
+<td><% $system->{type} eq 'Band' ? '' : $system->{type}  %></td>
 % }
 </tr>
 <tr>
 % my $scale = 3;
 % foreach my $system ( @{ $data->{systems} } ){
-%   if ($system->{label} ne 'BAND' &&
-%      ($system->{displayable} eq 0
-%    || $system->{priority} ge 28
-%    || $system->{mergeOverridenBy}) ){ next; }
+%   if (!isVis $system ){ next; }
 <td>
 <div class="grades">
 %   foreach my $grade ( @{ $system->{grade} } ){
