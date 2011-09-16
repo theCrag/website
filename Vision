@@ -16,6 +16,7 @@
 
 <p>Even just adding an ascent improves the quality of the information in the guidebook by feeding back route popularity scores and climber quality ratings.</p>
 
+<p>Community guidebooks are available in HTML, and PDF format (see <a href="/article/PDFCragGuide">PDF Crag Guide</a>).</p>
 
 <h2>Public versus private content</h2>
 
@@ -49,9 +50,9 @@
 <h2>Initiatives under development</h2>
 
 
-<h3>API</h3>
+<h3>API (Beta release now available - <a href="/article/API">click here</a>)</h3>
 
-<p>We are developing an API, which will allow third party applications to interface to the theCrag.com's database both to read and to contribute. This should be ready about March 2011 (actually there is more work and less of us than we expected so this will be significantly delayed). See <a href="/article/api">API</a> site article for more details.</p>
+<p>We have developed an <a href="/article/API">API</a>, which allows third party applications to interface to the theCrag.com's community database both to read and to contribute.</p>
 
 
 <h3>Photo topos</h3>
@@ -61,7 +62,7 @@
 
 <h3>Mapping tools</h3>
 
-<p>Mapping tools to locate crags and climbs. This will be released shortly.</p>
+<p>Mapping tools to locate crags and climbs.</p>
 
 
 <h3>RSS feed</h3>
@@ -71,7 +72,7 @@
 
 <h3>Crag Guide</h3>
 
-<p>A whole area guide, based on the latest information, topos and maps. An initial version is being trialled now. Eventually you will be able to customise and personalise Crag Guide in future releases (eg bouldering in Arapiles). PDF and eBook versions of Crag Guide are planned for some time in 2011.</p>
+<p>A whole area guide, based on the latest information, topos and maps. Eventually you will be able to customise and personalise Crag Guide in future releases (eg bouldering in Arapiles). The <a href="/article/PDFCragGuide">PDF</a> version is now available and eBook versions should be available soon.</p>
 
 <p>Publishers will also be able to produce a Crag Guide with their content only.</p>
 
@@ -88,7 +89,7 @@
 
 <h3>Targeting mobile devices</h3>
 
-<p>An iPhone app is being developed and will be released early 2011. We also intend to support other mobile devices, such as iPad, Android, WebOS and others with either Native applications of mobile optimized web applications.</p>
+<p>An iPhone app is being developed and will be released 2011 (early 2012). We also intend to support other mobile devices, such as iPad, Android, WebOS and others with either Native applications of mobile optimized web applications.</p>
 
 
 <h3>Facebook</h3>
