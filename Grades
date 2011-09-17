@@ -1,6 +1,20 @@
 2 Using theCrag - 2 Grades
 
-<p>This article is under development</p>
+<p>We want to work with the rock climbing community to get a comprehensive and intuitive coverage of grades in the system. This is a long term initiative and at times will involve fundamental changes to the way grades work on the site. We welcome feedback on grades, but for this to be useful to the community as a whole it has to go onto our <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a>. We don't promise to fix things straight away, but we will link the discussion into this article so that the whole community can constructively contribute.</p>
+
+<p>This article covers the following topics:</p>
+<ol>
+  <li><a href="#s1">Grade conversions</a></li>
+  <li><a href="#s2">How are grades asigned to routes?</a></li>
+  <li><a href="#s3">How are grades asigned to ascents?</a></li>
+  <li><a href="#s4">Grade parsing </a></li>
+</ol>
+
+<h2><a name="s1">1. Grade conversions</a></h2>
+
+<p>thecrag.com progamatically controls grade conversions. The rules for the conversions are configured in the database. The table below shows a pictorial representation of the conversions. We are happy to enter into a discussion as to the accuracy of these conversions - please log an issue in <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a>.</p>
+
+<p>Note that the different colors represent <a href="/article/DifficultyBand">grade bands</a> which are used thematically through the site. One of the grade conversion constraints is that every grade from any grading system fits wholly in one of the bands.</p>
 
 % my $data = $ARGS{data};
 
@@ -71,5 +85,443 @@ sub isVis {
 </tr>
 </table>
 
+&nbsp;<br>
+
+<p>Internally grade conversions work by converting each grade to a fine-grained internal number range between 0-500.</p>
+
+<p>If you programatic access to the grades and grade conversions through the <a href="/article/API">API</a> then you should get in contact with us. The programatic version of this table is available through the following API call:</p>
+
+<pre>
+  http://www.thecrag.com/api/config/grade/system
+</pre>
+&nbsp;<br>
 
 
+
+
+<h2><a name="s2">2. How are grades asigned to routes?</a></h2>
+
+<p>Routes have a registered grade and a list of independant user and publisher grade contributions (a publisher contribution is a citation from a publication). The user and publisher grade contributions are displayed on the route page. The official grade of the route is given by the registered grade.</p>
+
+
+<h3>2.1 Registered grade</h3>
+
+<p>The registered grade is the official grade of the route, and is used through out the website and publications.</p>
+
+<p>A registered grade may have multiple components, for example:</p>
+<ul>
+  <li>A free climbing grade (5.12a) and an aid grade (A3), combined would read <span itemprop="contentRating" class="grade gb3">5.12a A3</span>.</li>
+  <li>British technical (4a) and adjectival (MS), combined would read <span itemprop="contentRating" class="grade gb2">MS 4a</span>.</li>
+</ul>
+
+<p>A route may have official grades from several different grading systems (eg in Thailand many routes have an official French and Australian grade). For example:<p>
+<pre>
+  <a href="http://www.thecrag.com/route/17710201">http://www.thecrag.com/route/17710201</a>
+</pre>
+&nbsp;<br>
+<p>The above route, "Knights In White Satin" has a registered grade of <span itemprop="contentRating" class="grade gb4">7b+</span> French and <span itemprop="contentRating" class="grade gb4">26</span> Australian Ewbanks. Because the Thailand is assigned the French context the French grade will be shown on the site. (Question: Do we want to show the Australian grade to Australian users?)</p>
+
+<p>Once a route has a registered grade it can only be changed by an Editor and is not effected by subsequent user contributions.</p>
+
+
+<h3>2.2 Grade contributions</h3>
+
+<p>Anybody may make a grade contribution. A climb may have several grade contributions from users and publishers.</p>
+
+<p>When you add a new route, the grade you enter becomes your grade contribution (unless you are citing a publication, in which case in becomes a publisher contribution). For new routes your grade contribution also becomes the registered grade.<p>
+
+<p>You may add your user grade contribution to an existing route using the update route details process. If the route already has a registered grade then this will not be effected (otherwise your contribution is used to start the registered grade).</p>
+
+
+<h3>2.3 Grade ranges</h3>
+
+<p>Behind the scenes everything is a grade range with a minum grade and maximum grade. Mostly people will use just one grade, but on occasions it is useful to use a grade range for a particular route (eg you may input 5.10a-b, which will be interpreted by the sytem as a grade range and displayed as <span itemprop="contentRating" class="grade gb2">5.10a to 5.10b</span>.</p>
+
+<p>Grade ranges are absolutely necessary for grade conversions. Very few grade conversions match exactly there is usually overlap. For example 5.8 in the Yosemite Decimal System maps to both 15 and 16 in the Australian Ewbanks system.</p>
+
+<p>We are planning a future enhancement where we represent each grade to a probability bell curve because this represents more accurately what a grade is. For example a route usually takes on the grade of the first assentionist, which is subjective. The first assentionist is feeling really strong that day, and they think the route is a 5.10a, when in actual fact most climbers would have though it is a 5.10b. All climbers have come across routes that are easier or harder then the grade suggests. Over time grades which are way off may be corrected, but ultimately if you got a 100 climbers to independantly grade a route, you will not get exactly the same answer from each climber (leaving aside arguments about differences between short and tall climbers). This suggests that route grades are probablistic.<p>
+
+
+<h3>2.4 Aid eliminates</h3>
+
+<p>A route may orinally be a 5.10b A4, then later somebody may climb it as a 5.11a A0, then later as a 5.12c. In this scenario the route should have the cleanest grade as it's registered grade, but may have all the other grades listed as grade contributions.</p>
+
+
+<h3>2.5 Special rating systems</h3>
+
+<p>Although not part of the registered grade you can include some additional rating systems in your grade contributions. These include:</p>
+
+<ul>
+  <li>Stars</li>
+  <li>Protection rating</li>
+</ul>
+
+<p>If you add a *, ** or *** to the end of your grade contribution the system will recognise this a star rating. See <a href="/article/Stars">how stars work</a>.</p>
+
+<p>You may also use the <a href="http://en.wikipedia.org/wiki/Grade_%28climbing%29#YDS_protection_rating">YDS protection rating</a> in your grade contribution. The system will assign the worst case protection rating to the route and display that alongside the registered grade if it is a R or X protection rating. For example if you made a grade contribution of "5.10d X" then the route will be displayed as <span itemprop="contentRating" class="grade gb3">5.10d X</span>.</p> 
+
+
+
+
+
+<h2><a name="s3">3. How are grades asigned to ascents?</a></h2>
+
+<p>This area needs a complete rethink because the system is a little restrictive. If you want to contribute to a community discussion see the following issue in our issues list:<p> 
+
+<ul>
+  <li><a href="https://github.com/theCrag/website/issues/304"><img src="/static/silk/bug.png" width="16" height="16"/> Complexity of grades respective logging of ascents</a></li>
+</ul>
+
+<p>Currently when you log an ascent the asent will automatically take the routes registered grade as the ascent grade. If there are multiple registered grades (eg British Adjectival and Technical or Free and Aid) then the system will ask you to choose one of these to be associated with the ascent.</p>
+
+<p>A logged ascent has single grade independent of the route's grade. This has the following implications:</p>
+
+<ul>
+  <li>You may update your ascent to any grade you want, such a different grading system or different grade to the route.</li>
+  <li>If it is an aid climb you have to choose whether you log the Aid component or the Free component (currently you cannot have both).</li>
+  <li>Similarily if it is a British climb have to choose whether you log the Adjectival or Technical grade.</li>
+</ul>
+
+<p>To adjust your ascents grade after you have logged the ascent follow the following procedure:<p>
+
+<ul>
+  <li>Log your ascent with the grade from the route.</li>
+  <li>Go to your Account page ('My Account' tab) and click on Logbook tab.</li>
+  <li>In the ascent you just logged click on the name link under the 'Ascent Label' column.</li>
+  <li>Click 'edit' ascent.</li>
+  <li>Click 'Update Ascent Grade' button at bottom of screen.</li>
+  <li>Select the grading system you want to use for your ascent.</li>
+  <li>Select the grade.</li>
+  <li>And yes you are done, easy eh - not (we will have to make this simpler at some point, but mostly you will not need this procedure).</li>
+<ul>
+
+
+
+
+
+<h2><a name="s4">4. Grade parsing</a></h2>
+
+<p>Our aim is for you to contribute grades as you see them in guidebooks and for the system to be smart enough to work out what you mean.</p>
+
+<h3>4.1 Grade contexts</h3>
+
+<p>If you type in the grade '5c' what does it mean. If you were in Britian you would think it was the Experienced British grade <span itemprop="contentRating" class="grade gb3">5c</span>, but if you were in France you would think it was the Intermediate French grade <span itemprop="contentRating" class="grade gb2">5c</span>. Interpretation of grades is dependant on where you are, this is what we term grade context.</p>
+
+<p>Grade context is a way of the system working out how to interpret potentially conficting grades written in plain text. The system defines a small set of contexts as possible which can eliminate all conflicts. Currently the system defines the following contexts:</p>
+
+<ul>
+  <li><strong>US</strong>: United States</li>
+  <li><strong>AU</strong>: Australian</li>
+  <li><strong>UK</strong>: United Kingdom</li>
+  <li><strong>FR</strong>: French</li>
+  <li><strong>UIAA</strong>: Countries primarily using UIAA grades</li>
+  <li><strong>SA</strong>: South African</li>
+  <li><strong>SX</strong>: Saxon</li>
+</ul>
+
+<p>Each country is assigned a context. Hopefully we have got it close to right (see section 4.3). You may change the context when you add or update a route.</p>
+
+
+<h3>4.2 Examples</h3>
+
+<p>The best way to explain how the system converts the plain text you enter into grades is to look at some examples.</p>
+
+<table>
+  <tr>
+    <th>Context</th>
+    <th>Text</th>
+    <th>Grade</th>
+    <th>Comment</th>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>5.12a</td>
+    <td><span itemprop="contentRating" class="grade gb3">5.12a</span></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>5.12</td>
+    <td><span itemprop="contentRating" class="grade gb3">5.12</span></td>
+    <td>The system has a grade system where grades are expressed as 5.12-, 5.12 and 5.12+.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>12a</td>
+    <td><span itemprop="contentRating" class="grade gb3">5.12a</span></td>
+    <td>The system is able to work out common partial grades.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>12</td>
+    <td><span itemprop="contentRating" class="grade gb3">5.12</span></td>
+    <td>partial grades can be very dependant on the context (in US context this is 5.12, in AU context this is 12).</td>
+  </tr>
+  <tr>
+    <td>AU</td>
+    <td>12</td>
+    <td><span itemprop="contentRating" class="grade gb1">12</span></td>
+    <td>Compare to above example</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>5.12a-5.12c</td>
+    <td><span itemprop="contentRating" class="grade gb3">5.12a to 5.12c</span></td>
+    <td>This is interpreted as a grade range.<b/td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>5.12a-b</td>
+    <td><span itemprop="contentRating" class="grade gb3">5.12a to 5.12b</span></td>
+    <td>Common abbreviated grade ranges</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>5.12a/b</td>
+    <td><span itemprop="contentRating" class="grade gb4">5.12b</span></td>
+    <td>The forward slash '/' is interpreted as an or, in which case the system assigns the highest single grade.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>5.10,5.12d,5.9</td>
+    <td><span itemprop="contentRating" class="grade gb4">5.12d</span></td>
+    <td>Commas used to indicate multi-pitch, in which case the system will assign the highest grade.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>5.9 S</td>
+    <td><span itemprop="contentRating" class="grade gb2">5.9 S</span></td>
+    <td>Protection rating is displayed as part of the grade.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>5.10a X,5.12</td>
+    <td><span itemprop="contentRating" class="grade gb3">5.12 X</span></td>
+    <td>Multipitch may include protection rating.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>5.9**</td>
+    <td><span itemprop="contentRating" class="grade gb2">5.9</span></td>
+    <td>The contribution will also be attributed with <img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16">.</td>
+  </tr>
+  <tr>
+    <td>FR</td>
+    <td>5c</td>
+    <td><span itemprop="contentRating" class="grade gb2">5c</span></td>
+    <td>The French grade.</td>
+  </tr>
+  <tr>
+    <td>UK</td>
+    <td>5c</td>
+    <td><span itemprop="contentRating" class="grade gb3">5c</span></td>
+    <td>The British technical grade.</td>
+  </tr>
+  <tr>
+    <td>UK</td>
+    <td>E2 5c</td>
+    <td><span itemprop="contentRating" class="grade gb3">E2 5c</span></td>
+    <td>The British adjectival and technical grade.</td>
+  </tr>
+  <tr>
+    <td>UK</td>
+    <td>D</td>
+    <td><span itemprop="contentRating" class="grade gb1">D</span></td>
+    <td>The British adjectival.</td>
+  </tr>
+  <tr>
+    <td>UK</td>
+    <td>Difficult</td>
+    <td><span itemprop="contentRating" class="grade gb1">D</span></td>
+    <td>Yup, according to the British adjectival system, difficult is a beginner's route - go figure. I think climbing developed faster then they could keep up.</td>
+  </tr>
+  <tr>
+    <td>AU</td>
+    <td>19</td>
+    <td><span itemprop="contentRating" class="grade gb3">19</span></td>
+    <td>Australian Ewbanks grade.</td>
+  </tr>
+  <tr>
+    <td>SA</td>
+    <td>19</td>
+    <td><span itemprop="contentRating" class="grade gb2">19</span></td>
+    <td>South African grade (compare to level of difficulty for an Australian Ewbanks grade 19 above)</td>
+  </tr>
+  <tr>
+    <td>AU</td>
+    <td>21 (S)</td>
+    <td><span itemprop="contentRating" class="grade gb3">19</span></td>
+    <td>Australian Ewbanks grade with a sport route indicator. This is in for historical reasons (common for Australian guidebooks to use this notation), but because of it's potential confusion with the protection rating S we don't want it to be used anymore. For sport routes just tick the sport route indicator. Note the sport indicator must have brackets.</td>
+  </tr>
+  <tr>
+    <td>AU</td>
+    <td>21 M2</td>
+    <td><span itemprop="contentRating" class="grade gb3">21 M2</span></td>
+    <td>Australian Ewbanks grade with an Australian aid grade.</td>
+  </tr>
+  <tr>
+    <td>AU</td>
+    <td>M2</td>
+    <td><span itemprop="contentRating" class="grade gb0">M2</span></td>
+    <td>Australian aid grade (we should probably colorize this).</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>Class 2</td>
+    <td><span itemprop="contentRating" class="grade gb1">Class 2</span></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>Class IV</td>
+    <td><span itemprop="contentRating" class="grade gb1">Class 4</span></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>F6</td>
+    <td><span itemprop="contentRating" class="grade gb2">F6</span></td>
+    <td>NCCS Scale.</td>
+  </tr>
+  <tr>
+    <td>UIAA</td>
+    <td>11-</td>
+    <td><span itemprop="contentRating" class="grade gb5">11-</span></td>
+    <td>UIAA grade.</td>
+  </tr>
+  <tr>
+    <td>SA</td>
+    <td>D3</td>
+    <td><span itemprop="contentRating" class="grade gb1">D3</span></td>
+    <td>Old South African grade.</td>
+  </tr>
+  <tr>
+    <td>SX</td>
+    <td>VIIa</td>
+    <td><span itemprop="contentRating" class="grade gb1">VIIa</span></td>
+    <td>Saxon grade.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>5.6A1+</td>
+    <td><span itemprop="contentRating" class="grade gb1">5.6 A1+</span></td>
+    <td>Free plus Aid grade.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>5.6C1+</td>
+    <td><span itemprop="contentRating" class="grade gb1">5.6 C1+</span></td>
+    <td>Free plus hammerless Aid grade.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>A1+</td>
+    <td><span itemprop="contentRating" class="grade gb0">A1+</span></td>
+    <td>Straight Aid grade.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>V4</td>
+    <td><span itemprop="contentRating" class="grade gb3">V4</span></td>
+    <td>Vermin V-Scale for bouldering.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>B5.6</td>
+    <td><span itemprop="contentRating" class="grade gb1">B5.6</span></td>
+    <td>The little more obscure Expanded Gill B-Scale for bouldering.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>B2-</td>
+    <td><span itemprop="contentRating" class="grade gb4">B2-</span></td>
+    <td>And another B-Scale.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>S4-</td>
+    <td><span itemprop="contentRating" class="grade gb4">S4-</span></td>
+    <td>Bouldering Smith Rocks S-Scale.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>P10</td>
+    <td><span itemprop="contentRating" class="grade gb4">P10</span></td>
+    <td>Bouldering Phoenix P-Scale.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>C+</td>
+    <td><span itemprop="contentRating" class="grade gb4">C+</span></td>
+    <td>Bouldering Joshua Tree Scale.</td>
+  </tr>
+  <tr>
+    <td>AU</td>
+    <td>V0+</td>
+    <td><span itemprop="contentRating" class="grade gb2">V0+</span></td>
+    <td>But really the bouldering V-Scale is accepted everywhere, so just use that.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>AI5-</td>
+    <td><span itemprop="contentRating" class="grade gb3">AI5-</span></td>
+    <td>Alpine Ice.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>WI5-</td>
+    <td><span itemprop="contentRating" class="grade gb3">WI5-</span></td>
+    <td>Water Ice.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>M3</td>
+    <td><span itemprop="contentRating" class="grade gb2">M3</span></td>
+    <td>Mixed rock and ice.</td>
+  </tr>
+  <tr>
+    <td>FR</td>
+    <td>PD</td>
+    <td><span itemprop="contentRating" class="grade gb0">PD</span></td>
+    <td>IFAS (International French Adjectival System) - nothing in the conversion table.</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>VI</td>
+    <td><span itemprop="contentRating" class="grade gb0">VI</span></td>
+    <td>National Climbing Classification System (NCCS) Alpine Grade (no conversions).</td>
+  </tr>
+  <tr>
+    <td>US</td>
+    <td>VI 5.11c A2+</td>
+    <td><span itemprop="contentRating" class="grade gb3">5.11c A2+ VI</span></td>
+    <td>Alpine route with free and aid climbing.</td>
+  </tr>
+  <tr>
+    <td>AU</td>
+    <td>12 # i think</td>
+    <td><span itemprop="contentRating" class="grade gb1">12</span></td>
+    <td>You can add comments to your grade contribution by using "#".</td>
+  </tr>
+</table>
+
+<p>If you see a way of writing a grade in a guidebook then test it out and if it does not work then please contact us so we can enhance the system.</p>
+
+
+
+<h3>4.3 Country context</h3>
+
+<p>The following table shows the current system settings for country context. Please raise an issue in our <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a> if you think we need to make some adjustments.</p>
+
+<table>
+  <tr>
+    <th>Country</th>
+    <th>Context</th>
+  </tr>
+% foreach my $country ( @{ $data->{countries} } ){
+  <tr>
+    <td><% $country->{name} %></td>
+    <td><% $country->{defaultGrading}->{context} %></td>
+  </tr>
+% }
+</table>
