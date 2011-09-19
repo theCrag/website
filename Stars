@@ -83,6 +83,7 @@
   <img style="float:left" src="http://chart.apis.google.com/chart?cht=bhs&chxt=y&chs=200x120&chbh=14,1&chxs=0,111111&chco=00dd44|55dd33|aacc22|ffcc00|ee8811|dd4433|dd0055&chd=t:0.0,4.5,25.4,100.0,53.7,4.5,1.5&chxl=0:|Crap|Don%27t%20Bother|Average|Good|Very%20Good|Classic|Mega%20Classic" height="108" width="180"></div>
 
 <div style="clear:both;"></div>
+&nbsp;<br>
 
 <p>In order to work out when a route changes from say a two star to a three star route we quantify these graphs into a single number called Quality Score (see below) and define thresholds for one, two and three star routes.</p>
 
@@ -93,7 +94,7 @@
 
 <p>For example if the users have made three quality ratings of Good, Good and Very Good then this would be 100*(3+3+4)/6*3 = 56 Quality Score. As more user rate a route the more reliable the Quality Score becomes. If there is less than three quality ratings we do not calculate a Quality Score.</p>
 
-<p>The final thing you need to know is how we determined the Quality Score thresholds for one, two and tree star climbs. To do this we took calculated the average Quality Score from the one, two and three star climbs from 200 published guidebooks (about 100,000 routes). This came up with the following thresholds:</p>
+<p>The final thing you need to know is how we determined the Quality Score thresholds for one, two and tree star climbs. To do this we calculated the average Quality Score from the one, two and three star climbs from 200 published guidebooks (about 100,000 routes). This came up with the following thresholds:</p>
 
 <ul>
   <li><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"> maps to a Quality Score of 72.</li>
@@ -101,4 +102,4 @@
   <li><img src="/static/silk/star.png" height="16" width="16"> maps to a Quality Score of 55.</li>
 </ul>
 
-<p>In order to which is the better route within a particular star group we also show the Quality Score in the tooltips as you hover the mouse over the stars. For example hover the mouse over the following stars <span title="Quality: 89%"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"></span>.</p>
+<p>In order to know which is the better route within a particular star group we also show the Quality Score in the tooltips as you hover the mouse over the stars. For example hover the mouse over the following stars <span title="Quality: 89%"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"></span>.</p>

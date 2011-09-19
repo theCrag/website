@@ -5,16 +5,17 @@
 <p>This article covers the following topics:</p>
 <ol>
   <li><a href="#s1">Grade conversions</a></li>
-  <li><a href="#s2">How are grades asigned to routes?</a></li>
-  <li><a href="#s3">How are grades asigned to ascents?</a></li>
-  <li><a href="#s4">Grade parsing </a></li>
+  <li><a href="#s2">Grade bands</a></li>
+  <li><a href="#s3">How are grades asigned to routes?</a></li>
+  <li><a href="#s4">How are grades asigned to ascents?</a></li>
+  <li><a href="#s5">Grade parsing </a></li>
 </ol>
 
 <h2><a name="s1">1. Grade conversions</a></h2>
 
-<p>thecrag.com progamatically controls grade conversions. The rules for the conversions are configured in the database. The table below shows a pictorial representation of the conversions. We are happy to enter into a discussion as to the accuracy of these conversions - please log an issue in <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a>.</p>
+<p>thecrag.com can automatically convert grades to a different system according to the table below. If you can suggest a better translation please log an issue in <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a>.</p>
 
-<p>Note that the different colors represent <a href="/article/DifficultyBand">grade bands</a> which are used thematically through the site. One of the grade conversion constraints is that every grade from any grading system fits wholly in one of the bands.</p>
+<p>Note the coloured <a href="#s2">grade bands</a> which are used throughout the site as a quick way to guage the difficulty of a route or area.</p>
 
 % my $data = $ARGS{data};
 
@@ -89,7 +90,7 @@ sub isVis {
 
 <p>Internally grade conversions work by converting each grade to a fine-grained internal number range between 0-500.</p>
 
-<p>If you programatic access to the grades and grade conversions through the <a href="/article/API">API</a> then you should get in contact with us. The programatic version of this table is available through the following API call:</p>
+<p>If you would like programatic access to the grades and grade conversions through the <a href="/article/API">API</a> then you should get in contact with us. The programatic version of this table is available through the following API call:</p>
 
 <pre>
   http://www.thecrag.com/api/config/grade/system
@@ -99,12 +100,55 @@ sub isVis {
 
 
 
-<h2><a name="s2">2. How are grades asigned to routes?</a></h2>
+<h2><a name="s2">2. Grade bands</a></h2>
 
-<p>Routes have a registered grade and a list of independant user and publisher grade contributions (a publisher contribution is a citation from a publication). The user and publisher grade contributions are displayed on the route page. The official grade of the route is given by the registered grade.</p>
+<p>For use on thecrag.com we have divided climb difficulty ratings into 5 segments - Beginner, Intermediate, Experienced, Expert and Elite. These definitions are somewhat arbitrary, but they are based on many years of climbing experience and there are also some statistical reasons for breaking climbing into these segments.</p>
+
+<p>There are two common area difficulty graphs used throughout the site, the grade band and dual grade band.</p>
+
+<img src="/static/cids/images/difficultybanddemo-1.1.1.gif" width="640" height="180" alt="Grade bands summary" />
+
+<p> The grade band chart shows the relative number of climbs at the particular difficuly bands. This is shown at each area and should give you a quick summary of the area's relative difficulty.</p>
+
+<p>The dual grade band shows also what grades people are climbing at an area, based on the number of ascents at each grade. This is interesting, because some areas may have a lot of hard climbs, but the easier climbs are climbed more often (eg Arapiles) and other areas have a lot of easier climbs, but people go there for the hard climbs (eg Grampians).</p>
+
+<p> The table below fives a brief description of each band.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td scope="col" class="gb1">Beginner</td>
+      <td scope="col">The level of difficulty for your first couple of days of climbing (seconding or top roping). Many people may achieve these grades on their first day of climbing. There are still some very scary and/or dangerous climbs at this level (eg Bard). </td>
+    </tr>
+    <tr>
+      <td scope="col" class="gb2">Intermediate</td>
+      <td scope="col">Typical grades for people with less than a years climbing. Note that most people cannot climb this level on their first couple of days of climbing. Statistically speaking, most outdoor climbing is done in this band. A lot of experienced climbers end up backing off to this level as they enjoy their climbing into old age.</td>
+    </tr>
+    <tr>
+      <td scope="col" class="gb3">Experienced</td>
+      <td scope="col">People can achieve these levels if they have been climbing fairly regularily for a couple of years. These grades are where the social climbers start becoming rare.</td>
+    </tr>
+    <tr>
+      <td scope="col" class="gb4">Expert</td>
+      <td scope="col">You really need to be training in a focused way to climb at this level. Not so many people reach this level.</td>
+    </tr>
+    <tr>
+      <td scope="col" class="gb5">Elite</td>
+      <td scope="col">You climb for a living, are sponsored and have a full time trainer and massuer looking after you. This is the best of the best. If you are normal, you would not have a hope of even dogging up one of these climbs.</td>
+    </tr>
+  </tbody>
+</table>
 
 
-<h3>2.1 Registered grade</h3>
+
+
+
+<h2><a name="s3">3. How are grades asigned to routes?</a></h2>
+
+<p>Routes have a registered grade and a list of independent user and publisher grade contributions (a publisher contribution is a citation from a publication). The user and publisher grade contributions are displayed on the route page. The official grade of the route is given by the registered grade.</p>
+
+
+<h3>3.1 Registered grade</h3>
 
 <p>The registered grade is the official grade of the route, and is used through out the website and publications.</p>
 
@@ -121,10 +165,10 @@ sub isVis {
 &nbsp;<br>
 <p>The above route, "Knights In White Satin" has a registered grade of <span itemprop="contentRating" class="grade gb4">7b+</span> French and <span itemprop="contentRating" class="grade gb4">26</span> Australian Ewbanks. Because the Thailand is assigned the French context the French grade will be shown on the site. (Question: Do we want to show the Australian grade to Australian users?)</p>
 
-<p>Once a route has a registered grade it can only be changed by an Editor and is not effected by subsequent user contributions.</p>
+<p>Once a route has a registered grade it can only be changed by an Editor and is not affected by subsequent user contributions.</p>
 
 
-<h3>2.2 Grade contributions</h3>
+<h3>3.2 Grade contributions</h3>
 
 <p>Anybody may make a grade contribution. A climb may have several grade contributions from users and publishers.</p>
 
@@ -133,21 +177,21 @@ sub isVis {
 <p>You may add your user grade contribution to an existing route using the update route details process. If the route already has a registered grade then this will not be effected (otherwise your contribution is used to start the registered grade).</p>
 
 
-<h3>2.3 Grade ranges</h3>
+<h3>3.3 Grade ranges</h3>
 
 <p>Behind the scenes everything is a grade range with a minum grade and maximum grade. Mostly people will use just one grade, but on occasions it is useful to use a grade range for a particular route (eg you may input 5.10a-b, which will be interpreted by the sytem as a grade range and displayed as <span itemprop="contentRating" class="grade gb2">5.10a to 5.10b</span>.</p>
 
 <p>Grade ranges are absolutely necessary for grade conversions. Very few grade conversions match exactly there is usually overlap. For example 5.8 in the Yosemite Decimal System maps to both 15 and 16 in the Australian Ewbanks system.</p>
 
-<p>We are planning a future enhancement where we represent each grade to a probability bell curve because this represents more accurately what a grade is. For example a route usually takes on the grade of the first assentionist, which is subjective. The first assentionist is feeling really strong that day, and they think the route is a 5.10a, when in actual fact most climbers would have though it is a 5.10b. All climbers have come across routes that are easier or harder then the grade suggests. Over time grades which are way off may be corrected, but ultimately if you got a 100 climbers to independantly grade a route, you will not get exactly the same answer from each climber (leaving aside arguments about differences between short and tall climbers). This suggests that route grades are probablistic.<p>
+<p>We are planning a future enhancement where we represent each grade to a probability bell curve because this represents more accurately what a grade is. For example a route usually takes on the grade of the first assentionist, which is subjective. The first assentionist is feeling really strong that day, and they think the route is a 5.10a, when in actual fact most climbers would have though it is a 5.10b. All climbers have come across routes that are easier or harder then the grade suggests. Over time grades which are way off may be corrected, but ultimately if you got a 100 climbers to independently grade a route, you will not get exactly the same answer from each climber (leaving aside arguments about differences between short and tall climbers). This suggests that route grades are probablistic.<p>
 
 
-<h3>2.4 Aid eliminates</h3>
+<h3>3.4 Aid eliminates</h3>
 
-<p>A route may orinally be a 5.10b A4, then later somebody may climb it as a 5.11a A0, then later as a 5.12c. In this scenario the route should have the cleanest grade as it's registered grade, but may have all the other grades listed as grade contributions.</p>
+<p>A route may orinally be a 5.10b A4, then later somebody may climb it as a 5.11a A0, then later as a 5.12c. In this scenario the route should have the cleanest grade as its registered grade, but may have all the other grades listed as grade contributions.</p>
 
 
-<h3>2.5 Special rating systems</h3>
+<h3>3.5 Special rating systems</h3>
 
 <p>Although not part of the registered grade you can include some additional rating systems in your grade contributions. These include:</p>
 
@@ -164,9 +208,9 @@ sub isVis {
 
 
 
-<h2><a name="s3">3. How are grades asigned to ascents?</a></h2>
+<h2><a name="s4">4. How are grades asigned to ascents?</a></h2>
 
-<p>This area needs a complete rethink because the system is a little restrictive. If you want to contribute to a community discussion see the following issue in our issues list:<p> 
+<p>This area needs a complete rethink because the system is a little restrictive. If you want to contribute to a community discussion see the following issue in our issues list:</p> 
 
 <ul>
   <li><a href="https://github.com/theCrag/website/issues/304"><img src="/static/silk/bug.png" width="16" height="16"/> Complexity of grades respective logging of ascents</a></li>
@@ -182,7 +226,7 @@ sub isVis {
   <li>Similarily if it is a British climb have to choose whether you log the Adjectival or Technical grade.</li>
 </ul>
 
-<p>To adjust your ascents grade after you have logged the ascent follow the following procedure:<p>
+<p>To adjust your ascents grade after you have logged the ascent follow the following procedure:</p>
 
 <ul>
   <li>Log your ascent with the grade from the route.</li>
@@ -199,13 +243,13 @@ sub isVis {
 
 
 
-<h2><a name="s4">4. Grade parsing</a></h2>
+<h2><a name="s5">5. Grade parsing</a></h2>
 
 <p>Our aim is for you to contribute grades as you see them in guidebooks and for the system to be smart enough to work out what you mean.</p>
 
-<h3>4.1 Grade contexts</h3>
+<h3>5.1 Grade contexts</h3>
 
-<p>If you type in the grade '5c' what does it mean. If you were in Britian you would think it was the Experienced British grade <span itemprop="contentRating" class="grade gb3">5c</span>, but if you were in France you would think it was the Intermediate French grade <span itemprop="contentRating" class="grade gb2">5c</span>. Interpretation of grades is dependant on where you are, this is what we term grade context.</p>
+<p>If you type in the grade '5c' what does it mean. If you were in Britian you would think it was the Experienced British grade <span itemprop="contentRating" class="grade gb3">5c</span>, but if you were in France you would think it was the Intermediate French grade <span itemprop="contentRating" class="grade gb2">5c</span>. Interpretation of grades is dependent on where you are, this is what we term grade context.</p>
 
 <p>Grade context is a way of the system working out how to interpret potentially conficting grades written in plain text. The system defines a small set of contexts as possible which can eliminate all conflicts. Currently the system defines the following contexts:</p>
 
@@ -222,7 +266,7 @@ sub isVis {
 <p>Each country is assigned a context. Hopefully we have got it close to right (see section 4.3). You may change the context when you add or update a route.</p>
 
 
-<h3>4.2 Examples</h3>
+<h3>5.2 Examples</h3>
 
 <p>The best way to explain how the system converts the plain text you enter into grades is to look at some examples.</p>
 
@@ -255,7 +299,7 @@ sub isVis {
     <td>US</td>
     <td>12</td>
     <td><span itemprop="contentRating" class="grade gb3">5.12</span></td>
-    <td>partial grades can be very dependant on the context (in US context this is 5.12, in AU context this is 12).</td>
+    <td>partial grades can be very dependent on the context (in US context this is 5.12, in AU context this is 12).</td>
   </tr>
   <tr>
     <td>AU</td>
@@ -509,7 +553,7 @@ sub isVis {
 
 
 
-<h3>4.3 Country context</h3>
+<h3>5.3 Country context</h3>
 
 <p>The following table shows the current system settings for country context. Please raise an issue in our <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a> if you think we need to make some adjustments.</p>
 
