@@ -216,17 +216,17 @@ sub isVis {
   <li><a href="https://github.com/theCrag/website/issues/304"><img src="/static/silk/bug.png" width="16" height="16"/> Complexity of grades respective logging of ascents</a></li>
 </ul>
 
-<p>Currently when you log an ascent the asent will automatically take the routes registered grade as the ascent grade. If there are multiple registered grades (eg British Adjectival and Technical or Free and Aid) then the system will ask you to choose one of these to be associated with the ascent.</p>
+<p>Currently when you log an ascent the asent will automatically take the route's registered grade as the ascent grade. If there are multiple registered grades (eg British Adjectival and Technical or Free and Aid) then the system will ask you to choose one of these to be associated with the ascent.</p>
 
-<p>A logged ascent has single grade independent of the route's grade. This has the following implications:</p>
+<p>A logged ascent has a single grade independent of the route's grade. This has the following implications:</p>
 
 <ul>
-  <li>You may update your ascent to any grade you want, such a different grading system or different grade to the route.</li>
+  <li>You may update your ascent to any grade you want, such as a different grading system or different grade to the route.</li>
   <li>If it is an aid climb you have to choose whether you log the Aid component or the Free component (currently you cannot have both).</li>
   <li>Similarily if it is a British climb have to choose whether you log the Adjectival or Technical grade.</li>
 </ul>
 
-<p>To adjust your ascents grade after you have logged the ascent follow the following procedure:</p>
+<p>To adjust your ascent's grade after you have logged the ascent follow the following procedure:</p>
 
 <ul>
   <li>Log your ascent with the grade from the route.</li>
@@ -249,7 +249,7 @@ sub isVis {
 
 <h3>5.1 Grade contexts</h3>
 
-<p>If you type in the grade '5c' what does it mean. If you were in Britian you would think it was the Experienced British grade <span itemprop="contentRating" class="grade gb3">5c</span>, but if you were in France you would think it was the Intermediate French grade <span itemprop="contentRating" class="grade gb2">5c</span>. Interpretation of grades is dependent on where you are, this is what we term grade context.</p>
+<p>What does it mean if you type in the grade '5c'? If you were in Britian you would think it was the Experienced British grade <span itemprop="contentRating" class="grade gb3">5c</span>, but if you were in France you would think it was the Intermediate French grade <span itemprop="contentRating" class="grade gb2">5c</span>. Interpretation of grades is dependent on where you are, this is what we term grade context.</p>
 
 <p>Grade context is a way of the system working out how to interpret potentially conficting grades written in plain text. The system defines a small set of contexts as possible which can eliminate all conflicts. Currently the system defines the following contexts:</p>
 
@@ -263,7 +263,7 @@ sub isVis {
   <li><strong>SX</strong>: Saxon</li>
 </ul>
 
-<p>Each country is assigned a context. Hopefully we have got it close to right (see section 4.3). You may change the context when you add or update a route.</p>
+<p>Each country is assigned a context. Hopefully we have got it close to right (see <a href="#s5_3">section 5.3</a>). You may change the context when you add or update a route.</p>
 
 
 <h3>5.2 Examples</h3>
@@ -273,7 +273,7 @@ sub isVis {
 <table>
   <tr>
     <th>Context</th>
-    <th>Text</th>
+    <th>Text entered</th>
     <th>Grade</th>
     <th>Comment</th>
   </tr>
@@ -347,7 +347,7 @@ sub isVis {
     <td>US</td>
     <td>5.9**</td>
     <td><span itemprop="contentRating" class="grade gb2">5.9</span></td>
-    <td>The contribution will also be attributed with <img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16">.</td>
+    <td>The contribution will also be attributed with <img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16">. Learn more about <a href="/article/Stars">quality ratings</a>.</td>
   </tr>
   <tr>
     <td>FR</td>
@@ -377,7 +377,7 @@ sub isVis {
     <td>UK</td>
     <td>Difficult</td>
     <td><span itemprop="contentRating" class="grade gb1">D</span></td>
-    <td>Yup, according to the British adjectival system, difficult is a beginner's route - go figure. I think climbing developed faster then they could keep up.</td>
+    <td>Yup, according to the British adjectival system, difficult is a beginner's route - go figure. I think climbing developed faster than they could keep up.</td>
   </tr>
   <tr>
     <td>AU</td>
@@ -394,7 +394,7 @@ sub isVis {
   <tr>
     <td>AU</td>
     <td>21 (S)</td>
-    <td><span itemprop="contentRating" class="grade gb3">19</span></td>
+    <td><span itemprop="contentRating" class="grade gb3">21</span></td>
     <td>Australian Ewbanks grade with a sport route indicator. This is in for historical reasons (common for Australian guidebooks to use this notation), but because of it's potential confusion with the protection rating S we don't want it to be used anymore. For sport routes just tick the sport route indicator. Note the sport indicator must have brackets.</td>
   </tr>
   <tr>
@@ -553,7 +553,7 @@ sub isVis {
 
 
 
-<h3>5.3 Country context</h3>
+<h3><a name="s5_3">5.3 Country context</a></h3>
 
 <p>The following table shows the current system settings for country context. Please raise an issue in our <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a> if you think we need to make some adjustments.</p>
 
