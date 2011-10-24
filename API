@@ -355,6 +355,7 @@ table, th, td { border: 1px solid black; }
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/photos?key=abc">http://dev.thecrag.com/api/area/id/11737699/photos</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/publications?key=abc">http://dev.thecrag.com/api/area/id/11737699/publications</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/publications/direct?key=abc">http://dev.thecrag.com/api/area/id/11737699/publications/direct</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699/directory?key=abc">http://dev.thecrag.com/api/area/id/11737699/directory</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/karma?key=abc">http://dev.thecrag.com/api/area/id/11737699/karma</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/iconcrags?key=abc">http://dev.thecrag.com/api/area/id/11737699/iconcrags</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/popularareas?key=abc">http://dev.thecrag.com/api/area/id/11737699/popularareas</a></li>
