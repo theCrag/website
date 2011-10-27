@@ -2,15 +2,74 @@
 
 <p>Location! Location! Location!</p>
 
-<p>Location is pretty important.</p>
+<p>THIS ARTICLE IS UNDER DEVELOPMENT</p>
+
+<p>In addition to routes, descriptions, topos, theCrag also collects and stores map-based information on the location of crags and routes.</p>
+
+<p>This is really useful information for things like:</p>
+
+<ul>
+  <li>Map-based browsing on the site</li>
+  <li>Exporting data to other tools and software like GPS and Google Earth</li>
+  <li>Enabling location-based search and services in mobile applications</li>
+</ul>
 
 
-<p>How to add boundaries....</p>
+<h2>How to create a boundary</h2>
+
+<p>If a crag or sub-area has no boundary, anyone can create a boundary. (NB. Boundaries for Countries and Regions above the crag level can only be created by system administrators.)</p>
+
+<p>A crag or sub-area that has no boundary will show a map like this:</p>
+
+<div class="figure">
+  <p>Figure 1: Map for an area that has no boundary</p>
+  <p><img src="/static/cids/images/geolocation-article-1.1.0/image1.jpg" width="213" height="159" /></p>
+</div>
+
+<p>To add a boundary, click on the ‘Locate this crag’ link. The instructions at the top of the page are pretty straightforward.</p>
+
+<p>This short video explains how to create a boundary.</p>
+
+<div class="figure">
+  <p>Figure 2: Creating a boundary</p>
+  <p><iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/XYZ?rel=0" frameborder="0" allowFullScreen></iframe></p>
+</div>
 
 
-<p>Location is the primary way of clustering things into areas, and regions.</p>
 
-<p>Talk about continents, countries, possibly states, then crags and any extra levels are generally based on geogrpahy. a good source of geography based clusters is weather sources like BOM, but they should only be used if there are enough crags to warrant the extra layer</p>
+<h2>How to edit an existing boundary</h2>
+
+<p>If a crag or sub-area already has a boundary, then only the person who created the boundary or other Editors of that crag can alter the boundary.</p>
+
+<p>If you have the necessary permissions to alter an existing boundary, the map will look something like this:</p>
+
+<div class="figure">
+  <p>Figure 3: Map for an area that has an existing boundary</p>
+  <p><img src="/static/cids/images/geolocation-article-1.1.0/image2.jpg" width="208" height="162" /></p>
+</div>
+
+<p>To alter an existing boundary, click on the ‘Edit this location’ link. The process from there is very similar to the one for creating a new boundary.</p>
+
+<p>If the ‘Edit this location’ link does not appear then your account does not currently have the required permissions. You can earn Editor permissions or contact us to request them.</p>
 
 
 
+<h2>Tips and tricks</h2>
+
+<ul>
+  <li><p>As a general rule we’ve found it easier to start at the lowest level possible and work back up from there. For example if you’re adding boundaries for a crag that has 3 cliffs each divided into 2 sectors, it is easier to get the boundaries all neat and tidy by starting with the sectors, then the cliffs.</p></li>
+
+  <li><p>That being said, it is not a problem at all if you decide to work in the other direction or if it is not possible for you to get the boundaries exactly right at the lower levels. In the example above it would be fine to add just the crag and cliff boundaries, or even just the crag boundary. Anything is better than nothing as long as it’s reasonably accurate- it will make it easier for others to add and improve.</p></li>
+
+  <li><p>Sometimes as you add boundaries you’ll notice that the existing order of the index doesn’t make sense, or needs restructuring, eg. when the numbers in the map appear to be in an illogical order. To fix this, rows in the table below the map can be ‘dragged and dropped’ into the right order. Saving is automatic, but the numbers on the map don’t update until you hit ‘refresh’. NB Sometimes there will be a good reason for leaving the index ordered in a certain way even if the numbers on the map look a bit odd (eg the index order may follow the path of an access track). It’s fine to just leave these as they are.</p></li>
+
+  <li><p>If you need to add new areas or reparent areas you’ll have to go back to List View and make the changes from there.</p></li>
+</ul>
+
+
+<div class="figure">
+  <p>Figure 2: Reordering the index</p>
+  <p><iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/XYZ?rel=0" frameborder="0" allowFullScreen></iframe></p>
+</div>
+
+%# <& templates/html/thecrag/minor/phototopo &>
