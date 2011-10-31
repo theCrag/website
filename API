@@ -18,6 +18,8 @@ table, th, td { border: 1px solid black; }
   <li>update account information.</li>
 </ul>
 
+<p>We are also developing a javascript wrapper framework for the API so you can easily integrate server data into your javascript code. See <a href="https://github.com/theCrag/thecrag-javascript">https://github.com/theCrag/thecrag-javascript</a> for the pre-release version (probably too early to start using it, but worth while knowing it is there if you are planning to write an app).</p>
+
 
 <p>This document covers the following topics:<p>
 
@@ -356,6 +358,7 @@ table, th, td { border: 1px solid black; }
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/publications?key=abc">http://dev.thecrag.com/api/area/id/11737699/publications</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/publications/direct?key=abc">http://dev.thecrag.com/api/area/id/11737699/publications/direct</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/directory?key=abc">http://dev.thecrag.com/api/area/id/11737699/directory</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/id/11737699/sponsor?key=abc">http://dev.thecrag.com/api/area/id/11737699/sponsor</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/karma?key=abc">http://dev.thecrag.com/api/area/id/11737699/karma</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/iconcrags?key=abc">http://dev.thecrag.com/api/area/id/11737699/iconcrags</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/popularareas?key=abc">http://dev.thecrag.com/api/area/id/11737699/popularareas</a></li>
