@@ -415,9 +415,10 @@ table, th, td { border: 1px solid black; }
   <li><a href="http://dev.thecrag.com/api/map/summary?key=abc">http://dev.thecrag.com/api/map/summary</a></li>
   <li><a href="http://dev.thecrag.com/api/map/summary/11740915?key=abc">http://dev.thecrag.com/api/map/summary/11740915</a></li>
   <li><a href="http://dev.thecrag.com/api/map/summary/ids?id=26194194,11740915&key=abc">http://dev.thecrag.com/api/map/summary/ids?id=26194194,11740915</a></li>
+  <li><a href="http://dev.thecrag.com/api/map/bbox?s=141.822,-36.7501,141.823,-36.7501&key=abc">http://dev.thecrag.com/api/map/bbox?s=141.822,-36.7501,141.823,-36.7501</a></li>
 </ul>
 
-<p>The first three elements in the above map lists are:</p>
+<p>The first three elements in the above map summary lists are:</p>
 <ul>
   <li>NodeID</li>
   <li>Long, without decimal place (x1000000)</li>
@@ -429,6 +430,8 @@ table, th, td { border: 1px solid black; }
   <li>Number routes not located (if not present then this is a leaf node of the heirachy, area with no children or route)</li>
   <li>Relative depth of node from query node (the order of the list means you can use this to determine the heirachy structure).</li>
 </ul>
+
+The bbox returns the node(s) that fully contain the bounded box.
 
 
 
