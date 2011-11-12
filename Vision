@@ -1,9 +1,10 @@
 1 About theCrag - 2 Our vision
 
+<div style="text-align: center; width: 100%;"><img src="/static/cids/images/vision-helmet-dirt-1.1.0.jpg" alt="" width="400" height="400" /></div>
 
 <h2>A collaborative climbing database</h2>
 
-<p>thecCag.com is a hub for gathering and sharing climbing information. Climbers and publishers can share climbing information and distribute it through multiple channels, including theCrag.com's website, third party websites, rss feeds, Facebook, pdf publications, iphone, ipad and others.</p>
+<p>thecCag.com is a hub for gathering and <strong>sharing climbing information</strong>. Climbers and publishers can share climbing information and distribute it through multiple channels, including theCrag.com's website, third party websites, rss feeds, Facebook, pdf publications, iphone, ipad and others.</p>
 
 <p>Climbers can access quality climbing information on the web for free, either directly through theCrag.com's website or through other third party portals. This will be supported by sponsorship and advertising.</p>
 
@@ -24,7 +25,7 @@
 
 <p>Content contributed directly by climbers is publicly available (under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons - Attribution Non-Commercial Share Alike</a> license) and available to publishers under agreement.</p>
 
-<p>Content contributed by third party publishers is owned by the publisher under their copyright with theCrag.com acting as data custodian according to publisher agreements.</p>
+<p>Content contributed by third party publishers is owned by the publisher under their copyright with theCrag.com acting as <strong>data custodian</strong> according to publisher agreements.</p>
 
 
 <h2>Content license and sharing</h2>
@@ -33,7 +34,7 @@
 
 <p>Content contributed by standard users is available to the general public and third parties under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons - Attribution Non-Commercial Share Alike</a> license. This allows the climbing community to use the content for non-commercial purposes, but also provides a potential source of revenue from commercial ventures so that theCrag.com can grow and continue to provide the best possible service to the climbing community.</p>
 
-<p>We are looking into ways to increase the sharing of data between databases. (See the section below regarding the API project). By distributing and sharing content to other websites and database, climbing information becomes better protected from issues around technology failures, organisation closures and dependence on individuals.</p>
+<p>We are looking into ways to <strong>increase the sharing of data</strong> between databases. (See the section below regarding the API project). By distributing and sharing content to other websites and database, climbing information becomes better protected from issues around technology failures, organisation closures and dependence on individuals.</p>
 
 
 <h2>Financially viability</h2>
