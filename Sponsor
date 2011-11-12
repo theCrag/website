@@ -5,15 +5,29 @@
 
 <p style="text-align: center;font-size: 185%;margin: 30px;">Our users love climbing and love our site.</p>
 
+<table><tr>
+<td>
 <p>We are trying to <strong>keep the site free</strong> for our users, but we do need to make some money to fund the ongoing maintenance and development of the site.</p>
 
 <p>That’s where sponsors come in.</p>
 
 <p>The table below outlines our sponsorship packages. In return for supporting this site, these packages enable you to support and communicate with a targeted group of climbers via a range of channels including our website, PDF guidebooks and (in the future) mobile applications.</p>
 
+</td>
+
+<td>
+
 <p>Anonymous and individual sponsorship/donations are also welcome.</p>
 
 <p>If you have any questions or you want to <strong>become a sponsor</strong> then please <a href="/article/contactus">contact us</a>.</p>
+
+
+<p><strong>10% of all sponsorship</strong> revenue will be donated to third party, not for profit climbing causes and organisations (eg access organisations, bolting funds, etc). Initially these organisation will be chosen by site management; in the future users will be able to nominate and vote for the causes and organisations.</p>
+
+
+</td>
+</tr>
+</table>
 
 <table class="articleTable">
   <thead>
@@ -61,9 +75,9 @@
     <tr>
       <td>Corporate sponsor</td>
       <td>
-$10 per month per Crag<br>
-$20 per month per Region<br>
-$50 per month per Country
+<p>$10 per month per Crag</p>
+<p>$20 per month per Region</p>
+<p>$50 per month per Country</p>
       </td>
       <td>
 <p>Warm fuzzy feeling for helping maintain and develop theCrag.<p>
@@ -110,4 +124,3 @@ $50 per month per Country
 </table>
 
 
-<p>10% of all sponsorship revenue will be donated to third party, not for profit climbing causes and organisations (eg access organisations, bolting funds, etc). Initially these organisation will be chosen by site management; in the future users will be able to nominate and vote for the causes and organisations.</p>
