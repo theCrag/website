@@ -1,6 +1,9 @@
 1 About theCrag - 8 Sponsoring theCrag
 
-<p>Our users love climbing and love our site.</p>
+<div style="text-align: center; width: 100%;"><img src="/static/cids/images/sponsorship-thecrag-needs-you-1.1.0.jpg" alt="" width="368" height="500" /></div>
+
+
+<p style="text-align: center;font-size: 185%;margin: 30px;">Our users love climbing and love our site.</p>
 
 <p>We are trying to keep the site free for our users, but we do need to make some money to fund the ongoing maintenance and development of the site.</p>
 
@@ -15,8 +18,8 @@
 <table>
   <thead>
     <tr>
-      <th>Sponsorship package</th>
-      <th>Minimum cost</th>
+      <th nowrap>Sponsorship package</th>
+      <th nowrap>Minimum cost</th>
       <th>What you get</th>
     </tr>
   </thead>
