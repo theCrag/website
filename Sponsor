@@ -5,7 +5,7 @@
 
 <p style="text-align: center;font-size: 185%;margin: 30px;">Our users love climbing and love our site.</p>
 
-<p>We are trying to keep the site free for our users, but we do need to make some money to fund the ongoing maintenance and development of the site.</p>
+<p>We are trying to <strong>keep the site free</strong> for our users, but we do need to make some money to fund the ongoing maintenance and development of the site.</p>
 
 <p>That’s where sponsors come in.</p>
 
@@ -13,9 +13,9 @@
 
 <p>Anonymous and individual sponsorship/donations are also welcome.</p>
 
-<p>If you have any questions or you want to <em>become a sponsor</em> then please <a href="/article/contactus">contact us</a>.</p>
+<p>If you have any questions or you want to <strong>become a sponsor</strong> then please <a href="/article/contactus">contact us</a>.</p>
 
-<table>
+<table class="articleTable">
   <thead>
     <tr>
       <th nowrap>Sponsorship package</th>
@@ -47,13 +47,13 @@
       <td>Individual sponsor</td>
       <td>$5 per month per Crag</td>
       <td>
-<p>Warm fuzzy feeling for helping maintain and develop theCrag.</p>
+<p><strong>Warm fuzzy feeling</strong> for helping maintain and develop theCrag.</p>
 
 <p>Pro-rata share of banners in all channels for the area(s) sponsored and its/their descendant areas (optional, but a great way to promote a cause).</p>
 
 <p>Supporter ‘theme’ on your account page, and profile pic (optional)</p>
 
-<p>To become an individual sponsor you must <a href="/article/contactus">contact us</a>.</p>
+<p>To become an individual sponsor please <a href="/article/contactus">contact us</a>.</p>
       </td>
     </tr>
 
