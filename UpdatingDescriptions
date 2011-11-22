@@ -272,12 +272,15 @@ Start at the R end of the base of the buttress.
 <h2>Enter text like this:</h2>
 <textarea>
 Ironically, the Garra boulders area was discovered by accident by Rob Dixon and Brian Birchall whilst returning from a day at Nettle Buttress. The year was 1975. On this day they completed 'Hope' (16) and 'Charity' (14). Development continued through the following years with one of the best being the classic easy route 'Illusion' (13).
+
+The diagonal crack which is reminiscent of 'Kryptonite Crack'[12870613] at 'Arapiles'[11740915].  The tree stump that inspired the name has been destroyed.
 </textarea>
 </div>
 <div class="output">
 <h2>And it will look like this:</h2>
 <div>
-Ironically, the Garra boulders area was discovered by accident by Rob Dixon and Brian Birchall whilst returning from a day at Nettle Buttress. The year was 1975. On this day they completed '<a href="">Hope</a>' (16) and '<a href="">Charity'</a> (14). Development continued through the following years with one of the best being the classic easy route '<a href="">Illusion'</a> (13).
+<p>Ironically, the Garra boulders area was discovered by accident by Rob Dixon and Brian Birchall whilst returning from a day at Nettle Buttress. The year was 1975. On this day they completed '<a href="">Hope</a>' (16) and '<a href="">Charity'</a> (14). Development continued through the following years with one of the best being the classic easy route '<a href="">Illusion'</a> (13).<p>
+<p>The diagonal crack which is reminiscent of '<a class="internal" href="/12870613">Kryptonite Crack</a>' at '<a class="internal" href="/11740915">Arapiles</a>'.  The tree stump that inspired the name has been destroyed.</p>
 </div>
 </div>
 
