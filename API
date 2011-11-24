@@ -434,6 +434,16 @@ table, th, td { border: 1px solid black; }
 The bbox returns the node(s) that fully contain the bounded box.
 
 
+<h3>5.10 Interface</h3>
+
+<p>The following are experimental features to support logging in using Facebook or other third party social networking sites.</p>
+<ul>
+  <li><a href="http://dev.thecrag.com/api/interface/APPLABEL/EXTERNALUSERID?key=abc">http://dev.thecrag.com/api/interface/APPLABEL/EXTERNALUSERID</a></li>
+  <li><a href="http://dev.thecrag.com/api/interface/APPLABEL/EXTERNALUSERID/login?key=abc">http://dev.thecrag.com/api/interface/APPLABEL/EXTERNALUSERID/login</a></li>
+</ul>
+
+<p>The first looks up the matching thecrag account, the second will perform a login using the external user identifier (it also requires the Facebook cookie is set).</p>
+
 
 
 <h2><a name="s6">6. Update access points</a></h2>
