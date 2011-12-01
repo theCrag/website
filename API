@@ -438,11 +438,8 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 <p>The following are experimental features to support logging in using Facebook or other third party social networking sites.</p>
 <ul>
-  <li><a href="http://dev.thecrag.com/api/interface/APPLABEL/EXTERNALUSERID?key=abc">http://dev.thecrag.com/api/interface/APPLABEL/EXTERNALUSERID</a></li>
-  <li><a href="http://dev.thecrag.com/api/interface/APPLABEL/EXTERNALUSERID/login?key=abc">http://dev.thecrag.com/api/interface/APPLABEL/EXTERNALUSERID/login</a></li>
+  <li><a href="http://dev.thecrag.com/api/interface/facebook_dev/100000409624709?key=abc">http://dev.thecrag.com/api/interface/facebook_dev/100000409624709</a></li>
 </ul>
-
-<p>The first looks up the matching thecrag account, the second will perform a login using the external user identifier (it also requires the Facebook cookie is set).</p>
 
 
 
