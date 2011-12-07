@@ -9,7 +9,12 @@
 <p>Many parts of theCrag are built using open source libraries and 3rd party services. These include:</p>
 <ul>
 	<li><a href="http://www.famfamfam.com/lab/icons/silk/">Silk</a> icon set from FamFamFam</li>
-	<li><a href="http://openlayers.org/">OpenLayers</a> javascript mapping library with <a href="http://maps.google.com/">Google Maps</a></li>
+	<li><a href="http://openlayers.org/">OpenLayers</a> javascript mapping library with <a href="http://maps.google.com/">Google Maps</a>
+	<ul>
+		<li><a href="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclustererplus/docs/reference.html">MarkerClustererPlus</a></li>
+		<li><a href="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/docs/reference.html">RichMarker</a></li>
+	</ul>
+	</li>
 	<li><a href="http://jquery.com">jQuery</a><ul>
 		<li><a href="http://vadikom.com/tools/poshy-tip-jquery-plugin-for-stylish-tooltips/">PoshyTip</a></li>
 		<li><a href="http://abeautifulsite.net/blog/2008/09/jquery-context-menu-plugin/">jQuery Context Menu</a></li>
