@@ -164,23 +164,23 @@ table, th, td { border: 1px solid black; }
   <li>oauth_signature</li>
 </ul>
 
-<p>A temporary auth_token and auth_secret will be returned if the signature is verified.</p>
+<p>A temporary oauth_token and oauth_secret will be returned if the signature is verified.</p>
 
 <pre>
   HTTP/1.1 200 OK
   Content-Type: application/x-www-form-urlencoded
 
-  oauth_token=ijk&oauth_token_secret=qrs
+  oauth_token=ijk&oauth_token_secret=qrs&oauth_callback_confirmed=true
 </pre>
 &nbsp;<br>
 
 
 <h3>4.2 User Authorization</h3>
 
-<p>After you are given temporary credentials the client application must redirect to thecrag.com’s authorization URL using the auth_token (returned by the Temporary Credentials step above) as a URL parameter. You may also supply the user login if this is already known. For example:</p>
+<p>After you are given temporary credentials the client application must redirect to thecrag.com’s authorization URL using the oauth_token (returned by the Temporary Credentials step above) as a URL parameter. You may also supply the user login if this is already known. For example:</p>
 
 <pre>
-  http://www.thecrag.com/oauth/authorize?auth_token=abc&login=XYZ
+  http://www.thecrag.com/oauth/authorize?oauth_token=abc&login=XYZ
 </pre>
 &nbsp;<br>
 
@@ -218,13 +218,13 @@ table, th, td { border: 1px solid black; }
   <li>oauth_signature</li>
 </ul>
 
-<p>A full auth_token and auth_secret will be returned if the signature is verified.</p>
+<p>A full oauth_token and oauth_secret will be returned if the signature is verified.</p>
 
 <pre>
   HTTP/1.1 200 OK
   Content-Type: application/x-www-form-urlencoded
 
-  oauth_token=tuv&oauth_token_secret=wxy
+  oauth_token=tuv&oauth_token_secret=wxy&oauth_callback_confirmed=true&account_id=1234
 </pre>
 &nbsp;<br>
 
@@ -352,6 +352,7 @@ table, th, td { border: 1px solid black; }
 <ul>
   <li><a href="http://dev.thecrag.com/api/node/id/11737699?key=abc">http://dev.thecrag.com/api/node/id/11737699</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699?show=info&show=ancestors&show=children&show=topo&show=karma&key=abc">http://dev.thecrag.com/api/area/id/11737699?show=info&show=ancestors&show=children&show=topo&show=karma</a></li>
+  <li><a href="http://dev.thecrag.com/api/area/ids?id=11743723,11743795&show=routeswithhistorysince,karma&since=1998&key=abc">http://dev.thecrag.com/api/area/ids?id=11743723,11743795&show=routeswithhistorysince,karma&since=1998&key=abc</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/children?key=abc">http://dev.thecrag.com/api/area/id/11737699/children</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/children/area?key=abc">http://dev.thecrag.com/api/area/id/11737699/children/area</a></li>
   <li><a href="http://dev.thecrag.com/api/area/id/11737699/photos?key=abc">http://dev.thecrag.com/api/area/id/11737699/photos</a></li>
