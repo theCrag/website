@@ -49,7 +49,31 @@ table, th, td { border: 1px solid black; }
 
 <p>Access to the API is broadly in-line with our <a href="/processmap/copyright">copyright</a> (Creative Commons - Attribution Non-Commercial Share Alike). Access to the API is conditionally free for non-commecial initiatives, but commercial ventures must be negotiated with us.</p>
 
-<p>By conditionally free, we mean that the application cannot create significant load on the system. </p>
+<p>By conditionally free, we mean:</p>
+
+<ol>
+
+<li>You must have an api key.</li>
+
+<li>You must use the dev api for for application testing and development purposes and get your application approved by us before being released in production.</li>
+
+<li>You must use the api calls as advised for your application. For example if an application is inefficiently using the API calls and we identify a better way of doing so then you must change the to the recommended calls. In many instances we may actually develop an API call tailored for your application. This protects thecrag from applications making hundreds of calls to get information that could be made in one call.</li>
+
+<li>All instances of your application must have a reasonable combined peak load usage. Reasonable is defined as not adversely effecting the overall performance of the server. As a guideline with a single server (our current configuration), reasonable peak load is less than 10 calls in a 10 second period but may vary depending on what API calls are made. As we scale the system we intend to be more flexible with the definition of reasonable load.</li>
+
+<li>Your application must not be commercial, which includes user pays, advertising and promotional applications. For example if there is advertising associated with the application then we would consider this commercial. Also if you are building the application as a promotional app (eg for Black Diamond or for a gym) then this would also be seen as commercial. Please ask us about whether or not we would view your application as commercial. If you want a commercial app then we are not greedy it's just a matter of negotiating fair compensation. It's only fair that thecrag.com does not bear other peoples commercial costs without being compensated (yes it does cost money for us to have an API available).</li>
+
+<li>You must not use the api to build your own content from that supplied by the api. Please discuss with us any caching or storing of content on your client side, because in some instances caching or storing of content is acceptable. Unless otherwise negotiated you should assume that storing or caching of content is not acceptable.  This ensures that the final end user gets up-to-date information and also protects thecrag from bad will usage (eg using thecrag api to build lists of climbs for your own server).</li>
+
+<li>You must adhear to all copyright restrictions of the data you are accessing though the api. For avoidance of doubt, access to information through the API does not give you any additional rights to copyright material. Information from third parties may be passed through the api, in which case they will have their own copyright tag. If data is not tagged with a copyright then you can assume it falls under <a href="/processmap/copyright">thecrag.com copyright</a>.</li>
+
+<li>There is no quality of service or continuity of service guarantee.</li>
+
+<li>The api is in early beta stage so you should only use it if you are able to deal with the frustrations of a beta product.</li>
+
+<li>In many instances we will allow in-kind commercial use of the api.</li>
+
+</ol>
 
 <p>For commecial initiatives we may implement Quality of Service guarentees and provide priority access depending on how things pan out.</p>
 
