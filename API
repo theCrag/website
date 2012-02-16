@@ -467,6 +467,17 @@ The bbox returns the node(s) that fully contain the bounded box.
 </ul>
 
 
+<h3>5.11 Messages</h3>
+
+<p>The following are examples of retrieving Crag Chat messages from the system. Please note it is also possible to retrieve personal messages.</p>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/message/list/node/11740915?key=abc">http://dev.thecrag.com/api/message/list/node/11740915</a></li>
+  <li><a href="http://dev.thecrag.com/api/message/list/subscribed/9068185?key=abc">http://dev.thecrag.com/api/message/list/subscribed/9068185</a></li>
+</ul>
+
+<p>The first retrieves messages associated with a node. The second retrieves messages from all area forum nodes subscribed to by the account.</p>
+
 
 <h2><a name="s6">6. Update access points</a></h2>
 
