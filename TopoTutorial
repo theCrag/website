@@ -1,4 +1,4 @@
-4 Contributing to theCrag - 3 Create a phototopo
+6 Contribute - 3 Create a phototopo
 
 <p>This 3 minute video shows you how to create a topo. Or follow the instructions below.</p>
 
@@ -33,7 +33,7 @@
 
 <div class="figure">
   <p>Figure 1: Getting started</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image1.jpg" /></p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image1.jpg" width="600" height="288" /></p>
 </div>
 
 &nbsp;<br>
@@ -59,7 +59,7 @@
 
 <div class="figure">
   <p>Figure 2: Selecting an image</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image2.jpg" /></p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image2.jpg" width="400" height="303" /></p>
 </div>
 
 &nbsp;<br>
@@ -77,7 +77,7 @@
 
 <div class="figure">
   <p>Figure 3: Selecting routes to include in topo</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image3.jpg" /></p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image3.jpg" width="400" height="211" /></p>
 </div>
 
 &nbsp;<br>
@@ -92,7 +92,7 @@
 
 <div class="figure">
   <p>Figure 4: Selecting the route to draw</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image4.jpg" /></p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image4.jpg" width="500" height="349" /></p>
 </div>
 
 &nbsp;<br>
@@ -104,7 +104,7 @@
 
 <div class="figure">
   <p>Figure 5: Place first point at the base of the route</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image5.jpg" /></p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image5.jpg" width="500" height="254" /></p>
 </div>
 
 &nbsp;<br>
@@ -116,7 +116,7 @@
 
 <div class="figure">
   <p>Figure 6: Adding points along the line of the route</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image6.jpg" /></p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image6.jpg" width="500" height="250" /></p>
 </div>
 
 &nbsp;<br>
@@ -146,7 +146,7 @@
 
 <div class="figure">
   <p>Figure 7: Adding features</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image7.jpg" /></p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image7.jpg" width="500" height="272" /></p>
 </div>
 
 &nbsp;<br>
@@ -167,7 +167,7 @@
 
 <div class="figure">
   <p>Figure 8: Topo in 'View Mode' (No routes selected)</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image8.jpg" /></p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image8.jpg" width="500" height="387" /></p>
 </div>
 
 &nbsp;<br>
@@ -179,7 +179,7 @@
 
 <div class="figure">
   <p>Figure 9: Topo in 'View Mode' (Route 2 selected)</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image9.jpg" /></p>
+  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image9.jpg" width="500" height="386" /></p>
 </div>
 
 &nbsp;<br>

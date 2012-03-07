@@ -1,0 +1,54 @@
+3 Get Guidebooks
+
+<p>Access the information in the format that suits you best.</a>
+
+<h2><a href="/world">List view & guide view</a></h3>
+<ul>
+  <li>For online browsing</li>
+</ul>
+
+<div class="figure" style="margin-left:50px">
+  <p><a href="/area/11895661">List View</a></p>
+  <p><a href="/area/11895661"><img src="/static/cids/images/tour-1.1.0/tour_04_listview.jpg" width="400" height="378" /></a></p>
+</div>
+
+<h2><a href="/article/pdfcragguide">PDF Crag Guide</a></h3>
+
+<ul>
+  <li>Double column format for printing and tablets</li>
+  <li>Single column for phones</li>
+  <li>Customized with recommended routes based on your previous ascents</li>
+</ul>
+
+
+<div class="figure" style="margin-left:50px">
+  <p><a href="/article/pdfcragguide">PDF Crag Guide</a></p>
+  <p><a href="/article/pdfcragguide"><img src="/static/cids/images/tour-1.1.0/tour_05_pdf.jpg" width="500" height="354" /></a></p>
+</div>
+
+
+<h2><a href="/article/kmlcragguide">KML Crag Guide</a></h3>
+
+<ul>
+  <li>For viewing in Google Earth</li>
+</ul>
+
+<div class="figure" style="margin-left:50px">
+  <p><a href="/article/kmlcragguide">KML Crag Guide</a></p>
+  <p><a href="/article/kmlcragguide"><img src="/static/cids/images/tour-1.1.0/tour_06_kml.jpg" width="500" height="345" /></a></p>
+</div>
+
+
+<h2>E-Pub Crag Guide</h3>
+
+<ul>
+  <li>(Coming soon)</li>
+</ul>
+
+
+
+<h2>Crag Guide Apps for i-phone and Android</h3>
+
+<ul>
+  <li>(Coming sooner or later)</li>
+</ul>

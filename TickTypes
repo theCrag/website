@@ -1,4 +1,4 @@
-3 Creating an account - 2 Log an ascent - Tick Types
+4 Climb - 1 Log an ascent - Tick Types
 <%perl>
 use CIDS::Application::StaticVersions;
 </%perl>

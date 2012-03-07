@@ -1,4 +1,4 @@
-3 Creating an account - 3 Add a favorite crag
+5 Connect - 2 Add a favorite crag
 
 <h2>Why add a favorite crag</h2>
 
@@ -16,14 +16,14 @@
 
 <div class="figure">
   <p>Figure 1: This crag has not been marked as a favorite.</p>
-  <p><img src="/static/cids/images/add-favorite-1.1.0/image1.jpg" /></p>
+  <p><img src="/static/cids/images/add-favorite-1.1.0/image1.jpg" width="560" height="277" /></p>
 </div>
 
 &nbsp;<br>
 
 <div class="figure">
   <p>Figure 2: Now this crag has been marked as a favorite.</p>
-  <p><img src="/static/cids/images/add-favorite-1.1.0/image2.jpg" /></p>
+  <p><img src="/static/cids/images/add-favorite-1.1.0/image2.jpg" width="558" height="276" /></p>
 </div>
 
 &nbsp;<br>
@@ -32,7 +32,7 @@
 
 <div class="figure">
   <p>Figure 3: Drop-down menu showing favorite crags.</p>
-  <p><img src="/static/cids/images/add-favorite-1.1.0/image3.jpg" /></p>
+  <p><img src="/static/cids/images/add-favorite-1.1.0/image3.jpg" width="605" height="333" /></p>
 </div>
 
 &nbsp;<br>
@@ -41,7 +41,7 @@
 
 <div class="figure">
   <p>Figure 4: Favorite crags and RSS feeds on your account page.</p>
-  <p><img src="/static/cids/images/add-favorite-1.1.0/image4.jpg" /></p>
+  <p><img src="/static/cids/images/add-favorite-1.1.0/image4.jpg" width="756" height="476" /></p>
 </div>
 
 &nbsp;<br>
