@@ -1,15 +1,62 @@
 3 Get Guidebooks
 
+<style>
+#content .tourlink {
+ font-size:140%;
+ font-weight:bold;
+ text-decoration:underline;
+}
+#content .tour p {
+ margin-top:10px;
+}
+#content .tour li {
+ margin-top:10px;
+}
+div.tour {
+ float:left;
+ width:220px;
+ height:350px;
+ border:1px solid #ccc;
+}
+</style>
+
 <p>Access the information in the format that suits you best.</a>
 
+<div class="figure tour" style="margin-left:50px">
+  <p><a href="/world" class="tourlink">List View/Guide View</a></p>
+  <p><a href="/world"><img src="/static/cids/images/tour-1.1.0/tour_04_listview.jpg" width="200" height="189" /></a></p>
+  <ul>
+    <li>For online browsing.</li>
+  </ul>
+</div>
+<div class="figure tour">
+  <p><a href="/article/pdfcragguide" class="tourlink">PDF Crag Guide</a></p>
+  <p><a href="/article/pdfcragguide"><img src="/static/cids/images/tour-1.1.0/tour_05_pdf.jpg" width="200" height="141" /></a></p>
+  <ul>
+    <li>Double column format for printing and tablets.</li>
+    <li>Single column for phones.</li>
+    <li>Customized with recommended routes based on your previous ascents.</li>
+  </ul>
+</div>
+<div class="figure tour">
+  <p><a href="/article/kmlcragguide" class="tourlink">KML Crag Guide</a></p>
+  <p><a href="/article/kmlcragguide"><img src="/static/cids/images/tour-1.1.0/tour_06_kml.jpg" width="200" height="138" /></a></p>
+  <ul>
+    <li>For viewing in Google Earth</li>
+  </ul>
+</div>
+<div style="clear:both"></div>
+<br />
+
+<!--  eventually remove
 <h2><a href="/world">List view & guide view</a></h3>
 <ul>
   <li>For online browsing</li>
 </ul>
 
 <div class="figure" style="margin-left:50px">
-  <p><a href="/area/11895661">List View</a></p>
-  <p><a href="/area/11895661"><img src="/static/cids/images/tour-1.1.0/tour_04_listview.jpg" width="400" height="378" /></a></p>
+  <p><a href="/world">List View</a></p>
+  <p><a href="/world"><img src="/static/cids/images/tour-1.1.0/tour_04_listview.jpg" width="300" height="283" /></a></p>
 </div>
 
 <h2><a href="/article/pdfcragguide">PDF Crag Guide</a></h3>
@@ -23,7 +70,7 @@
 
 <div class="figure" style="margin-left:50px">
   <p><a href="/article/pdfcragguide">PDF Crag Guide</a></p>
-  <p><a href="/article/pdfcragguide"><img src="/static/cids/images/tour-1.1.0/tour_05_pdf.jpg" width="500" height="354" /></a></p>
+  <p><a href="/article/pdfcragguide"><img src="/static/cids/images/tour-1.1.0/tour_05_pdf.jpg" width="300" height="212" /></a></p>
 </div>
 
 
@@ -35,8 +82,9 @@
 
 <div class="figure" style="margin-left:50px">
   <p><a href="/article/kmlcragguide">KML Crag Guide</a></p>
-  <p><a href="/article/kmlcragguide"><img src="/static/cids/images/tour-1.1.0/tour_06_kml.jpg" width="500" height="345" /></a></p>
+  <p><a href="/article/kmlcragguide"><img src="/static/cids/images/tour-1.1.0/tour_06_kml.jpg" width="300" height="207" /></a></p>
 </div>
+-->
 
 
 <h2>E-Pub Crag Guide</h3>
