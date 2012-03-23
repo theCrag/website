@@ -18,7 +18,8 @@
 	<li><a href="http://jquery.com">jQuery</a><ul>
 		<li><a href="http://vadikom.com/tools/poshy-tip-jquery-plugin-for-stylish-tooltips/">PoshyTip</a></li>
 		<li><a href="http://abeautifulsite.net/blog/2008/09/jquery-context-menu-plugin/">jQuery Context Menu</a></li>
-		<li><a href="ihttp://plugins.jquery.com/project/NobleCount">NobleCount</a></li>
+		<li><a href="http://plugins.jquery.com/project/NobleCount">NobleCount</a></li>
+		<li><a href="https://github.com/defunkt/jquery-pjax">pjax</a></li>
 	</ul></li>
 	<li><a href="http://www.plupload.com/">Plupload</a></li>
 	<li><a href="http://raphaeljs.com/">Raphael</a></li>
