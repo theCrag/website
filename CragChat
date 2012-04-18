@@ -1,18 +1,148 @@
 5 Connect - 1 Crag Chat
 
-<p>You can create private discussions with your friends and participate in public discussions with the climbing community.</p>
+<style>
+table.imagetext {
+ border-collapse:collapse;
+}
+table.imagetext img {
+ border:1px solid #CACACA;
+}
+table.imagetext strong {
+ background:transparent;
+}
+table.imagetext td {
+ border:1px solid #CACACA;
+ margin:0;
+ padding:10px;
+ vertical-align:top;
+}
+</style>
 
-<p>When you login all unread discussions involving you and all recent unread discussions for areas you are subscribed to are shown in your dashboard.</p>
+<p>Crag Chat discussions allow you to connect with other climbers either individually with your friends (via direct messages) or collectively with the climbing community (via forums at the crag level).</p>
 
-<p>Your message box keeps tabs of all your personal discussions and discussions in areas you are subscribed to.</p>
+<ul>
+  <li>Crag chat</li>
+  <li>Trip chat</li>
+  <li>Your dashboard</li>
+  <li>Your chats</li>
+</ul>
 
-<p>You can create and participate in public discussions in areas and routes in the index. Discussions started for a route bubble up the ancestor areas.</p>
 
-<p>Once you contribute to a public discussion it it will become available in your chat inbox and dashboard when their are new messages.</p>
+<h2>Crag chat</h2>
 
-<p>Crag Chat automatically subscribes you to area discussion forums when you log an ascent in a crag, become an editor for a crag or favorite a crag. You may also manually subscribe to area forums if you want to control the subscriptions yourself.</p>
+<table class="imagetext">
+  <tbody>
+    <tr>
+      <td>
+IMAGE TO BE PROVIDED
+      </td>
+      <td>
+<p>As you browse the index you will see a ‘Crag chat’ tab next to the other feeds.</p>
+<p>Click on the ’Crag chat’ tab to see a summary of recent comments at that area and its sub-areas.</p>
+<p>You can start a new discussion at any route, cliff, crag.</p>
+<p>New discussions ‘bubble up’ to higher levels in the index, which means you can follow and contribute to discussions at any level of the index.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-<p>You may start a discussion for a trip, which is addressed to all the members of the trip.</p>
 
-<p>You may also start a discussion with a persons ascent.</p>
+<br />
+<h2>Trip chat</h2>
 
+<table class="imagetext">
+  <tbody>
+    <tr>
+      <td>
+IMAGE TO BE PROVIDED
+      </td>
+      <td>
+<p>When you create or join a <a href="/article/trips">trip</a>, you will be able to join a discussion with other members of the trip.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<br />
+<h2>Your dashboard</h2>
+
+<table class="imagetext">
+  <tbody>
+    <tr>
+      <td>
+IMAGE TO BE PROVIDED
+      </td>
+      <td>
+<p>When you click on the ‘Your dashboard’ tab (you must have an account and be logged in), you will see a summary of any unread personal and crag discussions.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<br />
+<h2>Your chats</h2>
+
+<table class="imagetext">
+  <tbody>
+    <tr>
+      <td>
+IMAGE TO BE PROVIDED
+      </td>
+      <td>
+<p>From your dashboard, click on the ‘Chat’ tab to access all your messages and discussions.
+<p>The controls on the left hand side are explained below.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+<p><strong>Start discussion</strong></p>
+      </td>
+      <td>
+<p>Start a new discussion by either selecting from a drop-down list of linked accounts or a free text search.</p>
+<p>You can also start a new crag chat for a location by either selecting from a drop-down list of your favorite crags or a free text search.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+<p><strong>Your discussions</strong></p>
+      </td>
+      <td>
+<p>Shows all discussions you are actively participating in (you can toggle between  all discussions and unread ones).</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+<p><strong>Manual connections</strong></p>
+      </td>
+      <td>
+<p>Shows all discussions for locations which you have manually connected to.</p>
+<p>To manually connect to an area discussions page click on ‘Crag chat’ then ‘All discussions’ than on the ‘Connect me’ button at the bottom of the page.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+<p><strong>Auto connections</strong></p>
+      </td>
+      <td>
+<p>Shows all discussions for locations which you are automatically connected to.</p>
+<p>You are automatically connected to:</p>
+<ul>
+  <li><strong>Favorites</strong>- Crags that you have favorited.</li>
+  <li><strong>Editor</strong>- Crags for which you have Editor permissions.</li>
+  <li><strong>Ascents</strong>- Crags where you have logged an ascent.</li>
+</ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+<p><strong>Following crags</strong></p>
+      </td>
+      <td>
+<p>Use the checkboxes to select which connections you want to see summarised under ‘Following crags’.</p>
+<p>The crags that meet your selections are also listed individually.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
