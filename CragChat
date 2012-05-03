@@ -34,7 +34,7 @@ table.imagetext td {
   <tbody>
     <tr>
       <td>
-IMAGE TO BE PROVIDED
+<img src="/static/cids/images/chat-1.1.0/chat01.png" width="400" height="198" />
       </td>
       <td>
 <p>As you browse the index you will see a ‘Crag chat’ tab next to the other feeds.</p>
@@ -54,7 +54,7 @@ IMAGE TO BE PROVIDED
   <tbody>
     <tr>
       <td>
-IMAGE TO BE PROVIDED
+<img src="/static/cids/images/chat-1.1.0/chat02.png" width="400" height="216" />
       </td>
       <td>
 <p>When you create or join a <a href="/article/trips">trip</a>, you will be able to join a discussion with other members of the trip.</p>
@@ -71,7 +71,7 @@ IMAGE TO BE PROVIDED
   <tbody>
     <tr>
       <td>
-IMAGE TO BE PROVIDED
+<img src="/static/cids/images/chat-1.1.0/chat03.png" width="361" height="175" />
       </td>
       <td>
 <p>When you click on the ‘Your dashboard’ tab (you must have an account and be logged in), you will see a summary of any unread personal and crag discussions.</p>
@@ -88,7 +88,7 @@ IMAGE TO BE PROVIDED
   <tbody>
     <tr>
       <td>
-IMAGE TO BE PROVIDED
+<img src="/static/cids/images/chat-1.1.0/chat04.png" width="400" height="225" />
       </td>
       <td>
 <p>From your dashboard, click on the ‘Chat’ tab to access all your messages and discussions.
