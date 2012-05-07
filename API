@@ -210,10 +210,10 @@ table, th, td { border: 1px solid black; }
 
 <p>Don’t worry if the login is not known then the user will be prompted for their login. Also note that if the user is already logged into thecrag via cookie sessions then this will be used to identify the default user for authorizing access.</p>
 
-<p>The user will be prompted for an account login name and a password. If the login and password are successfully verified by thecrag.com server then the client will be redirected to the oauth_callback (supplied in the Temporary Credentials step) using with URL parameters oauth_token and oauth_verifier.</p>
+<p>The user will be prompted for an account login name and a password. If the login and password are successfully verified by thecrag.com server then the client will be redirected to the oauth_callback (supplied in the Temporary Credentials step) using with URL parameters oauth_token, oauth_verifier and accountID.</p>
 
 <pre>
-  oauth_callback_url?oauth_token=abc&oauth_verifier=efg
+  oauth_callback_url?oauth_token=abc&oauth_verifier=efg&accountID=1234
 </pre>
 &nbsp;<br>
 
