@@ -26,7 +26,7 @@ table.imagetext td {
   <tbody>
     <tr>
       <td>
-IMAGE TO BE PROVIDED
+<img src="/static/cids/images/trip-1.1.0/trips01.png" width="512" height="206" />
       </td>
       <td>
 <ol>
@@ -52,7 +52,7 @@ IMAGE TO BE PROVIDED
   <tbody>
     <tr>
       <td>
-IMAGE TO BE PROVIDED
+<img src="/static/cids/images/trip-1.1.0/trips02.png" width="512" height="512" />
       </td>
       <td>
 <ol>
@@ -78,7 +78,7 @@ IMAGE TO BE PROVIDED
   <tbody>
     <tr>
       <td>
-IMAGE TO BE PROVIDED
+<img src="/static/cids/images/trip-1.1.0/trips03.png" width="512" height="421" />
       </td>
       <td>
 <ol>
