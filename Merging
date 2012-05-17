@@ -17,25 +17,41 @@
 
 <p>Because of the complexity involved some of the merging process is undertaken by the back-end system after the merge has taken place. Currenly this is a process which runs every hour. This means it may take an hour for you to notice all the merged details coming across.</p>
 
-<p>When merging the following occurs:</p>
+<p>When merging the following occurs straight away:</p>
 
 <ul>
 <li>The merged node has it's status set to merged and removed as a child node from it's parent.</li>
 <li>All children nodes are moved to the merged node.</li>
-<li>Various statistics are recalculated.</li>
-<li>Node permits are removed.</li>
-<li>Associated publications are moved.</li>
-<li>Topos are moved.</li>
-<li>If the merged node is a route in a topo then it is removed from the topo if the target route is already in the topo.</li>
-<li>Photos are moved.</li>
-<li>Ascents are moved.</li>
 <li>Route history is moved.</li>
-<li>Node locations are not moved due to internal complexities (at some point we will address this).</li>
+<li>Node names are copied across if they do not match. The principle name becomes an alternate name in the target node.</li>
 <li>Descriptions are merged, by either copying across or concatenating with existing description.</li>
-<li>Route grades are moved and grade fields recalculated.</li>
+<li>Principle route grades are combined into a grade range.</li>
+<li>Publication and personal route grade contributions are moved.</li>
+<li>Grade summary fields recalculated.</li>
 <li>Route fields (height, pitches, bolts, top rope flag, and project flag) are merged by copying across if the target route is empty.</li>
 <li>Area fields (approach time from parking) are merged by copying across if the target area is empty.</li>
+<li>Photos are moved.</li>
+<li>Topos are moved.</li>
+<li>Routes in topos are moved so that a topo does not reference a merged route. If the target route is already in the topo then the route being merged is delete.</li>
 </ul>
+
+
+<p>And the following will be processed later:</p>
+
+<ul>
+<li>Various statistics are recalculated.</li>
+<li>Merged node is removed from general query results (such as feeds).</li>
+<li>Node permits are removed.</li>
+<li>Associated publications are moved.</li>
+<li>Ascents are moved.</li>
+<li>Node sequences are adjusted if necessary</li>
+</ul>
+
+<p>And the following will are currently not being processed:</p>
+<ul>
+<li>Node locations are not moved due to internal complexities (at some point we will address this).</li>
+</ul>
+
 
 <p>If you try and access a merged node you will get the node it is merged with.</p>
 
