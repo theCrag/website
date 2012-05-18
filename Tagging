@@ -1,6 +1,87 @@
 6 Contribute - 13 Tagging
 <%perl>
 use CIDS::Application::StaticVersions;
+my $tags = $ARGS{data}->{tags};
+#die "DEBUG:".Data::Dumper::Dumper($tags);
 </%perl>
 
+<p>Tagging is a extensible generic way of assiging commonly understood characteristics to an entity in thecrag's system. This article documents available tags for each type of entity in the system. If you want to extend this set of tags then please <a href="/article/contactus">contact us</a>.</p>
+
+<p>What makes tags so cool is that the database can be searched using tagging in various ways.</p>
+
+<p>Currently tags have been setup for the following:</p>
+<ul>
+<li>Routes</li>
+<li>Areas</li>
+</ul>
+
+<p>But will be set up for other entities as well.</p>
+
+<p>Tags are grouped into tag types, which is a collection of tag names. Mostly tags types should be input as mutually exclusive in the system, but because there are always exceptions we have not forced mutual exclusivity.</p>
+
+<p>Some tag types for routes and areas will be inherited from the nearest ancestor. For these tag types, if there is no tag assigned at the current level the system will search up the ancestor tree to find the nearest ancestor that has at least one tag assigned for that tag type. If there is a tag assigned for a particular type then the inheritance is not used. </p>
+
+<p>This means you can tag an area once to cover all routes and then tag individual routes as exceptions.</p>
+
+<p>When introducing new tags into the system they will first be flagged as 'proposed' in this document for general discussion. We will add relevant comments to the comment field. When we are happy that tag is generally acceptable we will remove the proposed status to make them live in the system.</p>
+
+<p>Tags in this document have been presented by theme.</p>
+
+
+% foreach my $themelabel ( sort {$tags->{$a}->{order}<=>$tags->{$b}->{order}} keys %{$tags} )   {
+%   my $theme = $tags->{$themelabel};
+<h2><% $theme->{name} %></h2>
+%   if ( $theme->{desc} )   {
+<p><% $theme->{desc} %></p>
+%   }
+<table>
+ <thead>
+  <tr>
+    <th>Type</th>
+    <th>Category</th>
+    <th>Inherits</th>
+    <th>Applies to</th>
+    <th>Tag</th>
+    <th>Description</th>
+    <th>Comment</th>
+  </tr>
+ </thead>
+ <tbody>
+%   foreach my $typelabel ( sort {$theme->{data}->{$a}->{order}<=>$theme->{data}->{$b}->{order}} keys %{$theme->{data}} )   {
+%     my $type = $theme->{data}->{$typelabel};
+%     my $typename = $type->{name};
+%     my $inherits = $type->{inherits} ? 'yes' : 'no';
+%     my $appliesTo = join(',',keys %{$type->{appliesTo}});
+%     foreach my $catlabel ( sort {$type->{data}->{$a}->{order}<=>$type->{data}->{$b}->{order}} keys %{$type->{data}} )   {
+%       my $cat = $type->{data}->{$catlabel};
+%       my $catname = $cat->{name};
+%       foreach my $taglabel ( sort {$cat->{data}->{$a}->{order}<=>$cat->{data}->{$b}->{order}} keys %{$cat->{data}} )   {
+%         my $tag = $cat->{data}->{$taglabel};
+%         my $tagname = $tag->{name};
+%         my $tagdesc = $tag->{desc};
+%         my $tagcomment = $tag->{comment};
+%         my $proposed = $tag->{proposed};
+  <tr>
+    <td><% $typename %></td>
+    <td><% $catname %></td>
+    <td><% $inherits %></td>
+    <td><% $appliesTo %></td>
+    <td><% $tagname %>\
+%         if ( $proposed )   {
+<br \><span>(proposed)</span>
+%         }
+</td>
+    <td><% $tagdesc |h %></td>
+    <td><% $tagcomment |h %></td>
+  </tr>
+%         $typename = '';
+%         $catname = '';
+%         $inherits = '';
+%         $appliesTo = '';
+%       }
+%     }
+%   }
+ </tbody>
+</table>
+% }
 
