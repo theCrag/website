@@ -27,61 +27,66 @@ my $tags = $ARGS{data}->{tags};
 
 <p>Tags in this document have been presented by theme.</p>
 
-
+% my $refC = 0;
+<style>
+.nobr { white-space: nowrap; }
+</style>
+<table style="width: 100%">
 % foreach my $themelabel ( sort {$tags->{$a}->{order}<=>$tags->{$b}->{order}} keys %{$tags} )   {
 %   my $theme = $tags->{$themelabel};
+<tr><td colspan="5">
 <h2><% $theme->{name} %></h2>
 %   if ( $theme->{desc} )   {
 <p><% $theme->{desc} %></p>
 %   }
-<table>
- <thead>
+</td></tr>
   <tr>
     <th>Type</th>
-    <th>Category</th>
     <th>Inherits</th>
     <th>Applies to</th>
-    <th>Tag</th>
-    <th>Description</th>
-    <th>Comment</th>
+    <th>Tags</th>
   </tr>
- </thead>
- <tbody>
 %   foreach my $typelabel ( sort {$theme->{data}->{$a}->{order}<=>$theme->{data}->{$b}->{order}} keys %{$theme->{data}} )   {
 %     my $type = $theme->{data}->{$typelabel};
 %     my $typename = $type->{name};
 %     my $inherits = $type->{inherits} ? 'yes' : 'no';
-%     my $appliesTo = join(',',keys %{$type->{appliesTo}});
+%     my $appliesTo = join(' & ',keys %{$type->{appliesTo}});
+  <tr>
+    <td class="nobr"><% $typename %></td>
+    <td><% $inherits %></td>
+    <td class="nobr"><% $appliesTo %></td>
+    <td>
 %     foreach my $catlabel ( sort {$type->{data}->{$a}->{order}<=>$type->{data}->{$b}->{order}} keys %{$type->{data}} )   {
 %       my $cat = $type->{data}->{$catlabel};
 %       my $catname = $cat->{name};
+%       if ($catname){
+    <h6><% $catname %></h6>
+% }
+%     my $tagdesc = '';
 %       foreach my $taglabel ( sort {$cat->{data}->{$a}->{order}<=>$cat->{data}->{$b}->{order}} keys %{$cat->{data}} )   {
 %         my $tag = $cat->{data}->{$taglabel};
 %         my $tagname = $tag->{name};
-%         my $tagdesc = $tag->{desc};
+%         if ($tag->{desc}){
+%           $refC++;
+%           $tagdesc .= '<br>['.$refC.'] '.$tag->{desc};
+%         }
 %         my $tagcomment = $tag->{comment};
 %         my $proposed = $tag->{proposed};
-  <tr>
-    <td><% $typename %></td>
-    <td><% $catname %></td>
-    <td><% $inherits %></td>
-    <td><% $appliesTo %></td>
-    <td><% $tagname %>\
-%         if ( $proposed )   {
-<br \><span>(proposed)</span>
-%         }
+
+<span class="tags <% $proposed ? ' proposed' : '' %>"><% $tagname %><% $tag->{desc} ? " ($refC)" : '' %></span>
+    <em><% $tagcomment |h %></em>
+
+%       }
+
+   <% $tagdesc %>
+%         $catname = '';
+%     }
 </td>
-    <td><% $tagdesc |h %></td>
-    <td><% $tagcomment |h %></td>
   </tr>
 %         $typename = '';
-%         $catname = '';
 %         $inherits = '';
 %         $appliesTo = '';
-%       }
-%     }
 %   }
- </tbody>
-</table>
 % }
+</table>
 
