@@ -72,7 +72,9 @@ my $tags = $ARGS{data}->{tags};
 %         }
 %         my $tagcomment = $tag->{comment};
 %         my $proposed = $tag->{proposed};
-
+% my $file = $tagname;
+% $file =~ s/ /-/g;
+<img src="<% static 'cids/images/tag-icons_'.(lc $file ).'.png' %>" width="36" height="36" />
 <span class="tags <% $proposed ? ' proposed' : '' %>"><% $tagname %><% $tag->{desc} ? " ($refC)" : '' %></span>
     <em><% $tagcomment |h %></em>
 
