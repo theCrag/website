@@ -5,27 +5,16 @@ my $tags = $ARGS{data}->{tags};
 #die "DEBUG:".Data::Dumper::Dumper($tags);
 </%perl>
 
-<p>Tagging is a extensible generic way of assiging commonly understood characteristics to an entity in thecrag's system. This article documents available tags for each type of entity in the system. If you want to extend this set of tags then please <a href="/article/contactus">contact us</a>.</p>
+<p>Crag Tags make it easy to add structured information to routes and areas in the index. Crag Tags are cool because they display information in a concise way and can also be used for searching.</p>
 
-<p>What makes tags so cool is that the database can be searched using tagging in various ways.</p>
+<p>The table below shows both <span class="tags">current</span> and <span class="tags proposed">proposed</span> tags. If you have any comments or suggestions for new tags then please <a href="/article/contactus">contact us</a>.</p>
 
-<p>Currently tags have been setup for the following:</p>
+<p>A couple of things to note re. Crag Tags:</p>
+
 <ul>
-<li>Routes</li>
-<li>Areas</li>
+  <li>Tags are grouped into sets. One or more tags from within each set can be selected, as appropriate to the route or area.</li>
+  <li>Tag sets with a ‘Yes’ in the ‘Inherits’ column will automatically percolate down through the index to all lower areas and routes where no tag has been selected. This means that in a predominantly slabby crag you don’t have to tag each route individually. Instead you can set the style as <span class="tags">Slab</span> at the crag level and then just tidy up any exceptions at the individual route level (eg if there are a few <span class="tags">Crack</span> or <span class="tags">Chimney</span> routes).</li>
 </ul>
-
-<p>But will be set up for other entities as well.</p>
-
-<p>Tags are grouped into tag types, which is a collection of tag names. Mostly tags types should be input as mutually exclusive in the system, but because there are always exceptions we have not forced mutual exclusivity.</p>
-
-<p>Some tag types for routes and areas will be inherited from the nearest ancestor. For these tag types, if there is no tag assigned at the current level the system will search up the ancestor tree to find the nearest ancestor that has at least one tag assigned for that tag type. If there is a tag assigned for a particular type then the inheritance is not used. </p>
-
-<p>This means you can tag an area once to cover all routes and then tag individual routes as exceptions.</p>
-
-<p>When introducing new tags into the system they will first be flagged as 'proposed' in this document for general discussion. We will add relevant comments to the comment field. When we are happy that tag is generally acceptable we will remove the proposed status to make them live in the system.</p>
-
-<p>Tags in this document have been presented by theme.</p>
 
 % my $refC = 0;
 <style>
@@ -41,7 +30,7 @@ my $tags = $ARGS{data}->{tags};
 %   }
 </td></tr>
   <tr>
-    <th>Type</th>
+    <th>Set</th>
     <th>Inherits</th>
     <th>Applies to</th>
     <th>Tags</th>
