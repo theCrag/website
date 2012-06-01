@@ -1,17 +1,27 @@
-4 Climb - 1 Log an ascent
+4 Climb - 1 Logging ascents
 
 <p>There are a few reasons why you might want to log your ascents:</p>
 
 <ul>
- <li>Keep a record of the routes you've done and want to do.</li>
- <li>Allow friends to keep up with what you've been climbing (via RSS and <a href="/article/FacebookPublishing">Facebook publishing</a></li>
- <li>Help the <a href="/article/CragGuru">Crag Guru</a> learn about your climbing ability and style so it can recommend more routes for you to try</li>
- <li>Contribute to community-generated information and statistics like popularity, quality, seasonality, style and keywords.</li>
+ <li>Keep a record of the routes you've done.</li>
+ <li>Allow friends to follow your what you have done.</li>
+ <li>Help us recommend routes for you.</li>
+ <li>Used in crowd sourced guidebooks.</li>
 </ul>
 
 <p>Here's how you do it.</p>
+<ul>
+ <li><a href="#singleascent">Adding a tick</a></li>
+ <li><a href="#multipleshots">Multiple route shots</a></li>
+ <li><a href="#multipleticks">Adding multiple ticks</a></li>
+ <li><a href="#pitchinfo">Adding pitch info</a></li>
+ <li><a href="#firstpitch">Log first pitch only</a></li>
+ <li><a href="#linkup">Log a linkup</a></li>
+</ul>
 
-<h2>Adding a tick</h2>
+<h2><a name="singleascent">Adding a tick</a></h2>
+
+<p>HOW TO VIDEO TO BE UPDATED</p>
 
 <iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/G2E5vgpS1d4?rel=0" frameborder="0" allowFullScreen></iframe>
 
@@ -24,16 +34,76 @@
 </ol>
 
 
-<h2>Adding multiple ticks</h2>
+<h2><a name="multipleshots">Multiple shots of the same route</a></h2>
+
+<p>HOW TO VIDEO TO BE COMPLETED</p>
+
+<p>From the route page:</p>
+<ol>
+ <li>Click 'Log an ascent'</li>
+ <li>Complete the details of your ascent</li>
+ <li>For multiple shots click the 'Add shot' button.</li>
+ <li>Click 'Save'</li>
+ <li>(note that each shot will be saved as a separate ascent.)</li>
+</ol>
+
+
+<h2><a name="multipleticks">Adding multiple ticks</a></h2>
+
+<p>HOW TO VIDEO TO BE UPDATED</p>
 
 <iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/_CW968PAHA8?rel=0" frameborder="0" allowFullScreen></iframe>
 
 <p>If you've done several routes on the one wall you can:</p>
 
 <ol>
-  <li>Check the boxes of the routes you've climbed</li>
-  <li>Click 'Log ascent'</li>
+  <li>Check the boxes of the routes you've climbed by clicking on the route row.</li>
+  <li>Click the tick icon next to the route.</li>
   <li>Complete the details of your ascents</li>
   <li>Click 'Save'</li>
 </ol>
 
+
+<h2><a name="pitchinfo">Adding pitch info</a></h2>
+
+<p>HOW TO VIDEO TO BE COMPLETED</p>
+
+<p>From the route page:</p>
+<ol>
+ <li>Click 'Log an ascent'</li>
+ <li>Complete the standard details of your ascent</li>
+ <li>Click the 'log pitch fields' checkbox to make pitch fields appear.</li>
+ <li>Complete the pitch fields and add or delete pitches as required.</li>
+ <li>Click 'Save'</li>
+</ol>
+
+
+<h2><a name="firstpitch">Log first pitch only</a></h2>
+
+<p>HOW TO VIDEO TO BE COMPLETED</p>
+
+<p>From the route page:</p>
+<ol>
+ <li>Click 'Log an ascent'</li>
+ <li>Click the 'log pitch fields' checkbox to make pitch fields appear.</li>
+ <li>Delete all but the fist pitch of the route (or set all but the first pitch numbers to blank).</li>
+ <li>The form should automatically update the ascent name by adding a 'P1' to the end of the name (eg 'Bard P1').</li>
+ <li>Click 'Save'</li>
+ <li>(note that you can manually edit the ascent name after the ascent has been created)</li>
+</ol>
+
+<p>Note this method works for doing any single pitch of a route, not just the first pitch.</p>
+
+
+<h2><a name="linkup">Log a linkup</a></h2>
+
+<p>HOW TO VIDEO TO BE COMPLETED</p>
+
+<p>From the route page:</p>
+<ol>
+ <li>Click 'Log an ascent'</li>
+ <li>Click the 'log pitch fields' checkbox to make pitch fields appear.</li>
+ <li>Type in the linkup climb name in the pitch linkup field.</li>
+ <li>The form should automatically update the ascent name by adding a 'Linkup xyz' to the end of the name (eg 'Bard Linkup Eurydice').</li>
+ <li>Click 'Save'</li>
+</ol>
