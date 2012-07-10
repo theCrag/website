@@ -467,16 +467,57 @@ The bbox returns the node(s) that fully contain the bounded box.
 </ul>
 
 
-<h3>5.11 Messages</h3>
 
-<p>The following are examples of retrieving Crag Chat messages from the system. Please note it is also possible to retrieve personal messages.</p>
+<h3>5.11 Discussions</h3>
+
+<p>Crag Chat discussions may be private between members or public associated with an area or route or just a general discussion. A discussion may also be linked to an ascent or a trip.</p>
+
+<p>To access a discussion you need to know the id of the root message. Accessing a discussion is done:</p> 
 
 <ul>
-  <li><a href="http://dev.thecrag.com/api/message/list/node/11740915?key=abc">http://dev.thecrag.com/api/message/list/node/11740915</a></li>
-  <li><a href="http://dev.thecrag.com/api/message/list/subscribed/9068185?key=abc">http://dev.thecrag.com/api/message/list/subscribed/9068185</a></li>
+  <li><a href="http://dev.thecrag.com/api/discussion/191714736?key=abc">http://dev.thecrag.com/api/discussion/191714736</a></li>
+  <li><a href="http://dev.thecrag.com/api/discussion/191714736?page=2&key=abc">http://dev.thecrag.com/api/discussion/191714736?page=2</a></li>
+  <li><a href="http://dev.thecrag.com/api/discussion/191714736/last?key=abc">http://dev.thecrag.com/api/discussion/191714736/last</a></li>
 </ul>
 
-<p>The first retrieves messages associated with a node. The second retrieves messages from all area forum nodes subscribed to by the account.</p>
+A discussion can have one or more messages associated with it. If there are more then 50 messages then the discussion is paginated (use the 'page' parameter as above). To find out if another message has been added to the discussion then use the 'last' api end point. If you use the 'last' end point please use some sort of algorithm which progressively polls at larger and larger intervals, otherwise the system will be become clogged up with polling that is essentially returning the same thing.</p>
+
+<p>Note that the 'page' parameter does not work in the example above, it is there for syntatic purposes. At some point the example will be swapped over to something that works.</p>
+
+
+<h4>Private discussions</h4>
+
+<p>In order to access private discussions you must authenticate using OAuth and be one of the accounts associated with the discussion.</p>
+
+<p>Further API work required to get the list of private discussions.</p>
+
+
+<h4>Area/route discussions</h4>
+
+<p>Area/route discussions are special type of forum where the discussions are rolled up into their ancestor nodes. This means a discussion on a route will also appear in the cliff, crag and country discussions.</p>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/forum/node/11740915?key=abc">http://dev.thecrag.com/api/forum/node/11740915</a></li>
+  <li><a href="http://dev.thecrag.com/api/forum/node/11740915?page=2&key=abc">http://dev.thecrag.com/api/forum/node/11740915?page=2</a></li>
+  <li><a href="http://dev.thecrag.com/api/forum/node/11740915?unreadOnly=1&key=abc">http://dev.thecrag.com/api/forum/node/11740915?unreadOnly=1</a></li>
+</ul>
+
+<p>The unreadOnly parameter requires OAuth to have identify the account.</p> 
+
+
+<h4>Generic discussions</h4>
+
+<p>API work to be completed</p>
+
+
+<h4>Trip discussions</h4>
+
+<p>API work to be completed</p>
+
+
+<h4>Ascent discussions</h4>
+
+<p>API work to be completed</p>
 
 
 <h2><a name="s6">6. Update access points</a></h2>
@@ -1487,6 +1528,150 @@ The bbox returns the node(s) that fully contain the bounded box.
      "submittor": 5678,
      "tick": "onsight",
      "quality": "classic",
+   }
+ }
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+
+<h3>6.8 Send message</h3>
+
+<p><strong>Access points</strong>:</p>
+<pre>
+  http://www.thecrag.com/api/message/send
+  http://www.thecrag.com/api/message/send/validate
+</pre>
+&nbsp;<br>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>fromAccount</strong>: accountID - mandatory.</li>
+  <li><strong>content</strong>: abc - optional, max 5096, either 'subject' or 'content' mandatory.</li>
+  <li><strong>subject</strong>: abc - optional.</li>
+  <li><strong>toAccount</strong>: [accountID] - optional, either 'toAccount', 'toGroup' or 'createGroup' mandatory. You cannot send to both an account and group.</li>
+  <li><strong>toGroups</strong>: [groupID] - optional - groupID is synonym for forumID.</li>
+  <li><strong>createGroup</strong>: {name:xyz, type:'Area Forum', prn:nodeID} - optional, if an area forum does not exist for a node then one can be created on-the-fly.</li>
+  <li><strong>node</strong>: node - optional, this should be used when posting to an area forum as an additional field. It determines the 'rollup'.</li>
+  <li><strong>ascent</strong>: ascentID - optional.</li>
+  <li><strong>trip</strong>: tripID - optional - note you can post to a node, trip or and ascent, but not more than one of these.</li>
+  <li><strong>responseTo</strong>: root message of a discussion thread - optional, if you are starting a new discussion then you omit this, otherwise you must use the root message id for discussion responses.</li>
+</ul>
+
+<p>The create group type variable may be one of:</p>
+<ul>
+  <li>Area Forum</li>
+  <li>Global Forum</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<table>
+  <tr>
+    <th>POST</th><th>Response</th>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/message/send HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "fromAccount": 9068185,
+     "content": "some test message",
+     "toAccounts": [9068185],
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "messageID=>1234,
+     "subject" => undef,
+     "surrogate" => "some test message",
+     "markupHTML" => "&lt;p&gt;some test message&lt;/p&gt;",
+   },
+   "data": {
+     "fromAccount": 9068185,
+     "content": "some test message",
+     "toAccounts": [9068185],
+   }
+ }
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/ascent/create HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "fromAccount": 9068185,
+     "subject": "test subject",
+     "content": "test message",
+     "toGroups": [172682874],
+     "node": 11740915,
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "messageID=>1234,
+     "subject" => "test subject",
+     "surrogate" => "test subject",
+     "markupHTML" => "&lt;p&gt;test message&lt;/p&gt;",
+   },
+   "data": {
+     "fromAccount": 9068185,
+     "subject": "test subject",
+     "content": "test message",
+     "toGroups": [172682874],
+     "node": 11740915,
+   }
+ }
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/ascent/create HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "fromAccount": 9068185,
+     "content": "test response",
+     "responseTo": 176966451,
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok": {
+     "messageID=>1234,
+     "subject" => undef,
+     "surrogate" => "test response",
+     "markupHTML" => "&lt;p&gt;test response&lt;/p&gt;",
+   },
+   "data": {
+     "fromAccount": 9068185,
+     "content": "test response",
+     "responseTo": 176966451,
    }
  }
 </pre>
