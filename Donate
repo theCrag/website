@@ -1,0 +1,102 @@
+1 About theCrag - 4 Donate
+<%perl>
+my $campaign = $ARGS{data}->{campaign};
+my $percentTarget = int(100*$campaign->{achieved}/$campaign->{target}+0.5);
+</%perl>
+
+<style>
+table.funds {
+ border:1px solid #aaa;
+ border-collapse:collapse;
+ margin-bottom:15px;
+}
+table.funds td, table.funds th {
+ border:1px solid #aaa;
+}
+#thermometer {
+ background:url(/static/cids/images/thermometer-1.1.0.gif)
+}
+%# #rojo, #thermometer {
+%#  display:none;
+%# }
+</style>
+
+<div style="float:right;">
+  <table class="funds">
+    <body>
+      <tr>
+        <th>2012 est. server costs</th>
+        <td>$3600</td>
+      </tr>
+      <tr>
+        <th>Projected sponsorship</th>
+        <td>20% of costs</td>
+      </tr>
+      <tr>
+        <th>Donation target</th>
+        <td><% $campaign->{target} %> active donations</td>
+      </tr>
+      <tr>
+        <th>Current donations</th>
+        <td><% $percentTarget %>% of target</td>
+      </tr>
+    </body>
+  </table>
+  <div style="margin-left:50px">
+    <div id="thermometer" style="width:94px;height:323px;">
+      <div id="rojo" style="background-color:red;width:25px;position:relative;left:16px;"></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){
+ var mercury = <% $percentTarget %>;
+ $("#rojo").css("height",mercury*250/100+"px").css("top",(268.47-(mercury*2.47))+"px");
+ if ( mercury>=100 )   {
+   $("#rojo").css("display","none");
+   $("#thermometer").css("background-image","url(/static/cids/images/fullthermometer-1.1.0.gif)");
+ }
+});
+</script>
+
+<p><b>Dear fellow climbers</b>,</p>
+
+
+<p>Since founding this site in the late 1990s we have put quite a bit of time, money and effort into developing theCrag.</p>
+
+
+<p>In order to maintain and develop theCrag we have set the following revenue goals</p>
+
+
+<ul>
+  <li><b>Short term</b>- Cover current server costs.</li>
+  <li><b>Medium term</b>- Cover growing server costs as the site gets heavier use.</li>
+  <li><b>Long term</b>- Cover wages for ongoing development.</li>
+</ul>
+
+
+<p>Advertising and corporate sponsorship currently go only a little way towards covering our server costs.</p>
+
+
+<p>If a small proportion of active users of theCrag donated about $5 a month (less than the price of a couple of cups of coffee), we would meet out short and medium term revenue goals.</p>
+
+
+<p>We hope you will consider making a donation to support theCrag.</p>
+
+
+<p>Thank you</p>
+
+
+<p>Simon Dale, Campbell Gome and Brendan Heywood</p>
+
+<p>
+  <span class="climber"><a class="sponsor avatar" href="/climber/scd" title="Simon Dale"><img src="http://www.thecrag.com/avatar/9068185" width="50" height="50" /></a></span>
+  <span class="climber"><a class="sponsor avatar" href="/climber/cgome" title="Campbell Gome"><img src="http://www.thecrag.com/avatar/11183449" width="50" height="50" /></a></span>
+  <span class="climber"><a class="sponsor avatar" href="/climber/brendan_heywood" title="Brendan Heywood"><img src="http://www.thecrag.com/avatar/7727431" width="50" height="50" /></a></span>
+</p>
+
+
+
+<p>Founders and Developers</p>
+
+<img src="http://static.thecrag.com/cids/images/logo-159x50-1.1.0.png" width="159" height="50" alt="www.thecrag.com">
