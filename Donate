@@ -2,6 +2,7 @@
 <%perl>
 my $campaign = $ARGS{data}->{campaign};
 my $percentTarget = int(100*$campaign->{achieved}/$campaign->{target}+0.5);
+$percentTarget = 100 if $percentTarget>100;
 </%perl>
 
 <style>
@@ -16,9 +17,6 @@ table.funds td, table.funds th {
 #thermometer {
  background:url(/static/cids/images/thermometer-1.1.0.gif)
 }
-%# #rojo, #thermometer {
-%#  display:none;
-%# }
 </style>
 
 <div style="float:right;">
@@ -45,16 +43,21 @@ table.funds td, table.funds th {
   <div style="margin-left:50px">
     <div id="thermometer" style="width:94px;height:323px;">
       <div id="rojo" style="background-color:red;width:25px;position:relative;left:16px;"></div>
+      <div id="targettext" style="width:45px;position:relative;left:16px;font-weight:bold;font-size:130%;"></div>
     </div>
   </div>
 </div>
 <script type="text/javascript">
 $(function(){
  var mercury = <% $percentTarget %>;
- $("#rojo").css("height",mercury*250/100+"px").css("top",(268.47-(mercury*2.47))+"px");
+ var off = 268.47-(mercury*2.47);
+ var h = mercury*250/100;
+ $("#rojo").css("height",h+"px").css("top",off+"px");
+ $("#targettext").css("top",(285-h)+"px").html(mercury+"%");
  if ( mercury>=100 )   {
    $("#rojo").css("display","none");
    $("#thermometer").css("background-image","url(/static/cids/images/fullthermometer-1.1.0.gif)");
+   $("#targettext").css("top","285px");
  }
 });
 </script>
