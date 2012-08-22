@@ -490,6 +490,28 @@ A discussion can have one or more messages associated with it. If there are more
 <p>In order to access private discussions you must authenticate using OAuth and be one of the accounts associated with the discussion.</p>
 
 <p>Further API work required to get the list of private discussions.</p>
+<ul>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/discussions/involved?key=abc">http://dev.thecrag.com/api/climber/id/9068185/discussions/involved</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/discussions/subscribed?key=abc">http://dev.thecrag.com/api/climber/id/9068185/discussions/subscribed</a></li>
+</ul>
+
+<p>You may provide the following URL arguments:</p>
+<ul>
+  <li><strong>unreadOnly</strong>: if set to 1 will return only unread messages.</li>
+  <li><strong>page</strong>: set the page number for traversing multiple pages of discussions (default 1).</li>
+  <li><strong>perPage</strong>: set the number of discussions per page (default 10).</li>
+</ul>
+
+<p>In addition the subscribed discussions has the following URL arguments:</p>
+<ul>
+  <li><strong>recentDays</strong>: sets the number of days from now to base the start date of the query (default 14).</li>
+</ul>
+
+<p>The subscribed discussions cover all general and area forums you are subscribed to. People are automatically subscribed to area forums when they log an ascent to the crag, mark a favorite crag or become an editor to a crag. They can control their configuration through their 'chat' tab in their thecrag web account. People can also manually subscribe to general forums and area forums.</p>
+
+<p>TODO: manage subscriptions through API.</p>
+
+<p>Please note that if somebody starts a discussion at a route level it will filter down to the crag area discussion.<p>
 
 
 <h4>Area/route discussions</h4>
@@ -518,6 +540,49 @@ A discussion can have one or more messages associated with it. If there are more
 <h4>Ascent discussions</h4>
 
 <p>API work to be completed</p>
+
+
+
+<h3>5.12 Markup</h3>
+
+<p>You may POST a thecrag flavoured markdown string to an endpoint to have it marked up including internal links. The POST end point is:</p>
+<pre>
+ POST http://www.thecrag.com/api/markup HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+     "type": "html",    # html/text
+     "markdown": "Test *bold* and internal link to 'Grotto Wall' in 'Arapiles'.",
+     "node": 11740915,
+     "token": ["tlc"],  # list of zero or more of 'tlc', 'acronym', or 'parentAcronym'.
+   }
+ }
+</pre>
+
+<p>The node and token data variables tell the system the context for looking for internal links.</p>
+
+
+
+<h3>5.13 Index Structure</h3>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/index/summary/world?key=abc">http://dev.thecrag.com/api/index/summary/world</a></li>
+  <li><a href="http://dev.thecrag.com/api/index/summary/11740915?key=abc">http://dev.thecrag.com/api/index/summary/11740915</a></li>
+</ul>
+
+<p>The world query returns the index structure from world node to top level crags. The id structure returns the index structure from tlc and lower. The returned structure excludes the queried node.<p>
+
+<p>The returned JSON is an ordered array of nodes optimised for minimising down the wire data bandwidth. The information returned for each node is:</p>
+
+<ul>
+  <li>node ID</li>
+  <li>node name</li>
+  <li>node type: a - area, r - route, m - merged, w - world, n - annotation (you should only see 'a', 'r' and 'n').</li>
+  <li>area type: optional, Fi - Field, U - unknown, Fe - Feature, B - Boulder, S - Sector, Cl - Cliff, Cr - Crag, R - Region, A - Area.</li>
+  <li>parent ID: optional, if it is not there then it is the same as the previous node in the list.</li>
+</ul>
+
 
 
 <h2><a name="s6">6. Update access points</a></h2>
@@ -1609,7 +1674,7 @@ A discussion can have one or more messages associated with it. If there are more
   <tr>
     <td>
 <pre>
- POST http://www.thecrag.com/api/ascent/create HTTP/1.1
+ POST http://www.thecrag.com/api/message/create HTTP/1.1
   === header stuff === 
 
  {
@@ -1647,7 +1712,7 @@ A discussion can have one or more messages associated with it. If there are more
   <tr>
     <td>
 <pre>
- POST http://www.thecrag.com/api/ascent/create HTTP/1.1
+ POST http://www.thecrag.com/api/message/create HTTP/1.1
   === header stuff === 
 
  {
