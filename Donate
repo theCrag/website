@@ -20,7 +20,7 @@ table.funds td, table.funds th {
 }
 </style>
 
-<div style="float:right;">
+<div style="float:right;width:250px">
   <table class="funds">
     <body>
       <tr>
@@ -36,7 +36,7 @@ table.funds td, table.funds th {
         <td>$<% CIDS::Application::WebHelpers::commify(int($campaign->{achieved})) %> (<% $percentTarget %>%)</td>
       </tr>
       <tr>
-        <td colspan="2">* updated monthly</td>
+        <td colspan="2" style="font-size:0.8em;">* Updated monthly. This figure includes all revenue from sponsors, donors and other sources.</td>
       </tr>
     </body>
   </table>
