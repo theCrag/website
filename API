@@ -29,7 +29,8 @@ table, th, td { border: 1px solid black; }
   <li><a href="#s3">Application key</a></li>
   <li><a href="#s4">Protected resources</a></li>
   <li><a href="#s5">Read access points</a></li>
-  <li><a href="#s6">Update access points</a></li>
+  <li><a href="#s6">Optimising down the wire</a></li>
+  <li><a href="#s7">Update access points</a></li>
 </ol>
 
 
@@ -274,6 +275,7 @@ table, th, td { border: 1px solid black; }
   <li>oauth_signature</li>
 </ul>
 
+<p><strong>Note</strong> that generating the signature uses the uri of the protected resource. This must be the 'http://www.thecrag.com/api/some/endpoint' (or https) without any url parameters.</p>
 
 
 
@@ -312,7 +314,6 @@ table, th, td { border: 1px solid black; }
   http://www.thecrag.com/api/area/id/1234/beta?markupType=html
 </pre>
 &nbsp;<br>
-
 
 <p>The following sections outline some examples of api read calls.</p>
 
@@ -585,7 +586,283 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h2><a name="s6">6. Update access points</a></h2>
+<h3>5.14 Facet Search</h3>
+
+<p>Facet search provides an interface into searching thecrag data using a url query language. You are able to search the following entities using facet search:</p>
+
+<ul>
+  <li>routes</li>
+  <li>ascents</li>
+  <li>favorites</li>
+  <li>photos</li>
+  <li>activity</li>
+  <li>climbers</li>
+  <li>areas</li>
+</ul>
+
+<p>The API facet search has the following generic endpoint structure:</p>
+
+<pre>
+  /api/facet/{entity}/url/query/language  # where entity is as listed above.
+</pre>
+&nbsp;<br>
+
+<p>The url query language is a series of uri argument pairs for directive and value, for example at/1234 specifies entities at node id 1234. You may also specify multiple values using the '+' character, for example at/1234+5678.</p>
+
+<p>Results are paginated with page size settable in the url parameters, defaulting to 100 with a maximum of 5000.</p>
+
+<p>The following specific URL parameters may be set:</p>
+
+<ul>
+  <li>page</li>
+  <li>perPage</li>
+  <li>sortby</li>
+</ul>
+
+<p>The sortby parameter is a comma separated list of pairs (field,asc/desc), for example 'at,desc'.</p>
+
+<p>Before you start using these please be aware that some faceted searches may be very resource intensive. Please discuss with site management the queries you intend to use, otherwise we may have to disable your key.</p>
+
+<h4>Routes</h4>
+
+<p>The url query string may contain the following search directives:</p>
+<ul>
+  <li>created-by</li>
+  <li>by</li>
+  <li>created-by-friends-of</li>
+  <li>by-friends-of</li>
+  <li>at-followed-by</li>
+  <li>at</li>
+  <li>after</li>
+  <li>before</li>
+  <li>between</li>
+  <li>created-after</li>
+  <li>created-before</li>
+  <li>created-between</li>
+  <li>with-stars</li>
+  <li>with-grade</li>
+  <li>with-gear-style</li>
+  <li>is</li>
+  <li>missing</li>
+  <li>has-been</li>
+  <li>length-shorter</li>
+  <li>length-longer</li>
+  <li>length-between</li>
+  <li>search</li>
+</ul>
+
+<p>The following sort by:</p>
+<ul>
+  <li>when</li>
+  <li>when-fa</li>
+  <li>at</li>
+  <li>stars</li>
+  <li>length</li>
+  <li>grade</li>
+  <li>gear-style</li>
+</ul>
+
+<p>For example:</p>
+<ul>
+  <li><a href="http://dev.thecrag.com/api/facet/routes/at/11741371/with-grade/AU:21:39/?key=abc&sortby=stars,desc">http://dev.thecrag.com/api/facet/routes/at/11741371/with-grade/AU:21:39/?sortby=stars,desc</a></li>
+</ul>
+
+
+<h4>Ascents</h4>
+
+<p>The url query string may contain the following search directives:</p>
+<ul>
+  <li>by</li>
+  <li>on</li>
+  <li>at</li>
+  <li>by-friends-of</li>
+  <li>at-followed-by</li>
+  <li>after</li>
+  <li>before</li>
+  <li>between</li>
+  <li>logged-after</li>
+  <li>logged-before</li>
+  <li>logged-between</li>
+  <li>with-tick-group</li>
+  <li>with-quality</li>
+  <li>with-route-grade</li>
+  <li>with-route-gear-style</li>
+  <li>with-route-stars</li>
+  <li>route-is</li>
+  <li>route-length-shorter</li>
+  <li>route-length-longer</li>
+  <li>route-length-between</li>
+  <li>search</li>
+  <li>search-comment</li>
+</ul>
+
+<p>The following sort by:</p>
+<ul>
+  <li>when</li>
+  <li>when-climbed</li>
+  <li>by</li>
+  <li>at</li>
+  <li>tick-type</li>
+  <li>route-stars</li>
+  <li>route-length</li>
+  <li>route-grade</li>
+  <li>route-gear-style</li>
+</ul>
+
+<p>For example:</p>
+<ul>
+  <li><a href="http://dev.thecrag.com/api/facet/ascents/at/11740915/by/9068185/?key=abc&sortby=route-grade,desc">http://dev.thecrag.com/api/facet/ascents/at/11740915/by/9068185/?sortby=route-grade,desc</a></li>
+</ul>
+
+
+<h4>Favorites</h4>
+
+<p>The url query string may contain the following search directives:</p>
+<ul>
+  <li>by</li>
+  <li>at</li>
+  <li>by-friends-of</li>
+  <li>after</li>
+  <li>before</li>
+  <li>between</li>
+  <li>search</li>
+</ul>
+
+<p>The following sort by:</p>
+<ul>
+  <li>when</li>
+  <li>by</li>
+  <li>at</li>
+</ul>
+
+<p>For example:</p>
+<ul>
+  <li><a href="http://dev.thecrag.com/api/facet/favorites/at/11740915+11741371/?key=abc">http://dev.thecrag.com/api/facet/favorites/at/11740915+11741371/</a></li>
+</ul>
+
+
+<h4>Photos</h4>
+
+<p>The url query string may contain the following search directives:</p>
+<ul>
+  <li>uploaded-by</li>
+  <li>taken-by</li>
+  <li>of</li>
+  <li>uploaded-by-friends-of</li>
+  <li>taken-by-friends-of</li>
+  <li>of-friends-of</li>
+  <li>at-followed-by</li>
+  <li>on</li>
+  <li>at</li>
+  <li>after</li>
+  <li>before</li>
+  <li>between</li>
+  <li>uploaded-after</li>
+  <li>uploaded-before</li>
+  <li>uploaded-between</li>
+  <li>with-route-grade</li>
+  <li>with-route-gear-style</li>
+  <li>with-route-stars</li>
+  <li>route-is</li>
+  <li>route-length-shorter</li>
+  <li>route-length-longer</li>
+  <li>route-length-between</li>
+  <li>search</li>
+</ul>
+
+<p>The following sort by:</p>
+<ul>
+  <li>when</li>
+  <li>when-taken</li>
+  <li>uploaded-by</li>
+  <li>taken-by</li>
+  <li>uploaded-of</li>
+  <li>at</li>
+  <li>route-stars</li>
+  <li>route-length</li>
+  <li>route-grade</li>
+  <li>route-gear-style</li>
+</ul>
+
+<p>For example:</p>
+<ul>
+  <li><a href="http://dev.thecrag.com/api/facet/photos/at/11740915/with-route-stars/3/?key=abc">http://dev.thecrag.com/api/facet/photos/at/11740915/with-route-stars/3/</a></li>
+</ul>
+
+
+<h4>Activity</h4>
+
+<p>The url query string may contain the following search directives:</p>
+<ul>
+  <li>by</li>
+  <li>at</li>
+  <li>by-friends-of</li>
+  <li>after</li>
+  <li>before</li>
+  <li>between</li>
+  <li>with-time</li>
+  <li>with-route-grade</li>
+  <li>is</li>
+  <li>for</li>
+  <li>with-route-gear-style</li>
+  <li>with-route-stars</li>
+  <li>route-is</li>
+  <li>route-length-shorter</li>
+  <li>route-length-longer</li>
+  <li>route-length-between</li>
+  <li>search</li>
+</ul>
+
+<p>The following sort by:</p>
+<ul>
+  <li>by</li>
+  <li>at</li>
+  <li>item</li>
+  <li>for</li>
+  <li>route-stars</li>
+  <li>route-length</li>
+  <li>route-grade</li>
+  <li>route-gear-style</li>
+</ul>
+
+<p>For example:</p>
+<ul>
+  <li><a href="http://dev.thecrag.com/api/facet/activity/at/11740915/by-friends-of/9068185/?key=abc">http://dev.thecrag.com/api/facet/activity/at/11740915/by-friends-of/9068185/</a></li>
+</ul>
+
+
+<h4>Climbers</h4>
+
+<p>Not implemented</p>
+
+
+<h4>Areas</h4>
+
+<p>Not implemented</p>
+
+
+
+<h2><a name="s6">7. Optimising down the wire</a></h2>
+
+<p>Because they are hash based, some of the endpoints described in this API have a heavy over-the-wire burden with unneccessary information. While this is fine for some clients, it is not ideal for others where data transfer rates are limited and/or client memory is limited.</p>
+
+<p>This section describes how you can use the 'flatten' parameter to better optimise the data transfer over the wire. The flatten variable turns the result hash structures into an array only including values associated with keys you specified. The flatten spec can be nested so you can flatten sub hashes.</p>
+
+<pre>
+  flatten=key1,key2[subKeyA,subKeyB]
+</pre>
+&nbsp;<br>
+
+<p>Below are a couple of examples of how this may work:</p>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/facet/routes/at/11741371?flatten=data[numberRoutes,routes[id,grade,name]]&key=abc">http://dev.thecrag.com/api/facet/routes/at/11741371?flatten=data[numberRoutes,routes[id,grade,name]]</a></li>
+  <li><a href="http://dev.thecrag.com/api/discussion/191502618?flatten=data[messages[id,markdown,subject,from[id],node[id]]]&key=abc">http://dev.thecrag.com/api/discussion/191502618?flatten=data[messages[id,markdown,subject,from[id],node[id]]]</a></li>
+</ul>
+
+
+
+<h2><a name="s7">6. Update access points</a></h2>
 
 <p>Unless otherwise stated all API update access points require utf8 encoded text.</p>
 
