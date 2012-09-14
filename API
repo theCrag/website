@@ -596,6 +596,7 @@ A discussion can have one or more messages associated with it. If there are more
   <li>favorites</li>
   <li>photos</li>
   <li>activity</li>
+  <li>messages</li>
   <li>climbers</li>
   <li>areas</li>
 </ul>
@@ -829,6 +830,35 @@ A discussion can have one or more messages associated with it. If there are more
 <ul>
   <li><a href="http://dev.thecrag.com/api/facet/activity/at/11740915/by-friends-of/9068185/?key=abc">http://dev.thecrag.com/api/facet/activity/at/11740915/by-friends-of/9068185/</a></li>
 </ul>
+
+
+<h4>Messages</h4>
+
+<p>The url query string may contain the following search directives:</p>
+<ul>
+at=>1,'at-followed-by'=>1,from=>1,involving=>1,after=>2,before=>2,between=>2,search=>2}
+  <li>at</li>
+  <li>at-followed-by</li>
+  <li>from</li>
+  <li>involving</li>
+  <li>after</li>
+  <li>before</li>
+  <li>between</li>
+  <li>since-message</li>
+  <li>search</li>
+</ul>
+
+<p>The following sort by:</p>
+<ul>
+  <li>when</li>
+</ul>
+
+<p>For example:</p>
+<ul>
+  <li><a href="http://dev.thecrag.com/api/facet/messages/involving/9068185/since-message/218342559/?key=abc">http://dev.thecrag.com/api/facet/messages/involving/9068185/since-message/218342559/</a></li>
+</ul>
+
+<p>Note that if the filter does not include an 'at' directive then only messages involving the authorised account (OAuth) will be returned.</p>
 
 
 <h4>Climbers</h4>
