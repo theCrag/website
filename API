@@ -860,6 +860,10 @@ at=>1,'at-followed-by'=>1,from=>1,involving=>1,after=>2,before=>2,between=>2,sea
 
 <p>Note that if the filter does not include an 'at' directive then only messages involving the authorised account (OAuth) will be returned.</p>
 
+<p>Use the 'markupType' parameter to markup message content - set to 'none', 'html' or 'text'. Markup includes internal links. If you do not set this parameter then the client will be responsible for the markup.</p>
+
+<p>Use the 'truncate' parameter if you want to limit the message content length. Note that because message content can include html the truncate will nicely truncate at a word boundary shorter that the length specified.</p>
+
 
 <h4>Climbers</h4>
 
