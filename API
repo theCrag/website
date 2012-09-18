@@ -365,6 +365,7 @@ table, th, td { border: 1px solid black; }
   <li><a href="http://dev.thecrag.com/api/climber/id/9068185/trips?key=abc">http://dev.thecrag.com/api/climber/id/9068185/trips</a></li>
   <li><a href="http://dev.thecrag.com/api/climber/ids?id=9068185,11183449&key=abc">http://dev.thecrag.com/api/climber/ids?id=9068185,11183449</a></li>
   <li><a href="http://dev.thecrag.com/api/climber/search?search=simon&key=abc">http://dev.thecrag.com/api/climber/search?search=simon</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/subscriptions/156291588?key=abc">http://dev.thecrag.com/api/climber/id/9068185/subscriptions/156291588</a></li>
 </ul>
 
 <p>If an account is public then you may access their data, however if an account is private then you need to use OAuth to access the data.</p>
@@ -2053,4 +2054,87 @@ at=>1,'at-followed-by'=>1,from=>1,involving=>1,after=>2,before=>2,between=>2,sea
 </pre>
     </td>
   </tr>
+</table>
+
+
+
+<h3>6.9 Subscribe</h3>
+
+<p>Thecrag offers third party apps an account subscription service for app charging. The third party app creates the subscription record. Subscriptions may be associated with a node. Account subscriptions can be queried by the app, which allows a developer to refresh an account or share subscriptions between apps.</p>
+
+<p><strong>Access points</strong>:</p>
+<pre>
+  http://www.thecrag.com/api/subscribe/create
+  http://www.thecrag.com/api/subscribe/create/validate
+</pre>
+&nbsp;<br>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>account</strong>: accountID - mandatory.</li>
+  <li><strong>developer</strong>: developerID - mandatory.</li>
+  <li><strong>tag</strong>: optional developer tag for managing subscriptions between a particular developers apps.</li>
+  <li><strong>access</strong>: optional access label for managing subscriptions between developers. Currently the only valid non-null setting is 'thecrag' which allows a developer to share the subscriptions as an official thecrag app.</li>
+  <li><strong>node</strong>: optional nodeID for associating a subscription with a crag.</li>
+  <li><strong>type</strong>: optional subscription type for multiple subscriptions for a particular account.</li>
+  <li><strong>expires</strong>: optional expires date (YYYY-MM-DD). A subscription without an expires should be interpreted as a once off payment.</li>
+  <li><strong>currency</strong>: optional currency code.</li>
+  <li><strong>payment</strong>: optional payment for audit purposes. Should be included if there was a payment associated with the subscription.</li>
+  <li><strong>discount</strong>: optional discount if there was a discount associated with the payment.</li>
+  <li><strong>notes</strong>: notes associated with the subscription.</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<table>
+  <tr>
+    <th>POST</th><th>Response</th>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/message/send HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+    "account": 9068185,
+    "developer": 156291588,
+    "tag": "googleapp",
+    "access": "thecrag",
+    "node": 11740915,
+    "type": "myapp category A",
+    "expires": "2012-10-22",
+    "currency": "AUD",
+    "payment": "4.51",
+    "discount": ".49",
+    "notes": "test the notes functionality"
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok" : {
+      "subscriptionID" : 209424667
+   },
+   "data" : {
+      "payment" : "4.51",
+      "access" : "thecrag",
+      "account" : 9068185,
+      "discount" : ".49",
+      "node" : 11740915,
+      "currency" : "AUD",
+      "notes" : "test the notes functionality",
+      "developer" : 156291588,
+      "tag" : "googleapp",
+      "type" : "myapp category A",
+      "expires" : "2012-10-22"
+   }
+ }
+</pre>
+    </td>
+  </tr>
+
 </table>
