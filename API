@@ -366,6 +366,7 @@ table, th, td { border: 1px solid black; }
   <li><a href="http://dev.thecrag.com/api/climber/ids?id=9068185,11183449&key=abc">http://dev.thecrag.com/api/climber/ids?id=9068185,11183449</a></li>
   <li><a href="http://dev.thecrag.com/api/climber/search?search=simon&key=abc">http://dev.thecrag.com/api/climber/search?search=simon</a></li>
   <li><a href="http://dev.thecrag.com/api/climber/id/9068185/subscriptions/156291588?key=abc">http://dev.thecrag.com/api/climber/id/9068185/subscriptions/156291588</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/subscriptions/thecrag?key=abc">http://dev.thecrag.com/api/climber/id/9068185/subscriptions/thecrag</a></li>
 </ul>
 
 <p>If an account is public then you may access their data, however if an account is private then you need to use OAuth to access the data.</p>
@@ -2093,7 +2094,7 @@ at=>1,'at-followed-by'=>1,from=>1,involving=>1,after=>2,before=>2,between=>2,sea
   <tr>
     <td>
 <pre>
- POST http://www.thecrag.com/api/message/send HTTP/1.1
+ POST http://www.thecrag.com/api/subscribe/create HTTP/1.1
   === header stuff === 
 
  {
