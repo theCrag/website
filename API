@@ -659,6 +659,7 @@ A discussion can have one or more messages associated with it. If there are more
 <ul>
   <li>when</li>
   <li>when-fa</li>
+  <li>when-history # this may result in dups</li>
   <li>at</li>
   <li>stars</li>
   <li>length</li>
