@@ -2162,3 +2162,144 @@ A discussion can have one or more messages associated with it. If there are more
   </tr>
 
 </table>
+
+
+
+<h3>6.10 Topo</h3>
+
+<p>You may create topos using thecrag API. Creating topos is a two step process:</p>
+<ol>
+  <li>Upload the image file into a temporary file on the server.</li>
+  <li>Create the topo record, using the name parameter to process the file you just uploaded.</li>
+</ol>
+
+<h4>Uploading the image file</h4>
+
+<p>This may be done by using a standard web POST with 'name' and 'file' form parameters to the following end point:</p>
+<pre>
+  http://www.thecrag.com/upload
+</pre>
+&nbsp;<br>
+
+<p>For example you could use curl to upload the file like following:
+<pre>
+  curl --form name=some-rand-name --form file=@topo-test-file.jpg http://www.thecrag.com/upload
+</pre>
+&nbsp;<br>
+
+<p><strong>NOTE server limitation</strong>: The uploaded file 'name' must be unique in a temporary directory on the server, so you should put a random hash/number/string in the 'name' parameter when uploading the file, otherwise you may clash with already uploaded files.</p>
+
+<p>The 'name' parameter will be used in the JSON data for creating the actual topo record.</p>
+
+<p>The upload endpoint returns JSON, you should check for error messages. For example if the upload was unsuccessful it may look like:</p>
+<pre>
+{
+  "jsonrpc": "2.0",
+  "error" : {
+    "code": "101",
+    "message": "no upload content"
+  },
+  "id" : "id"
+}
+</pre>
+&nbsp;<br>
+
+
+<h4>Creating the topo record</h4>
+
+<p><strong>Access points</strong>:</p>
+<pre>
+  http://www.thecrag.com/api/topo/create
+  http://www.thecrag.com/api/topo/create/validate
+</pre>
+&nbsp;<br>
+
+<p>Developers please note you should be uploading topos to the cliff node, and linking to routes as objects. The sourceType should almost always be 'API Client' and source your developer id. The apiUploadFilename should be the same as that which was use in the 'name' parameter for the upload endpoint.</p>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>submittor</strong>: accountID - mandatory.</li>
+  <li><strong>node</strong>: nodeID - mandatory node ID of the cliff.</li>
+  <li><strong>sourceType</strong>: string - mandatory one of 'Inhouse Photo', 'Uploaded', 'URL', 'API Client'.</li>
+  <li><strong>source</strong>: string - mandatory should be the developer ID for API Client.</li>
+  <li><strong>apiUploadFilename</strong>: string - mandatory when using sourceType='API Client', and should match the 'name' parameter used in the uploade POST endpoint.</li>
+  <li><strong>label</strong>: string - optional string used to label the topo.</li>
+  <li><strong>object</strong>: list of objectRefs [{id:routeID,number:topo-object-number,store:points},...].</li>
+  <li><strong>publisher</strong>: optional publisherID to be used with beta</li>
+  <li><strong>publication</strong>: optional publicationID to be used with beta or citation</li>
+</ul>
+
+<h4>Updating the topo record</h4>
+
+<p><strong>Access points</strong>:</p>
+<pre>
+  http://www.thecrag.com/api/topo/update
+  http://www.thecrag.com/api/topo/update/validate
+</pre>
+&nbsp;<br>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>submittor</strong>: accountID - mandatory.</li>
+  <li><strong>topo</strong>: topoID - mandatory.</li>
+  <li><strong>node</strong>: nodeID - optional, used to change the cliff the topo is associated with.</li>
+  <li><strong>overhead</strong>: flag - optional, used to indicate that the topo is an overhead topo.</li>
+  <li><strong>name</strong>: string - optional.</li>
+  <li><strong>linkObject</strong>: list of objectRefs [{id:routeID,number:topo-object-number},...]. Used to link a topo to a route,area,annotation,topo or anything.</li>
+  <li><strong>unlinkObject</strong>: list of objectRefs [{id:routeID},...]. Used to unlink a topo object from the topo (eg the route is no longer needed in the topo).</li>
+  <li><strong>object</strong>: list of objectRefs [{id:routeID,store:points},...]. Used to draw topo lines representing the object in the topo.</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<table>
+  <tr>
+    <th>POST</th><th>Response</th>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ curl --form name=some-rand-name --form file=@topo-test-file.jpg http://www.thecrag.com/upload
+ POST http://www.thecrag.com/api/topo/create HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+    "submittor": 9068185,
+    "node": 11960467,
+    "sourceType": "API Client",
+    "source": "1111",
+    "apiUploadFilename": "some-rand-name",
+    "object": [{
+      "id": 12859423,
+      "store": "9 15,49 55",
+    }]
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok" : {
+     "topoID" : "210081091",
+   },
+   "data" : {
+      "source" : "1111",
+      "object" : [
+         {
+            "store" : "9 15,49 55",
+            "id" : 12859423
+         }
+      ],
+      "sourceType" : "API Client",
+      "apiUploadFilename" : "somerandname",
+      "submittor" : 9068185,
+      "node" : 11960467
+   }
+ }
+</pre>
+    </td>
+  </tr>
+
+</table>
