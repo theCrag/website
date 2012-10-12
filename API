@@ -2165,7 +2165,73 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h3>6.10 Topo</h3>
+<h3>6.10 Register Webhook Callbacks</h3>
+
+<p>You may register webhook callbacks. This is where thecrag server tells you about changes to the database. The following webhook samples are currently available for developers:</p>
+<pre>
+  /climber/1234/messages/involved/all
+  /climber/1234/updated   ### under development
+</pre>
+&nbsp;<br>
+
+<p>If you want to use webhook callbacks you must contact us and let us know your url stub, something like 'http://somedeveloper.com/callbacks', in which case the callbacks will be POST'ed to http://somedeveloper.com/callbacks/climber/1234/messages/involved/all' for example.</p>
+
+<p>You register a callback for a context (eg climber 1234) and a known identifer (eg /messages/involved/all). Registering a callback for the context will overwrite the callbacks for the developer/context.</p>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>developer</strong>: developerID - mandatory.</li>
+  <li><strong>climber</strong>: accountID - optional (but either climber or node is mandatory).</li>
+  <li><strong>node</strong>: nodeID - optional (but either climber or node is mandatory).</li>
+  <li><strong>callbacks</strong>: ["/callback/label",...] mandatory, but may be an empty array to reset all callbacks for that developer/entity.</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<table>
+  <tr>
+    <th>POST</th><th>Response</th>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/subscribe/create HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+    "developer": 156291588,
+    "climber": 9068185,
+    "callbacks": [
+      "/climber/9068185/messages/involved/all",
+      "/climber/9068185/updated"
+    ]
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok" : {},
+   "data" : {
+      "callbacks" : [
+         "/climber/9068185/messages/involved/all",
+         "/climber/9068185/updated"
+      ],
+      "developer" : 156291588,
+      "climber" : 9068185
+   }
+ }
+</pre>
+    </td>
+  </tr>
+
+</table>
+
+
+
+<h3>6.11 Topo</h3>
 
 <p>You may create topos using thecrag API. Creating topos is a two step process:</p>
 <ol>
