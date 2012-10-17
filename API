@@ -653,6 +653,7 @@ A discussion can have one or more messages associated with it. If there are more
   <li>length-longer</li>
   <li>length-between</li>
   <li>search</li>
+  <li>prefix-search</li>
 </ul>
 
 <p>The following sort by:</p>
@@ -898,6 +899,41 @@ A discussion can have one or more messages associated with it. If there are more
 <h4>Areas</h4>
 
 <p>Not implemented</p>
+
+
+
+<h3>5.15 Text completion</h3>
+
+<p>There are some fast prefix lookup end points which can be used for text completion, for example in a crag search toolbar. Text completion examples:</p>
+
+<ul>
+  <li><a href="http://dev.thecrag.com/api/lookup/crag?search=ara&key=abc">http://dev.thecrag.com/api/lookup/crag?search=ara</a></li>
+  <li><a href="http://dev.thecrag.com/api/lookup/crag?search=new&mode=crag,region&key=abc">http://dev.thecrag.com/api/lookup/crag?search=new&mode=crag,region</a></li>
+  <li><a href="http://dev.thecrag.com/api/lookup/crag?search=new&mode=region&page-size=5&key=abc">http://dev.thecrag.com/api/lookup/crag?search=new&mode=region&page-size=5</a></li>
+  <li><a href="http://dev.thecrag.com/api/lookup/climber?search=campb&key=abc">http://dev.thecrag.com/api/lookup/climber?search=campb</a></li>
+  <li><a href="http://dev.thecrag.com/api/lookup/climber?search=campb&mode=name&key=abc">http://dev.thecrag.com/api/lookup/climber?search=campb&mode=name</a></li>
+  <li><a href="http://dev.thecrag.com/api/lookup/climber?search=campb&mode=login&key=abc">http://dev.thecrag.com/api/lookup/climber?search=campb&mode=login</a></li>
+  <li><a href="http://dev.thecrag.com/api/lookup/climber?search=support@thecrag.com&mode=email&key=abc">http://dev.thecrag.com/api/lookup/climber?search=support@thecrag.com&mode=email</a></li>
+  <li><a href="http://dev.thecrag.com/api/lookup/climber?search=9068185&mode=id&key=abc">http://dev.thecrag.com/api/lookup/climber?search=9068185&mode=id</a></li>
+  <li><a href="http://dev.thecrag.com/api/lookup/climber?search=support@thecrag.com&mode=server&key=abc">http://dev.thecrag.com/api/lookup/climber?search=support@thecrag.com&mode=server</a></li>
+</ul>
+&nbsp;<br>
+
+<p>For a crag search, if parameter 'mode' is set to 'region' then the search space is for regions only otherwise it is for areas identified as a Crag.</p>
+
+<p>If you don't want a long list to be returned they you should specify the 'page-size' parameter.</p>
+
+<p>For a climber search you can set the following mode behavious:</p>
+<ul>
+  <li>login: The search space returns prefix matches from the persons login.</li>
+  <li>name: The search space returns prefix matches from the persons name. Please note that because a person's name is in one field it does not prefix match somebodies last name.</li>
+  <li>email: The search space returns exact matches for an email address. Please note that partial email addresses are not matched.</li>
+  <li>id: The search space returns exact matches for an persons id. Please note that partial ids are not matched.</li>
+  <li>all: Matches all of the above. This uses more server resources and is slower, please use mode=server instead.</li>
+  <li>server: (default) This tells the server to decide which to match based on the search string. If it has an @ in the search space then it is assumed to be an email search, otherwise if all numbers then it is a login and id seach, otherwise if no spaces then it is a login and name search, otherwise a name search. This is the default search because it allows a user of an application to put in some text and the server can work out what the user meant without having the server overhead of processing 'all' modes.</li>
+</ul>
+&nbsp;<br>
+
 
 
 
