@@ -594,6 +594,8 @@ A discussion can have one or more messages associated with it. If there are more
 
 <ul>
   <li>routes</li>
+  <li>areas</li>
+  <li>nodes</li>
   <li>ascents</li>
   <li>favorites</li>
   <li>photos</li>
@@ -601,7 +603,6 @@ A discussion can have one or more messages associated with it. If there are more
   <li>activity</li>
   <li>messages</li>
   <li>climbers</li>
-  <li>areas</li>
 </ul>
 
 <p>The API facet search has the following generic endpoint structure:</p>
@@ -671,6 +672,56 @@ A discussion can have one or more messages associated with it. If there are more
 <p>For example:</p>
 <ul>
   <li><a href="http://dev.thecrag.com/api/facet/routes/at/11741371/with-grade/AU:21:39/?key=abc&sortby=stars,desc">http://dev.thecrag.com/api/facet/routes/at/11741371/with-grade/AU:21:39/?sortby=stars,desc</a></li>
+</ul>
+
+
+<h4>Areas</h4>
+
+<p>The url query string may contain the following search directives:</p>
+<ul>
+  <li>at</li>
+  <li>of-area-type</li>
+  <li>created-after</li>
+  <li>created-before</li>
+  <li>created-between</li>
+  <li>search</li>
+  <li>prefix-search</li>
+</ul>
+
+<p>The following sort by:</p>
+<ul>
+  <li>when</li>
+  <li>at</li>
+</ul>
+
+<p>For example:</p>
+<ul>
+  <li><a href="http://dev.thecrag.com/api/facet/area/at/11737699/of-area-type/crag/prefix-search/arap/?key=abc">http://dev.thecrag.com/api/facet/areas/at/11737699/of-area-type/crag/prefix-search/arap/</a></li>
+</ul>
+
+
+<h4>Nodes</h4>
+
+<p>The url query string may contain the following search directives:</p>
+<ul>
+  <li>at</li>
+  <li>of-node-type</li>
+  <li>created-after</li>
+  <li>created-before</li>
+  <li>created-between</li>
+  <li>search</li>
+  <li>prefix-search</li>
+</ul>
+
+<p>The following sort by:</p>
+<ul>
+  <li>when</li>
+  <li>at</li>
+</ul>
+
+<p>For example:</p>
+<ul>
+  <li><a href="http://dev.thecrag.com/api/facet/nodes/at/11737699/prefix-search/arap/?key=abc">http://dev.thecrag.com/api/facet/nodes/at/11737699/prefix-search/arap/</a></li>
 </ul>
 
 
@@ -892,11 +943,6 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 <h4>Climbers</h4>
-
-<p>Not implemented</p>
-
-
-<h4>Areas</h4>
 
 <p>Not implemented</p>
 
