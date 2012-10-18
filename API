@@ -711,6 +711,7 @@ A discussion can have one or more messages associated with it. If there are more
   <li>created-between</li>
   <li>search</li>
   <li>prefix-search</li>
+  <li>fuzzy-search</li>
 </ul>
 
 <p>The following sort by:</p>
@@ -721,7 +722,7 @@ A discussion can have one or more messages associated with it. If there are more
 
 <p>For example:</p>
 <ul>
-  <li><a href="http://dev.thecrag.com/api/facet/nodes/at/11737699/prefix-search/arap/?key=abc">http://dev.thecrag.com/api/facet/nodes/at/11737699/prefix-search/arap/</a></li>
+  <li><a href="http://dev.thecrag.com/api/facet/nodes/of-node-type/route/at/11741371/fuzzy-search/spinning/?key=abc">http://dev.thecrag.com/api/facet/nodes/of-node-type/route/at/11741371/fuzzy-search/spinning/</a></li>
 </ul>
 
 
