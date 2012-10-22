@@ -20,7 +20,9 @@
 		<li><a href="http://abeautifulsite.net/blog/2008/09/jquery-context-menu-plugin/">jQuery Context Menu</a></li>
 		<li><a href="http://plugins.jquery.com/project/NobleCount">NobleCount</a></li>
 		<li><a href="https://github.com/defunkt/jquery-pjax">pjax</a></li>
+		<ll><a href="https://github.com/iamvery/jquery.multisortable">multisortable</a></li>
 	</ul></li>
+	<li><a href="http://twitter.github.com/bootstrap/">Bootstrap</a></li>
 	<li><a href="http://www.plupload.com/">Plupload</a></li>
 	<li><a href="http://raphaeljs.com/">Raphael</a></li>
 	<li><a href="http://tinymce.moxiecode.com/">TinyMCE</a></li>
