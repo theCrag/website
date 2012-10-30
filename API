@@ -2252,8 +2252,13 @@ A discussion can have one or more messages associated with it. If there are more
 
 <p>You may register webhook callbacks. This is where thecrag server tells you about changes to the database. The following webhook samples are currently available for developers:</p>
 <pre>
+  /climber/1234/profile
   /climber/1234/messages/involved/all
-  /climber/1234/updated   ### under development
+  /climber/1234/ascent
+  /climber/1234/ascent/following
+  /climber/1234/favorite
+  /climber/1234/following
+  /climber/1234/followed-by
 </pre>
 &nbsp;<br>
 
@@ -2287,7 +2292,7 @@ A discussion can have one or more messages associated with it. If there are more
     "climber": 9068185,
     "callbacks": [
       "/climber/9068185/messages/involved/all",
-      "/climber/9068185/updated"
+      "/climber/9068185/following"
     ]
    }
  }
@@ -2300,7 +2305,7 @@ A discussion can have one or more messages associated with it. If there are more
    "data" : {
       "callbacks" : [
          "/climber/9068185/messages/involved/all",
-         "/climber/9068185/updated"
+         "/climber/9068185/following"
       ],
       "developer" : 156291588,
       "climber" : 9068185
