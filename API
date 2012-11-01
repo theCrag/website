@@ -2259,12 +2259,15 @@ A discussion can have one or more messages associated with it. If there are more
   /climber/1234/favorite
   /climber/1234/following
   /climber/1234/followed-by
+  /climber/1234/subscription
 </pre>
 &nbsp;<br>
 
 <p>If you want to use webhook callbacks you must contact us and let us know your url stub, something like 'http://somedeveloper.com/callbacks', in which case the callbacks will be POST'ed to http://somedeveloper.com/callbacks/climber/1234/messages/involved/all' for example.</p>
 
 <p>You register a callback for a context (eg climber 1234) and a known identifer (eg /messages/involved/all). Registering a callback for the context will overwrite the callbacks for the developer/context.</p>
+
+<p>Note that you will only get subscription callbacks for your developerID or if the subscription has a cross developer identifier.</p>
 
 <p><strong>Data fields</strong>:</p>
 <ul>
