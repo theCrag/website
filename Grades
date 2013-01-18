@@ -56,16 +56,33 @@ sub isVis {
 </%perl>
 
 <table class="gradesystem">
+% my $type = '';
+% my $typeC = 0;
+% my $prevType = '';
 <tr>
 % foreach my $system ( @{ $data->{systems} } ){
 %   if (!isVis $system ){ next; }
-<th title="<% $system->{name} |h %>"><% $system->{abbreviatedName}  %></th>
+%   $type = $system->{type};
+%   if ($prevType ne $type){
+%     if ($prevType){
+%       if ($prevType eq 'Band'){
+<td>
+%       } else {
+<th colspan=<% $typeC %>><% uc $prevType %>
+%       }
+%       $typeC = 1;
+%     }
+%   } else {
+%     $typeC++;
+%   }
+%   $prevType = $type;
 % }
+<th colspan=<% $typeC %>><% uc $type %>
 </tr>
 <tr>
 % foreach my $system ( @{ $data->{systems} } ){
 %   if (!isVis $system ){ next; }
-<td><% $system->{type} eq 'Band' ? '' : $system->{type}  %></td>
+<th title="<% $system->{name} |h %>"><% $system->{abbreviatedName}  %></th>
 % }
 </tr>
 <tr>
@@ -78,10 +95,9 @@ sub isVis {
 %     if ($grade->{label} eq '--' || !defined $grade->{score}){ next; }
 %     my $size = $grade->{score}[2] - $grade->{score}[1] +1;
 %     my $gb = int(($grade->{score}[1]-1) / 100) +1 ;
-<div class="gb<% $gb %>" style="top: <% $grade->{score}[1] * $scale %>px; line-height: <% $size * $scale %>px; height:<% $size * $scale %>px"><% $grade->{label} %></div>\
+<div class="gb<% $gb %>" style="top:<% $grade->{score}[1] * $scale %>px;line-height:<% $size * $scale %>px;height:<% $size * $scale %>px"><% $grade->{label} %></div>\
 %   }
 </div>
-</td>
 % }
 </tr>
 </table>
