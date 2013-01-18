@@ -31,6 +31,12 @@ Using the adjacent drop-down menu you can choose to search for:
 
 
 <h4>Chrome</h4>
-<p>Click the Spanner > Options, under Manage Search Engines find theCrag.com and click 'Make default'</p>
+<p>You don't have to do anything in chrome to get this to work, it sets it up for you the first time you visit thecrag.com</p>
+<p>To use it just type thecrag.com into the search bar then press tab and type a search query.<p>
+
+<p><img width="458" height="380" src="/static/cids/images/opensearch-chrome-1.1.0.png"></p>
+
+<p>Or to make it the default click the Spanner > Options, under Manage Search Engines find theCrag.com and click 'Make default'</p>
+
 
 

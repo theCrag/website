@@ -1,11 +1,10 @@
 2 Using theCrag - 2 Route Styles
 
-<p>There are lots of different styles of climbs around the world. People climb everything from boulders to mountains, and everything in between including buildings and trees.</p>
-
-<p>The challenge is deciding when does a high boulder problem become a solo? Or what is the boundary between an alpine route and an ice route?</p>
+<p>There are lots of different styles of climbs around the world. People climb everything from boulders to mountains, and everything in between including buildings and trees.
+ The challenge is deciding when does a high boulder problem become a solo? Or what is the boundary between an alpine route and an ice route?</p>
 
 <p>Our system of climbing styles simply asks the question:</p>
-<div style="font-size: 200%; text-align: center; padding: 2em;">What gear do I need? </div>
+<div class="bore"><div class="alert alert-info lead" style="text-align:center;">What gear do I need?</div></div>
 
 <p>Or put another way, if I only have a certain amount of gear - what routes can I climb?</p>
 
@@ -64,6 +63,6 @@
 
 <br />
 <p>So what about 'mixed' routes? ie a route that needs trad gear and also has bolts. By our definition a mixed route need's trad gear so it should be marked as trad AND also have the number of bolts needed for the route.</p>
-<p><strong>NOTE:</strong> This is not an exhaustive list of equipment you will need. This list is just to demonstrate the core differences between the gear used in each style.</p>
+<p><span class="label label-info">Note</span> This is not an exhaustive list of equipment you will need. This list is just to demonstrate the core differences between the gear used in each style.</p>
 
 
