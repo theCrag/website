@@ -1,8 +1,12 @@
-6 Contribute - 03 Create a phototopo - How to create awesome topo photos
+6 Contribute - 03 Create a phototopo - How to create awesome photos for topos
 
-<p class="lead center bore">
+<div class="row">
+<div class="offset1 span6">
+<p class="lead center">
 High quality photo-topos are the difference between boring pages of text and climbing porn that inspires other climbers.
 </p>
+</div>
+</div>
 
 <h2>Tip 1: Any topo is better than no topo</h2>
 
@@ -12,12 +16,12 @@ High quality photo-topos are the difference between boring pages of text and cli
 <p><b class="label label-success">Good</b> Quick rough topos can go a long way</p>
 </div>
 <div class="span4">
-<img width="400" height="318" src="/static/cids/images/topo-missing-1.1.0.png" alt title="Actually the rock is mysteriously shaped like a question mark. The detached spire on the south end ">
+<img width="400" height="318" src="/static/cids/images/topo-missing-1.1.0.png" alt title="Actually the rock is mysteriously shaped like a question mark. The detached spire on the south end is a 3 star classic">
 <p><b class="label label-warning">Bad</b> Help, I am lost!</p>
 </div>
 </div>
 
-<p>While it is great to aim for great topos, anything is better than nothing. If you can snap a quick and dirty topo photo on your phone, someone else can always use that as a rough guide and then improve on it later with a higher quality photo. So even if you've got a photo that breaks all the tips below, upload it anyway, we'd all love to see it! </p>
+<p>While it is great to aim for great topos, anything is better than nothing. If you can snap a quick and dirty topo photo on your phone, or scribble on the back of an beer coaster and then take a picture of it, someone else can always use that as a rough guide and then improve on it later with a higher quality photo. So even if you've got a photo that breaks all the tips below, upload it anyway, we'd all love to see it! </p>
 
 
 <h2>Tip 2: Good topos are NOT good climbing photos</h2>
