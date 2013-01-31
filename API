@@ -2173,8 +2173,12 @@ A discussion can have one or more messages associated with it. If there are more
 <pre>
   http://www.thecrag.com/api/subscribe/create
   http://www.thecrag.com/api/subscribe/create/validate
+  http://www.thecrag.com/api/subscribe/update
+  http://www.thecrag.com/api/subscribe/update/validate
 </pre>
 &nbsp;<br>
+
+<h4>Creating a subscription</h4>
 
 <p><strong>Data fields</strong>:</p>
 <ul>
@@ -2188,6 +2192,8 @@ A discussion can have one or more messages associated with it. If there are more
   <li><strong>currency</strong>: optional currency code.</li>
   <li><strong>payment</strong>: optional payment for audit purposes. Should be included if there was a payment associated with the subscription.</li>
   <li><strong>discount</strong>: optional discount if there was a discount associated with the payment.</li>
+  <li><strong>trial</strong>: optional flag to indicate a trial subscription.</li>
+  <li><strong>transactionReference</strong>: optional third party transaction reference.</li>
   <li><strong>notes</strong>: notes associated with the subscription.</li>
 </ul>
 
@@ -2215,6 +2221,7 @@ A discussion can have one or more messages associated with it. If there are more
     "currency": "AUD",
     "payment": "4.51",
     "discount": ".49",
+    "transactionReference": "AA-THIRD-PARTY-ID",
     "notes": "test the notes functionality"
    }
  }
@@ -2238,6 +2245,55 @@ A discussion can have one or more messages associated with it. If there are more
       "tag" : "googleapp",
       "type" : "myapp category A",
       "expires" : "2012-10-22"
+      "transactionReference": "AA-THIRD-PARTY-ID",
+   }
+ }
+</pre>
+    </td>
+  </tr>
+
+</table>
+
+<h4>Updating a subscription</h4>
+
+<p><strong>Data fields</strong>:</p>
+<ul>
+  <li><strong>account</strong>: accountID - mandatory.</li>
+  <li><strong>subscription</strong>: subscriptionID - mandatory.</li>
+  <li><strong>transactionReference</strong>: optional third party transaction reference.</li>
+</ul>
+
+<p><strong>Examples</strong>:</p>
+<table>
+  <tr>
+    <th>POST</th><th>Response</th>
+  </tr>
+
+  <tr>
+    <td>
+<pre>
+ POST http://www.thecrag.com/api/subscribe/update HTTP/1.1
+  === header stuff === 
+
+ {
+   "data": {
+    "account": 9068185,
+    "subscription" : 251188651,
+    "transactionReference" : "1234-B",
+   }
+ }
+</pre>
+    </td>
+    <td>
+<pre>
+ {
+   "ok" : {
+      "subscriptionID" : 251188651
+   },
+   "data" : {
+      "transactionReference" : "1234-B",
+      "account" : 9068185,
+      "subscription" : 251188651
    }
  }
 </pre>
