@@ -366,12 +366,14 @@ table, th, td { border: 1px solid black; }
   <li><a href="http://dev.thecrag.com/api/climber/ids?id=9068185,11183449&key=abc">http://dev.thecrag.com/api/climber/ids?id=9068185,11183449</a></li>
   <li><a href="http://dev.thecrag.com/api/climber/search?search=simon&key=abc">http://dev.thecrag.com/api/climber/search?search=simon</a></li>
   <li><a href="http://dev.thecrag.com/api/climber/id/9068185/subscriptions/156291588?key=abc">http://dev.thecrag.com/api/climber/id/9068185/subscriptions/156291588</a></li>
-  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/subscriptions/thecrag?key=abc">http://dev.thecrag.com/api/climber/id/9068185/subscriptions/thecrag</a></li>
+  <li><a href="http://dev.thecrag.com/api/climber/id/9068185/subscriptions/thecrag?key=abc&days-since-expired=31">http://dev.thecrag.com/api/climber/id/9068185/subscriptions/thecrag?days-since-expired=31</a></li>
 </ul>
 
 <p>If an account is public then you may access their data, however if an account is private then you need to use OAuth to access the data.</p>
 
-<p>You may substiture the alias 'user' or 'account' for the word 'climber' in the climber end points.<p>
+<p>You may substiture the alias 'user' or 'account' for the word 'climber' in the climber end points.</p>
+
+<p>Please note that the 'days-since-expired' field for subscriptions is optional. If it is specified then the recently expired subscriptions are included as well as valid subscriptions in the return data.</p>
 
 
 <h3>5.4 Node (Area/Route)</h3>
@@ -2193,6 +2195,7 @@ A discussion can have one or more messages associated with it. If there are more
   <li><strong>payment</strong>: optional payment for audit purposes. Should be included if there was a payment associated with the subscription.</li>
   <li><strong>discount</strong>: optional discount if there was a discount associated with the payment.</li>
   <li><strong>trial</strong>: optional flag to indicate a trial subscription.</li>
+  <li><strong>complementary</strong>: optional flag to indicate a complementary subscription.</li>
   <li><strong>transactionReference</strong>: optional third party transaction reference.</li>
   <li><strong>notes</strong>: notes associated with the subscription.</li>
 </ul>
