@@ -68,7 +68,7 @@ sub isVis {
 %       if ($prevType eq 'Band'){
 <td>
 %       } else {
-<th colspan=<% $typeC %>><% uc $prevType %>
+<th colspan=<% $typeC %> class=<% $prevType eq 'Free' ? 'trad' : lc $prevType %>><% uc $prevType %>
 %       }
 %       $typeC = 1;
 %     }
@@ -77,7 +77,7 @@ sub isVis {
 %   }
 %   $prevType = $type;
 % }
-<th colspan=<% $typeC %>><% uc $type %>
+<th colspan=<% $typeC %> class=<% lc $type %>><% uc $type %>
 </tr>
 <tr>
 % foreach my $system ( @{ $data->{systems} } ){
