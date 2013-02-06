@@ -1,0 +1,56 @@
+6 Contribute - 02 Crag Credits
+<%perl>
+use CIDS::Application::StaticVersions;
+my $creditConfig = $ARGS{data}->{creditConfig};
+my $account = $ARGS{account};
+#die "DEBUG:".Data::Dumper::Dumper($account);
+</%perl>
+
+
+<style>
+h2 {
+border: none !important;
+}
+p strong.k1 {
+background:white;
+font-weight: bold;
+font-style: italic;
+font-size: 1.2em;
+}
+</style>
+
+<p><strong class="k1">... because Karma has its rewards</strong></p>
+
+&nbsp;</ br>
+
+<p>All who contribute to theCrag earn <a href="/article/CragKarma">Crag Karma</a> and are considered members of the Benevolent Ascensionists of Spiritual Enlightenment (BASE) of theCrag.</p>
+
+<p>We know that our BASE are motivated by altruism alone, but we would like to find a way to show our appreciation and gratitude for all your efforts. Starting in early 2013, we will introduce a new currency for the site- Crag Credits (CCs).</p>
+
+<p>Crag Credits are awarded based on your Crag Karma. Initially you’ll be able to use your CCs instead of real money to subscribe to content in our Andriod mobile app. This is so that our BASE can subscribe to crags on the apps without having to pay. Later on we might think of more cool ways to recognize user contributions and redeem CCs.</p>
+
+<p>Important notes:</p>
+<ul>
+  <li> <% $creditConfig->{karmaConversion} %> Crag Karma points* = 1 Crag Credit.</li>
+  <li> A donation of $US1 = <% $creditConfig->{usdBuysCC} %> Crag Credit.</li>
+  <li> You may redeem Crag Credits for 12 month crag subscriptions in our Android mobile app**.</li>
+  <li> Your Crag Karma points will never go down, even when you redeem CCs.</li>
+  <li> <% defined $account ? "Check your Crag Karma levels <a href=\"/climber/$account->{id}/karma\">here</a>" : "Check your Karma levels via your dashboard" %>.</li>
+  <li> <% defined $account ? "Check your Crag Credit levels <a href=\"/climber/$account->{id}/credit\">here</a>" : "Check your Karma levels via your dashboard" %>.</li>
+  <li> You must have had Karma points for at least a month before they are converted to CCs, which gives us a chance to review your contributions.</li>
+  <li> You must have at least <% $creditConfig->{minKarma} %> Karma points pending before they are converted to CCs.</li>
+</ul>
+
+&nbsp;</ br>
+
+<p>* So for example you can earn 1CC by:</p>
+<ul>
+  <li>taking 8 photo topos with the your Andriod app while you are at a crag and correcting the name of one route; OR .. </li>
+  <li>fully document one boulder with about 5 routes</li>
+</ul>
+
+&nbsp;</ br>
+
+<p>** At the time of releasing the Crag Credit program we plan to also use the CCs for the iPhone app when it is out, however this is not guarenteed as we are not sure about the flexibility of Apple's iPhone platform.</p>
+
+&nbsp;</ br>
