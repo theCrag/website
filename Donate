@@ -86,6 +86,7 @@ $(function(){
 
 <p>We hope you will consider making a donation to support theCrag.</p>
 
+<p><a href="/donate" class="btn btn-primary">Donate Now</a></p>
 
 <p>Thank you</p>
 
