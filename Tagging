@@ -19,9 +19,6 @@ my $tags = $ARGS{data}->{tags};
 </ul>
 
 % my $refC = 0;
-<style>
-.nobr { white-space: nowrap; }
-</style>
 <table style="width: 100%">
 % foreach my $themelabel ( sort {$tags->{$a}->{order}<=>$tags->{$b}->{order}} keys %{$tags} )   {
 %   my $theme = $tags->{$themelabel};
@@ -43,9 +40,9 @@ my $tags = $ARGS{data}->{tags};
 %     my $inherits = $type->{inherits} ? 'yes' : 'no';
 %     my $appliesTo = join(' & ',keys %{$type->{appliesTo}});
   <tr>
-    <td class="nobr"><% $typename %></td>
+    <td><% $typename %></td>
     <td><% $inherits %></td>
-    <td class="nobr"><% $appliesTo %></td>
+    <td><% $appliesTo %></td>
     <td>
 %     foreach my $catlabel ( sort {$type->{data}->{$a}->{order}<=>$type->{data}->{$b}->{order}} keys %{$type->{data}} )   {
 %       my $cat = $type->{data}->{$catlabel};
