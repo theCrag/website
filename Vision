@@ -6,7 +6,9 @@
 
 <p>theCrag.com is a hub for gathering and <strong>sharing climbing information</strong>. Climbers and publishers can share climbing information and distribute it through multiple channels, including theCrag.com's website, third party websites, rss feeds, Facebook, pdf publications, iphone, ipad and others.</p>
 
-<p>Climbers can access quality climbing information on the web for free, either directly through theCrag.com's website or through other third party portals. This will be supported by sponsorship and advertising.</p>
+<p>Climbers can access quality climbing information on the web for free, either directly through theCrag.com's website or through other third party portals. This will be supported by donation and advertising.</p>
+
+<p>Because we are committed to provide a long term sustainable free product on the web we are taking a more commercial approach to our mobile apps, hopefully this will mean we will still be around in 20 years time. If you use our mobile apps then please expect to pay for some things, and don't forget you are helping us help the community.</p>
 
 <p>Publishers can use theCrag.com's system to control and distribute their information through non-web channels. They may also choose to supply this information for free on the web. This is supported by revenue sharing.</p>
 
@@ -30,18 +32,30 @@
 
 <h2>Content license and sharing</h2>
 
-<p>Essentially our philosophy is to act as 'data custodians' for a range of other copyright holders. theCrag.com's content license needs to meet the needs of a range of users including individual members of the climbing community, clubs and publishers so that their contributions and content can be displayed with the appropriate license and acknowledgments (see <a href="/article/mixedcopyright">Mixed Copyright</a> site article).</p>
+<p>Broadly what we're aiming to do is ensure 4 things:</p>
 
-<p>Content contributed by standard users is available to the general public and third parties under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons - Attribution Non-Commercial Share Alike</a> license. This allows the climbing community to use the content for non-commercial purposes, but also provides a potential source of revenue from commercial ventures so that theCrag.com can grow and continue to provide the best possible service to the climbing community.</p>
+<ol>
+   <li>The content is available to be used by climbers.</li>
+   <li>Anyone who contributes content gets proper attribution.</li>
+   <li>The content can NOT be take by 3rd parties and sold without our agreement.</li>
+   <li>We can leverage the content to help pay our server and development costs, so we can continue to not just exist but keep making the site more awesome.</li>
+</ol>
 
-<p>We are looking into ways to <strong>increase the sharing of data</strong> between databases. (See the section below regarding the API project). By distributing and sharing content to other websites and database, climbing information becomes better protected from issues around technology failures, organisation closures and dependence on individuals.</p>
+<p>Essentially what our contributor agreement boils down to is:</p>
 
+<ol>
+   <li>You retain ownership of your own content, including your right to also license your content to anyone else under another license you want (except exclusive ones).</li>
+   <li>Your contributions will be licensed to the world in general, including theCrag.com, as <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC-BY-NC-SA</a>.</li>
+   <li>You specifically grant thecrag.com the right to use the content commercially to give us an income to cover our hosting and development costs.</li>
+</ol>
+
+<p>If for any reason you aren't happy with this, but still would like to share your content under a different license, like the CC-BY-SA, or the GNU Documentation license, then that's cool too and we're already doing that with a bunch of content providers, please send us an email. The only limit is that the licenses are compatible so that we can combine everyone's contributions to create 'aggregate works', ie a guidebook.</p>
 
 <h2>Financially viability</h2>
 
 <p>We would like theCrag.com to become financially viable, or at a minimum, be able to pay its own hosting and infrastructure costs.</p>
 
-<p>We plan to do this through advertising and sponsorship on theCrag.com's website. We will also explore other revenue opportunities when they come up.</p>
+<p>We plan to do this through donations and advertising on theCrag.com's website. We will also explore other revenue opportunities when they come up, such as user pays mobile app.</p>
 
 <p>In order for us to be able to do this, standard users contributing to theCrag.com projects are required to grant broad permissions to theCrag.com, and the general public to re-distribute and re-use your contributions.  See <a href="/processmap/siteusagepolicy">Site Usage Policy</a> for details. Any user may choose to contribute to theCrag.com as a publisher under a different arrangement instead of as a standard user, please contact us.</p>
 
