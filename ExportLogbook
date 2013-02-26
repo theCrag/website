@@ -1,0 +1,24 @@
+7 Extend - 2 Exporting logbook
+<%perl>
+use CIDS::Application::StaticVersions;
+my $account = $ARGS{account};
+</%perl>
+
+<p>Liberate your logbook ascent data, whether you want to use it for other purposes or swap logbook providers. To that end we have put work into <a href="/article/importlogbook">importing</a> and exporting logbook capabilities on the site.</p>
+
+<p>There are no restrictions on users exporting their logbook from thecrag.com. This feature is available for both CSV and Excel formats.</p>
+
+<p>Some of our users are climbing instructors and they export their logbook as evidence of recent climbing activity for maintaining certification.</p>
+
+<p>You may also have just had enough of thecrag and want out, in search of another provider. Well just do it and we wish you luck with your other provider. Of course you would always be welcome back at any time.</p>
+
+<p>To export using Excel or CSV formats:</p>
+<ol>
+  <li>Login to your dashboard on thecrag.com.</li>
+  <li>Select "Action -> Export logbook as XLS" or "Action -> Select logbook as CSV" link.</li>
+  <li>The result should open up in your browser and it is all yours to deal with how you want.</li>
+</ol>
+
+&nbsp;<br>
+
+<p>Please note that the export/import process is not designed for updating ascents. If you want to update ascents then use the web forms.</p>
