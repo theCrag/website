@@ -767,6 +767,7 @@ A discussion can have one or more messages associated with it. If there are more
   <li>route-length</li>
   <li>route-grade</li>
   <li>route-gear-style</li>
+  <li>route-bolts</li>
 </ul>
 
 <p>For example:</p>
