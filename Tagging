@@ -7,6 +7,10 @@ my $tags = $ARGS{data}->{tags};
 
 <p>Crag Tags make it easy to add structured information to routes and areas in the index. Crag Tags are cool because they display information in a concise way and can also be used for searching.</p>
 
+<div class="alert alert-info ">
+<b>Quick tip:</b> to get started from any area or route, click on Action > Assign tags
+</div>
+
 <p>The table below shows both <span class="tags">current</span> and <span class="tags proposed">proposed</span> tags. If you have any comments or suggestions for new tags then please either <a href="/article/contactus">contact us</a> or participate in the following public forum:</p>
 
 <p><a href="/forum/192275739">Tagging public forum</a></p>
