@@ -1,4 +1,4 @@
-7 Extend - 2 Exporting logbook
+7 Extend - 2 Exporting your logbook
 <%perl>
 use CIDS::Application::StaticVersions;
 my $account = $ARGS{account};

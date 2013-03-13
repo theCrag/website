@@ -1,4 +1,4 @@
-7 Extend - 3 Importing logbook
+7 Extend - 3 Importing your logbook
 <%perl>
 use CIDS::Application::StaticVersions;
 my $account = $ARGS{account};
@@ -20,7 +20,9 @@ table, th, td { border: 1px solid black; }
 
 &nbsp;</br>
 
-<p>thecrag.com has been around since 1999, so we are committed to provide an enduring service. We have had a unique approach to our logbook service in that your logbook must be linked to registered routes in our community database. This means you cannot put any old rubbish in your logbook.</p>
+<div class="alert alert-error"><b>In beta test phase!</b> Please note that the importing logbook service is in beta test phase, but is relatively stable. We have had at least two climbers import three logbooks from different sources totalling over 3000 ascents. See the section on <a href="#beta">beta test testamonials</a> below for initial impressions. If you are interested then please contact us so we can work with you to get your import completed.</div>
+
+<p>thecrag.com has been around since 1999, so we are committed to provide an enduring service. From the beginning we have had a unique approach to our logbook service in that your logbook must be linked to registered routes in our community database. This means you cannot put any old rubbish in your logbook.</p>
 
 <p>You should also note that there are no restrictions on users <a href="/article/exportlogbook">exporting</a> their logbook from thecrag.com. This feature is available for both CSV and Excel formats.</p>
 
@@ -73,6 +75,17 @@ table, th, td { border: 1px solid black; }
   <li>Your done for now.</li>
 
 </ol>
+
+&nbsp;</br>
+
+<p>Please note there are some additional tricks to import individual lines using the one-at-a-time form.</p>
+<ul>
+  <li>To access the one-at-a-time form click the 'Next Pending Line' from the import dashboard.</li>
+  <li>If you cannot find a match in the list of system candidates then you can do a manual search by clicking on 'none' radio button and a manual search box should appear. If you select a result from this search it will be added to the list of candidates.</li>
+  <li>If you know the route is in the system but the search is still not matching using the manual search then you can put the route id into the search box to be added to the list of candidates.</li>
+  <li>You may revert a 'skipped' or 'deferred' line back to pending status by clicking on the 'report' link in the table of the main import dashboard screen, then find the line and click on the 'revert' link.</li>
+  <li>You may jump to a particular pending or deferred line by clicking on the line status in the import report, as above.</li>
+</ul>
 
 
 
@@ -145,3 +158,4 @@ table, th, td { border: 1px solid black; }
 
 <p>Our users report that exporting from 8a is quite difficult.</p>
 
+<h2><a name="beta">Beta test testamonials</a></h2>
