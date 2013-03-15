@@ -108,10 +108,9 @@ sub isVis {
 
 <p>If you would like programatic access to the grades and grade conversions through the <a href="/article/API">API</a> then you should get in contact with us. The programatic version of this table is available through the following API call:</p>
 
-<pre>
+<div class="alert alert-info">
   http://www.thecrag.com/api/config/grade/system
-</pre>
-&nbsp;<br>
+</div>
 
 
 
@@ -175,10 +174,9 @@ sub isVis {
 </ul>
 
 <p>A route may have official grades from several different grading systems (eg in Thailand many routes have an official French and Australian grade). For example:<p>
-<pre>
+<div class="alert alert-info">
   <a href="http://www.thecrag.com/route/17710201">http://www.thecrag.com/route/17710201</a>
-</pre>
-&nbsp;<br>
+</div>
 <p>The above route, "Knights In White Satin" has a registered grade of <span itemprop="contentRating" class="grade gb4">7b+</span> French and <span itemprop="contentRating" class="grade gb4">26</span> Australian Ewbanks. Because the Thailand is assigned the French context the French grade will be shown on the site. (Question: Do we want to show the Australian grade to Australian users?)</p>
 
 <p>Once a route has a registered grade it can only be changed by an Editor and is not affected by subsequent user contributions.</p>
@@ -253,7 +251,7 @@ sub isVis {
   <li>Select the grading system you want to use for your ascent.</li>
   <li>Select the grade.</li>
   <li>And yes you are done, easy eh - not (we will have to make this simpler at some point, but mostly you will not need this procedure).</li>
-<ul>
+</ul>
 
 
 
