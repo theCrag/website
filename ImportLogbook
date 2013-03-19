@@ -159,3 +159,27 @@ table, th, td { border: 1px solid black; }
 <p>Our users report that exporting from 8a is quite difficult.</p>
 
 <h2><a name="beta">Beta test testamonials</a></h2>
+
+<h3><a name="testamonial1">Testamonial 1: Climber who wanted logbook backup using thecrag export.</a></h3>
+<p>I used to write every climb I did down in a little notepad.  Being able to looks back over what I've climbed my notes for the climbs helps job my shocking memory. I like to look back and reminisce over past ascents.</p>
+
+<p>I spilt a drink of this little notepad one day and nearly lost everything so I decided to convert this little notepad into the digital age.</p>
+
+<p>Rather than just using a spreadsheet I decided that manually inputing my whole log book to the 8a database would be better so that friends and family
+could look at while I'm climbing while I'm away on trips.</p>
+
+<p>I used 8a for a few years but inputting new ascents was a tedious process and there was no backup facility I could use to export my logbook out of 8a (I was worried about the 8a site disappearing) I decided to seek out something new. That's when I found thecrag.</p>
+
+<p>It looked like thecrag had been around for year but I quickly noticed that it was under heavy development, new features being added on a monthly basic (compared to 8a where nothing changed in te 2 years I used it)</p>
+
+<p>My main objects where</p>
+
+<ol>
+  <li>being able to export my logbook (which thecrag had already implemented)</li>
+  <li>being more easily able to log my accents into my logbook (which thecrag already did by simply being able to click on multiple climbs in a crag and clicking Log Ascents)</li>
+  <li>being able to import my 8a logbook into thecrag.</li>
+</ol>
+
+<p>This last objective wasn't available but thecrag was willing to add this feature for me.</p>
+
+<p>In the process of 2 weeks they added the feature, I helped them beta test it and iron out the bugs and now I'm happy to say I have ditched my 8a account and happily using thecrag.</p>
