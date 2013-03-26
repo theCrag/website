@@ -1,0 +1,142 @@
+4 Climb - 2 Circuits
+
+<style>
+table.imagetext {
+ border-collapse:collapse;
+}
+table.imagetext img {
+ border:1px solid #CACACA;
+}
+table.imagetext strong {
+ background:transparent;
+}
+table.imagetext td {
+ border:1px solid #CACACA;
+ margin:0;
+ padding:10px;
+ vertical-align:top;
+}
+</style>
+
+%# <div class="bore"><div class="alert alert-info"><b>Share themed lists of routes</b></div></div>
+
+<h2><a name="share">Share a themed list of routes</a></h2>
+
+<p>In a nutshell circuits allow you to share cool lists of routes with your friends and the climbing community.</p>
+
+<p>Examples:</p>
+<ul>
+  <li><em>Road to kachoong</em>: xxxx</li>
+  <li><em>Arapiles ladder of classics</em>: xxxx</li>
+  <li><em>Cool onsights in Arapiles</em>: xxxx</li>
+</ul>
+
+
+<h3><a name="share">Target routes for a trip</a></h3>
+<p>You may be planning a trip and want to share your target routes with friends who are coming.</p>
+
+<h3><a name="publish">Publish your theme</a></h3>
+<p>Got an idea for a good list of climbs, create an share the list for an area.</p>
+
+<h3><a name="ticking">Tick straight from circuit</a></h3>
+<p>You want to list training routes for a session at a cliff or boulder. You can tick directly from the circuit, which makes for less mouse clicks.</p>
+
+<h3><a name="oneclick">One click from your dashboard</a></h3>
+<p>Your stared circuits are one click away from your dashboard.</p>
+
+
+<h2>Create a circuit</h2>
+
+<table class="imagetext">
+  <tbody>
+    <tr>
+      <td>
+<img src="/static/cids/images/circuit-1.1.1/circuit-01.png" width="100" height="100" />
+      </td>
+      <td>
+<p>Go to the crag/area where you want to create the circuit.</p>
+<p>Click on the Action->Create circuit button.</p>
+<p>Create your cool name and brief description.</p>
+<p>Press save and the circuit is now stored in the crag/area as well as becoming your active editing circuit for adding routes.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Add route to a circuit</h2>
+
+<table class="imagetext">
+  <tbody>
+    <tr>
+      <td>
+<img src="/static/cids/images/circuit-1.1.1/circuit-02.png" width="100" height="100" />
+      </td>
+      <td>
+<p>Browse the index until you see the routes listed in the route table in an area.</p>
+<p>On the popup Edit button associated with the route entry click the dropdown and then the "Add route to active circuit" link.</p>
+<p>Alternatively do a route faceted search and do the same from the Action dropdown on the route entry.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Star circuits</h2>
+
+<table class="imagetext">
+  <tbody>
+    <tr>
+      <td>
+<img src="/static/cids/images/circuit-1.1.1/circuit-03.png" width="100" height="100" />
+      </td>
+      <td>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Circuits in an area</h2>
+
+<table class="imagetext">
+  <tbody>
+    <tr>
+      <td>
+<img src="/static/cids/images/circuit-1.1.1/circuit-03.png" width="100" height="100" />
+      </td>
+      <td>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Circuits from your dashboard</h2>
+
+<table class="imagetext">
+  <tbody>
+    <tr>
+      <td>
+<img src="/static/cids/images/circuit-1.1.1/circuit-03.png" width="100" height="100" />
+      </td>
+      <td>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Friends circuits</h2>
+
+<table class="imagetext">
+  <tbody>
+    <tr>
+      <td>
+<img src="/static/cids/images/circuit-1.1.1/circuit-03.png" width="100" height="100" />
+      </td>
+      <td>
+      </td>
+    </tr>
+  </tbody>
+</table>
