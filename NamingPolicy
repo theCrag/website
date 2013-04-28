@@ -2,20 +2,22 @@
 
 <p>This is a working document for developing naming policy for areas and routes in the index. This document is being developed based on community feedback and our experience running a global index of names.</p>
 
-<div class="bore"><div class="alert alert-info"><b>Note: This document assumes you understand the alternate name facility, where an area/route can have multiple names.</b></div></div>
+<div class="bore"><div class="alert"><h4>Did you know?</h4>
+<p>Any area or route can have multiple names, including a.k.a names, historical names, or names in other languages.</p>
+</div></div>
 
-<h2><a name="regions">Naming regions</a></h2>
+<h2><a name="regions"></a>Naming regions</h2>
 
 <ul>
   <li>A country (or parent region) may be broken down into locally recongisable sub regions, such that geographic boundaries can be drawn around them covering the country or parent region.</li>
   <li>Using geo-political boundaries (state, province, etc) may be a suitable way of doing this, but their are often exceptions such as ACT being contained within NSW is Australia. Sometimes there are too many or not relevant to the local community.</li>
   <li>Naming based on features, parks and ranges may also be an accetable way of doing this. The problem with this method is that it is often hard to get complete coverage using geographic snap-lock boundaries.</li>
-  <li>Sometimes a government organisation, such as Bureau of Meterology, have has broken down a country into smaller reporting regions.</li>
+  <li>We have often found that political boundaries are not ideal as they are shaped by population density. Instead using boundaries that are more relevant to the geography are more relevant to climbers, such as the regions use by weather reporting organisations like the Australian Bureau of Meterology.</li>
   <li>If you are naming a region then siblings areas should also be named using consistent logic.</li>
 </ul>
 
 
-<h2><a name="crags">Naming crags</a></h2>
+<h2><a name="crags"></a>Naming crags</h2>
 
 <ul>
   <li>Crags should be named based on what climbers call the crag (eg 'Frog Buttress').</li>
@@ -25,7 +27,7 @@
   <li>Commonly used abbreviated names may also be set up using the alternate name facility (eg KP for Kangeroo Point).</li>
 </ul>
 
-<h2><a name="language">Language</a></h2>
+<h2><a name="language"></a>Language</h2>
 
 <p>Note that we are still developing best practice for local language names verses English names. This is a complex issue and probably involves significant system changes once we decide which way to go. In the meantime please use one of the following methods:</p>
 <ol>
@@ -34,7 +36,7 @@
   <li>Place the the language alternate in brackets after the original name.</li>
 </ol>
 
-<h2><a name="routes">Naming routes</a></h2>
+<h2><a name="routes"></a>Naming routes</h2>
 
 <ul>
   <li>Traditionaly the person who climbs a route has the right to name it.</li>
@@ -44,7 +46,7 @@
 </ul>
 
 
-<h2><a name="other">Naming cliffs, boulders, etc</a></h2>
+<h2><a name="other"></a>Naming cliffs, boulders, etc</h2>
 
 <ul>
   <li>Traditionaly the person who discovers the first route for the cliff/boulder gets to name it.</li>
