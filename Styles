@@ -56,7 +56,7 @@
       </tr>
       <tr>
         <td class="unknown">Unknown</td>
-        <td>An unknown style - only used when you don't actually know. If a route is maybe trad or sport, and definetly not the others, then set it to trad rather than unknown and then change it to sport later if needed. If you've invented some new style that you think should be here <a href="/article/ContactUs">let us know!</a></td>
+        <td>An unknown style - only used when you don't actually know. If a route is maybe trad or sport, and definitely not the others, then set it to trad rather than unknown and then change it to sport later if needed. If you've invented some new style that you think should be here <a href="/article/ContactUs">let us know!</a></td>
       </tr>
     </tbody>
   </table>
