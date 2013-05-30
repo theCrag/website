@@ -3,7 +3,7 @@
 
 <h2>Why exporting your ascent logbook is so important?</h2>
 
-<p>If you use a web service to maintain a list of your ascents it's probably a good idea to <a href="/article/ExportLogbook">export</a> your logbook from time to time. The main reasons for this are:</p>
+<p>If you use a web service to maintain a list of your ascents (eg thecrag logbook, 8a scorecard) it's probably a good idea to <a href="/article/ExportLogbook">export</a> your logbook from time to time. The main reasons for this are:</p>
 
 <ul>
   <li>As a backup</li>
@@ -12,7 +12,7 @@
 
 <p>Imagine a scenario like this...</p>
 
-<p>You have been logging your rock climbing ascents for years using one of the many online ticking engines. It’s pretty sweet and only takes a couple of minutes after each climbing weekend.</p>
+<p>You have been logging your rock climbing ascents for years using one of the many online ticking engines. It’s pretty sweet and only takes a couple of minutes after each climbing weekend to keep your logbook up-to-date.</p>
 
 <p>Your ticks are all in one place, accessible anywhere from the Internet and you don’t have to worry... until it disappears. You wake up one morning and your ticking engine has vanished, gone the way of many Internet companies and closed it’s doors.</p>
 
@@ -22,13 +22,13 @@
 
 <p>Oh crap, no export function- you are stuck with your now not so favorite engine.</p>
 
-<p>The elephant in the room is 8a.nu. 8a currently (May 2013) do not allow you to export your scorecard. It’s pretty cool to use 8a to compare your ability to the worlds best climbers but they lock your data up so you cannot use it elsewhere.</p>
+<p>The elephant in the room is the 8a.nu scorecard. 8a currently (May 2013) do not allow you to export your scorecard. It’s pretty cool to use 8a to compare your ability to the worlds best climbers but they lock your data up so you cannot use it elsewhere.</p>
 
-<p>Don’t worry, there is an independent passionate climber who got jack of this and has built a service to export his scorecard from 8a. He has made it freely available for everybody in the google chrome webstore:</p>
+<p>Don’t worry, there is an independent passionate climber who got jack of this and has built a service to export his scorecard from 8a.nu. He has made it freely available for everybody in the google chrome webstore:</p>
 
 <p><a href="https://chrome.google.com/webstore/detail/8a-exporter/hekkfoilcpojpemdamefenfhielmbcen">https://chrome.google.com/webstore/detail/8a-exporter/hekkfoilcpojpemdamefenfhielmbcen</a></p>
 
-<p>Full disclosure- the author of this article is a founder of thecrag.com, a community climbing database which also offers a logbook service. The crag has both an <a href="/article/ExportLogbook">export</a> and <a href="/article/ImportLogbook">import</a> function. In fact we at thecrag thought that the export function was so important that we built it years before the import function.</p>
+<p>Full disclosure- the author of this article is a founder of thecrag.com, a community climbing database which also offers an ascents logbook service. Thecrag has both an <a href="/article/ExportLogbook">export</a> and <a href="/article/ImportLogbook">import</a> function. In fact, we at thecrag thought that the export function was so important that we built it years before the import function.</p>
 
 <p>Please let me know about the export function status of your ticking engine and I will update it here.</p>
 
@@ -42,7 +42,7 @@
  <body>
   <tr>
     <td>8a.nu</td>
-    <td>Cannot export - must use independant tools.</td>
+    <td>Cannot export scorecard- must use independant tools.</td>
   </tr>
   <tr>
     <td>thecrag.com</td>

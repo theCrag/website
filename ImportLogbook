@@ -156,7 +156,9 @@ table, th, td { border: 1px solid black; }
 
 <h3>8a</h3>
 
-<p>Our users report that exporting from 8a is quite difficult.</p>
+<p>Our users report that exporting from 8a is quite difficult.... until now. An independent climber has built a service to export his scorecard from 8a.nu. He has made it freely available for everybody in the google chrome webstore:</p>
+
+<p><a href="https://chrome.google.com/webstore/detail/8a-exporter/hekkfoilcpojpemdamefenfhielmbcen">https://chrome.google.com/webstore/detail/8a-exporter/hekkfoilcpojpemdamefenfhielmbcen</a></p>
 
 <h2><a name="beta">Beta test testamonials</a></h2>
 
