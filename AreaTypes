@@ -51,6 +51,10 @@
         <td>Feature*</td>
         <td>The Feature area type can be a feature of a cliff or boulder. Generally it is used as a sub-type for bouldering purposes.</td>
       </tr>
+      <tr>
+        <td>Gym</td>
+        <td>An indoor or artificial climbing gym or wall. </td>
+      </tr>
     </tbody>
   </table>
 </div>
