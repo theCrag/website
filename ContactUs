@@ -9,9 +9,9 @@
 
 <div class="span4">
 
-<blockquote>
-	<p><a target="_new" href="mailto:support@thecrag.com">support@thecrag.com</a></p>
-</blockquote>
+<div class="lead">
+<a target="_new" href="mailto:support@thecrag.com">support@thecrag.com</a>
+</div>
 
 <p>Please contact us if you:</p>
 <ul>
