@@ -2,8 +2,6 @@
 
 <p>Location! Location! Location!</p>
 
-<p>THIS ARTICLE IS UNDER DEVELOPMENT</p>
-
 <p>In addition to routes, descriptions, topos, theCrag also collects and stores map-based information on the location of crags and routes.</p>
 
 <p>This is really useful information for things like:</p>
@@ -14,6 +12,24 @@
   <li>Enabling location-based search and services in mobile applications</li>
 </ul>
 
+<h2>How this data is used</h2>
+
+<p>Location data is very useful, and it gets used in different ways across the site. It is also intrinsically linked with the index structure. Some important points to remember if you are locating areas or restructuring are:</p>
+
+<ul>
+<li>child areas's should always be inside parent areas
+<li>sibling areas's shouldn't overlap
+<li>avoid having a 'climbing areas' and a 'bouldering area' that overlap, just mark each route with the correct type so they can be filtered as needed
+<li>try and avoid a child and parent sharing the same shape, it should be clear that a child area is inside the parent
+<li>each area should have no more than around 20 childred, otherwise consider creating grouping them somehow. If in doubt send us an email
+<li>area shapes should generally be a little bit bigger than they are in real life, so that if your GPS location is a few meters away from a cloff or boulder then you are still considered to be 'in' that area. 
+<li>similar to above, crag or area shapes should be quite generous and include carparks, and encompass walking tracks and other features
+</ul>
+
+<div class="alert alert-info">
+ A great rule of thumb is: imagine you are standing at a particular location and describing to someone on the phone where you are.
+ If you are at the carpark you would probably say "I'm at crag X", or if you are near the descent gully of a cliff you'd say "I'm at the YYY cliff", or if you we're within 10m of a boulder problem you'd say "I'm at problem ZZ". 
+</div>
 
 
 <h2>How to create a boundary</h2>
