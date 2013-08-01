@@ -15,7 +15,7 @@
 
 <p>thecrag.com can automatically convert grades to a different system according to the table below. If you can suggest a better translation please log an issue in <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a>.</p>
 
-<p>Note the coloured <a href="#s2">grade bands</a> which are used throughout the site as a quick way to guage the difficulty of a route or area.</p>
+<p>Note the coloured <a href="#s2">grade bands</a> which are used throughout the site as a quick way to gauge the difficulty of a route or area.</p>
 
 % my $data = $ARGS{data};
 
