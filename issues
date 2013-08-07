@@ -2,13 +2,14 @@
 
 <div style="text-align: center; width: 100%;"><img src="/static/cids/images/bugs-ladybug-1.1.0.jpg" alt="" width="400" height="400" /></div>
 
-
+<div class="coltext">
 <p>We love <a href="http://github.com">github.com</a>! Github is a place where people can share open source code and track bugs and features requests.</p>
 <p>Parts of theCrag are released as open source and github is where we will host that code. We are also using github's issue's tracker for all bugs and feature requests related to our general website.</p>
 <p class="info_box"><a href="https://github.com/theCrag/website/issues">
  <img src="/static/silk/bug.png" width="16" height="16" alt="Github" title="Our bugs and feature requests list" />
 https://github.com/theCrag/website/issues</a></p>
 <p>Feel free to browse our issues list and see what bugs have been identified and also see what new features and ideas us and other members have submitted. You can see the planned date for the next release and see what it will include. Feel free to make youself a github account and submit bugs and ideas, we only ask that you stick to a couple simple house rules:</p>
+</div>
 <h3>House rules for submitting:</h3>
 <p><strong>Bug reports:</strong></p>
 <ul>
@@ -19,6 +20,7 @@ https://github.com/theCrag/website/issues</a></p>
 <li>Please give a idea of what you consider the correct behaviour or display to be</li>
 <li>If you have a security concern, please email us directly and do not publish details to the public issue list</li>
 </ul>
+
 
 
 <p><strong>Feature requests:</strong></p>

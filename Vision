@@ -2,6 +2,7 @@
 
 <div style="text-align: center; width: 100%;"><img src="/static/cids/images/vision-helmet-dirt-1.1.0.jpg" alt="" width="400" height="400" /></div>
 
+<div class="coltext">
 <h2>A collaborative climbing database</h2>
 
 <p>theCrag.com is a hub for gathering and <strong>sharing climbing information</strong>. Climbers and publishers can share climbing information and distribute it through multiple channels, including theCrag.com's website, third party websites, rss feeds, Facebook, pdf publications, iphone, ipad and others.</p>
@@ -114,4 +115,6 @@
 
 <h3>Google Earth</h3>
 <p>We have a small project underway to make crag and route information available through Google Earth.</p>
+
+</div>
 

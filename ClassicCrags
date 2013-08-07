@@ -1,5 +1,6 @@
 2 Explore - 2 Classic Crags
 
+<div class="coltext">
 <p>You're probably familiar with the use of star ratings for routes. (For details on our community-generated route quality ratings read '<a href="/article/Stars">How do stars work?</a>')</p>
 
 <p>We've extended this concept to develop an indicator of crag quality.</p>
@@ -9,3 +10,4 @@
 <p>Crags earn Kudos based on how often people climb there and how highly their routes are rated. In other words it's basically a combination of the number of ascents and quality ratings (with a few weightings and other smarts thrown in).</p>
 
 <p>As you browse the index the 'Classic Crags' listed at the top of the left-hand column will be the ones with the highest Crag Kudos for that region.</p>
+</div>

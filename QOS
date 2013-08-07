@@ -1,5 +1,7 @@
 1 About theCrag - 7 Quality of Service Plan
 
+<div class="coltext">
+
 <h2>Summary</h2>
 
 <p>This document outlines thecrag.com's Quality of Service Plan. Because thecrag.com website is a free community based site no guarantees are made to achieving any predefined quality levels. However this document has been written in order to provide a plan for continuous improvement in best effort with our limited resources.</p>
@@ -188,4 +190,4 @@
 <p>Improvements, suggestions and bug fixes should be reported to us via email. We have an internal back office issues register which we are using to prioritise fixes. We cannot make any guarantees as to how long a fix will take.</p>
 
 <p>At some point, we plan to integrate the issues register into the system so that issues may be directly logged and tracked in the system. This will also help site transparency.</p>
-
+</div>

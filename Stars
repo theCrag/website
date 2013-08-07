@@ -16,6 +16,7 @@
 </ol>
 
 
+<div class="coltext">
 <h3><a name="s1">1. Stars calculation</a></h3>
 
 <p>Route stars are assigned by the system according to the following rules:</p>
@@ -103,3 +104,6 @@
 </ul>
 
 <p>In order to know which is the better route within a particular star group we also show the Quality Score in the tooltips as you hover the mouse over the stars. For example hover the mouse over the following stars <span title="Quality: 89%"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"></span>.</p>
+
+</div>
+

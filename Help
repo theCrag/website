@@ -1,5 +1,6 @@
 1 About theCrag
 
+<div class="coltext">
 <p>thecrag.com is a project to collect and distribute climbing information to the climbing community. The site was founded in 1999 by Simon Dale and Campbell Gome, two Australian climbers. In 2010 Brendan Heywood joined the team bringing new skills, ideas and energy. In 2011 Adam Pullen joined the team to help build our mobile applications. See our <a href="/article/vision">vision</a> on where this team wants to take thecrag.com.</p>
 
 <p>Our main aim is to collect and distribute climbing information for the benefit of rock climbers. Where possible we would like to do this for free. The development and ongoing operation of the site is personally funded by one of the site founders and our time is limited. To improve the service provided by thecrag.com we need help from the climbing community.</p>
@@ -11,16 +12,16 @@
   <li><p>Projects</p></li>
   <li><p>Sponsorship</p></li>
 </ul>
-
+</div>
 
 
 
 <h2>Publications</h2>
-
+<div class="coltext">
 <p>After a publisher has nominated to become part of the network, we may need to either cite the guidebook climbs or in some cases enter climb descriptions from the guidebook (only after permission has been granted to do this). In the past we have done this ourselves, but our time is too limited to continue operating in this way.</p>
 
 <p>Please let us know if you are willing to help here.</p>
-
+</div>
 
 <h2>Projects</h2>
 
