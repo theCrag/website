@@ -63,6 +63,7 @@ sub isVis {
 <tr>
 % foreach my $system ( @{ $data->{systems} } ){
 %   if (!isVis $system ){ next; }
+%   if ($system->{abbreviatedName} eq 'Class' ){ next; }
 %   $type = $system->{type};
 %   if ($prevType ne $type){
 %     if ($prevType){
@@ -83,6 +84,7 @@ sub isVis {
 <tr>
 % foreach my $system ( @{ $data->{systems} } ){
 %   if (!isVis $system ){ next; }
+%   if ($system->{abbreviatedName} eq 'Class' ){ next; }
 <th title="<% $system->{name} |h %>"><% $system->{abbreviatedName}  %></th>
 % }
 </tr>
@@ -90,6 +92,7 @@ sub isVis {
 % my $scale = 3;
 % foreach my $system ( @{ $data->{systems} } ){
 %   if (!isVis $system ){ next; }
+%   if ($system->{abbreviatedName} eq 'Class' ){ next; }
 <td>
 <div class="grades">
 %   foreach my $grade ( @{ $system->{grade} } ){
