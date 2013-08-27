@@ -66,9 +66,9 @@ my $tags = $ARGS{data}->{tags};
 % my $file = $tagname;
 % $file =~ s/ /-/g;
 % if ($tag->{hasIcon}){
-<span class="icontag"><img src="<% static 'cids/images/tag-icons_'.(lc $file ).'.png' %>" width="36" height="36" /><br><% $tagname %></span>
+<span id="<% $tagname %>" class="icontag"><img src="<% static 'cids/images/tag-icons_'.(lc $file ).'.png' %>" width="36" height="36" /><br><% $tagname %></span>
 % } else {
-<span class="tags <% $proposed ? ' proposed' : '' %>"><% $tagname %><% $tag->{desc} ? " ($refC)" : '' %></span>
+<span id="<% $tagname %>" class="tags <% $proposed ? ' proposed' : '' %>"><% $tagname %><% $tag->{desc} ? " ($refC)" : '' %></span>
 % }
     <em><% $tagcomment |h %></em>
 
