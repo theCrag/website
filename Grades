@@ -665,7 +665,10 @@ function initialize() {
     content: 'default'
   });
   function clickHandler() {
-    infoWindow.setContent("<h4>"+this.name+"</h4><p>Context: <img class='flag' src='"+this.icon+"'> "+this.ctx+"</p>");
+    var html= "<h4>"+this.name+"</h4>"
+      +"<p>Context: <img class='flag' src='"+this.icon+"'> "+this.ctx+"</p>"
+      +"<p><a href='"+this.url+"'>"+this.url+"</a></p>";
+    infoWindow.setContent( html );
     infoWindow.open(map,this);
   }
 
@@ -673,12 +676,16 @@ function initialize() {
   $('#countries tr[data-ll]').each(function(){
     var $c = $(this);
     var ll = $c.data('ll').split(',');
-    var pos = new google.maps.LatLng(ll[0], ll[1]);
-    var img = $c.find('img').attr('src');
-    var ctx = $c.find('img').parent().text().trim();
-    var name = $c.find('td').eq(1).text().trim();
-    bounds.extend (pos);
-    var marker = new google.maps.Marker({ position: pos, map: map, icon: img, name: name, ctx: ctx });
+    var options = {
+      map: map,
+      position: new google.maps.LatLng(ll[0], ll[1]),
+      icon: $c.find('img').attr('src'),
+      ctx: $c.find('img').parent().text().trim(),
+      name: $c.find('td').eq(1).text().trim(),
+      url: $c.find('a').attr('href')
+    };
+    bounds.extend (options.position);
+    var marker = new google.maps.Marker( options );
     google.maps.event.addListener(marker, 'click', clickHandler);
   });
   map.fitBounds (bounds);
