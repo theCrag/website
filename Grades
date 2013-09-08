@@ -582,7 +582,7 @@ my %icons = (
 	'AU'   => 'au',
 	'UK'   => 'gb',
 	'FR'   => 'fr',
-	'UIAA' => 'europeanunion',
+	'UIAA' => 'uiaa',
 	'SA'   => '',
 	'SX'   => '',
 	'FIN'  => 'fi',
@@ -625,13 +625,16 @@ my %icons = (
 %   $icon = $icons{$ctx};
 % }
 % if (defined $icon && $icon ne ''){
-<img src="<% static "flags/png/$icon".".png" %>">
+<img class="flag" src="<% static "flags/png/$icon".".png" %>">
 % }
 <% $ctx %>
   </tr>
 % }
 </table>
 <style>
+.flag {
+	vertical-align: baseline;
+}
 .map-wrap {
 	position: relative;
 	padding-bottom: 40%; /* 16:9 ratio */
@@ -657,14 +660,26 @@ function initialize() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var infoWindow = new google.maps.InfoWindow({
+    content: 'default'
+  });
+  function clickHandler() {
+    infoWindow.setContent("<h4>"+this.name+"</h4><p>Context: <img class='flag' src='"+this.icon+"'> "+this.ctx+"</p>");
+    infoWindow.open(map,this);
+  }
+
   var bounds = new google.maps.LatLngBounds();
   $('#countries tr[data-ll]').each(function(){
     var $c = $(this);
     var ll = $c.data('ll').split(',');
     var pos = new google.maps.LatLng(ll[0], ll[1]);
     var img = $c.find('img').attr('src');
+    var ctx = $c.find('img').parent().text().trim();
+    var name = $c.find('td').eq(1).text().trim();
     bounds.extend (pos);
-    var beachMarker = new google.maps.Marker({ position: pos, map: map, icon: img });
+    var marker = new google.maps.Marker({ position: pos, map: map, icon: img, name: name, ctx: ctx });
+    google.maps.event.addListener(marker, 'click', clickHandler);
   });
   map.fitBounds (bounds);
 }
