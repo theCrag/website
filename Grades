@@ -9,9 +9,10 @@
   <li><a href="#s3">How are grades asigned to routes?</a></li>
   <li><a href="#s4">How are grades asigned to ascents?</a></li>
   <li><a href="#s5">Grade parsing </a></li>
+  <li><a href="#s6">Country context's</a></li>
 </ol>
 
-<h2><a name="s1">1. Grade conversions</a></h2>
+<h2><a name="s1" href="#s1">1. Grade conversions</a></h2>
 
 <p>thecrag.com can automatically convert grades to a different system according to the table below. If you can suggest a better translation please log an issue in <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a>.</p>
 
@@ -119,7 +120,7 @@ sub isVis {
 
 
 
-<h2><a name="s2">2. Grade bands</a></h2>
+<h2><a name="s2" href="#s2>2. Grade bands</a></h2>
 
 <p>For use on thecrag.com we have divided climb difficulty ratings into 5 segments - Beginner, Intermediate, Experienced, Expert and Elite. These definitions are somewhat arbitrary, but they are based on many years of climbing experience and there are also some statistical reasons for breaking climbing into these segments.</p>
 
@@ -162,7 +163,7 @@ sub isVis {
 
 
 
-<h2><a name="s3">3. How are grades asigned to routes?</a></h2>
+<h2><a name="s3" href="#s3">3. How are grades asigned to routes?</a></h2>
 
 <p>Routes have a registered grade and a list of independent user and publisher grade contributions (a publisher contribution is a citation from a publication). The user and publisher grade contributions are displayed on the route page. The official grade of the route is given by the registered grade.</p>
 
@@ -226,7 +227,7 @@ sub isVis {
 
 
 
-<h2><a name="s4">4. How are grades asigned to ascents?</a></h2>
+<h2><a name="s4" href="#s4">4. How are grades asigned to ascents?</a></h2>
 
 <p>This area needs a complete rethink because the system is a little restrictive. If you want to contribute to a community discussion see the following issue in our issues list:</p> 
 
@@ -261,7 +262,7 @@ sub isVis {
 
 
 
-<h2><a name="s5">5. Grade parsing</a></h2>
+<h2><a name="s5" href="#s5">5. Grade parsing</a></h2>
 
 <p>Our aim is for you to contribute grades as you see them in guidebooks and for the system to be smart enough to work out what you mean.</p>
 
@@ -571,19 +572,104 @@ sub isVis {
 
 
 
-<h3><a name="s5_3">5.3 Country context</a></h3>
+<h2><a name="s6" href="#s6">6. Country context's</a></h2>
 
 <p>The following table shows the current system settings for country context. Please raise an issue in our <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a> if you think we need to make some adjustments.</p>
 
-<table>
+<%perl>
+my %icons = (
+	'US'   => 'us',
+	'AU'   => 'au',
+	'UK'   => 'gb',
+	'FR'   => 'fr',
+	'UIAA' => 'europeanunion',
+	'SA'   => '',
+	'SX'   => '',
+	'FIN'  => 'fi',
+	'NWG'  => 'no',
+	'POL'  => 'pl',
+);
+
+</%perl>
+<div class="map-wrap"><div id="map-canvas" class="google-map"></div></div>
+<table id="countries">
   <tr>
+    <th><i class="icon-map-marker"></i></th>
     <th>Country</th>
     <th>Context</th>
   </tr>
+% use Data::Dumper;
 % foreach my $country ( @{ $data->{countries} } ){
+% if ( defined $country->{geometry}->{point} ){
+  <tr data-ll="<% $country->{geometry}->{point}[1] %>,<% $country->{geometry}->{point}[0] %>">
+% } else {
   <tr>
-    <td><% $country->{name} %></td>
-    <td><% $country->{defaultGrading}->{context} %></td>
+% }
+    <td>
+% if ( defined $country->{geometry}->{point} ){
+<i class="icon-map-marker"></i>
+% }
+%#<pre><% Dumper ($country) %></pre>
+    <td>
+% if ($country->{id}){
+<a href='<% CIDS::Application::WebHelpers::indexURL($country,type=>'area') %>'>
+% }
+<% $country->{name} %>
+% if ($country->{id}){
+</a>
+% }
+    <td>
+% my $icon = '';
+% my $ctx = $country->{defaultGrading}->{context} || '';
+% if (defined $icons{$ctx}){
+%   $icon = $icons{$ctx};
+% }
+% if (defined $icon && $icon ne ''){
+<img src="<% static "flags/png/$icon".".png" %>">
+% }
+<% $ctx %>
   </tr>
 % }
 </table>
+<style>
+.map-wrap {
+	position: relative;
+	padding-bottom: 40%; /* 16:9 ratio */
+	padding-top: 30px; /* IE 6 workaround*/
+	height: 0;
+	overflow: hidden;
+}
+#map-canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+</style>
+<script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
+<script>
+var map;
+function initialize() {
+  var mapOptions = {
+    zoom: 5,
+    center: new google.maps.LatLng(0,0),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var bounds = new google.maps.LatLngBounds();
+  $('#countries tr[data-ll]').each(function(){
+    var $c = $(this);
+    var ll = $c.data('ll').split(',');
+    var pos = new google.maps.LatLng(ll[0], ll[1]);
+    var img = $c.find('img').attr('src');
+    bounds.extend (pos);
+    var beachMarker = new google.maps.Marker({ position: pos, map: map, icon: img });
+  });
+  map.fitBounds (bounds);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
