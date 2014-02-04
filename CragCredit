@@ -1,4 +1,4 @@
-6 Contribute - 02 Crag Credits
+6 Contribute - 03 Crag Credits
 <%perl>
 use CIDS::Application::StaticVersions;
 my $creditConfig = $ARGS{data}->{creditConfig};

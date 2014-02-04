@@ -1,0 +1,53 @@
+6 Contribute - 07 Crag Structure
+
+<p>So your local crag's guide has grown a lot, and is getting a bit unweidly: it needs a bit of structure, but how!?</p>
+
+<p>We've tried to not be too prescriptive and have various options for helping you structuring a crag, because there
+ is always a crag that just doesn't fit any given set of rules.
+
+<h2>Sub areas/cliffs vs Annotations</h2>
+
+
+<p>These are some rules of thumb we've found help determine the best way to break up a big crag:
+
+<ul>
+<li>If you have more than 100 routes it's usually best to break it into sub area's somehow
+<li>If an area is geographically seperate, then model it by breaking it into sub area/cliffs and locate each one
+<li>If a cliff is just one long cliff then consider using annotations to document landmarks along the
+ cliff
+</ul>
+
+<h2>Ordering child areas</h2>
+
+<p>We (the admins) generally manage the top level regions and countries. These should generally be order alphabeticaly.
+<p>Within a crag, especially if it is mostly linear, order the areas from one end to the other, eg north to south. Often it's best to order them in the same order you would approach them.
+
+
+
+<h2>Should multipitch routes be one route, or multiple routes?</h2>
+
+<p>We have two models that any particular area or route could use:
+
+<ol>
+<li>A multipitch climb is entered as a single route with each pitch in the description
+<li>A multipitch climb is broken into a separate route for each pitch
+</ol>
+
+<p>Both have pro's and cons and can work better in some crags.</p>
+
+<p>In either case their descriptions will be appropriate for each model, either a description with a markdown
+ list for each pitch, or the info for just it's own pitch. Any one route should be modelled under one of the
+ above, but not both. If it is listed twice that's pretty confusing as needs to be fixed. Be careful merging routes after people have ticked them so you don't mess up their logbook.
+
+<p>Some areas which have long simple multi pitch lines with little scope for mixing and alternates would be best under model 1.
+
+<p>Some areas, eg Thailand, which has lots of sport climbs that meet on a ledge, and then a whole bunch
+ of second pitches, where it is easy to mix and match pitches, the second model makes the most sense.
+
+<p> It could even make sense to mix and match the two models in one cliff if that made sense, as long as any
+ particular route wasn't listed twice.
+<p>Which model you use should try to be based on the predominate ticking pattern and is usaully pretty clear
+ cut for most areas. If people often tick just the first pitch, or access the ledge in the middle and just do the second, then it's probably best to break these into multiple routes.
+
+
+
