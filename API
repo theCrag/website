@@ -39,7 +39,10 @@ table, th, td { border: 1px solid black; }
 <p>The current API projects are underway:</p>
 
 <ul>
-  <li>mobile app for Android; and</li>
+  <li>mobile app for Android and iPhone; </li>
+  <li>New routes for club website; </li>
+  <li>Climbing geo links for outdoor sites; </li>
+  <li>Wordpress template for single crag; and</li>
   <li>thecrag.com website.</li>
 </ul>
 
@@ -48,9 +51,23 @@ table, th, td { border: 1px solid black; }
 
 <h2><a name="s2">2. Access</a></h2>
 
-<p>Access to the API is broadly in-line with our <a href="/processmap/copyright">copyright</a> (Creative Commons - Attribution Non-Commercial Share Alike). Access to the API is conditionally free for non-commecial initiatives, but commercial ventures must be negotiated with us.</p>
+<p>Access to the API is broadly in-line with our <a href="/processmap/copyright">copyright</a> (Creative Commons - Attribution Non-Commercial Share Alike), but must be negotiated with us. Generally speaking granting access to our API needs to be a win win scenario where both thecrag and the third party gets something. For example this may be more users, content, or revenue share. Here are some examples of the kind of things that we would be interested in:</p>
 
-<p>By conditionally free, we mean:</p>
+<p><b>Deal A</b>: You give us content for an area, we'll give yiou API access for that area - eg a local club or a local guidebook getting 'merged into the borg'.</p>
+
+<p><b>Deal B</b>: You give us tick data data, we host logbook and leverage stats, probably free, but maybe commecial if high traffic.</p>
+
+<p><b>Deal C</b>: You give us money, revenue share, we give you content. You add value essentially in a better UX for a platform (iPhone, Andriod, XBox, etc).</p>
+
+<p><b>Deal D</b>: You give us money we give you exposure to user base (eg sponsored links, sponsored articles).</p>
+
+<p><b>Deal E</b>: You give us new users, we give you new users (for example cross linking with MTB site or skiing site).</p>
+
+<p><b>Deal F</b>: You make a donation, we give you limited API access to test an idea (eg one crag).</p>
+
+<p>When considering any proposals to us please note that we are interested in a long term mutually beneficial relationship. We are not interested in providing free content so you can kick start a competitive business.</p>
+
+<p>Conditions of use of API:</p>
 
 <ol>
 
@@ -62,7 +79,7 @@ table, th, td { border: 1px solid black; }
 
 <li>All instances of your application must have a reasonable combined peak load usage. Reasonable is defined as not adversely effecting the overall performance of the server. As a guideline with a single server (our current configuration), reasonable peak load is less than 10 calls in a 10 second period but may vary depending on what API calls are made. As we scale the system we intend to be more flexible with the definition of reasonable load.</li>
 
-<li>Your application must not be commercial, which includes user pays, advertising and promotional applications. For example if there is advertising associated with the application then we would consider this commercial. Also if you are building the application as a promotional app (eg for Black Diamond or for a gym) then this would also be seen as commercial. Please ask us about whether or not we would view your application as commercial. If you want a commercial app then we are not greedy it's just a matter of negotiating fair compensation. It's only fair that thecrag.com does not bear other peoples commercial costs without being compensated (yes it does cost money for us to have an API available).</li>
+<li>You must disclose whether your app is commecial or not. Commercial includes user pays, advertising and promotional applications. For example if there is advertising associated with the application then we would consider this commercial. Also if you are building the application as a promotional app (eg for Black Diamond or for a gym) then this would also be seen as commercial. Please ask us about whether or not we would view your application as commercial. If you want a commercial app then we are not greedy it's just a matter of negotiating fair compensation. It's only fair that thecrag.com does not bear other peoples commercial costs without being compensated (yes it does cost money for us to have an API available).</li>
 
 <li>You must not use the api to build your own content from that supplied by the api. Please discuss with us any caching or storing of content on your client side, because in some instances caching or storing of content is acceptable. Unless otherwise negotiated you should assume that storing or caching of content is not acceptable.  This ensures that the final end user gets up-to-date information and also protects thecrag from bad will usage (eg using thecrag api to build lists of climbs for your own server).</li>
 
