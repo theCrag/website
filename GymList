@@ -1,0 +1,104 @@
+5 Connect - 6 Business - 2 How to list gym routes on theCrag
+
+
+<h1>Gym operator preparation checklist</h1>
+
+<p>If you are a gym operator and you want to list your gym routes on theCrag then:</p>
+
+<ul>
+  <li><p>Contact us to let us and let us know your gym name and location.</p></li>
+  <li><p>Signup for an <a href="/article/EntryLevelSponsorship">entry level sponsorship</a> package with theCrag.</p></li>
+  <li><p>Prepare your logo and <a href="/article/EntryLevelSponsorship#image-specifications">advertising artwork</a> (can do this later if you want).</p></li>
+  <li><p>Prepare a floor layout diagram (optional, or do anytime later, see <a href="#topo-pointers">topo tips</a>).</p></li>
+  <li><p>Prepare several rope photos (optional, or do anytime later).</p></li>
+  <li><p>Document the colour schemes you use for route difficulty.</p></li>
+  <li><p>Prepare a list of ropes and routes for each rope and each bouldering area with problems.</p></li>
+  <li><p>Prepare a spreadsheet of route setters and admin personnel.</p></li>
+  <li><p>You have to take up a theCrag sponsor package for listing your routes on theCrag.</p></li>
+</ul>
+
+
+
+<h1>theCrag team setup checklist</h1>
+
+<p>theCrag team has to do some preparatory work:</p>
+
+<ul>
+  <li><p>Create a Gym node (area type = ‘Gym’) in the right index area</p></li>
+  <li><p>Update the url stub with the gym name</p></li>
+  <li><p>Locate the gym</p></li>
+  <li><p>Lock the gym, which switches the node to the advanced gym template</p></li>
+  <li><p>Create the gym structure, make each rope as a ‘feature’</p></li>
+  <li><p>Upload the gym’s logo, cut and paste id into ‘avatar’ field in admin settings</p></li>
+</ul>
+
+
+
+
+<h1>Setup each gym operator accounts</h1>
+
+<p>Each route setter and gym administrator should have an account in theCrag. They may already have one, or they may want to create one themselves. theCrag team can also run a script to create these gym operators (note that the script will ensure that theCrag T&Cs are not yet accepted by the users).</p>
+
+
+
+<p>If the gym operator was not set up by theCrag team then:</p>
+<ul>
+  <li><p>Instructions should be sent to the operator to favorite the gym area node</p></li>
+  <li><p>If the operator has been nominated as an administrator (which means they control user permissions) then configure Administrator permissions for the operator in the Gym node.</p></li>
+  <li><p>Otherwise configure Coordinator permissions for route setters.</p></li>
+</ul>
+
+<p>Once set up make sure each operator is aware of the training material.</p>
+
+
+<h1>Training material</h1>
+
+
+<p>All gym operators should get a email outlining the following online help files [TODO LINK FOR EACH]:</p>
+
+<ul>
+  <li><p>How to adjust operator permissions</p></li>
+  <li><p>How to add a rope</p></li>
+  <li><p>How to archive a route</p></li>
+  <li><p>How to add a route</p></li>
+  <li><p>How to upload a floor plan</p></li>
+  <li><p>How to upload a topo</p></li>
+  <li><p>How to create a rope card</p></li>
+  <li><p>How to start a forum discussion</p></li>
+  <li><p>How to tick a route</p></li>
+</ul>
+
+
+<h1><a name="topo-pointers">Pointers for creating great gym topo pics</a></h1>
+
+
+<p>Some pointers for the pics:</p>
+<ul>
+  <li><p>Good even lighting.</p></li>
+  <li><p>Take the pic from an elevated position so you are looking straight at the wall instead of up.</p></li>
+  <li><p>Take the pics straight on, not on an angle, so that the ropes appear over the wall they belong too (makes the clickable topos easier to use).</p></li>
+  <li><p>Try and get the floor and ceiling in the shots, these can always be cropped out later.</p></li>
+  <li><p>Use as wide an angle camera as you have.</p></li>
+  <li><p>Aim for 4-5 ropes in each photo, for main normal walls. Try and overlap the photos a little. For stalactites and other odd shaped features, whatever works, even if it is one rope per photo.</p></li>
+  <li><p>It's probably good to have a couple people in the shots for reference as long as they aren't blocking key features, so when it is a bit quieter or after hours.</p></li>
+  <li><p>If in doubt just take a bunch of shots from different places and send them through and I'll have a play and see what works best.</p></li>
+</ul>
+
+
+<h1>Promotion</h1>
+
+
+<p>To get your gym routes listed you would have taken out a sponsorship package. This means you can advertise your gym in the region above and surrounding crags.</p>
+
+
+<p>Just keeping your routes up-to-date on theCrag will mean that some people start ticking and sharing routes they have done in your gym. Some of those will make it onto your customers Facebook walls.</p>
+
+
+<p>However the real game is about you integrating the ticking process into your gym customer processes. This probably means you use theCrag’s rope card solution and have notices put up on the wall. Ticking becomes mainstream in your gym then you have people coming back to climb more. Please read <a href="/article/GymPartner">Gym Partner ticking integration</a> for more information.</p>
+
+
+<p>Other promotion ideas:</p>
+<ul>
+  <li><p>Start a forum discussions in your gym node - this goes out to everybody who has ticked in your area.</p></li>
+  <li><p>Sponsorship package advertising for surrounding areas.</p></li>
+</ul>

@@ -1,80 +1,133 @@
-6 Contribute - 03 Index permissions
+6 Contribute - 03 User permissions on theCrag
 
-<p>Your permissions to contribute to and edit the site are determined by your level of contribution. The four key roles are:</p>
+<p>This article describes how users earn permissions to edit theCrag.</p>
 
-<ol>
-  <li><a href="#user">User</a></li>
-  <li><a href="#editor">Editor</a></li>
-  <li><a href="#coordinator">Area Coordinator</a></li>
-  <li><a href="#administrator">Administrator</a></li>
-</ol>
-
-<p>The permission levels for each role are detailed below.</p>
-
-
-<h2><a name="user">User</a></h2>
-
-<p>As soon as you've created an account you will automatically have permission to:</p>
+<p>There are a couple of principles which determine how site permissions are automatically generated:</p>
 
 <ul>
-  <li>Add routes and areas to any crag.</li>
-  <li>Create a topo for any route or area.</li>
-  <li>Add descriptions, history, approach times and locations for any crag or route that doesn't already have a description.</li>
+  <li><p>The more you contribute the more extensive your permissions become.</p></li>
+  <li><p>The better a crag has been developed on the site the harder it is to earn permissions.</p></li>
+  <li><p>Permissions to make updates that are painful to undo (eg reparenting and merging) are harder to earn.</p></li>
 </ul>
 
 
-<h2><a name="editor">Editor</a></h2>
-
-<p>Once you start contributing to the index you will start to earn <a href="/article/cragkarma">Crag Karma</a> points. When your Crag Karma for any crag reaches 201 you will automatically granted Editor rights for that crag (it may take 24 hours). As an example, you would earn 201 Crag Karma points for a crag if you contribute:</p>
-
-<ul>
-  <li>One area description,</li>
-  <li>Four route descriptions, and</li>
-  <li>One topo.</li>
-</ul>
-
-<p>There can be more than one Editor per crag. In addition to User's permissions you will now also be able to:</p>
-
-<ul>
-  <li>Move, merge, resequence and delete routes and areas.</li>
-  <li>Review and update area descriptions that others have contributed.</li>
-  <li>Update Topos that others have contributed.</li>
-</ul>
-
-<p>You will receive email notification when you have achieved 'Editor' rights for a crag.</p>
-
-<p>If you would like to request Editor rights for a crag where you have not yet earned sufficient Crag Karma or to create a completely new crag please <a href="/article/contactus">contact us</a>.</p>
+<p>That being said, you can always just ask us to upgrade your permissions manually.</p>
 
 
-<h2><a name="coordinator">Area Coordinator</a></h2>
-
-<p>The position of Area Coordinator may be granted to one person at each top-level crag in the index.  (A top-level crag is the first point in the index where the area type changes from 'Region' to 'Crag'). The Area Coordinator positions will be granted manually by site Administrators. When appointing and reviewing the appointment of Area Coordinators, site Administrators will consider things like:</p>
-
-<ul>
-  <li>Crag Karma levels</li>
-  <li>Willingness to take on additional permissions and responsibilities</li>
-  <li>The views of other Editors</li>
-</ul>
-
-<p>Area coordinators will have the following additional permissions and responsibilities:</p>
-
-<ul>
-  <li>Monitor and improve the breadth and quality of the information for the crag.</li>
-  <li>Manually grant Editor permissions.</li>
-  <li>Right of 'final say' in matters of disagreement among editors (eg. If two different editors have differing views on something like whether routes at a particular cliff should be ordered from Right to Left or Left to Right the Area Coordinator would make a decision).</li>
-</ul>
-
-<p>If you are interested in taking on the role of Area Coordinator for any crags please <a href="/article/contactus">contact us</a>.</p>
+<p>For example, a new user will be able to immediately update information in a crag with limited information, but will have to request permission to edit a well-established crag like <a href="/climbing/australia/kangaroo-point">Kangaroo Point</a>.</p>
 
 
-<h2><a name="administrator">Administrator</a></h2>
+<p>Your permissions automatically increase as you contribute more</p>
 
-<p>There will be a small number of Administrators who are able to:</p>
 
-<ul>
-  <li>Assign new top level crags.</li>
-  <li>Update the published URL of any crag, area or route.</li>
-  <li>Appoint Area coordinators.</li>
-</ul>
+<p>Every contribution you make earns you <a href="/article/CragKarma">Karma</a> points. Once you have made a small number of updates to a crag you will have earned enough Karma points to be granted Editor permissions for that crag.</p>
 
-<p>Current administrators are Simon Dale, Brendan Heywood and Campbell Gome (site developers).</p>
+
+<p>When you have earned 10,000 Karma points, you will automatically gain permission to make standard updates to almost any crag. You may still have to request Editor permissions for some functions on well-established crags, such as reparenting and merging.</p>
+
+
+<p>To earn 10,000 Karma points you will probably have spent several hours updating theCrag. It is highly likely that you will know how the system works by now.</p>
+
+
+<p>When you get to 100,000 Karma points, the system gives you permissions to make standard updates to regions as well as crags. This means you will be able to create new crags and restructure regions.</p>
+
+
+<p>100,000 Karma points pretty much means you are an awesome superhero to us all.</p>
+
+
+
+<h1>Please request permissions when you need them</h1>
+
+
+<p>If you feel you want to be able to make contributions to a crag before your Karma levels allow it, we can manually assign you permissions.</p>
+
+
+<p>If you see the ‘request permissions’ button, don’t be afraid to click it. Your permissions will be upgraded in about 10 minutes.</p>
+
+
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/permission-1.1.0/request-editor-permission.png" />
+      <p>Don’t be afraid to click this button</p>
+    </div>
+  </div>
+</div>
+
+<p>Otherwise just send us an email at support@thecrag.com. We love to hear personally from people who are wanting to contribute.</p>
+
+
+<h1>Creating new crags in the index</h1>
+
+
+<p>Permission to add new crags is reserved for site admins and the really experienced superheroes of theCrag, as we want to avoid confusing duplication.</p>
+
+
+<p>If you need a new crag added, please just send us an email at support@thecrag.com telling us the name of the new crag and where it belongs in the index. We can usually create new crags within twenty-four hours and once they’re up you can start updating them.</p>
+
+
+<h1>The privilege of updating content</h1>
+
+
+<p>Many tens of thousands of hours have gone into documenting crags at theCrag. Please give existing contributors respect by taking care when you add your contributions.</p>
+
+
+<p>We inherently trust that you are improving community information with your updates; however if this trust is broken we may reduce your permissions.</p>
+
+
+<p>It is the site management’s view that contributing to this resource is a privilege, not a right. Please read our article on <a href="/article/behavior">acceptable behavior</a> for more information on this matter.</p>
+
+
+<p>Most changes and edits are stored so they are not lost, however there is no undo button. Earlier contributions and edits can be reinstated if required, but will involve site management.</p>
+
+
+<h1>How do I know what my permissions are?</h1>
+
+
+<p>If you can see the Edit options on the site and in the ‘Action’ menu  then you have permission to use them.</p>
+
+
+<div class="sd-center-image">
+</div>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/permission-1.1.0/use-what-you-see.png" />
+      <p>Buttons showing editing options</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+<h1>Locked crags</h1>
+
+
+<p>Every now and again we need to lock a crag because of community sensitivities, etc. </p>
+
+
+<p>When a crag is locked you need explicit Coordinator permissions to edit it. Karma does not help in this situation.</p>
+
+
+
+
+<h1>Gyms</h1>
+
+
+<p>Gyms are different to outdoor crags. In a nutshell, because routes are always changing in a gym, we need the gym owners, rather than the community, to manage gym updates.</p>
+
+
+<p>If you want your local gym added, email us at support@thecrag.com.</p>
+
+
+<p>If your gym is listed, but only has a basic set of routes, please get your gym to contact us so they can keep their listing up to date (see article on <a href="/article/GymTicking">gym ticking</a>).</p>
+
+
+
+<h1>We need your feedback</h1>
+
+
+<p>At the beginning of 2014 we revamped the permissions system to what it is now. Please give feedback so we can improve your experience.</p>
