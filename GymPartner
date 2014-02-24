@@ -49,12 +49,21 @@
 <p>This is where the simplicity of QR codes works. Anyone on any phone / tablet / device can scan the QR code which will take them to a mobile optimised page where they can see more details and can select routes and tick them. This info page is publicly available, and in order to tick if they do not have an account with theCrag they can login using Facebook or Google+ or signup:</p>
 
 <div class="row-fluid">
+  <div class="offset1 span5">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/gym-1.1.0/thecrag-gym-ticking.png" />
+    </div>
+  </div>
+  <div class="span5">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/gym-1.1.0/thecrag-gym-ticking-screen.png" />
+    </div>
+  </div>
+</div>
+
+<div class="row-fluid">
   <div class="offset1 span10 centering">
     <div class="sd-image-caption">
-      <span style="white-space: nowrap;">
-        <img class="sd-article-img" src="/static/cids/images/gym-1.1.0/thecrag-gym-ticking.png" />
-        <img class="sd-article-img" src="/static/cids/images/gym-1.1.0/thecrag-gym-ticking-screen.png" />
-      </span>
       <p>User gym ticking on the crag</p>
     </div>
   </div>
