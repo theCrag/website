@@ -4,13 +4,13 @@
  
 <p>Subscribing to the feeds you're interested in is an easy way to keep in touch with what's going on at your favorite crags, or what your friends are climbing, without even visiting the site.  The main feeds are:</p>
  
-<h4>Throughout the index</h4>
+<p><strong>Throughout the index</strong></p>
 <ul>
 <li>Recent ascents at any crag or area</li>
 <li>Recent index updates at any crag or area</li>
 </ul> 
 
-<h4>From your account page</h4>
+<p><strong>From your account page</strong></p>
 
 <ul>
 <li>Your recent ascents</li>
@@ -20,18 +20,18 @@
 <li>Combined feed of all your friends recent ascents.</li>
 </ul> 
 
-<p>If you're new to RSS here is some information and  links about using RSS feeds</p>
+<p>If you're new to RSS then please read on for more information and links about using RSS feeds.</p>
  
-<h2>In-browser bookmarks and tickers</h2>
+<h1>In-browser bookmarks and tickers</h1>
 <p>Most web browsers have the ability to incorporate RSS feeds into dynamic bookmarks, ticker, etc. Just search on 'RSS' in your browser's help pages.</p>
  
-<h2>RSS readers/aggregrators</h2>
+<h1>RSS readers/aggregrators</h1>
 <ul>
 <li>Tools and software for managing your subscriptions (eg <a href="http://www.google.com/reader/">Google reader</a>)</li>
 <li><a href="http://en.wikipedia.org/wiki/Comparison_of_feed_aggregators">Wikipedia comparison of RSS aggregators</a></li>
 </ul>
  
-<h2>Publishing feeds on other sites</h2>
+<h1>Publishing feeds on other sites</h1>
 <p>You can publish and view RSS feeds onto other sites. eg</p>
 <ul>
 <li>Facebook- with an app like <a href="http://apps.facebook.com/rssgraffiti/">RSS Graffiti</a> you can automatically publish any RSS feed onto your Facebook wall.</li>

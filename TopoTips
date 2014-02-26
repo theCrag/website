@@ -10,78 +10,93 @@
 </ol>
 
 
-<h2><a name="tip1">1. Ordering routes</a></h2>
+<h1 id="tip1">1. Ordering routes</h1>
 
 <p>We've done quite a bit of work so that ordering and numbering of routes on topos and within tables all gets sorted out automatically.</p>
 
 <p>In general topos look better if routes are ordered from left to right on the site, so that the numbers run from left to right on the topo.</p>
 
 
-<div class="figure">
-  <p>Screencast 1: How to resequence routes</p>
-  <p><iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/3D1ZE4ryKV0?rel=0" frameborder="0" allowFullScreen></iframe></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/3D1ZE4ryKV0?rel=0" frameborder="0" allowFullScreen></iframe>
+      <p>Screencast 1: How to resequence routes</p>
+    </div>
+  </div>
 </div>
-
-&nbsp;<br>
 
 <p>The order of the routes linked in the topo is independent of the order in the cliff, boulder or area that they come from. The order of the route in a topo should always be from left to right even if the guide is ordered differently (eg sometimes a guide might be ordered from right to left) - see the section below 'Twisted and tangled'.</p>
 
 <p>The reason for this is that photos in many cases don't match the 'natural' order. In a guidebook you might have two boulders side by side and the problems are ordered clockwise around boulder 1 and then boulder 2. A photo however might show just the north side of both boulders.</p>
 
 
-<h2><a name="tip2">2. Variant routes- Direct starts, alternate starts, etc</a></h2>
+<h1 id="tip2">2. Variant routes- Direct starts, alternate starts, etc</h1>
 
 <p>When a route has a direct start/finish or an alternate start/finish, it is best to draw the topo line for the whole route.</p>
 
 <p>This gives us greater flexibility in how and where routes are displayed.</p>
 
-<div class="figure">
-  <p>Figure 1: Don't do variants like this.</p>
-  <p><img src="/static/cids/images/phototopo-topotips-1.1.0/image1.jpg" width="370" height="498" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-topotips-1.1.0/image1.jpg" width="370" height="498" />
+      <p>Figure 1: Don't do variants like this.</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
 
-<div class="figure">
-  <p>Figure 2: Do variants like this.</p>
-  <p><img src="/static/cids/images/phototopo-topotips-1.1.0/image2.jpg" width="371" height="501" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-topotips-1.1.0/image2.jpg" width="371" height="501" />
+      <p>Figure 2: Do variants like this.</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
 
-
-<h2><a name="tip3">3. Different routes share a common belay or sector</a></h2>
+<h1 id="tip3">3. Different routes share a common belay or sector</h1>
 
 <p>Sometimes two routes follow the same path for a while or share a belay. We've designed the topo tool so that shared points and sectors 'snap' together. This locks the routes together for the bits that they share and means that the topos will display properly at different sizes.</p>
 
 
-<div class="figure">
-  <p>Screencast 2: Snapping together</p>
-  <p><iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/zRFm7CLLlws?rel=0" frameborder="0" allowFullScreen></iframe></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/zRFm7CLLlws?rel=0" frameborder="0" allowFullScreen></iframe>
+      <p>Screencast 2: Snapping together</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
 
 <p>(NB:Sometimes the snapping isn't perfect, try dragging above and left of the point you want to snap to. We'll make this better in a future release.)</p>
 
 
-<h2><a name="tip4">4. Topo lines get twisted/tangled</a></h2>
+<h1 id="tip4">4. Topo lines get twisted/tangled</h1>
 
 <p>Sometimes on a topo with lots of routes the lines can get tangled like this.</p>
 
-<div class="figure">
-  <p>Figure 3: A tangled topo.</p>
-  <p><img src="/static/cids/images/phototopo-topotips-1.1.0/image3.jpg" width="371" height="497" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-topotips-1.1.0/image3.jpg" width="371" height="497" />
+      <p>Figure 3: A tangled topo.</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
-
-<div class="figure">
-  <p>Figure 3: An untangled topo.</p>
-  <p><img src="/static/cids/images/phototopo-topotips-1.1.0/image4.jpg" width="371" height="501" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-topotips-1.1.0/image4.jpg" width="371" height="501" />
+      <p>Figure 4: An untangled topo.</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
 
 <p>Most of the time tangled topos can be fixed by <a href="#tip1">ordering the routes</a> from left to right.</p>
 

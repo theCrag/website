@@ -27,7 +27,7 @@ my $tags = $ARGS{data}->{tags};
 % foreach my $themelabel ( sort {$tags->{$a}->{order}<=>$tags->{$b}->{order}} keys %{$tags} )   {
 %   my $theme = $tags->{$themelabel};
 <tr><td colspan="5">
-<h2><% $theme->{name} %></h2>
+<h1><% $theme->{name} %></h1>
 %   if ( $theme->{desc} )   {
 <p><% $theme->{desc} %></p>
 %   }

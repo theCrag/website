@@ -1,6 +1,6 @@
 4 Climb - 4 How do I log gym ascents?
 
-<div class="sd-float-image">
+<div class="sd-floater">
 <img class="sd-article-img" src="/static/cids/images/gym-1.1.0/ask-your-gym-about-ticking.png" />
 </div>
 
@@ -44,7 +44,7 @@
 
 <h1>Imagine</h1>
 
-<div class="sd-float-image">
+<div class="sd-floater">
 <img class="sd-article-img" src="/static/cids/images/gym-1.1.0/thecrag-gym-ticking.png" />
 </div>
 

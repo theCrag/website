@@ -2,7 +2,7 @@
 
 <p>There are a few reasons why you might want to log your ascents:</p>
 
-<ul>
+<ul class="sd-checklist">
  <li>Keep a record of the routes you've done.</li>
  <li>Allow friends to follow your what you have done.</li>
  <li>Help us recommend routes for you.</li>
@@ -19,7 +19,7 @@
  <li><a href="#linkup">Log a linkup</a></li>
 </ul>
 
-<h2><a name="singleascent">Adding a tick</a></h2>
+<h1 id="singleascent">Adding a tick</h1>
 
 <p>HOW TO VIDEO TO BE UPDATED</p>
 
@@ -34,7 +34,7 @@
 </ol>
 
 
-<h2><a name="multipleshots">Multiple shots of the same route</a></h2>
+<h1 id="multipleshots">Multiple shots of the same route</h1>
 
 <p>HOW TO VIDEO TO BE COMPLETED</p>
 
@@ -48,7 +48,7 @@
 </ol>
 
 
-<h2><a name="multipleticks">Adding multiple ticks</a></h2>
+<h1 id="multipleticks">Adding multiple ticks</h1>
 
 <p>HOW TO VIDEO TO BE UPDATED</p>
 
@@ -64,7 +64,7 @@
 </ol>
 
 
-<h2><a name="pitchinfo">Adding pitch info</a></h2>
+<h1 id="pitchinfo">Adding pitch info</h1>
 
 <p>HOW TO VIDEO TO BE COMPLETED</p>
 
@@ -78,7 +78,7 @@
 </ol>
 
 
-<h2><a name="firstpitch">Log first pitch only</a></h2>
+<h1 id="firstpitch">Log first pitch only</h1>
 
 <p>HOW TO VIDEO TO BE COMPLETED</p>
 
@@ -95,7 +95,7 @@
 <p>Note this method works for doing any single pitch of a route, not just the first pitch.</p>
 
 
-<h2><a name="linkup">Log a linkup</a></h2>
+<h1 id="linkup">Log a linkup</h1>
 
 <p>HOW TO VIDEO TO BE COMPLETED</p>
 

@@ -1,8 +1,6 @@
 1 About theCrag - 8 Quality of Service Plan
 
-<div class="coltext">
-
-<h2>Summary</h2>
+<h1>Summary</h1>
 
 <p>This document outlines thecrag.com's Quality of Service Plan. Because thecrag.com website is a free community based site no guarantees are made to achieving any predefined quality levels. However this document has been written in order to provide a plan for continuous improvement in best effort with our limited resources.</p>
 
@@ -24,7 +22,7 @@
 
 
 
-<h2>Site Performance</h2>
+<h1>Site Performance</h1>
 
 <p>This section discusses a continuous improvement plan for site performance.</p>
 
@@ -64,7 +62,7 @@
 <p>(Have you got any other ideas?)</p>
 
 
-<h3>Infrastructure Improvements</h3>
+<h2>Infrastructure Improvements</h2>
 
 <p>We need to look for a primary long term sponsor that can fund ongoing infrastructure improvements. There needs to be a long term commitment (3 year plus) before we get a sponsor involved in this area, because significant ongoing infrastructure costs cannot be supported by thecrag.com alone and are very difficult to scale back. Sourced funding will go into the following infrastructure priorities:</p>
 
@@ -80,7 +78,7 @@
 <p>We can start to make infrastructure improvements if we can get a sponsorship of ($100 to $200) per month.</p>
 
 
-<h3>Access Filtering</h3>
+<h2>Access Filtering</h2>
 
 <p>Investigate the use of a firewall to protect against:</p>
 
@@ -94,7 +92,7 @@
 
 <p>Use of apache modules for throttling access was investigated (mod_throttle, mod_bandwidth and mod_cband) but was deemed inappropriate as they all still keep the apache connection open thus holding vital system resources. We really need filtering to take place before any web server resources are deployed.</p>
 
-<h3>System Configuration</h3>
+<h2>System Configuration</h2>
 
 <p>Use robots.txt file to tell well behaved robots not to search search links to:</p>
 
@@ -123,7 +121,7 @@
   <li><p>Processes to recycle the cache over time to avoid stale pages.</p></li>
 </ul>
 
-<h3>Re-dimension Content</h3>
+<h2>Re-dimension Content</h2>
 
 <p>Some pages may be re-dimensioned so that they are quicker to generate without significant adverse effects on the overall intention of the page. For example reducing the number of ascents shown on the area ascents page.</p>
 
@@ -137,7 +135,7 @@
 </ul>
 
 
-<h3>Improve Code</h3>
+<h2>Improve Code</h2>
 
 <p>The system is built in native perl using mod_perl apache module to integrate the application directly into the apache web server. This hugely improves the speed of the system but at the trade off of increasing server memory usage. There have been some techniques used to reduce the memory imprint of the perl code in the apache server, but perl is notoriously memory hungry. Further improvements may be possible and should be investigated.</p>
 
@@ -157,7 +155,7 @@
 <p>This is a continuous process and should be undertaken regularly.</p>
 
 
-<h2>Data Integrity</h2>
+<h1>Data Integrity</h1>
 
 <p>Avoiding data loss and/or corruption is a key consideration for thecrag.com. The following data protection mechanisms are in place:</p>
 
@@ -177,7 +175,7 @@
 </ul>
 
 
-<h2>System Functionality</h2>
+<h1>System Functionality</h1>
 
 <p>The system we have developed should be an efficient, self explainatory web system. The system interface is built on a process based design which should make the system fairly easy to use.</p>
 
@@ -190,4 +188,3 @@
 <p>Improvements, suggestions and bug fixes should be reported to us via email. We have an internal back office issues register which we are using to prioritise fixes. We cannot make any guarantees as to how long a fix will take.</p>
 
 <p>At some point, we plan to integrate the issues register into the system so that issues may be directly logged and tracked in the system. This will also help site transparency.</p>
-</div>

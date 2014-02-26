@@ -20,7 +20,7 @@ table.funds td, table.funds th {
 }
 </style>
 
-<div style="float:right;width:250px">
+<div class="sd-floater" style="width:250px;">
   <table class="funds">
     <body>
       <tr>
@@ -40,13 +40,13 @@ table.funds td, table.funds th {
       </tr>
     </body>
   </table>
-  <div style="margin-left:50px">
-    <div id="thermometer" style="width:94px;height:323px;">
-      <div id="rojo" style="background-color:red;width:25px;position:relative;left:16px;"></div>
-      <div id="targettext" style="width:45px;position:relative;left:16px;font-weight:bold;font-size:130%;"></div>
-    </div>
-  </div>
 </div>
+
+<div id="thermometer" class="sd-floater" style="width:94px;height:323px;">
+  <div id="rojo" style="background-color:red;width:25px;position:relative;left:16px;"></div>
+  <div id="targettext" style="width:45px;position:relative;left:16px;font-weight:bold;font-size:130%;"></div>
+</div>
+
 <script type="text/javascript">
 $(function(){
  var mercury = <% $percentTarget %>;
@@ -62,7 +62,7 @@ $(function(){
 });
 </script>
 
-<p><b>Dear fellow climbers</b>,</p>
+<p><strong>Dear fellow climbers</strong>,</p>
 
 
 <p>Since founding this site in the late 1990s we have put quite a bit of time, money and effort into developing theCrag.</p>
@@ -71,10 +71,10 @@ $(function(){
 <p>In order to maintain and develop theCrag we have set the following revenue goals</p>
 
 
-<ul>
-  <li><b>Short term</b>- Cover current server costs.</li>
-  <li><b>Medium term</b>- Cover growing server costs as the site gets heavier use.</li>
-  <li><b>Long term</b>- Cover wages for ongoing development.</li>
+<ul class="sd-checklist">
+  <li><strong>Short term</strong>- Cover current server costs.</li>
+  <li><strong>Medium term</strong>- Cover growing server costs as the site gets heavier use.</li>
+  <li><strong>Long term</strong>- Cover wages for ongoing development.</li>
 </ul>
 
 

@@ -3,7 +3,7 @@
 <p>Once you have connected your thecrag account with your Facebook account acents logged in thecrag.com may also be logged in your Facebook Wall. This service is selectable on a per ascent basis as you log an ascent.</p>
 
 <p>To setup this service you must:</p>
-<ul>
+<ul class="sd-checklist">
   <li><p>Log in to your thecrag.com account;</p></li>
   <li><p>Click on the 'My Account' tab;</p></li>
   <li><p>Select Action > Facebook Connect; and</p></li>
@@ -13,17 +13,24 @@
 <p>Note you will be asked by Facebook to grant the application (known as 'thecrag.com' on Facebook) permissions to publish on your wall. If you don't give the application permission then the service cannot be activated on your account.</p>
 
 
-<h2>Logging Ascents</h2>
+<h1>Logging Ascents</h1>
 <p>Once setup, every time you log an ascent you will have the option post the ascent on your Facebook Wall. The ascent must have been made in the last 10 days.</p>
 
 <p>The post for each ascent will look something like this:</p>
 
-<p><img src="/static/cids/images/fb-logging-example-1.1.0.gif" width="461" height="123"/></p>
+<div class="row-fluid">
+  <div class="offset1 span10 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/fb-logging-example-1.1.0.gif" width="461" height="123"/>
+      <p>Sample ascent post on Facebook</p>
+    </div>
+  </div>
+</div>
 
 <p>Posts will also have a link to a climb, so your friends will be able to see what you have climbed.</p>
 
 
-<h2>Privacy Policy</h2>
+<h1>Privacy Policy</h1>
 
 <p>thecrag.com is committed to respecting the privacy of its customers. The following policy discusses how personal information received by thecrag.com will be dealt with in respect to the 'thecrag.com' application on Facebook.</p>
 
@@ -36,6 +43,6 @@
 <p>You may disable the service either at thecrag.com by using the 'Facebook Connect' button on your Account page or directly in Facebook by deselecting the application permissions.</p>
 
 
-<h2>Support</h2>
+<h1>Support</h1>
 
 <p>You may contact thecrag.com support email (&#115;&#117;&#112;&#112;&#111;&#114;&#116; &#64;  thecrag.com) if you require any support for this service.</p>

@@ -1,43 +1,29 @@
 2 Explore
 
-<style>
-#content .tourlink {
- font-size:140%;
- font-weight:bold;
- text-decoration:underline;
-}
-#content .tour img {
- margin-top:10px;
-}
-div.tour {
- float:left;
- width:220px;
- height:200px;
- border:1px solid #ccc;
-}
-</style>
-
 <p>You can start using theCrag straight away.</p>
 
 <p>Use the index, map and search to find crags and routes.</p>
 
-<div style="text-align:center;width:100%;">
+<div class="row-fluid">
+  <div class="span4">
+    <div class="sd-image-caption">
+      <a href="/world"><img class="sd-article-img" src="/static/cids/images/tour-1.1.0/tour_03_index.jpg" width="200" height="161" /></a>
+      <p><a href="/world">Index</a></p>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="sd-image-caption">
+      <a href="/maps"><img class="sd-article-img" src="/static/cids/images/tour-1.1.0/tour_02_map.jpg" width="200" height="96" /></a>
+      <p><a href="/maps">Map</a></p>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="sd-image-caption">
+      <a href="/article/search"><img class="sd-article-img" src="/static/cids/images/tour-1.1.0/tour_01_search.jpg" width="200" height="159" /></a>
+      <p><a href="/article/search">Search</a></p>
+    </div>
+  </div>
 </div>
-
-<div class="figure tour" style="margin-left:50px">
-  <p><a href="/world" class="tourlink">Index</a></p>
-  <p><a href="/world"><img src="/static/cids/images/tour-1.1.0/tour_03_index.jpg" width="200" height="161" /></a></p>
-</div>
-<div class="figure tour">
-  <p><a href="/maps" class="tourlink">Map</a></p>
-  <p><a href="/maps"><img src="/static/cids/images/tour-1.1.0/tour_02_map.jpg" width="200" height="96" /></a></p>
-</div>
-<div class="figure tour">
-  <p><a href="/article/search" class="tourlink">Search</a></p>
-  <p><a href="/article/search"><img src="/static/cids/images/tour-1.1.0/tour_01_search.jpg" width="200" height="159" /></a></p>
-</div>
-<div style="clear:both"></div>
-<br />
 
 <p>Read on for more information about some of the charts and data used in the index.</p>
 

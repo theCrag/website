@@ -20,31 +20,30 @@ table.imagetext td {
 
 <p>Climbing Trips make it easy to plan and share information about your climbing trips.</p>
 
-<h2>Create trip</h2>
+<h1>Create trip</h1>
 
 <table class="imagetext">
   <tbody>
     <tr>
       <td>
-<img src="/static/cids/images/trip-1.1.0/trips01.png" width="512" height="206" />
+<img src="/static/cids/images/trip-1.1.0/trips01.png" width="400" height="161" />
       </td>
       <td>
-<ol>
+<ul class="sd-checklist">
 <li>Create a new trip by clicking on ‘Add Trip’ from the ‘Trips’ tab from your dashboard.</li>
 <li>Decide who will be invited by selecting ‘Only those I invite’, ‘My friends’ or ‘Anyone’.</li>
 <li>Decide who will be able to see the trip page by selecting ‘Only trip members’ or ‘Anyone’.</li>
 <li>Add a start and end date (optional).</li>
 <li>Add a description (optional).</li>
 <li>Click ‘Create Trip’.</li>
-</ol>
+</ul>
       </td>
     </tr>
   </tbody>
 </table>
 
 
-<br />
-<h2>Trip planning</h2>
+<h1>Trip planning</h1>
 
 <p>Up to and during the time of the trip, the trip page is designed for planning.</p>
 
@@ -52,25 +51,24 @@ table.imagetext td {
   <tbody>
     <tr>
       <td>
-<img src="/static/cids/images/trip-1.1.0/trips02.png" width="512" height="512" />
+<img src="/static/cids/images/trip-1.1.0/trips02.png" width="400" height="400" />
       </td>
       <td>
-<ol>
+<ul class="sd-checklist">
   <li>Add a location by either selecting from a drop-down list of your favorite crags or a free text search. (Once you’ve selected a location you’ll be able to download the crag guide).</li>
   <li>Invite members by either selecting from a drop-down list of linked accounts or a free text search.</li>
   <li>Use the messages panel to keep in touch with trip members.</li>
   <li>Members get personal route recommendations for the crag, based on their climbing level and style we have deduced from their climbing history. Toggle between general recommendations and routes they have not done.</li>
   <li>A recommendations tree shows which routes/areas are recommended in common with other members of the group- this helps find the best routes and areas to target.</li>
   <li>Pre-logged aspirational climbs are shown for routes that members have already decided they want to do sometime.</li>
-</ol>
+</ul>
       </td>
     </tr>
   </tbody>
 </table>
 
 
-<br />
-<h2>Trip reporting</h2>
+<h1>Trip reporting</h1>
 
 <p>Once the end date of the trip has passed, the trip page changes from the planning style to a trip report style.</p>
 
@@ -78,15 +76,15 @@ table.imagetext td {
   <tbody>
     <tr>
       <td>
-<img src="/static/cids/images/trip-1.1.0/trips03.png" width="512" height="421" />
+<img src="/static/cids/images/trip-1.1.0/trips03.png" width="400" height="329" />
       </td>
       <td>
-<ol>
+<ul class="sd-checklist">
   <li>Each member of the trip can select the trip when they log an ascent.</li>
   <li>All combined ascents for trip members will be shown in the trip.</li>
   <li>When a member of the trip uploads a photo they can associate the photo with the trip.</li>
   <li>A combined photo album is shown for the trip.</li>
-</ol>
+</ul>
       </td>
     </tr>
   </tbody>

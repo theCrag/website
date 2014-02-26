@@ -5,7 +5,7 @@
 
 <p>If you are a gym operator and you want to list your gym routes on theCrag then:</p>
 
-<ul>
+<ul class="sd-checklist">
   <li><p>Contact us to let us and let us know your gym name and location.</p></li>
   <li><p>Signup for an <a href="/article/EntryLevelSponsorship">entry level sponsorship</a> package with theCrag.</p></li>
   <li><p>Prepare your logo and <a href="/article/EntryLevelSponsorship#image-specifications">advertising artwork</a> (can do this later if you want).</p></li>
@@ -23,7 +23,7 @@
 
 <p>theCrag team has to do some preparatory work:</p>
 
-<ul>
+<ul class="sd-checklist">
   <li><p>Create a Gym node (area type = ‘Gym’) in the right index area</p></li>
   <li><p>Update the url stub with the gym name</p></li>
   <li><p>Locate the gym</p></li>
@@ -42,7 +42,7 @@
 
 
 <p>If the gym operator was not set up by theCrag team then:</p>
-<ul>
+<ul class="sd-checklist">
   <li><p>Instructions should be sent to the operator to favorite the gym area node</p></li>
   <li><p>If the operator has been nominated as an administrator (which means they control user permissions) then configure Administrator permissions for the operator in the Gym node.</p></li>
   <li><p>Otherwise configure Coordinator permissions for route setters.</p></li>
@@ -69,11 +69,11 @@
 </ul>
 
 
-<h1><a name="topo-pointers">Pointers for creating great gym topo pics</a></h1>
+<h1 id="topo-pointers">Pointers for creating great gym topo pics</h1>
 
 
 <p>Some pointers for the pics:</p>
-<ul>
+<ul class="sd-checklist">
   <li><p>Good even lighting.</p></li>
   <li><p>Take the pic from an elevated position so you are looking straight at the wall instead of up.</p></li>
   <li><p>Take the pics straight on, not on an angle, so that the ropes appear over the wall they belong too (makes the clickable topos easier to use).</p></li>

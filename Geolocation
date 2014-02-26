@@ -1,22 +1,22 @@
 6 Contribute - 06 Geolocation
 
-<p>Location! Location! Location!</p>
+<p class="lead">Location! Location! Location!</p>
 
 <p>In addition to routes, descriptions, topos, theCrag also collects and stores map-based information on the location of crags and routes.</p>
 
 <p>This is really useful information for things like:</p>
 
-<ul>
+<ul class="sd-checklist">
   <li>Map-based browsing on the site</li>
   <li>Exporting data to other tools and software like GPS and Google Earth</li>
   <li>Enabling location-based search and services in mobile applications</li>
 </ul>
 
-<h2>How this data is used</h2>
+<h1>How this data is used</h1>
 
 <p>Location data is very useful, and it gets used in different ways across the site. It is also intrinsically linked with the index structure. Some important points to remember if you are locating areas or restructuring are:</p>
 
-<ul>
+<ul class="sd-checklist">
 <li>child areas's should always be inside parent areas
 <li>sibling areas's shouldn't overlap
 <li>avoid having a 'climbing areas' and a 'bouldering area' that overlap, just mark each route with the correct type so they can be filtered as needed
@@ -32,37 +32,37 @@
 </div>
 
 
-<h2>How to create a boundary</h2>
+<h1>How to create a boundary</h1>
 
 <p>If a crag or sub-area has no boundary, anyone can create a boundary. (NB. Boundaries for Countries and Regions above the crag level can only be created by system administrators.)</p>
 
 <p>A crag or sub-area that has no boundary will show a map like this:</p>
 
-<div class="figure">
-  <p>Figure 1: Map for an area that has no boundary</p>
-  <p><img src="/static/cids/images/geolocation-article-1.1.0/image1.jpg" width="213" height="159" /></p>
+<div class="sd-image-caption">
+  <img src="/static/cids/images/geolocation-article-1.1.0/image1.jpg" width="213" height="159" />
+  <p>Area map with no boundary</p>
 </div>
 
 <p>To add a boundary, click on the ‘Locate this crag’ link. The instructions at the top of the page are pretty straightforward.</p>
 
 <p>This short video explains how to create a boundary.</p>
 
-<div class="figure">
-  <p>Figure 2: Creating a boundary</p>
-  <p><iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/XYZ?rel=0" frameborder="0" allowFullScreen></iframe></p>
+<div class="sd-image-caption">
+  <iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/XYZ?rel=0" frameborder="0" allowFullScreen></iframe>
+  <p>Creating a boundary</p>
 </div>
 
 
 
-<h2>How to edit an existing boundary</h2>
+<h1>How to edit an existing boundary</h1>
 
 <p>If a crag or sub-area already has a boundary, then only the person who created the boundary or other Editors of that crag can alter the boundary.</p>
 
 <p>If you have the necessary permissions to alter an existing boundary, the map will look something like this:</p>
 
-<div class="figure">
-  <p>Figure 3: Map for an area that has an existing boundary</p>
-  <p><img src="/static/cids/images/geolocation-article-1.1.0/image2.jpg" width="208" height="162" /></p>
+<div class="sd-image-caption">
+  <img src="/static/cids/images/geolocation-article-1.1.0/image2.jpg" width="208" height="162" />
+  <p>Area map with boundary</p>
 </div>
 
 <p>To alter an existing boundary, click on the ‘Edit this location’ link. The process from there is very similar to the one for creating a new boundary.</p>
@@ -71,9 +71,9 @@
 
 
 
-<h2>Tips and tricks</h2>
+<h1>Tips and tricks</h1>
 
-<ul>
+<ul class="sd-checklist">
   <li><p>As a general rule we’ve found it easier to start at the lowest level possible and work back up from there. For example if you’re adding boundaries for a crag that has 3 cliffs each divided into 2 sectors, it is easier to get the boundaries all neat and tidy by starting with the sectors, then the cliffs.</p></li>
 
   <li><p>That being said, it is not a problem at all if you decide to work in the other direction or if it is not possible for you to get the boundaries exactly right at the lower levels. In the example above it would be fine to add just the crag and cliff boundaries, or even just the crag boundary. Anything is better than nothing as long as it’s reasonably accurate- it will make it easier for others to add and improve.</p></li>
@@ -84,9 +84,8 @@
 </ul>
 
 
-<div class="figure">
+<div class="sd-image-caption">
+  <iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/XYZ?rel=0" frameborder="0" allowFullScreen></iframe>
   <p>Figure 2: Reordering the index</p>
-  <p><iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/XYZ?rel=0" frameborder="0" allowFullScreen></iframe></p>
 </div>
 
-%# <& templates/html/thecrag/minor/phototopo &>

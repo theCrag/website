@@ -6,7 +6,7 @@
 <p>Any area or route can have multiple names, including a.k.a names, historical names, or names in other languages.</p>
 </div></div>
 
-<h2><a name="regions"></a>Naming regions</h2>
+<h1 id="regions">Naming regions</h1>
 
 <ul>
   <li>A country (or parent region) may be broken down into locally recongisable sub regions, such that geographic boundaries can be drawn around them covering the country or parent region.</li>
@@ -17,7 +17,7 @@
 </ul>
 
 
-<h2><a name="crags"></a>Naming crags</h2>
+<h1 id="crags">Naming crags</h1>
 
 <ul>
   <li>Crags should be named based on what climbers call the crag (eg 'Frog Buttress').</li>
@@ -27,7 +27,7 @@
   <li>Commonly used abbreviated names may also be set up using the alternate name facility (eg KP for Kangeroo Point).</li>
 </ul>
 
-<h2><a name="language"></a>Language</h2>
+<h1 id="language">Language</h1>
 
 <p>Note that we are still developing best practice for local language names verses English names. This is a complex issue and probably involves significant system changes once we decide which way to go. In the meantime please use one of the following methods:</p>
 <ol>
@@ -36,7 +36,7 @@
   <li>Place the the language alternate in brackets after the original name.</li>
 </ol>
 
-<h2><a name="routes"></a>Naming routes</h2>
+<h1 id="routes">Naming routes</h1>
 
 <ul>
   <li>Traditionaly the person who climbs a route has the right to name it.</li>
@@ -46,7 +46,7 @@
 </ul>
 
 
-<h2><a name="other"></a>Naming cliffs, boulders, etc</h2>
+<h1 id="other">Naming cliffs, boulders, etc</h1>
 
 <ul>
   <li>Traditionaly the person who discovers the first route for the cliff/boulder gets to name it.</li>

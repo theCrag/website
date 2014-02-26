@@ -19,7 +19,7 @@
 
 <p>When merging the following occurs straight away:</p>
 
-<ul>
+<ul class="sd-checklist">
 <li>The merged node has it's status set to merged and removed as a child node from it's parent.</li>
 <li>All children nodes are moved to the merged node.</li>
 <li>Route history is moved.</li>
@@ -38,7 +38,7 @@
 
 <p>And the following will be processed later:</p>
 
-<ul>
+<ul class="sd-checklist">
 <li>Various statistics are recalculated.</li>
 <li>Merged node is removed from general query results (such as feeds).</li>
 <li>Node permits are removed.</li>

@@ -59,31 +59,29 @@
   </table>
 </div>
 
-&nbsp;</br>
-
 <p>* Any area from crag down can have routes attached to it directly, or it could have sub areas, but we don't recommend having both sub areas and routes mixed together. So for example:</p>
 
 <blockquote>
-> Tiger Wall</br>
-> > Main Wall</br>
-> > > Route 1</br>
-> > > Route 2</br>
-> > > Route 3</br>
-> > Right hand end</br>
-> > > Route 4</br>
-> > > Route 5</br>
+> Tiger Wall<br>
+> > Main Wall<br>
+> > > Route 1<br>
+> > > Route 2<br>
+> > > Route 3<br>
+> > Right hand end<br>
+> > > Route 4<br>
+> > > Route 5<br>
 </blockquote>
 
 <p>is better than</p>
 
 <blockquote>
-> Tiger Wall</br>
-> > Route 1</br>
-> > Route 2</br>
-> > Route 3</br>
-> > Right hand end</br>
-> > > Route 4</br>
-> > > Route 5</br>
+> Tiger Wall<br>
+> > Route 1<br>
+> > Route 2<br>
+> > Route 3<br>
+> > Right hand end<br>
+> > > Route 4<br>
+> > > Route 5<br>
 </blockquote>
 
 <p>The table below shows the description fields available for each area type. ‘Yes’ indicates that a field is available for that area type. ‘Inherit’ indicates that a field is available and that if it is left unpopulated the relevant information will be copied down (‘inherited’) from a parent field. This means, for example, that you only have to enter ‘Ethic’ information at the top level crag and it will appear at all sub areas. If a particular sub area has a different Ethic to the rest of the crag (eg a Trad cliff in a crag that has sport routes everywhere else) it can be edited at the relevant sub area.</p>

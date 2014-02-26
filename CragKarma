@@ -1,13 +1,7 @@
 6 Contribute - 02 Crag Karma
 
 
-<style>
-h2 {
-border: none !important;
-}
-</style>
-
-<h2>Introducing Crag Karma</h2>
+<h1>Introducing Crag Karma</h1>
 
 
 <p>Crag Karma is a way of thecrag recognising user contributions to the index.
@@ -22,7 +16,9 @@ border: none !important;
 <p>Each contribution will add to your Karma points. You currently get points for the following: *
 </p>
 
-<img width="200" style="float: right; margin: 0pt 0pt 1em 1em;" src="http://static.thecrag.com/cids/images/tree-1.1.0.jpg">
+<div class="sd-floater">
+  <img width="200" src="http://static.thecrag.com/cids/images/tree-1.1.0.jpg">
+</div>
 
 % my $karma = $ARGS{data}->{karma};
 
@@ -39,7 +35,7 @@ border: none !important;
 % }
 </table>
 
-<h2>A few details</h2>
+<h1>A few details</h1>
 <p>
 For a particular contribution type you will only get the points once for each node in the index. For example, if you upload more than one photo for a particular route you will get <% $karma->{'Upload Photo'} %> points in total for all uploaded photos for that route.
 </p>

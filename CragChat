@@ -28,7 +28,7 @@ table.imagetext td {
 </ul>
 
 
-<h2>Crag chat</h2>
+<h1>Crag chat</h1>
 
 <table class="imagetext">
   <tbody>
@@ -47,8 +47,7 @@ table.imagetext td {
 </table>
 
 
-<br />
-<h2>Trip chat</h2>
+<h1>Trip chat</h1>
 
 <table class="imagetext">
   <tbody>
@@ -64,8 +63,7 @@ table.imagetext td {
 </table>
 
 
-<br />
-<h2>Your dashboard</h2>
+<h1>Your dashboard</h1>
 
 <table class="imagetext">
   <tbody>
@@ -81,8 +79,7 @@ table.imagetext td {
 </table>
 
 
-<br />
-<h2>Your chats</h2>
+<h1>Your chats</h1>
 
 <table class="imagetext">
   <tbody>

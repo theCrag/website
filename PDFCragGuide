@@ -1,38 +1,46 @@
 3 Get Guidebooks - PDF Crag Guide
 
-<p>Websites and mobile devices are all very well but at the end of the day there's still a need for the good old printed guidebook. The best way to print information from thecrag.com is as a <b>PDF Crag Guide</b>.</p>
+<p>Websites and mobile devices are all very well but at the end of the day there's still a need for the good old printed guidebook. The best way to print information from thecrag.com is as a <strong>PDF Crag Guide</strong>.</p>
 
 <p>This feature is free - please consider <a href="/donate">donating</a> to help keep it free.</p>
 
 <p>These guides can be produced for any crag in our index. A PDF Crag Guide puts all the available information from our site into a pre-formatted, personalized guidebook that is designed for easy printing as a folded booklet. Perfect for taking to a crag and on routes.</p>
 
-<div class="figure">
-  <p>Figure 1: Sample page.</p>
-  <p><img src="/static/cids/images/pdf-cragguide-1.1.0/sample.jpg" width="600" height="425" /></p>
+<div class="row-fluid">
+  <div class="offset1 span10 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/pdf-cragguide-1.1.0/sample.jpg" width="500" height="354" />
+      <p>Sample page</p>
+    </div>
+  </div>
 </div>
 
-<h2>Key features</h2>
+<h1>Key features</h1>
 
-<div class="figure">
-  <p>Figure 2: Key features close up.</p>
-  <p><img src="/static/cids/images/pdf-cragguide-1.1.0/features.jpg" width="400" height="403" /></p>
+<div class="row-fluid">
+  <div class="offset1 span10 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/pdf-cragguide-1.1.0/features.jpg" width="400" height="403" />
+      <p>Key features close up</p>
+    </div>
+  </div>
 </div>
 
 <ul>
-<li><b>Quality ratings</b>: 1-3 stars based theCrag.com users' ratings.</li>
+  <li><strong>Quality ratings</strong>: 1-3 stars based theCrag.com users' ratings.</li>
 
-<li><b>Popularity ratings</b>: Charts based on how often the route is climbed relative to the most-climbed route at the crag, based  theCrag.com users' ascent logs.</li>
+  <li><strong>Popularity ratings</strong>: Charts based on how often the route is climbed relative to the most-climbed route at the crag, based  theCrag.com users' ascent logs.</li>
 
-<li><b>Tags</b>: Frequently used keywords extracted from theCrag.com users' comments.</li>
+  <li><strong>Tags</strong>: Frequently used keywords extracted from theCrag.com users' comments.</li>
 
-<li><b>Personalization</b>: If you've logged ascents at theCrag.com, your tick icons will appear in the Crag Guide. We'll also use your ticks to recommend routes for you.</li>
+  <li><strong>Personalization</strong>: If you've logged ascents at theCrag.com, your tick icons will appear in the Crag Guide. We'll also use your ticks to recommend routes for you.</li>
 
-<li><b>Grade icons</b>: The 'must do' routes at each grade level are highlighted.</li>
+  <li><strong>Grade icons</strong>: The 'must do' routes at each grade level are highlighted.</li>
 </ul>
 
 
 
-<h2>How to create a PDF Crag Guide</h2>
+<h1>How to create a PDF Crag Guide</h1>
 
 <p>As you browse through the index, click on the 'Downloads' tab for the area you want to generate a guide for.*</p>
 
@@ -43,11 +51,11 @@
 <p>* Please note, that currently you must be at a crag level or lower to generate a guide. You cannot download a guide for a whole region.</p>
 
 
-<h2>Updates</h2>
+<h1>Updates</h1>
 
 <p>Update your Crag Guide regularly to get the most recent stats, keywords, topos, descriptions, etc.</p>
 
-<h2><a name="printing">Tips for printing</a></h2>
+<h1 id="printing">Tips for printing</h1>
 
 <p>The PDF Crag Guides are designed to be printed as a folded booklet. This will save paper and make for a print-out that is easier to use when you're climbing. (If the directions below make it all sound too hard then of course it's fine to print it out any way you like.)</p>
 
@@ -77,12 +85,12 @@
 <li>The pages should now come off the printer ready to be folded in half into a small booklet. You can put in a couple of staples to help hold it together.</li>
 </ol>
 
-<h2>Troubleshooting</h2>
+<h1>Troubleshooting</h1>
 
-<h3>Paper jam at step 9</h3>
+<h2>Paper jam at step 9</h2>
 
 <p>If at step 9 you find that you get paper jams as the printer tries to feed paper that it has already printed on one side, you may need to repeat steps 6-9 one page at a time (ie Select 'Sheets from 1 to 1', then 'Sheets from 2 to 2', etc).</p>
 
-<h3>Pages come out with double printing on the one side or pages upside down at step 10</h3>
+<h2>Pages come out with double printing on the one side or pages upside down at step 10</h2>
 
 <p>This means that when you've put the pages in for the second lot of printing they were facing the wrong way in the paper tray. It might take a couple of tries to get this right, but is pretty easy once you've got the hang of it.</p>

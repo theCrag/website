@@ -2,12 +2,14 @@
 
 <p>This 3 minute video shows you how to create a topo. Or follow the instructions below.</p>
 
-<div class="figure">
-  <p>Screencast 1: How to make a topo</p>
-  <p><iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/zbcmKKGCxvc?rel=0" frameborder="0" allowFullScreen></iframe></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/zbcmKKGCxvc?rel=0" frameborder="0" allowFullScreen></iframe>
+      <p>Screencast 1: How to make a topo</p>
+    </div>
+  </div>
 </div>
-
-&nbsp;<br>
 
 
 <ol>
@@ -19,7 +21,7 @@
   <li><a href="#step6">Notes re. View Mode</a></li>
 </ol>
 
-<h2><a name="step1">1. Getting started</a></h2>
+<h1 id="step1">1. Getting started</h1>
 
 <p>Log in to your account.</p>
 
@@ -31,16 +33,17 @@
 </ul>
 
 
-<div class="figure">
-  <p>Figure 1: Getting started</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image1.jpg" width="600" height="288" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-tutorial-1.1.1/image1.jpg" width="600" height="288" />
+      <p>Figure 1: Getting started</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
 
-
-
-<h2><a name="step2">2. Select an image</a></h2>
+<h1 id="step2">2. Select an image</h1>
 
 <ul>
   <li>Select an image</li>
@@ -57,15 +60,17 @@
   <li>Click 'Next'</li>
 </ul>
 
-<div class="figure">
-  <p>Figure 2: Selecting an image</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image2.jpg" width="400" height="303" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-tutorial-1.1.1/image2.jpg" width="400" height="303" />
+      <p>Figure 2: Selecting an image</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
 
-
-<h2><a name="step3">3. Add route(s)</a></h2>
+<h1 id="step3">3. Add route(s)</h1>
 
 <p>Select the routes you want to draw on the topo. (NB. If you are creating the topo from a route page, the photo topo tool will default to that route).</p>
 
@@ -75,51 +80,59 @@
   <li>Click 'Add'.</li>
 </ul>
 
-<div class="figure">
-  <p>Figure 3: Selecting routes to include in topo</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image3.jpg" width="400" height="211" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-tutorial-1.1.1/image3.jpg" width="400" height="211" />
+      <p>Figure 3: Selecting routes to include in topo</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
 
-
-<h2><a name="step4">4. Draw the route(s)</a></h2>
+<h1 id="step4">4. Draw the route(s)</h1>
 
 <ul>
   <li>Click 'Edit mode'.</li>
   <li>In the table below the image, select the first route you wish to draw.</li>
 </ul>
 
-<div class="figure">
-  <p>Figure 4: Selecting the route to draw</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image4.jpg" width="500" height="349" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-tutorial-1.1.1/image4.jpg" width="500" height="349" />
+      <p>Figure 4: Selecting the route to draw</p>
+    </div>
+  </div>
 </div>
-
-&nbsp;<br>
 
 
 <ul>
   <li>On the image, click on the base of the route.</li>
 </ul>
 
-<div class="figure">
-  <p>Figure 5: Place first point at the base of the route</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image5.jpg" width="500" height="254" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-tutorial-1.1.1/image5.jpg" width="500" height="254" />
+      <p>Figure 5: Place first point at the base of the route</p>
+    </div>
+  </div>
 </div>
-
-&nbsp;<br>
 
 
 <ul>
   <li>Click along the line of the route to add additional points.</li>
 </ul>
 
-<div class="figure">
-  <p>Figure 6: Adding points along the line of the route</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image6.jpg" width="500" height="250" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-tutorial-1.1.1/image6.jpg" width="500" height="250" />
+      <p>Figure 6: Adding points along the line of the route</p>
+    </div>
+  </div>
 </div>
-
-&nbsp;<br>
 
 
 <h3>Editing your topo line</h3>
@@ -144,45 +157,51 @@
   <li>Select a point in an active topo line and right click to add the features shown in the figure below. (NB The features will appear offset while in edit mode but will appear directly above the line on the finished topo in view mode).</li>
 </ul>
 
-<div class="figure">
-  <p>Figure 7: Adding features</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image7.jpg" width="500" height="272" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-tutorial-1.1.1/image7.jpg" width="500" height="272" />
+      <p>Figure 7: Adding features</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
 
-
-<h2><a name="step5">5. Save and view topo or return to index</a></h2>
+<h1 id="step5">5. Save and view topo or return to index</h1>
 
 <ul>
   <li>Click on 'Save'.</li>
   <li>Click on 'View Mode' to see the finished topo or on 'Main Index' to return to the index. (Go back into 'Edit Mode' to make changes if required).</li>
 </ul>
 
-<h2><a name="step6">6. Notes re. View Mode</a></h2>
+<h1 id="step6">6. Notes re. View Mode</h1>
 
 <ul>
   <li>The color of the topo line corresponds to its difficulty band.</li>
 </ul>
 
-<div class="figure">
-  <p>Figure 8: Topo in 'View Mode' (No routes selected)</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image8.jpg" width="500" height="387" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-tutorial-1.1.1/image8.jpg" width="500" height="387" />
+      <p>Figure 8: Topo in 'View Mode' (No routes selected)</p>
+    </div>
+  </div>
 </div>
-
-&nbsp;<br>
 
 
 <ul>
   <li>Placing the cursor above a route in the table highlights it on the topo; and placing the cursor above a topo line in the photo highlights it in the table.</li>
 </ul>
 
-<div class="figure">
-  <p>Figure 9: Topo in 'View Mode' (Route 2 selected)</p>
-  <p><img src="/static/cids/images/phototopo-tutorial-1.1.1/image9.jpg" width="500" height="386" /></p>
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/phototopo-tutorial-1.1.1/image9.jpg" width="500" height="386" />
+      <p>Figure 9: Topo in 'View Mode' (Route 2 selected)</p>
+    </div>
+  </div>
 </div>
-
-&nbsp;<br>
 
 
 <ul>

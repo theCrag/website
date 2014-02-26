@@ -6,13 +6,13 @@
 
 <p><a href="/article/api">API documentation</a></p>
 
-<h2>Case Studies</h2>
+<h1>Case Studies</h1>
 
 <ul>
   <li><a href="#cca">Canberra Climbers’ Association</a></li>
 </ul>
 
-<h3><a name="cca">Canberra Climbers’ Association (CCA)</a></h3>
+<h2 id="cca">Canberra Climbers’ Association (CCA)</h2>
 
 <p>Oliver Story and the Canberra Climbers’ Association have done a nice little piece of work to use thecrag.com API to track new routes at their local crags.</p>
 

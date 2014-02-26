@@ -1,50 +1,61 @@
 5 Connect - 2 Add a favorite crag
 
-<h2>Why add a favorite crag</h2>
+<h1>Why add a favorite crag</h1>
 
 <p>You can add any region, crag or area as a favorite. Adding a favorite crag:</p>
 
-<ul>
+<ul class="sd-checklist">
   <li>Makes it easier for you to navigate the index.</li>
   <li>Allows you to keep in touch with what's going on at your favorite crags.</li>
   <li>Helps us understand which crags are most popular and incorporate this into the design of the site.</li>
 </ul>
 
-<h2>How to add a favorite crag</h2>
+<h1>How to add a favorite crag</h1>
 
 <p>To mark a crag as a favorite just click on the star next to the crag's name.</p>
 
-<div class="figure">
-  <p>Figure 1: This crag has not been marked as a favorite.</p>
-  <p><img src="/static/cids/images/add-favorite-1.1.0/image1.jpg" width="560" height="277" /></p>
+<div class="row-fluid">
+  <div class="offset1 span10 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/add-favorite-1.1.0/image1.jpg" width="500" height="247" />
+      <p>This crag has not been marked as a favorite</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
-
-<div class="figure">
-  <p>Figure 2: Now this crag has been marked as a favorite.</p>
-  <p><img src="/static/cids/images/add-favorite-1.1.0/image2.jpg" width="558" height="276" /></p>
+<div class="row-fluid">
+  <div class="offset1 span10 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/add-favorite-1.1.0/image2.jpg" width="500" height="247" />
+      <p>Now this crag has been marked as a favorite</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
 
 <p>When you place your cursor over the 'My Account' tab, a customised drop-down menu will appear showing all your favorite crags.</p>
 
-<div class="figure">
-  <p>Figure 3: Drop-down menu showing favorite crags.</p>
-  <p><img src="/static/cids/images/add-favorite-1.1.0/image3.jpg" width="605" height="333" /></p>
+<div class="row-fluid">
+  <div class="offset1 span10 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/add-favorite-1.1.0/image3.jpg" width="500" height="275" />
+      <p>Drop-down menu showing favorite crags</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
 
 <p>On your account page, your favorite crags are listed at the top of the column on the left. There are also links to RSS feeds of 'Ascents' and 'Updates' at your favorite crags.</p>
 
-<div class="figure">
-  <p>Figure 4: Favorite crags and RSS feeds on your account page.</p>
-  <p><img src="/static/cids/images/add-favorite-1.1.0/image4.jpg" width="756" height="476" /></p>
+<div class="row-fluid">
+  <div class="offset1 span10 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/add-favorite-1.1.0/image4.jpg" width="500" height="314" />
+      <p>Favorite crags and RSS feeds on your account page</p>
+    </div>
+  </div>
 </div>
 
-&nbsp;<br>
 
 <p>To remove a favorite crag or change the order in which they appear, click on the 'Review shortcuts' link at the bottom of the list of favorite crags on your account page. Then choose either 'Resequence Shortcuts' or 'Remove Shortcut'.</p>
 

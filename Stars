@@ -8,16 +8,15 @@
 <p>This document covers the following topics:<p>
 
 <ol>
-  <li><a href="#s1">Stars calculation</a></li>
-  <li><a href="#s2">User grade contribution</a></li>
-  <li><a href="#s3">Publisher grade contribution</a></li>
-  <li><a href="#s4">Quality Ratings</a></li>
-  <li><a href="#s5">Quality Score</a></li>
+  <li><a href="#stars-calculation">Stars calculation</a></li>
+  <li><a href="#user-grade-contribution">User grade contribution</a></li>
+  <li><a href="#publisher-grade-contribution">Publisher grade contribution</a></li>
+  <li><a href="#quality-ratings">Quality Ratings</a></li>
+  <li><a href="#quality-score">Quality Score</a></li>
 </ol>
 
 
-<div class="coltext">
-<h3><a name="s1">1. Stars calculation</a></h3>
+<h1 id="stars-calculation">1. Stars calculation</h1>
 
 <p>Route stars are assigned by the system according to the following rules:</p>
 <ul>
@@ -34,7 +33,7 @@
 
 
 
-<h3><a name="s2">2. User grade contribution</a></h3>
+<h1 id="user-grade-contribution">2. User grade contribution</h1>
 
 <p>When a user makes a grade contribution they may include stars as textual stars. For example their contribution may be "5.12**", in which case the system will work out the user thinks it is a 2 star route. Note that when inputting stars, they are simply added to the end of the grade as plain text.</p>
 
@@ -49,7 +48,7 @@
 <p>If you are the only person to have entered stars as part of a grade contribution and there are no ascents then the route will adopt your star rating. In otherwords when you first create a new area all the stars will be what you create, and as people start to log ascents these stars will be adjusted to the genuine community sentiment.</p>
 
 
-<h3><a name="s3">3. Publisher grade contribution</a></h3>
+<h1 id="publisher-grade-contribution">3. Publisher grade contribution</h1>
 
 <p>You may cite the grade and stars from a particular publication. It's our policy to only allow citing of grades from a particular publication if the publisher has expressed an interest to do so. When you create or update a climb you can cite the publication by clicking the 'Cite Publication' button. You will be asked to choose from a list of configured publications. If the publication is not there then you may not cite it.</p> 
 
@@ -61,7 +60,7 @@
 
 
 
-<h3><a name="s4">4. Quality Ratings</a></h3>
+<h1 id="quality-ratings">4. Quality Ratings</h1>
 
 <p>When a user logs an ascent they are given the option to rate the route with one of the following:</p>
 
@@ -89,7 +88,7 @@
 <p>In order to work out when a route changes from say a two star to a three star route we quantify these graphs into a single number called Quality Score (see below) and define thresholds for one, two and three star routes.</p>
 
 
-<h3><a name="s5">5. Quality Score</a></h3>
+<h1 id="quality-score">5. Quality Score</h1>
 
 <p>The Quality Score is a single number out of 100 to quantify all the user quality ratings. To calculate the Quality Score we add up each of the quality ratings in a 0-6 scale (Crap being 0 and Mega Classic being 6) then divide by the number of quality ratings and normalise to 100.</p>
 
@@ -104,6 +103,4 @@
 </ul>
 
 <p>In order to know which is the better route within a particular star group we also show the Quality Score in the tooltips as you hover the mouse over the stars. For example hover the mouse over the following stars <span title="Quality: 89%"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"></span>.</p>
-
-</div>
 

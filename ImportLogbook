@@ -4,10 +4,6 @@ use CIDS::Application::StaticVersions;
 my $account = $ARGS{account};
 </%perl>
 
-<style type="text/css">
-table, th, td { border: 1px solid black; }
-</style>
-
 <p>Liberate your logbook ascent data, whether you want to use it for other purposes or swap logbook providers. To that end we have put work into importing and <a href="/article/exportlogbook">exporting</a> logbook capabilities on the site.</p>
 
 <p>Importing to thecrag.com means:</p>
@@ -18,7 +14,6 @@ table, th, td { border: 1px solid black; }
   <li>Cool stats in your profile page (eg look at Lee's <a href="http://www.thecrag.com/climber/manacubus">profile page</a>).</li>
 </ul>
 
-&nbsp;</br>
 
 <div class="alert alert-error"><b>In beta test phase!</b> Please note that the importing logbook service is in beta test phase, but is relatively stable. We have had at least two climbers import three logbooks from different sources totalling over 3000 ascents. See the section on <a href="#beta">beta test testamonials</a> below for initial impressions. If you are interested then please contact us so we can work with you to get your import completed.</div>
 
@@ -36,7 +31,7 @@ table, th, td { border: 1px solid black; }
 
 <p><strong>If you are interested in importing your logbook then please contact us first because everybody seems to have unique issues which we want to understand to improve the import process.</strong></p>
 
-<h2>How to import your logbook</h2>
+<h1>How to import your logbook</h1>
 
 <p>We would encourage you to trial the import process on our develompent system first - <a href="http://dev.thecrag.com/">dev.thecrag.com</a> - to make sure the process works as you expect. It is difficult to 'undo' an import.</p>
 
@@ -76,7 +71,6 @@ table, th, td { border: 1px solid black; }
 
 </ol>
 
-&nbsp;</br>
 
 <p>Please note there are some additional tricks to import individual lines using the one-at-a-time form.</p>
 <ul>
@@ -89,7 +83,7 @@ table, th, td { border: 1px solid black; }
 
 
 
-<h2><a name="crunching">System number crunching</a></h2>
+<h1 id="crunching">System number crunching</h1>
 
 <p>When you start a bulk assessment, the system processes candidate matches for all unassigned import ascents. If you have already assigned a route to an ascent then this is not included in the number crunching.</p>
 
@@ -105,7 +99,7 @@ table, th, td { border: 1px solid black; }
 
 
 
-<h2><a name="filter">Understanding assessment filters</a></h2>
+<h1 id="filter">Understanding assessment filters</h1>
 
 <p>The idea of the assessment filters is to make your assessment confirmation easier and quicker.</p>
 
@@ -126,7 +120,7 @@ table, th, td { border: 1px solid black; }
 
 
 
-<h2><a name="unmatched">What to do about unmatched routes</a></h2>
+<h1 id="unmatched">What to do about unmatched routes</h1>
 
 <p>Basically you wait until the index has been updated, then re-run "Start Bulk Assessment" which will re-do all the number crunching for unassigned ascents.</p>
 
@@ -142,27 +136,27 @@ table, th, td { border: 1px solid black; }
 
 
 
-<h2><a name="providers">Hints to exporting from other providers</a></h2>
+<h1 id="providers">Hints to exporting from other providers</h1>
 
 <p>We want to use this section to share other users experience when importing.</p>
 
 <p>You should not be scared about emailing your current provider and asking them what their process is for exporting your logbook.</p>
 
-<h3>Paper copy</h3>
+<h2>Paper copy</h2>
 
 <p>One of our users had a paper copy of their logbook from an excel spreadsheet which had been lost. He scanned it in with Optical Character Recogition (OCR) technology, created an CSV which was then easliy imported.</p> 
 
 <p>If you don't have OCR technology at your fingertips try your local printers/office shop.</p>
 
-<h3>8a</h3>
+<h2>8a</h2>
 
 <p>Our users report that exporting from 8a is quite difficult.... until now. An independent climber has built a service to export his scorecard from 8a.nu. He has made it freely available for everybody in the google chrome webstore:</p>
 
 <p><a href="https://chrome.google.com/webstore/detail/8a-exporter/hekkfoilcpojpemdamefenfhielmbcen">https://chrome.google.com/webstore/detail/8a-exporter/hekkfoilcpojpemdamefenfhielmbcen</a></p>
 
-<h2><a name="beta">Beta test testamonials</a></h2>
+<h1 id="beta">Beta test testamonials</h1>
 
-<h3><a name="testamonial1">Testamonial 1: Climber who wanted logbook backup using thecrag export.</a></h3>
+<h2 id="testamonial1">Testamonial 1: Climber who wanted logbook backup using thecrag export.</h2>
 <p>I used to write every climb I did down in a little notepad.  Being able to looks back over what I've climbed my notes for the climbs helps job my shocking memory. I like to look back and reminisce over past ascents.</p>
 
 <p>I spilt a drink of this little notepad one day and nearly lost everything so I decided to convert this little notepad into the digital age.</p>

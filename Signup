@@ -1,23 +1,37 @@
 4 Climb
 
-<p><a href="/processmap/signup">Signup</a> to get more out of the database. <b>It's free</b>.</p>
+<p><a href="/processmap/signup">Signup</a> to get more out of the database. <strong>It's free</strong>.</p>
 
-<p style="text-align: center"><a class="btn btn-primary btn-large" href="/processmap/signup">Signup</a></p>
 
-<div class="figure" style="margin-left:50px">
-  <p class="media-grid"><a href="/processmap/signup"><img src="/static/cids/images/tour-1.1.0/tour_07_account.png" width="500" height="267" /></a></p>
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <a href="/processmap/signup"><img src="/static/cids/images/tour-1.1.0/tour_07_account.png" width="500" height="267" /></a>
+    </div>
+  </div>
 </div>
 
-<br />
+<div class="row-fluid">
+  <div class="offset4 span4 centering">
+    <p><a class="btn btn-primary btn-large" href="/processmap/signup">Signup</a></p>
+  </div>
+</div>
+
 
 <p>Once you have created an account you will be able to:</p>
 
-<ul>
+<ul class="sd-checklist">
   <li><a href="/article/loggingascents">Log your ascents</a> as a permanent record of your climbing history</li>
   <li>Get <a href="/article/cragguru">climb recommendations</a> based on your climbing profile</li>
   <li><a href="/article/contributing">Update the database</a> to make it more accurate for the climbing community</li>
   <li>Connect with other climbers, plan trips, find partners and keep up with what’s going on at your favorite crags</li>
 </ul>
+
+<div class="row-fluid">
+  <div class="offset4 span4 centering">
+    <p><a class="btn btn-primary btn-large" href="/processmap/signup">Signup</a></p>
+  </div>
+</div>
 
 
 <p>Start logging your ascents and the whole community benefits. Every ascent logged is a micro input into climb statistics, including popularity and route quality. Because ascents are logged against registered climbs, all these micro inputs combine to produce a robust community picture of climbing in an area.</p>

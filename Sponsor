@@ -1,17 +1,18 @@
 1 About theCrag - 5 Sponsoring theCrag
 
-<div style="text-align: center; width: 100%;"><img src="/static/cids/images/sponsorship-thecrag-needs-you-1.1.0.jpg" alt="" width="368" height="500" /></div>
+<div class="lead">
+<p>We’re trying to <strong>keep theCrag free</strong> for you...</p>
+</div>
 
+<div class="sd-floater">
+  <img src="/static/cids/images/sponsorship-thecrag-needs-you-1.1.0.jpg" width="250" height="340" />
+</div>
 
-<p style="text-align: center;font-size: 185%;margin: 30px;line-height: 30px;">We’re trying to <strong>keep theCrag free</strong> for you...</p>
-
-<div class="coltext">
 <p>... but we do need to make some money to fund the ongoing maintenance and development of the site.</p>
 
 <p>That's where sponsorship packages and classified listings come in.</p>
 
 <p>The table below outlines our sponsorship and classifieds options. In return for supporting this site, these enable you to support and communicate with a targeted group of climbers via a range of channels including our website, PDF guidebooks and (in the future) mobile applications, and other channels.</p>
-
 
 
 <p>Anonymous and individual donations are also welcome.</p>
@@ -21,9 +22,8 @@
 
 <p><strong>10% of all sponsorship</strong> revenue will be donated to third party, not for profit climbing causes and organisations (eg access organisations, bolting funds, etc). To start with, in 2012 our donor organisation will be CliffCare Victoria, and we’ll rotate it to new donors regularly.</p>
 
-</div>
 
-<h2>Sponsorship Packages</h2>
+<h1>Sponsorship Packages</h1>
 
 <table class="articleTable">
   <thead>
@@ -108,7 +108,7 @@
 
 
 
-<h2>Classified Listings</h2>
+<h1>Classified Listings</h1>
 
 <table class="articleTable">
   <thead>

@@ -19,6 +19,4 @@ my $account = $ARGS{account};
   <li>The result should open up in your browser and it is all yours to deal with how you want.</li>
 </ol>
 
-&nbsp;<br>
-
 <p>Please note that the export/import process is not designed for updating ascents. If you want to update ascents then use the web forms.</p>

@@ -1,7 +1,16 @@
 7 Extend - 1 Sharing and embedding (API)
 
 <style type="text/css">
-table, th, td { border: 1px solid black; }
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table {
+  max-width:600px;
+}
+.article table pre {
+  font-size: 8pt;
+}
 </style>
 
 <p>thecrag.com Application Programming Interface (API) enables sharing of rock climbing information in a programmatic way. For example you will be able to use this API to build your own applications, or present rock climbing information on your website.</p>
@@ -34,7 +43,7 @@ table, th, td { border: 1px solid black; }
 </ol>
 
 
-<h2><a name="s1">1. Projects</a></h2>
+<h1 id="s1">1. Projects</h1>
 
 <p>The current API projects are underway:</p>
 
@@ -49,7 +58,7 @@ table, th, td { border: 1px solid black; }
 
 
 
-<h2><a name="s2">2. Access</a></h2>
+<h1 id="s2">2. Access</h1>
 
 <p>Access to the API is broadly in-line with our <a href="/processmap/copyright">copyright</a> (Creative Commons - Attribution Non-Commercial Share Alike), but must be negotiated with us. Generally speaking granting access to our API needs to be a win win scenario where both thecrag and the third party gets something. For example this may be more users, content, or revenue share. Here are some examples of the kind of things that we would be interested in:</p>
 
@@ -96,7 +105,7 @@ table, th, td { border: 1px solid black; }
 <p>For commecial initiatives we may implement Quality of Service guarentees and provide priority access depending on how things pan out.</p>
 
 
-<h3>2.1 How do I get API access?</h3>
+<h2>2.1 How do I get API access?</h2>
 
 <p>In order to get access to the API you must:</p>
 
@@ -107,7 +116,7 @@ table, th, td { border: 1px solid black; }
 </ul>
 
 
-<h3>2.2 Copyright constraints</h3>
+<h2>2.2 Copyright constraints</h2>
 
 <p>Please note that API implementations are bound by the copyright restrictions of thecrag.com or the contributing publisher. Thecrag.com's copyright requires attribution under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons - Attribution Non-Commercial Share Alike</a> licence. As a guide, for areas where contributions have come from lots of users we allow you to attribute the highest <a href="/article/CragKarma">Karma</a> contributors and reference how to get the original information from thecrag.com. Specific information like photos, or grade contributions should reference the particular user. Please note that we reserve the right to ask you to make additional attributions in your application (it's only fair that climbers spending their time and effort for the benefit of the whole climbing community get properly attributed).</p>
 
@@ -125,23 +134,22 @@ table, th, td { border: 1px solid black; }
 
 
 
-<h2><a name="s3">3. Application key</a></h2>
+<h1 id="s3">3. Application key</h1>
 
 <p>All access to the API must use an API key. The API key may be supplied as a URL parameter ‘key=abc’ or though a custom HTTP header item ‘X-CData-Key: key=abc;’.</p>
 
 <p><strong>Developer style note</strong>: you should provide a global variable for setting the application key, and standardise the way you access the API. This will minimise the headaches if you have to change API keys for some reason.</p>
 
-<h3>3.1 As URL parameter</h3>
+<h2>3.1 As URL parameter</h2>
 
 <p>If the api key is supplied as a URL parameter the API call would look something like:</p>
 
 <pre>
   www.thecrag.com/api/area/id/1234?key=abc
 </pre>
-&nbsp;<br>
 
 
-<h3>3.2 As HTTP header</h3>
+<h2>3.2 As HTTP header</h2>
 
 <p>If the api key is supplied as a HTTP header then the http GET call would look something like:</p>
 
@@ -149,13 +157,12 @@ table, th, td { border: 1px solid black; }
   GET www.thecrag.com/api/area/id/1234 HTTP/1.1
   X-CData-Key: key=abc;
 </pre>
-&nbsp;<br>
 
 
 
 
 
-<h2><a name="s4">4. Protected resources</a></h2>
+<h1 id="s4">4. Protected resources</h1>
 
 <p>An application may get access to protected resources (ie private account data) using <a href="http://tools.ietf.org/html/rfc5849">OAuth</a> protocol. OAuth is an Internet standard protocol and is fairly well supported in popular development software. You will need to use OAuth for:</p>
 
@@ -185,7 +192,7 @@ table, th, td { border: 1px solid black; }
 <p>For all OAuth end points use HMAC-SHA1 as the oauth_signature_method. The <a href="http://tools.ietf.org/html/rfc5849">OAuth</a> spec has a nice explicit example of the information flow for Auth. The following discussion should be read in conjuction with the spec example to show how OAuth works on thecrag.com.</p>
 
 
-<h3>4.1 Temporary Credentials</h3>
+<h2>4.1 Temporary Credentials</h2>
 
 <p>When you apply for an API access key you will be given the Application key and secret. Use these as the consumer_key and consumer_secret for getting temporary token.</p>
 
@@ -193,7 +200,6 @@ table, th, td { border: 1px solid black; }
   http://www.thecrag.com/oauth/request_token
   (note that Authorization fields must be included in the HTTP header request)
 </pre>
-&nbsp;<br>
 
 <p>Temporary credentials request requires the following OAuth fields in the Authorization header:</p>
 
@@ -214,17 +220,15 @@ table, th, td { border: 1px solid black; }
 
   oauth_token=ijk&oauth_token_secret=qrs&oauth_callback_confirmed=true
 </pre>
-&nbsp;<br>
 
 
-<h3>4.2 User Authorization</h3>
+<h2>4.2 User Authorization</h2>
 
 <p>After you are given temporary credentials the client application must redirect to thecrag.com’s authorization URL using the oauth_token (returned by the Temporary Credentials step above) as a URL parameter. You may also supply the user login if this is already known. For example:</p>
 
 <pre>
   http://www.thecrag.com/oauth/authorize?oauth_token=abc&login=XYZ
 </pre>
-&nbsp;<br>
 
 <p>Don’t worry if the login is not known then the user will be prompted for their login. Also note that if the user is already logged into thecrag via cookie sessions then this will be used to identify the default user for authorizing access.</p>
 
@@ -233,12 +237,11 @@ table, th, td { border: 1px solid black; }
 <pre>
   oauth_callback_url?oauth_token=abc&oauth_verifier=efg&accountID=1234
 </pre>
-&nbsp;<br>
 
 <p>Please note the use of oauth_verifier, as this is a more recent change to the OAuth protocol. Please be aware that some of OAuth implementations may not include this.</p>
 
 
-<h3>4.3 Access Token</h3>
+<h2>4.3 Access Token</h2>
 
 <p>After the user has authorized access then the client API can get an access token for ongoing access to the account data.</p>
 
@@ -246,7 +249,6 @@ table, th, td { border: 1px solid black; }
   http://www.thecrag.com/oauth/access_token
   (note that Authorization fields must be included in the HTTP header request)
 </pre>
-&nbsp;<br>
 
 <p>Access Token request request requires the following OAuth fields in the Authorization header:</p>
 
@@ -268,10 +270,9 @@ table, th, td { border: 1px solid black; }
 
   oauth_token=tuv&oauth_token_secret=wxy&oauth_callback_confirmed=true&account_id=1234
 </pre>
-&nbsp;<br>
 
 
-<h3>4.4 Protected Resource Access</h3>
+<h2>4.4 Protected Resource Access</h2>
 
 <p>Once a client app has the full access token the client will be able to access the protected resource (ie private account data associated with the account) by using the token in the Authorization header. For example</p>
 
@@ -279,7 +280,6 @@ table, th, td { border: 1px solid black; }
   http://www.thecrag.com/api/account/id/1234
   (with the Authorization item included in the header)
 </pre>
-&nbsp;<br>
 
 <p>OAuth fields for access to a protected resource:</p>
 
@@ -296,14 +296,13 @@ table, th, td { border: 1px solid black; }
 
 
 
-<h2><a name="s5">5. Read access points</a></h2>
+<h1 id="s5">5. Read access points</h1>
 
 <p>The API top level access point is:</p>
 
 <pre>
   http://www.thecrag.com/api
 </pre>
-&nbsp;<br>
 
 <p>There are some secondary access points you may be able to use if you need web page style access. These secondary access points are not documented but replicate the data used by the website templates (note that these are not to be generally used by client apps without special permissions, and hence remain undocumented).</p>
 
@@ -321,8 +320,6 @@ table, th, td { border: 1px solid black; }
 <pre>
   http://www.thecrag.com/api/area/id/1234?jsonp=processArea
 </pre>
-&nbsp;<br>
-
 <p>Some of the read api functions return JSON data which contains <a href="http://www.thecrag.com/article/UpdatingDescriptions#section3">thecrag flavored markdown</a>. Normally for the website this markdown text is automatically marked up to HTML for website display, however with the API you may sometimes want it marked up as text or as html. For thecrag flavored markdown to be marked up as text use the URL parameter markupType=text, otherwise use markupType=html. Please note that the default is 'none' (ie the API does not do any conversion of markdown text and leaves that up to the client.<p>
 
 <p>For example if you wanted to convert area beta markdown into HTML you would use:</p>
@@ -330,7 +327,6 @@ table, th, td { border: 1px solid black; }
 <pre>
   http://www.thecrag.com/api/area/id/1234/beta?markupType=html
 </pre>
-&nbsp;<br>
 
 <p>The following sections outline some examples of api read calls.</p>
 
@@ -341,10 +337,9 @@ table, th, td { border: 1px solid black; }
     error: "bad uri",
   }
 </pre>
-&nbsp;<br>
 
 
-<h3>5.1 System Configuration</h3>
+<h2>5.1 System Configuration</h2>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/config/grade/context?key=abc">http://dev.thecrag.com/api/config/grade/context</a></li>
@@ -359,7 +354,7 @@ table, th, td { border: 1px solid black; }
 <p>Grade system configuration defines the grading systems used by thecrag. It includes variables for parsing, displaying and converting to an internal score (0-500).</p>
 
 
-<h3>5.2 Country</h3>
+<h2>5.2 Country</h2>
 
 <p>Note that you must also use an application if you were to implement any of the examples in this section or following sections. These examples use a application key associated with the API demo. You are not permitted to use this API key in your application. The demo API key will be changed from time to time, so your application will just stop working if you are using the demo API key.</p>
 
@@ -369,7 +364,7 @@ table, th, td { border: 1px solid black; }
 </ul>
 
 
-<h3>5.3 Climber</h3>
+<h2>5.3 Climber</h2>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/climber/id/9068185?key=abc">http://dev.thecrag.com/api/climber/id/9068185</a></li>
@@ -393,7 +388,7 @@ table, th, td { border: 1px solid black; }
 <p>Please note that the 'days-since-expired' field for subscriptions is optional. If it is specified then the recently expired subscriptions are included as well as valid subscriptions in the return data.</p>
 
 
-<h3>5.4 Node (Area/Route)</h3>
+<h2>5.4 Node (Area/Route)</h2>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/node/id/11737699?key=abc">http://dev.thecrag.com/api/node/id/11737699</a></li>
@@ -425,7 +420,7 @@ table, th, td { border: 1px solid black; }
 <p><strong>Developer style note</strong>: You should always get only what you need in as few API calls as you need (ie use show URL parameter).</p>
 
 
-<h3>5.5 Ascent</h3>
+<h2>5.5 Ascent</h2>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/ascent/id/24831619?key=abc">http://dev.thecrag.com/api/ascent/id/24831619</a></li>
@@ -435,28 +430,28 @@ table, th, td { border: 1px solid black; }
 <p><strong>Developer style note</strong>: You should always consider server load when retrieving information via the API. The API has been developed for flexibility so that you can make more efficient calls. For example if you need information about alot of ascents then you should use the multiple ids method of getting ascent information.</p>
 
 
-<h3>5.6 Trip</h3>
+<h2>5.6 Trip</h2>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/trip/id/22549159?key=abc">http://dev.thecrag.com/api/trip/id/22549159</a></li>
 </ul>
 
 
-<h3>5.7 Photo</h3>
+<h2>5.7 Photo</h2>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/photo/id/25464718?key=abc">http://dev.thecrag.com/api/photo/id/25464718</a></li>
 </ul>
 
 
-<h3>5.8 Copyright</h3>
+<h2>5.8 Copyright</h2>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/copyright/id/26096082?key=abc">http://dev.thecrag.com/api/copyright/id/26096082</a></li>
 </ul>
 
 
-<h3>5.9 Maps</h3>
+<h2>5.9 Maps</h2>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/map/summary?key=abc">http://dev.thecrag.com/api/map/summary</a></li>
@@ -481,7 +476,7 @@ table, th, td { border: 1px solid black; }
 The bbox returns the node(s) that fully contain the bounded box.
 
 
-<h3>5.10 Interface</h3>
+<h2>5.10 Interface</h2>
 
 <p>The following are experimental features to support logging in using Facebook or other third party social networking sites.</p>
 <ul>
@@ -490,7 +485,7 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 
 
-<h3>5.11 Discussions</h3>
+<h2>5.11 Discussions</h2>
 
 <p>Crag Chat discussions may be private between members or public associated with an area or route or just a general discussion. A discussion may also be linked to an ascent or a trip.</p>
 
@@ -502,12 +497,12 @@ The bbox returns the node(s) that fully contain the bounded box.
   <li><a href="http://dev.thecrag.com/api/discussion/191714736/last?key=abc">http://dev.thecrag.com/api/discussion/191714736/last</a></li>
 </ul>
 
-A discussion can have one or more messages associated with it. If there are more then 50 messages then the discussion is paginated (use the 'page' parameter as above). To find out if another message has been added to the discussion then use the 'last' api end point. If you use the 'last' end point please use some sort of algorithm which progressively polls at larger and larger intervals, otherwise the system will be become clogged up with polling that is essentially returning the same thing.</p>
+<p>A discussion can have one or more messages associated with it. If there are more then 50 messages then the discussion is paginated (use the 'page' parameter as above). To find out if another message has been added to the discussion then use the 'last' api end point. If you use the 'last' end point please use some sort of algorithm which progressively polls at larger and larger intervals, otherwise the system will be become clogged up with polling that is essentially returning the same thing.</p>
 
 <p>Note that the 'page' parameter does not work in the example above, it is there for syntatic purposes. At some point the example will be swapped over to something that works.</p>
 
 
-<h4>Private discussions</h4>
+<h3>Private discussions</h3>
 
 <p>In order to access private discussions you must authenticate using OAuth and be one of the accounts associated with the discussion.</p>
 
@@ -536,7 +531,7 @@ A discussion can have one or more messages associated with it. If there are more
 <p>Please note that if somebody starts a discussion at a route level it will filter down to the crag area discussion.<p>
 
 
-<h4>Area/route discussions</h4>
+<h3>Area/route discussions</h3>
 
 <p>Area/route discussions are special type of forum where the discussions are rolled up into their ancestor nodes. This means a discussion on a route will also appear in the cliff, crag and country discussions.</p>
 
@@ -549,23 +544,23 @@ A discussion can have one or more messages associated with it. If there are more
 <p>The unreadOnly parameter requires OAuth to have identify the account.</p> 
 
 
-<h4>Generic discussions</h4>
+<h3>Generic discussions</h3>
 
 <p>API work to be completed</p>
 
 
-<h4>Trip discussions</h4>
+<h3>Trip discussions</h3>
 
 <p>API work to be completed</p>
 
 
-<h4>Ascent discussions</h4>
+<h3>Ascent discussions</h3>
 
 <p>API work to be completed</p>
 
 
 
-<h3>5.12 Markup</h3>
+<h2>5.12 Markup</h2>
 
 <p>You may POST a thecrag flavoured markdown string to an endpoint to have it marked up including internal links. The POST end point is:</p>
 <pre>
@@ -586,7 +581,7 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h3>5.13 Index Structure</h3>
+<h2>5.13 Index Structure</h2>
 
 <ul>
   <li><a href="http://dev.thecrag.com/api/index/summary/world?key=abc">http://dev.thecrag.com/api/index/summary/world</a></li>
@@ -607,7 +602,7 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h3>5.14 Facet Search</h3>
+<h2>5.14 Facet Search</h2>
 
 <p>Facet search provides an interface into searching thecrag data using a url query language. You are able to search the following entities using facet search:</p>
 
@@ -629,7 +624,6 @@ A discussion can have one or more messages associated with it. If there are more
 <pre>
   /api/facet/{entity}/url/query/language  # where entity is as listed above.
 </pre>
-&nbsp;<br>
 
 <p>The url query language is a series of uri argument pairs for directive and value, for example at/1234 specifies entities at node id 1234. You may also specify multiple values using the '+' character, for example at/1234+5678.</p>
 
@@ -647,7 +641,7 @@ A discussion can have one or more messages associated with it. If there are more
 
 <p>Before you start using these please be aware that some faceted searches may be very resource intensive. Please discuss with site management the queries you intend to use, otherwise we may have to disable your key.</p>
 
-<h4>Routes</h4>
+<h3>Routes</h3>
 
 <p>The url query string may contain the following search directives:</p>
 <ul>
@@ -694,7 +688,7 @@ A discussion can have one or more messages associated with it. If there are more
 </ul>
 
 
-<h4>Areas</h4>
+<h3>Areas</h3>
 
 <p>The url query string may contain the following search directives:</p>
 <ul>
@@ -719,7 +713,7 @@ A discussion can have one or more messages associated with it. If there are more
 </ul>
 
 
-<h4>Nodes</h4>
+<h3>Nodes</h3>
 
 <p>The url query string may contain the following search directives:</p>
 <ul>
@@ -745,7 +739,7 @@ A discussion can have one or more messages associated with it. If there are more
 </ul>
 
 
-<h4>Ascents</h4>
+<h3>Ascents</h3>
 
 <p>The url query string may contain the following search directives:</p>
 <ul>
@@ -793,7 +787,7 @@ A discussion can have one or more messages associated with it. If there are more
 </ul>
 
 
-<h4>Favorites</h4>
+<h3>Favorites</h3>
 
 <p>The url query string may contain the following search directives:</p>
 <ul>
@@ -819,7 +813,7 @@ A discussion can have one or more messages associated with it. If there are more
 </ul>
 
 
-<h4>Photos</h4>
+<h3>Photos</h3>
 
 <p>The url query string may contain the following search directives:</p>
 <ul>
@@ -868,7 +862,7 @@ A discussion can have one or more messages associated with it. If there are more
 </ul>
 
 
-<h4>Topos</h4>
+<h3>Topos</h3>
 
 <p>The url query string may contain the following search directives:</p>
 <ul>
@@ -890,7 +884,7 @@ A discussion can have one or more messages associated with it. If there are more
 </ul>
 
 
-<h4>Activity</h4>
+<h3>Activity</h3>
 
 <p>The url query string may contain the following search directives:</p>
 <ul>
@@ -931,7 +925,7 @@ A discussion can have one or more messages associated with it. If there are more
 </ul>
 
 
-<h4>Messages</h4>
+<h3>Messages</h3>
 
 <p>The url query string may contain the following search directives:</p>
 <ul>
@@ -963,13 +957,13 @@ A discussion can have one or more messages associated with it. If there are more
 <p>Use the 'truncate' parameter if you want to limit the message content length. Note that because message content can include html the truncate will nicely truncate at a word boundary shorter that the length specified.</p>
 
 
-<h4>Climbers</h4>
+<h3>Climbers</h3>
 
 <p>Not implemented</p>
 
 
 
-<h3>5.15 Text completion</h3>
+<h2>5.15 Text completion</h2>
 
 <p>There are some fast prefix lookup end points which can be used for text completion, for example in a crag search toolbar. Text completion examples:</p>
 
@@ -984,7 +978,6 @@ A discussion can have one or more messages associated with it. If there are more
   <li><a href="http://dev.thecrag.com/api/lookup/climber?search=9068185&mode=id&key=abc">http://dev.thecrag.com/api/lookup/climber?search=9068185&mode=id</a></li>
   <li><a href="http://dev.thecrag.com/api/lookup/climber?search=support@thecrag.com&mode=server&key=abc">http://dev.thecrag.com/api/lookup/climber?search=support@thecrag.com&mode=server</a></li>
 </ul>
-&nbsp;<br>
 
 <p>For a crag search, if parameter 'mode' is set to 'region' then the search space is for regions only otherwise it is for areas identified as a Crag.</p>
 
@@ -999,12 +992,11 @@ A discussion can have one or more messages associated with it. If there are more
   <li>all: Matches all of the above. This uses more server resources and is slower, please use mode=server instead.</li>
   <li>server: (default) This tells the server to decide which to match based on the search string. If it has an @ in the search space then it is assumed to be an email search, otherwise if all numbers then it is a login and id seach, otherwise if no spaces then it is a login and name search, otherwise a name search. This is the default search because it allows a user of an application to put in some text and the server can work out what the user meant without having the server overhead of processing 'all' modes.</li>
 </ul>
-&nbsp;<br>
 
 
 
 
-<h2><a name="s6">7. Optimising down the wire</a></h2>
+<h1 id="s6">7. Optimising down the wire</h1>
 
 <p>Because they are hash based, some of the endpoints described in this API have a heavy over-the-wire burden with unneccessary information. While this is fine for some clients, it is not ideal for others where data transfer rates are limited and/or client memory is limited.</p>
 
@@ -1013,7 +1005,6 @@ A discussion can have one or more messages associated with it. If there are more
 <pre>
   flatten=key1,key2[subKeyA,subKeyB]
 </pre>
-&nbsp;<br>
 
 <p>Below are a couple of examples of how this may work:</p>
 
@@ -1024,7 +1015,7 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h2><a name="s7">6. Update access points</a></h2>
+<h1 id="s7">6. Update access points</h1>
 
 <p>Unless otherwise stated all API update access points require utf8 encoded text.</p>
 
@@ -1035,7 +1026,6 @@ A discussion can have one or more messages associated with it. If there are more
    …
   }
 </pre>
-&nbsp;<br>
 
 <p>The format of a multiple update is:</p>
 
@@ -1046,7 +1036,6 @@ A discussion can have one or more messages associated with it. If there are more
      …
   }]
 </pre>
-&nbsp;<br>
 
 <p>Update API end points return either HTTP_ACCEPTED or HTTP_BAD_REQUEST, and application/json MIME type with the supplied data fields, and either an ‘ok’ or ‘error’ data field.</p>
 
@@ -1057,7 +1046,6 @@ A discussion can have one or more messages associated with it. If there are more
    loginError: “not unique”,
   }]
 </pre>
-&nbsp;<br>
 
 <p>Where the ‘loginError’ corresponds to the ‘login’ input data field.</p>
 
@@ -1069,7 +1057,6 @@ A discussion can have one or more messages associated with it. If there are more
    uri: ‘/climber/1234’
   }]
 </pre>
-&nbsp;<br>
 
 <p>Note that if an entity has been created then the id of that entity and the canonical uri is returned. Core entities that can be created using the API include:</p>
 <ul>
@@ -1087,14 +1074,13 @@ A discussion can have one or more messages associated with it. If there are more
 <p>Note that none of the delete API end-points are implemented yet.</p>
 
 
-<h3>6.1 Create Climber</h3>
+<h2>6.1 Create Climber</h2>
 
 <p><strong>Access points</strong>:</p>
 <pre>
   http://www.thecrag.com/api/climber/create
   http://www.thecrag.com/api/climber/create/validate
 </pre>
-&nbsp;<br>
 
 <p><strong>Data fields</strong>:</p>
 <ul>
@@ -1115,7 +1101,6 @@ A discussion can have one or more messages associated with it. If there are more
 <pre>
   http://www.thecrag.com/api/country/list
 </pre>
-&nbsp;<br>
 
 <p>The termsVersionID indicates that the user has accepted specific terms and conditions. Accepting terms and conditions is required if the user is accessing the system via thecrag.com website. If the user has not accepted the terms and conditions then they will be asked to accept them the first time they log into the website. It's good programing practice to get a user to accept terms and conditions, but from the API perspective this is seen as a client application responsibility. If you want to integrate your application to the systems terms and conditions then let us know because we will have to make some enhancements to the API.</p>
 
@@ -1234,14 +1219,13 @@ A discussion can have one or more messages associated with it. If there are more
 </table>
 
 
-<h3>6.2 Update Climber</h3>
+<h2>6.2 Update Climber</h2>
 
 <p><strong>Access points</strong>:</p>
 <pre>
   http://www.thecrag.com/api/climber/update
   http://www.thecrag.com/api/climber/update/validate
 </pre>
-&nbsp;<br>
 
 <p><strong>Data fields</strong>:</p>
 <ul>
@@ -1257,7 +1241,7 @@ A discussion can have one or more messages associated with it. If there are more
   node: 1234,
   status: 0/1
 </pre>
-&nbsp;<br>
+
 <p>Set status to 1 to select as favorite, set to 0 to deselect as favorite.</p>
 
 <p>To (un)link to another account use the follow variable, which has the following format:</p>
@@ -1265,7 +1249,7 @@ A discussion can have one or more messages associated with it. If there are more
   account: 1234,
   status: 0/1
 </pre>
-&nbsp;<br>
+
 <p>Set status to 1 to follow an account, 0 to unfollow an account.</p>
 
 <p><strong>Examples</strong>:</p>
@@ -1347,14 +1331,13 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h3>6.3 Create Area</h3>
+<h2>6.3 Create Area</h2>
 
 <p><strong>Access points</strong>:</p>
 <pre>
   http://www.thecrag.com/api/area/create
   http://www.thecrag.com/api/area/create/validate
 </pre>
-&nbsp;<br>
 
 <p><strong>Data fields</strong>:</p>
 <ul>
@@ -1386,7 +1369,7 @@ A discussion can have one or more messages associated with it. If there are more
   type: string,
   name: string
 </pre>
-&nbsp;<br>
+
 <p>The type sub-variable may be one of:</p>
 <ul>
   <li>Offensive</li>
@@ -1400,7 +1383,7 @@ A discussion can have one or more messages associated with it. If there are more
   type: string,
   description: string
 </pre>
-&nbsp;<br>
+
 <p>The type sub-variable may be one of (see <a href="/article/UpdatingDescriptions">Write Descriptions</a> article):</p>
 <ul>
   <li>Description</li>
@@ -1473,14 +1456,13 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h3>6.4 Update Area</h3>
+<h2>6.4 Update Area</h2>
 
 <p><strong>Access points</strong>:</p>
 <pre>
   http://www.thecrag.com/api/area/update
   http://www.thecrag.com/api/area/update/validate
 </pre>
-&nbsp;<br>
 
 <p><strong>Data fields</strong>:</p>
 <ul>
@@ -1578,14 +1560,13 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h3>6.5 Create Route</h3>
+<h2>6.5 Create Route</h2>
 
 <p><strong>Access points</strong>:</p>
 <pre>
   http://www.thecrag.com/api/route/create
   http://www.thecrag.com/api/route/create/validate
 </pre>
-&nbsp;<br>
 
 <p><strong>Data fields</strong>:</p>
 <ul>
@@ -1617,7 +1598,6 @@ A discussion can have one or more messages associated with it. If there are more
   http://www.thecrag.com/api/area/id/11740915/ancestors
   http://www.thecrag.com/api/country/id/7478254
 </pre>
-&nbsp;<br>
 
 <p>The gearStyle variable may be one of (see <a href="/article/Styles">Route Styles</a> article):</p>
 <ul>
@@ -1640,7 +1620,7 @@ A discussion can have one or more messages associated with it. If there are more
   climbers: string,
   diary: string
 </pre>
-&nbsp;<br>
+
 <p>The type sub-variable may be one of:</p>
 <ul>
   <li>First Ascent</li>
@@ -1753,14 +1733,13 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h3>6.6 Update Route</h3>
+<h2>6.6 Update Route</h2>
 
 <p><strong>Access points</strong>:</p>
 <pre>
   http://www.thecrag.com/api/route/create
   http://www.thecrag.com/api/route/create/validate
 </pre>
-&nbsp;<br>
 
 <p><strong>Data fields</strong>:</p>
 <ul>
@@ -1796,13 +1775,11 @@ A discussion can have one or more messages associated with it. If there are more
   lower: grade,
   upper: grade
 </pre>
-&nbsp;<br>
 
 <p>The system sub-variable should be one the system labels defined by the following configuration end point:</p>
 <pre>
   http://dev.thecrag.com/api/config/grade/system
 </pre>
-&nbsp;<br>
 
 <p>The upper grade is optional and is used to specify a grade range.</p>
 
@@ -1890,14 +1867,13 @@ A discussion can have one or more messages associated with it. If there are more
 </table>
 
 
-<h3>6.7 Create Ascent</h3>
+<h2>6.7 Create Ascent</h2>
 
 <p><strong>Access points</strong>:</p>
 <pre>
   http://www.thecrag.com/api/ascent/create
   http://www.thecrag.com/api/ascent/create/validate
 </pre>
-&nbsp;<br>
 
 <p><strong>Data fields</strong>:</p>
 <ul>
@@ -2041,14 +2017,13 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h3>6.8 Send message</h3>
+<h2>6.8 Send message</h2>
 
 <p><strong>Access points</strong>:</p>
 <pre>
   http://www.thecrag.com/api/message/send
   http://www.thecrag.com/api/message/send/validate
 </pre>
-&nbsp;<br>
 
 <p><strong>Data fields</strong>:</p>
 <ul>
@@ -2185,7 +2160,7 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h3>6.9 Subscribe</h3>
+<h2>6.9 Subscribe</h2>
 
 <p>Thecrag offers third party apps an account subscription service for app charging. The third party app creates the subscription record. Subscriptions may be associated with a node. Account subscriptions can be queried by the app, which allows a developer to refresh an account or share subscriptions between apps.</p>
 
@@ -2196,9 +2171,8 @@ A discussion can have one or more messages associated with it. If there are more
   http://www.thecrag.com/api/subscribe/update
   http://www.thecrag.com/api/subscribe/update/validate
 </pre>
-&nbsp;<br>
 
-<h4>Creating a subscription</h4>
+<h3>Creating a subscription</h3>
 
 <p><strong>Data fields</strong>:</p>
 <ul>
@@ -2275,7 +2249,7 @@ A discussion can have one or more messages associated with it. If there are more
 
 </table>
 
-<h4>Updating a subscription</h4>
+<h3>Updating a subscription</h3>
 
 <p><strong>Data fields</strong>:</p>
 <ul>
@@ -2325,7 +2299,7 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h3>6.10 Register Webhook Callbacks</h3>
+<h2>6.10 Register Webhook Callbacks</h2>
 
 <p>You may register webhook callbacks. This is where thecrag server tells you about changes to the database. The following webhook samples are currently available for developers:</p>
 <pre>
@@ -2340,7 +2314,6 @@ A discussion can have one or more messages associated with it. If there are more
   /node/6789/update
   /node/6789/descendant/update
 </pre>
-&nbsp;<br>
 
 <p>If you want to use webhook callbacks you must contact us and let us know your url stub, something like 'http://somedeveloper.com/callbacks', in which case the callbacks will be POST'ed to http://somedeveloper.com/callbacks/climber/1234/messages/involved/all' for example.</p>
 
@@ -2401,7 +2374,7 @@ A discussion can have one or more messages associated with it. If there are more
 
 
 
-<h3>6.11 Topo</h3>
+<h2>6.11 Topo</h2>
 
 <p>You may create topos using thecrag API. Creating topos is a two step process:</p>
 <ol>
@@ -2409,19 +2382,17 @@ A discussion can have one or more messages associated with it. If there are more
   <li>Create the topo record, using the name parameter to process the file you just uploaded.</li>
 </ol>
 
-<h4>Uploading the image file</h4>
+<h3>Uploading the image file</h3>
 
 <p>This may be done by using a standard web POST with 'name' and 'file' form parameters to the following end point:</p>
 <pre>
   http://www.thecrag.com/upload
 </pre>
-&nbsp;<br>
 
 <p>For example you could use curl to upload the file like following:
 <pre>
   curl --form name=some-rand-name --form file=@topo-test-file.jpg http://www.thecrag.com/upload
 </pre>
-&nbsp;<br>
 
 <p><strong>NOTE server limitation</strong>: The uploaded file 'name' must be unique in a temporary directory on the server, so you should put a random hash/number/string in the 'name' parameter when uploading the file, otherwise you may clash with already uploaded files.</p>
 
@@ -2438,17 +2409,15 @@ A discussion can have one or more messages associated with it. If there are more
   "id" : "id"
 }
 </pre>
-&nbsp;<br>
 
 
-<h4>Creating the topo record</h4>
+<h3>Creating the topo record</h3>
 
 <p><strong>Access points</strong>:</p>
 <pre>
   http://www.thecrag.com/api/topo/create
   http://www.thecrag.com/api/topo/create/validate
 </pre>
-&nbsp;<br>
 
 <p>Developers please note you should be uploading topos to the cliff node, and linking to routes as objects. The sourceType should almost always be 'API Client' and source your developer id. The apiUploadFilename should be the same as that which was use in the 'name' parameter for the upload endpoint.</p>
 
@@ -2465,14 +2434,13 @@ A discussion can have one or more messages associated with it. If there are more
   <li><strong>publication</strong>: optional publicationID to be used with beta or citation</li>
 </ul>
 
-<h4>Updating the topo record</h4>
+<h3>Updating the topo record</h3>
 
 <p><strong>Access points</strong>:</p>
 <pre>
   http://www.thecrag.com/api/topo/update
   http://www.thecrag.com/api/topo/update/validate
 </pre>
-&nbsp;<br>
 
 <p><strong>Data fields</strong>:</p>
 <ul>

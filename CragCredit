@@ -3,25 +3,12 @@
 use CIDS::Application::StaticVersions;
 my $creditConfig = $ARGS{data}->{creditConfig};
 my $account = $ARGS{account};
-#die "DEBUG:".Data::Dumper::Dumper($account);
 </%perl>
 
 
-<style>
-h2 {
-border: none !important;
-}
-p strong.k1 {
-background:white;
-font-weight: bold;
-font-style: italic;
-font-size: 1.2em;
-}
-</style>
-
-<p><strong class="k1">... because Karma has its rewards</strong></p>
-
-&nbsp;</ br>
+<div class="lead">
+<p>... because Karma has its rewards</p>
+</div>
 
 <p>All who contribute to theCrag earn <a href="/article/CragKarma">Crag Karma</a> and are considered members of the Benevolent Ascensionists of Spiritual Enlightenment (BASE) of theCrag.</p>
 
@@ -41,8 +28,6 @@ font-size: 1.2em;
   <li> You must have at least <% $creditConfig->{minKarma} %> Karma points pending before they are converted to CCs.</li>
 </ul>
 
-&nbsp;</ br>
-
 <p>* So for example you can earn 1CC by:</p>
 <ul>
   <li>taking 3 photo topos with the your Andriod app and adding 4 nearby routes to each topo through the website back home; OR .. </li>
@@ -50,8 +35,4 @@ font-size: 1.2em;
   <li>Register route names and grade for a cliff with about 20 routes.</li>
 </ul>
 
-&nbsp;</ br>
-
 <p>** At the time of releasing the Crag Credit program we plan to also use the CCs for the iPhone app when it is out, however this is not guaranteed as we are not sure about the flexibility of Apple's iPhone platform.</p>
-
-&nbsp;</ br>

@@ -1,34 +1,26 @@
 1 About theCrag - 1 Contact us
 
-<div class="row">
-
-<div class="span4">
-<div style="text-align: center; width: 100%;"><img src="/static/cids/images/keep-calm-1.1.0.png" alt="" /><br><br></div>
-
+<div class="sd-floater">
+  <img src="/static/cids/images/keep-calm-1.1.0.png" />
 </div>
 
-<div class="span4">
-
 <div class="lead">
-<a target="_new" href="mailto:support@thecrag.com">support@thecrag.com</a>
+  <a target="_new" href="mailto:support@thecrag.com">support@thecrag.com</a>
 </div>
 
 <p>Please contact us!</p>
-<ul>
+<ul class="sd-checklist">
 <li>have a suggestion for improving our site</li>
 <li>want to set up a new crag</li>
 <li>want permission to edit your local crag</li>
 <li>have found a bug in the site</li>
 <li>have any questions or want to discuss anything else vaguely related</li>
 </ul>
+
+
 <p>Please also like us on Facebook to stay up to date:</p>
 
 <div class="info_box">
   <a href="http://www.facebook.com/thecragcom"><img src="/static/cids/images/fb-1.1.0.png" width="14" height="14" alt="Facebook" /> /thecragcom</a>
 </div>
-
-</div>
-
-</div>
-
 

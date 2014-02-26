@@ -15,17 +15,20 @@
 <p>Please note that country level sponsorship begins at $500 per year (£300 or €400 depending on country).</p>
 
 
-<h1><a class="my-anchor" name="image-specifications">Image specifications</a></h1>
+<h1 id="image-specifications">Image specifications</h1>
 
 
 <p>You will need to provide two pieces of artwork for the banners. It is important to keep them in A4 dimensions, or else they might get cropped:</p>
 
 
 
-<h2>1. PORTRAIT <small>(for in the PDF Guides):</small></h2>
+<h2>1. PORTRAIT <small>(for in the PDF Guides)</small></h2>
 
-<div class="sd-float-image">
-<img class="sd-article-img" src="/static/cids/images/article-sponsor-1.1.0/thecrag-sponsor-pdf-example-small2.png" />
+<div class="sd-floater">
+  <div class="sd-image-caption">
+    <img class="sd-article-img" src="/static/cids/images/article-sponsor-1.1.0/thecrag-sponsor-pdf-example-small2.png" />
+    <p>Ad in PDF Crag Guides</p>
+  </div>
 </div>
 
 <p>A4 dimension image. Our biggest dimension is currently 1472 x 2080 pixels. Smaller dimensions will still work, but PDF image quality may suffer. If you give us an image about 50% bigger than our current biggest dimension then we will have really good resolution for the PDF Guides. Make sure you include a clear call to action (eg your web address or contact details), as some people will print these guides out.</p>
@@ -35,10 +38,13 @@
 
 
 
-<h2>2. LANDSCAPE <small>(for on the website):</small></h2>
+<h2>2. LANDSCAPE <small>(for on the website)</small></h2>
 
-<div class="sd-float-image">
-<img class="sd-article-img" src="/static/cids/images/article-sponsor-1.1.0/thecrag-sponsor-site-example-small2.png" />
+<div class="sd-floater">
+  <div class="sd-image-caption">
+    <img class="sd-article-img" src="/static/cids/images/article-sponsor-1.1.0/thecrag-sponsor-site-example-small2.png" />
+    <p>Ad in website</p>
+  </div>
 </div>
 
 <p>A4 dimension image. Or biggest landscape image is currently 230 x 162 pixels, but it is likely we will be using some bigger images soon. We recommend providing a similar size to the portrait image.</p>
