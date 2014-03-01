@@ -24,13 +24,7 @@ Once a gym has its routes listed in theCrag you can tick away and get the full b
 
 Note that, even though you have one ascent logbook on theCrag, outdoor routes and indoor routes are reported separately.
 
-EOF
-</%perl><& /html/thecrag/minor/markdown, markdown => $markdown &>
-
-<h1> You can help us help you </h1>
-
-<%perl>
-$markdown = <<EOF;
+#You can help us help you
 
 If you want to log your local gym ascents then pester your gym owner, route setters and employees to get their routes listed on theCrag. Seriously, do not underestimate the influence you can have on your local gym.
 
@@ -41,11 +35,10 @@ It is not expensive for a gym to participate in theCrag and there are many benef
 Tell us the gym name and where it is so we can add the gym in the index, but listing the actual routes will require the gym to participate.
 
 
+#Imagine
+
 EOF
-</%perl><& /html/thecrag/minor/markdown, markdown => $markdown &>
-
-<h1>Imagine</h1>
-
+</%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 
 <div class="sd-floater">
