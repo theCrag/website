@@ -1,50 +1,54 @@
-4 Climb - 4 How do I log gym ascents?
+4 Climb - 4 Gym ascents?
 % my $markdown;
-<div class="sd-floater">
-<img class="sd-article-img" src="/static/cids/images/gym-1.1.0/ask-your-gym-about-ticking.png" />
-</div>
 
+<h1>Imagine</h1>
+
+<div class="sd-floater">
+<img class="sd-article-img" src="/static/cids/images/gym-1.1.0/thecrag-gym-ticking.png" width="200" height=280" />
+</div>
 
 <%perl>
 $markdown = <<EOF;
 
+
+You nail a difficult route for the first time in a gym, you get out your phone and point it at the barcode at the base of the route. Two clicks later you have logged your ascent in theCrag and shared it on Facebook.
+
+Sweet, what’s next?
+
+
+# Participating gyms
+
+
 You can log your gym ascents on theCrag.com with participating rock climbing gyms.
 
-theCrag.com is the world’s biggest collaborative rock climbing database. Since 1999 a small team of rock climbers have been building this resource and now it has become the place to document the world’s climbing routes.
 
-Thousands of climbers keep track of their climbing logbook on theCrag. theCrag is awesome for outdoor routes, but how does it stack up for indoor gym climbing?
+Once a gym has its routes listed in theCrag, you can tick away and get the full benefit of a logbook, charting and sharing.
 
-One of the brilliant things about theCrag is that you can only log your ascents against actual routes in the community database. This creates real authenticity and genuine sharing of your log book, because you just cannot make up anything.
-
-The drawback is that you cannot log an ascent of a route until it is listed in theCrag. This is not a problem for outdoor routes because there is a large community willing to document all outdoor areas.
-
-Routes in climbing gyms are different because they are always changing. The community just cannot manage this, so rock climbing gym owners must actively participate in theCrag.com to keep their routes up-to-date in the index.
-
-Once a gym has its routes listed in theCrag you can tick away and get the full benefit of a logbook, charting and sharing. If you are not already recording your climbing ascents, you should start because it is so worthwhile seeing your progress.
 
 Note that, even though you have one ascent logbook on theCrag, outdoor routes and indoor routes are reported separately.
 
-#You can help us help you
 
-If you want to log your local gym ascents then pester your gym owner, route setters and employees to get their routes listed on theCrag. Seriously, do not underestimate the influence you can have on your local gym.
-
-Get your gym ower to send us an email asking about getting their <a href="/article/GymList">gym routes listed</a>.
-
-It is not expensive for a gym to participate in theCrag and there are many benefits for them to participate, including feedback on route grades, quality, freshness.
-
-Tell us the gym name and where it is so we can add the gym in the index, but listing the actual routes will require the gym to participate.
-
-
-#Imagine
+# Help us help you
 
 EOF
 </%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-
 <div class="sd-floater">
-<img class="sd-article-img" src="/static/cids/images/gym-1.1.0/thecrag-gym-ticking.png" />
+<img class="sd-article-img" src="/static/cids/images/gym-1.1.0/ask-your-gym-about-ticking.png" width="200" height=205" />
 </div>
 
-<p>You nail a difficult route for the first time in a gym, you get your phone out and point it at the base of the route, up comes the routes in your browser, two clicks and you have logged your ascent in theCrag and shared it on Facebook.</p>
+<%perl>
+$markdown = <<EOF;
 
-<p>Sweet, what’s next?</p>
+
+If you want to log your local gym ascents then pester your gym owner, route setters and employees to get their routes listed on theCrag. Seriously- do not underestimate the influence you can have on your local gym.
+
+
+It is not expensive for a gym to participate in theCrag and there are many benefits for them, including feedback on route grades, quality and freshness.
+
+
+Tell us the gym name and where it is so we can add the gym in the index, but listing the actual routes will require the gym to participate.
+
+EOF
+</%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
