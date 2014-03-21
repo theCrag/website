@@ -12,6 +12,17 @@
   <li>Enabling location-based search and services in mobile applications</li>
 </ul>
 
+<h2 id="addtracks">How do I add tracks to a map?</h2>
+
+<p>We've put a lot of thought into this, and our philosophy is that things like tracks are not purely climbing data, they are used by bush walkers, mountain bikers etc. The best place for this data isn't with us, it's actually in google maps. You may not be aware but anyone can edit google maps and add new tracks and other features like building and lookouts. This is a relatively recent feature google has added called MapMaker:
+
+<p><a href="https://www.google.com.au/mapmaker">https://www.google.com.au/mapmaker</a>
+
+<p>Not only can you add walking tracks to cliffs you can also fix up approach firetrails and even roads and highways and driving directions. I've added data for a bunch of my local crags and I can now get walking directions to a specific cliff. If you have GPS trails you can overlay these in mapmaker to help trace or align tracks when editing. Google has a system like us where as you make more edits you get greater permissions. Initially your changes will be approved by google staff, but the turn around time is quite quick often hours. 
+
+<p>We encourage you to check out MapMaker and start improving your local maps. And if Google ever gives you bad driving directions, or has a wrong road label, go fix it!
+
+
 <h1>How this data is used</h1>
 
 <p>Location data is very useful, and it gets used in different ways across the site. It is also intrinsically linked with the index structure. Some important points to remember if you are locating areas or restructuring are:</p>
