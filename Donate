@@ -96,7 +96,7 @@ $(function(){
 <p>
   <span class="climber"><a class="sponsor avatar" href="/climber/scd" title="Simon Dale"><img src="http://www.thecrag.com/avatar/9068185" width="50" height="50" /></a></span>
   <span class="climber"><a class="sponsor avatar" href="/climber/cgome" title="Campbell Gome"><img src="http://www.thecrag.com/avatar/11183449" width="50" height="50" /></a></span>
-  <span class="climber"><a class="sponsor avatar" href="/climber/brendan_heywood" title="Brendan Heywood"><img src="http://www.thecrag.com/avatar/7727431" width="50" height="50" /></a></span>
+  <span class="climber"><a class="sponsor avatar" href="/climber/brendanheywood" title="Brendan Heywood"><img src="http://www.thecrag.com/avatar/7727431" width="50" height="50" /></a></span>
 </p>
 
 
