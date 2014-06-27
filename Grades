@@ -1,4 +1,20 @@
 2 Explore - 2 Grades
+<%perl>
+my %icons = (
+	'US'   => 'us',
+	'AU'   => 'au',
+	'UK'   => 'gb',
+	'FR'   => 'fr',
+	'FB'   => 'fr',
+	'UIAA' => 'uiaa',
+	'SX'   => 'de',
+	'FIN'  => 'fi',
+	'NWG'  => 'no',
+	'POL'  => 'pl',
+	'SA'   => 'za',
+);
+
+</%perl>
 
 <p>We want to work with the rock climbing community to get a comprehensive and intuitive coverage of grades in the system. This is a long term initiative and at times will involve fundamental changes to the way grades work on the site. We welcome feedback on grades, but for this to be useful to the community as a whole it has to go onto our <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a>. We don't promise to fix things straight away, but we will link the discussion into this article so that the whole community can constructively contribute.</p>
 
@@ -6,9 +22,9 @@
 <ol>
   <li><a href="#s1">Grade conversions</a></li>
   <li><a href="#s2">Grade bands</a></li>
-  <li><a href="#s3">How are grades asigned to routes?</a></li>
-  <li><a href="#s4">How are grades asigned to ascents?</a></li>
-  <li><a href="#s5">Grade parsing </a></li>
+  <li><a href="#s3">How are grades assigned to routes?</a></li>
+  <li><a href="#s4">How are grades assigned to ascents?</a></li>
+  <li><a href="#s5">Grade contexts and parsing </a></li>
   <li><a href="#s6">Country context's</a></li>
 </ol>
 
@@ -20,7 +36,18 @@
 
 % my $data = $ARGS{data};
 
+
 <style>
+.nowrap {
+	white-space: nowrap;
+}
+.data td {
+	border-bottom: 1px solid #DDD;
+	vertical-align: top;
+}
+.data h4 {
+	margin-top: 0;
+}
 .grades {
 	position: relative;
 	background: #EEE;
@@ -134,7 +161,7 @@ sub isVis {
 
 <p> The table below fives a brief description of each band.</p>
 
-<table>
+<table class="data">
   <tbody>
     <tr>
       <td scope="col" class="gb1">Beginner</td>
@@ -198,7 +225,7 @@ sub isVis {
 
 <h3>3.3 Grade ranges</h3>
 
-<p>Behind the scenes everything is a grade range with a minum grade and maximum grade. Mostly people will use just one grade, but on occasions it is useful to use a grade range for a particular route (eg you may input 5.10a-b, which will be interpreted by the sytem as a grade range and displayed as <span itemprop="contentRating" class="grade gb2">5.10a to 5.10b</span>.</p>
+<p>Behind the scenes everything is a grade range with a minimum grade and maximum grade. Mostly people will use just one grade, but on occasions it is useful to use a grade range for a particular route (eg you may input 5.10a-b, which will be interpreted by the sytem as a grade range and displayed as <span itemprop="contentRating" class="grade gb2">5.10a to 5.10b</span>.</p>
 
 <p>Grade ranges are absolutely necessary for grade conversions. Very few grade conversions match exactly there is usually overlap. For example 5.8 in the Yosemite Decimal System maps to both 15 and 16 in the Australian Ewbanks system.</p>
 
@@ -262,34 +289,89 @@ sub isVis {
 
 
 
-<h2><a name="s5" href="#s5">5. Grade parsing</a></h2>
+<h2><a name="s5" href="#s5">5. Grade contexts and parsing</a></h2>
 
-<p>Our aim is for you to contribute grades as you see them in guidebooks and for the system to be smart enough to work out what you mean.</p>
+<p>Our aim is for you to contribute grades as you see them in guidebooks and for the platform to be smart enough to work out what you mean.</p>
 
 <h3>5.1 Grade contexts</h3>
 
 <p>What does it mean if you type in the grade '5c'? If you were in Britian you would think it was the Experienced British grade <span itemprop="contentRating" class="grade gb3">5c</span>, but if you were in France you would think it was the Intermediate French grade <span itemprop="contentRating" class="grade gb2">5c</span>. Interpretation of grades is dependent on where you are, this is what we term grade context.</p>
 
-<p>Grade context is a way of the system working out how to interpret potentially conficting grades written in plain text. The system defines a small set of contexts as possible which can eliminate all conflicts. Currently the system defines the following contexts:</p>
+<p>A Grade context is a way of the platform working out how to interpret potentially conficting grades written in plain text, and we set a grade context at the country level.</p>
 
-<ul>
-  <li><strong>US</strong>: United States</li>
-  <li><strong>AU</strong>: Australian</li>
-  <li><strong>UK</strong>: United Kingdom</li>
-  <li><strong>FR</strong>: French</li>
-  <li><strong>UIAA</strong>: Countries primarily using UIAA grades</li>
-  <li><strong>SA</strong>: South African</li>
-  <li><strong>SX</strong>: Saxon</li>
-</ul>
+<p>A grade context is simply a priority list of which grade systems it should check first when matching a grade. For instance in Australia, you can use a french grade, but it will check it first against the locally used Ewbank, and V-Grade bouldering grade systems first, and then if it doesn't match it will check against all the other grade systems. The platform defines as few contexts as possible in order to eliminate conflicts. In general most countries can use the default context.</p>
 
-<p>Each country is assigned a context. Hopefully we have got it close to right (see <a href="#s5_3">section 5.3</a>). You may change the context when you add or update a route.</p>
+<p>Currently the system defines the following contexts:</p>
+
+
+<table class="data">
+<tr>
+<th style="width: 60px">Code</th>
+<th>Grade context</th>
+<th style="width: 65%">Countries and Grade Systems</th>
+</tr>
+% foreach my $context (sort { $a->{label} cmp $b->{label} }  @{ $data->{contexts} } ){
+<tr>
+<td>
+% my $icon = '';
+% my $ctx = $context->{label};
+% if (defined $icons{$ctx}){
+%   $icon = $icons{$ctx};
+% }
+% if (defined $icon && $icon ne ''){
+<img class="flag context" src="<% static "flags/png/$icon".".png" %>">
+% }
+ <% $context->{label} %>
+<td><h4><% $context->{name} %></h4>
+<% $context->{description} %>
+</td>
+<td>
+<p><b>Countries:</b>  
+%   my $shown = 0;
+%   foreach my $country ( @{ $data->{countries} } ){
+%     my $ctx = $country->{defaultGrading}->{context} || '';
+%     if ($context->{label} eq $ctx && $country->{id} && $country->{routes} ){
+<% $shown++ ? ', ' : '' %>
+<a class="nowrap country" href='<% CIDS::Application::WebHelpers::indexURL($country,type=>'area') %>'>
+% my $co = $country->{countryCode};
+<img class="flag country" src="<% static "flags/png/".lc($co).".png" %>">
+ <% $country->{name} %>\
+</a>\
+%     }
+%   }
+<p><b>Priority grade systems:</b>
+% $shown = 0;
+%#<pre><% Dumper( $context ) %></pre>
+% foreach my $sys ( @{ $context->{parseSystems} } ){
+%   foreach my $system ( @{ $data->{systems} } ){
+%     if ($system->{label} ne $sys ){ next; }
+%     if ($system->{label} =~ /ALT/ ){ next; }
+%     if ($system->{displayable} ne 1 ){ next; }
+%     if ($system->{displayable} ne 1 ){ next; }
+%#     if ($system->{abbreviatedName} eq 'Class' ){ next; }
+<% $shown++ ? ', ' : '' %>
+%     my $type = lc $system->{type};
+%     if ($type eq 'free'){ $type = 'trad'; }
+<span class="nowrap" title="Abbrev: <% $system->{abbreviatedName} %>,  Type: <% $system->{type} %>"><b class="bullet <% $type %>"></b> <% $system->{name} %></span>\
+%   }
+% }
+<td>
+</tr>
+% }
+</table>
+
+<p>Each country is assigned a context. Hopefully we have got it close to right (see <a href="#s5_3">section 5.3</a>).
+ In the table above we only show countries that have routes in them, and new countries default to the US, so if this
+ isn't right for a particular country please contact us and we'll fix it. 
+</p>
+<p> You may change the context of a particular route when you add or update that route.</p>
 
 
 <h3>5.2 Examples</h3>
 
 <p>The best way to explain how the system converts the plain text you enter into grades is to look at some examples.</p>
 
-<table>
+<table class="data">
   <tr>
     <th>Context</th>
     <th>Text entered</th>
@@ -576,27 +658,14 @@ sub isVis {
 
 <p>The following table shows the current system settings for country context. Please raise an issue in our <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a> if you think we need to make some adjustments.</p>
 
-<%perl>
-my %icons = (
-	'US'   => 'us',
-	'AU'   => 'au',
-	'UK'   => 'gb',
-	'FR'   => 'fr',
-	'UIAA' => 'uiaa',
-	'SA'   => '',
-	'SX'   => '',
-	'FIN'  => 'fi',
-	'NWG'  => 'no',
-	'POL'  => 'pl',
-);
-
-</%perl>
 <div class="map-wrap"><div id="map-canvas" class="google-map"></div></div>
-<table id="countries">
+<table id="countries" class="data">
   <tr>
     <th><i class="icon-map-marker"></i></th>
+    <th>Code</th>
     <th>Country</th>
-    <th>Context</th>
+    <th>Grade Context</th>
+    <th>Routes</th>
   </tr>
 % use Data::Dumper;
 % foreach my $country ( @{ $data->{countries} } ){
@@ -611,9 +680,13 @@ my %icons = (
 % }
 %#<pre><% Dumper ($country) %></pre>
     <td>
+% my $co = $country->{countryCode};
+ <% $co %>
+    <td>
 % if ($country->{id}){
 <a href='<% CIDS::Application::WebHelpers::indexURL($country,type=>'area') %>'>
 % }
+<img class="flag country" src="<% static "flags/png/".lc($co).".png" %>">
 <% $country->{name} %>
 % if ($country->{id}){
 </a>
@@ -625,15 +698,22 @@ my %icons = (
 %   $icon = $icons{$ctx};
 % }
 % if (defined $icon && $icon ne ''){
-<img class="flag" src="<% static "flags/png/$icon".".png" %>">
+<img class="flag context" src="<% static "flags/png/$icon".".png" %>">
 % }
 <% $ctx %>
+    <td>
+<% $country->{routes} %>
   </tr>
 % }
 </table>
 <style>
 .flag {
 	vertical-align: baseline;
+	width: auto;
+	height: auto;
+}
+img.flag.country {
+	margin-left: 4px;
 }
 .map-wrap {
 	position: relative;
@@ -679,10 +759,10 @@ function initialize() {
     var options = {
       map: map,
       position: new google.maps.LatLng(ll[0], ll[1]),
-      icon: $c.find('img').attr('src'),
-      ctx: $c.find('img').parent().text().trim(),
-      name: $c.find('td').eq(1).text().trim(),
-      url: $c.find('a').attr('href')
+      icon: $c.find('img.context').attr('src'),
+      ctx:  $c.find('img.context').parent().text().trim(),
+      name: $c.find('td' ).eq(2).find('>').html().trim(),
+      url:  $c.find('a'  ).attr('href')
     };
     bounds.extend (options.position);
     var marker = new google.maps.Marker( options );
