@@ -755,6 +755,7 @@ function initialize() {
   var bounds = new google.maps.LatLngBounds();
   $('#countries tr[data-ll]').each(function(){
     var $c = $(this);
+    if ( $c.find('td:eq(4)').text().trim() == '' ) return;
     var ll = $c.data('ll').split(',');
     var options = {
       map: map,
