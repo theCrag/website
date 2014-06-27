@@ -311,7 +311,7 @@ sub isVis {
 <th style="width: 65%">Countries and Grade Systems</th>
 </tr>
 % foreach my $context (sort { $a->{label} cmp $b->{label} }  @{ $data->{contexts} } ){
-<tr>
+<tr id="context-<% $context->{label} %>">
 <td>
 % my $icon = '';
 % my $ctx = $context->{label};
