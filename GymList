@@ -57,9 +57,9 @@
 <p>All gym operators should get a email outlining the following online help files [TODO LINK FOR EACH]:</p>
 
 <ul>
-  <li><p>How to adjust operator permissions</p></li>
+  <li><p><a href="/article/GymPermissions">How to adjust operator permissions</a></p></li>
   <li><p>How to add a rope</p></li>
-  <li><p>How to archive a route</p></li>
+  <li><p><a href="/article/GymArchiveRoute">How to archive a route</a></p></li>
   <li><p>How to add a route</p></li>
   <li><p>How to upload a floor plan</p></li>
   <li><p>How to upload a topo</p></li>
