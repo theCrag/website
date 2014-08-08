@@ -40,6 +40,7 @@ table {
   <li><a href="#s5">Read access points</a></li>
   <li><a href="#s6">Optimising down the wire</a></li>
   <li><a href="#s7">Update access points</a></li>
+  <li><a href="#s8">Mobile app endpoints</a></li>
 </ol>
 
 
@@ -996,7 +997,7 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 
 
-<h1 id="s6">7. Optimising down the wire</h1>
+<h1 id="s6">6. Optimising down the wire</h1>
 
 <p>Because they are hash based, some of the endpoints described in this API have a heavy over-the-wire burden with unneccessary information. While this is fine for some clients, it is not ideal for others where data transfer rates are limited and/or client memory is limited.</p>
 
@@ -1015,7 +1016,7 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 
 
-<h1 id="s7">6. Update access points</h1>
+<h1 id="s7">7. Update access points</h1>
 
 <p>Unless otherwise stated all API update access points require utf8 encoded text.</p>
 
@@ -2507,3 +2508,45 @@ The bbox returns the node(s) that fully contain the bounded box.
   </tr>
 
 </table>
+
+
+
+
+<h1 id="s8">8. Mobile app endpoints (UNDER DEVELOPMENT)</h1>
+
+<p>This section is under development to support mobile app clients. The following requires prototyping and documentation:</p>
+
+<ul>
+<li>Server availible, heartbeat message
+<li>Server announcement (eg 'Server will be unavailable for 2 hours due to an upgrade')
+<li>API version supported
+<li>Disable app instance (??? maybe this has nothing to do with API)
+<li>Force app upgrade (??? maybe this has nothing to do with API)
+<li>Force content re-sync for area
+<li>Create account and login (inc facebook login, etc)
+<li>Get index structure
+<li>Get crag details
+<li>Callbacks for changed crag info
+</ul>
+
+<p>Some of these are partially covered in other parts of this document, but some have not been developed. This section requires significant development, prototyping and testing.
+
+<h2>8.1 Bulk index queries</h2>
+
+<p>Generally speaking an app needs the worldwide structure down to crag level, in a single call. (TO BE DEVELOPED)
+
+<p>There is a call to get the whole index structure, but it is flawed because it is too large a query, and the index will grow too large to be able to support this.
+
+%# <p>For testing purposes only this call is:
+
+%# <p><a href="http://dev.thecrag.com/api/index/summary/full?key=abc">http://dev.thecrag.com/api/index/summary/full</a></li>
+
+%# (Please note this may take several minutes and is many dozens of megabytes).
+
+<p>Once an app has the structure down to crag level, the actual crag detail can be retrieved in bulk using the following query:
+
+<p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution</a></li>
+
+<p>Further development may be required, but the intention is that you can get every piece of information (excluding images) from a crag with a single call.<p>
+
+<p>Further development is required to get just the nodes that have chanced since a particular date. This will further reduce the amount of data down the wire.
