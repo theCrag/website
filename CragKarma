@@ -35,6 +35,10 @@
 % }
 </table>
 
+<p>
+Please note that we took some coding shortcuts and a couple of the Karma categories have been used for multiple purposes. For example 'Update Annotation' is used for both creating and updating an annotation.
+</p>
+
 <h1>A few details</h1>
 <p>
 For a particular contribution type you will only get the points once for each node in the index. For example, if you upload more than one photo for a particular route you will get <% $karma->{'Upload Photo'} %> points in total for all uploaded photos for that route.
@@ -45,7 +49,20 @@ More than one person can get points for contributions to a particular node in th
 </p>
 
 <p>
+In order to help prevent people gaming the system Karma is not assigned immediately to your account, but put into a pending queue. After about a week, it will be assigned to your account. During that week we may alter the amount of Karma that will be assigned.
+</p>
+
+<p>
+While it is cool to do genuine updates to the database for the purposes of gaining Karma, it is not cool to make rubish updates. Luckily there is so much to do, nobody seems to be making rubish updates.
+</p>
+
+<p>
 Please note that the algorithms are quite involved for assigning karma and because of this there may be cases that we accidently miss assigning karma. If this happens then please contact us so we can fix it for the future, but be aware that we will not be able to back date the karma even if you were entitled to it.
+</p>
+
+
+<p>
+<a href="/climbers/at/7546063/using-stat/karma">Click here</a> for site wide Karma leaderboard.
 </p>
 
 <p>
