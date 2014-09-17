@@ -1,4 +1,9 @@
-7 Extend - 2 oEmbed theCrag
+8 Labs - 2 oEmbed theCrag
+
+<div class="alert alert-info ">
+<b>Under development:</b> oembed work is under development. Information on this page is incomplete. 
+</div>
+
 <%perl>
 my $markdown = <<EOF;
 
@@ -19,6 +24,8 @@ Further resources will be developed.
 # WordPress
 
 The latest WordPress releases have significant embeding capability, but it will not embed theCrag without you making some amendments.
+
+TODO: write a plugin to enable WordPress embeding of thecrag resources
 
 
 # DIY oEmbed
