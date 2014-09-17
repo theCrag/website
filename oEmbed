@@ -1,0 +1,56 @@
+7 Extend - 2 oEmbed theCrag
+<%perl>
+my $markdown = <<EOF;
+
+Please note this is a technical article to help people embed theCrag stuff on their blog and WordPress sites. If you don't know, embeding means you can type in a resource url (eg photo) and the website will render it as the actual photo rather then the url you typed in. This is very handy shorthand for saving a lot of HTML coding.
+
+If you want to read about embeding external photos and videos into theCrag descriptions and forums then read the <a href="/article/EmbedingImages">Embeding photos and videos</a> article.
+
+This article is a technical how to article for people who have either got expertise in WordPress or in setting up client side oEmbed.
+
+Currently embeding theCrag stuff is limited to theCrag photos and competitions.
+
+`http://www.thecrag.com/photo/*`
+
+`http://www.thecrag.com/competition/*`
+
+Further resources will be developed.
+
+# WordPress
+
+The latest WordPress releases have significant embeding capability, but it will not embed theCrag without you making some amendments.
+
+
+# DIY oEmbed
+
+If you do not know what oEmbed is then you are brave reading this far. Here is some extra reading:
+
+http://oembed.com/
+
+theCrag oEmbed provider url is:
+
+`http://www.thecrag.com/oembed`
+
+And accepts the following parameters:
+
+ * **format**: theCrag currently only supports 'json' format. If this parameter is omitted then json will be assumed.
+ * **url**: mandatory url of the resource you want to embed.
+ * **callback**: the callback function name for jsonp
+ * **maxwidth**: part of the standard, but most sites are going responsive so should not be used
+ * **maxheight**: ditto
+
+Returns json resource as per oEmbed standard.
+
+The url regular expressions that are currently accepted are:
+
+  * https?:\\/\\/(www\.)?thecrag\\.com\\/photo\\/\\d+
+  * https?:\\/\\/(www\\.)?thecrag\\.com\\/competition\\/\\d+
+
+
+
+
+
+
+EOF
+</%perl>
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
