@@ -1,0 +1,73 @@
+6 Contribute - 01 Documenting a crag
+<%perl>
+my $markdown = <<EOF;
+
+# How to document a crag?
+
+This article breaks down the process of documenting a crag into simple steps on theCrag. The beauty and intention of theCrag is that you can just do a bit and not worry about documenting everything. The next climber can contribute what they know until eventually the community has an awesome community guidebook.
+
+Note that when you contribute to a crag you get <a href="/article/CragKarma">Karma</a> points.
+
+
+
+## Notes about permissions
+
+Please be aware that you may need to ask for additional permissions to document an area. As you contribute to theCrag the system starts to automatically grant you more permissions, however getting started you may have to ask us - email support\@thecrag.com. We love hearing from people who want to contribute, as it is a demonstration our work is motivating people.
+
+Please read the article on <a href="/article/IndexPermissions">user permissions</a> if you want to know more.
+
+
+
+
+## Starting from a clean slate
+
+Documenting a crag from scratch is not a monumental task, and the system is well set up to do a little bit at a time.
+
+It can all be done online, however if there are more than a couple of hundred undocumented routes then we do have a mechanism for bulk entering from an excel spreadsheet - ask us for a template. This method should only be used if you are in a position to document all the routes in an area quickly.
+
+Below is the suggested order of doing things.
+
+ - **Ask for permissions**: if you don't already have permissions then please don't be afraid to ask.
+ - **Create a crag**: navigate to the area you want to add the crag and look for the 'Add subarea(s)' button. Don't worry about descriptions at this stage, as it is best to get the structure in first.
+ - **Create sectors & cliffs**: think about the overall structure of the crag and create all the sub areas. Again don't worry about descriptons just yet because you might move things around. For further reading please read articles on <a href="/article/Structure">crag structure</a> and <a href="/article/AreaTypes">area types</a>.
+ - **Locate bottom up**: Use the online location tool (on the Google map click 'Edit location') to draw boundaries around areas - please read article on <a href="/article/Geolocation">geo location</a> if you want to know more. Note that it is highly recommended that you start at the bottom and work your way up. Locating crags is a great way to verify the sub area structure you decided. If you decided that you want to change the structure then you can resequence, reparent or merge areas as required (see 'Updating existing crags' below).
+ - **Add routes**: add routes plus descriptions. Descriptions are less important than listing the route in the first place, so don't worry if you are not in a position to add a description. If you know about first ascent history you might as well add it, otherwise somebody else can do this later. Please read article on <a href="/article/UpdatingDescriptions">writing descriptions</a> if you decide that you want to write actual descriptions.
+ - **Add annotations**: If routes are all on one big long cliff then you can create annotations to identify particular points of the cliff. An annotation is a piece of text that will appear between routes.
+ - **Upload topos**: Take photos and upload them as topos. Topos are understandable in any language and are often better than a good description. On the website you can upload a photo as a topo, link it to routes and draw the routes on the photo. Topos are interactive on the website, so it is much better to use our online tool rather than draw on a photo outside the sytem. Please read the article on <a href="/article/TopoTutorial">creating topos</a> for more info.
+ - **Tagging**: You can create <a href="/article/Tagging">structured tags</a> (ie have icons and are inherited) and hash tags for areas and routes. 
+ - **Add area descriptions**: Now that most of the detail is in the crag, it should be easy to create area descriptions for cliffs and sectors.
+ - **Add crag description**: You can really do this anytime, but it is nice to finish off with this. There are some extra fields in a crag, which include a short summary (ie about 10 words for a crag tagline). Also be aware that the 'Ethic' and 'Access' crag descriptions propagate down to lower level areas, so they are seen everywhere.
+ - **Create pdf crag guide**: Enjoy the fruits of your labor and click the 'Custom PDF' button. A PDF crag guide will be created on the fly and sent to you via email. You can even set up the system so it is sent to your Dropbox account. Read the article on <a href="/article/PDFCragGuide">PDF Crag Guides</a> if you want to know more about this cool feature.
+
+If you are in doubt then feel free to start an area forum discussion. If you come across a bug or just cannot work out how to do something then contact us.
+
+
+
+## Updating an existing crag
+
+So the crag is half complete and looks like rubbish. FYI we usually find that a couple of minor tweaks can make a big difference and typically it is a lot less work then you would think.
+
+ - **No delete**: the first thing you will notice is that there is no delete (actually there is, but it is only available in a very limited number of scenarios). Instead the correct way to do things is by merging or reparenting. For example you may create a sub area and then move some routes into it. At the end of the day if something really needs deleting then contact us and we will handle it.
+ - **Resequence**: You can use your mouse to drag resequence areas or routes using the locate area user interface (click 'Edit location' from Google maps). Alternatively you can use the Action button -> Restructure -> Resequence link).
+ - **Reparent**: You can reparent routes or areas (Action button -> Restructure -> Reparent). Note that you can reparent multiple routes at once which is a big time saver.
+ - **Merge**: You can merge routes or areas. Please make sure you really want to do this because there is no undo button. If you want to know what goes on behind the scenes for merging then please read the article on <a href="/article/Merging">merging</a>.
+ - **Facet search**: You can find missing information by doing an area facet search. Near the top of the area page is a linked statistic on the number of routes - click it - then look for the 'Missing' drop down select what you want to search for and click 'Apply filters'.
+ - **Start a discussion**: if you want to guage community opinion before you make a change then feel free to start a forum discussion in the area. Please start the discussion at the most specific point you can (ie if it is a discussion about a route then start the discussion at the route node). The system has been designed so that the more specific you are the more likely you are to get a relavent response. In otherwords if you post at the Country level about a crag then you will not get many people reading the post and you are unlikely to get a response.
+
+
+
+
+## Notes on copyright
+
+Please do not copy guidebooks verbatim or scan topos or maps unless you have permission to do so. Not only do copyright issues create more work for us, we may end up taking down your work. The community has been building this resource for over 15 years so we don't need to take short cuts.
+
+On the flip side, there is nothing wrong with asking the guidebook publisher if they want to contribute. We find that most publishers do want to participate in some way.
+
+If it is your local climbing area you can use your local knowedge and you can research stuff from mulitple sources. You can take similar photos to one which is in an existing guidebook, but don't use other peoples photos for topos unless you have permission.
+
+Generally speaking, if you have not climbed in the area then you should not be documenting the area.
+
+
+EOF
+</%perl>
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
