@@ -1,0 +1,34 @@
+6 Contribute - 14 Hash tagging
+<%perl>
+my $markdown = <<EOF;
+
+# Hash tagging
+
+Did you know you can use '#tags' in an area description, route description or ascent comment?
+
+Use the # (hash) symbol followed by alphabetic characters (or underscore) anywhere in the description.
+
+You can filter for hash tags in the area, route and ascent facetted search.
+
+Hash tagging should not be used instead of <a href="/article/Tagging">structured tags</a> which have been defined in the system to provide more structure (ie they may have icons and can be inheritable) and have rigerous definitions. In contrast hash tags have no definitions and are totally up to the whim of local climbers.
+
+
+# Hash tag areas and routes
+
+For areas and routes this makes for a great way for somebody who is managing a local crag to write tag routes for future work (eg #missing_bolt), tag belay types (eg #double_anchors) or bolt types (eg #bolt_type_expansion). Really this could be anything that the system does not already deal with and can be tailored to your local area.
+
+The cool thing is that you can search on these #tags.
+
+ - At the area page, click on the statistic of number routes near the page header.
+ - This will take you to the routes facetted search.
+ - Open hash tag and type in the tag you want to search (without the #)
+ - Click on Apply filter(s)
+
+
+# Hash tag your ascents
+
+You can also hash tag your ascent comments which can then be used later to filter your ascent logbook. When filtering your logbook, the system will show you a list of all hash tags you have used in your log book, so you don't have to remember anything.
+
+EOF
+</%perl>
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>

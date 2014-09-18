@@ -1,4 +1,4 @@
-6 Contribute - 13 Tagging
+6 Contribute - 13 Structured tagging
 <%perl>
 use CIDS::Application::StaticVersions;
 my $tags = $ARGS{data}->{tags};
@@ -6,6 +6,8 @@ my $tags = $ARGS{data}->{tags};
 </%perl>
 
 <p>Crag Tags make it easy to add structured information to routes and areas in the index. Crag Tags are cool because they display information in a concise way and can also be used for searching.</p>
+
+<p>You can also use an unstructed <a href="/article/HashTagging">hash tagging</a> for stuff that fits outside the structured tags.</p>
 
 <div class="alert alert-info ">
 <b>Quick tip:</b> to get started from any area or route, click on Action > Assign tags
