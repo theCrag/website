@@ -25,8 +25,6 @@ and you get this:
 
 https://www.youtube.com/watch?v=Hv8jmEg2SrE
 
-Video by <a href="https://www.facebook.com/getadogupya" target="_blank">Get A Dog Up Ya Productions</a>.
-
 
 
 # Example - embedding your photo from Flickr
@@ -51,27 +49,9 @@ and you get this:
 
 http://www.thecrag.com/photo/521192313
 
-And if you want to control the size, type in this:
-
-`http://www.thecrag.com/photo/521003781/avatar`
-
-and you get this:
-
-http://www.thecrag.com/photo/521003781/avatar
-
-The size tags you can use are modified, fixedwidthoversize, fixedwidthlarge, fixedwidthmedium, fixedwidthsmall, fixedwidthbigthumbnail, fixedwidththumbnail, fixedwidthtinythumbnail, fixedheightoversize, fixedheightlarge, fixedheightmedium, fixedheightsmall, fixedheightbigthumbnail, fixedheightthumbnail, fixedheighttinythumbnail, croppedsmall, croppedthumbnail, avatar, mediumavatar, bigavatar, webcover and mobilecover.
-
 
 
 # Example - embedding topo stored on the crag:
-
-Type in this:
-
-`http://www.thecrag.com/topo/119361966/png`
-
-and you get this:
-
-http://www.thecrag.com/topo/119361966/png
 
 This is still a work in progress so unfortunately if you type in:
 
