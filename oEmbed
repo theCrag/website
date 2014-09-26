@@ -1,7 +1,7 @@
 8 Labs - 2 oEmbed theCrag
 
 <div class="alert alert-info ">
-<b>Under development:</b> oembed work is under development. Information on this page is incomplete. 
+<b>Under development:</b> oembed work is under development. Please contact us if you are interested in this. 
 </div>
 
 <%perl>
@@ -17,15 +17,33 @@ Currently embeding theCrag stuff is limited to theCrag photos and competitions.
 
 `http://www.thecrag.com/photo/*`
 
-`http://www.thecrag.com/competition/*`
+`http://www.thecrag.com/competition/*`  [under development]
 
 Further resources will be developed.
 
 # WordPress
 
-The latest WordPress releases have significant embeding capability, but it will not embed theCrag without you making some amendments.
+The latest WordPress releases have significant embeding capability, but it will not embed theCrag conent without you making some amendments. To make it easier we have written a WordPress plugin ('WP theCrag oEmbed') which you can manually install from your WordPress dashboard. Unfortunately we have not yet registered this plugin with WordPress so you cannot search and install.
 
-TODO: write a plugin to enable WordPress embeding of thecrag resources
+Instructions for manually installing the 'WP theCrag oEmbed' plugin:
+
+  1. Download the <a href="/static/wp/wp-thecrag-oembed.zip">wp-thecrag-oembed.zip</a> to your computer.
+  2. Login to your WordPress site dashboad as administrator.
+  3. Click on Plugins link on the left of the page.
+  4. Click 'Add New' link near the top of the page.
+  5. Click 'Upload Plugin' link near the top of the page.
+  6. Select the plugin zip file you save to your computer and then click 'Install Now'.
+  7. Activate the plugin.
+
+Now that you are setup, type in the embed url on it's own line in your post/page and WordPress should do the rest. If you do not want a particular url turned into embeded content then make sure it is not on it's own line (hint turn it into an link or quote it).
+
+If you no longer want to embed theCrag content on your WordPress site then just deactivate the plugin.
+
+Please note that WordPress caches the oEmbed results so even if you deactivate the plugin you may still have embedded content on pages.
+
+Content on theCrag is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons - Attribution Non-Commercial Share Alike</a>. If you want to use this content commercially then you will have to contact us to negotiate the terms, otherwise you should attribute content to theCrag. If in doubt please just contact us.
+
+Note that content provided under an alternate publisher copyright may not be returned. 
 
 
 # DIY oEmbed
@@ -53,9 +71,9 @@ The url regular expressions that are currently accepted are:
   * https?:\\/\\/(www\.)?thecrag\\.com\\/photo\\/\\d+
   * https?:\\/\\/(www\\.)?thecrag\\.com\\/competition\\/\\d+
 
+In accordance with the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons - Attribution Non-Commercial Share Alike</a> license please attribute the author for photos which will be returned in the json. If you want to use this commercially then please contact us to negotiate the terms.
 
-
-
+Please note that some content by publishers may not be returned or may be returned with alternate an alternate license as descripted in the returned json parameters.
 
 
 EOF
