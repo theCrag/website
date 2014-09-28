@@ -19,7 +19,10 @@ Currently embeding theCrag stuff is limited to theCrag photos and competitions.
 
 `http://www.thecrag.com/competition/*`  [under development]
 
-Further resources will be developed.
+Note that if you are embedding through an https page then you should call the above urls using https, which tells theCrag oEmbed service to return https resource references.
+
+Further resources will be developed. Please let us know if you have a good idea you would like to persue on your page.
+
 
 # WordPress
 
