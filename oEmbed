@@ -1,23 +1,33 @@
 8 Labs - 2 oEmbed theCrag
 
 <div class="alert alert-info ">
-<b>Under development:</b> oembed work is under development. Please contact us if you are interested in this. 
+<b>Under development:</b> oembed work is under development. We need help testing and developing our embed solutions. If you run a WordPress blog and want to experiment with embedding theCrag content then please contact us. We think that embedding logbook ascents is really interesting.
 </div>
 
 <%perl>
 my $markdown = <<EOF;
 
-Please note this is a technical article to help people embed theCrag stuff on their blog and WordPress sites. If you don't know, embeding means you can type in a resource url (eg photo) and the website will render it as the actual photo rather then the url you typed in. This is very handy shorthand for saving a lot of HTML coding.
+Please note this is a technical article to help people embed theCrag stuff on their blog and WordPress sites. If you don't know, embeding means you can type in a resource url (eg photo) and the website will render it as the actual photo rather then the url you typed in. This is very handy shorthand for saving a lot of HTML coding. This is a really exciting area because it is not just photos that can be embedded, but content as well.
 
 If you want to read about embeding external photos and videos into theCrag descriptions and forums then read the <a href="/article/EmbedingImages">Embeding photos and videos</a> article.
 
 This article is a technical how to article for people who have either got expertise in WordPress or in setting up client side oEmbed.
 
-Currently embeding theCrag stuff is limited to theCrag photos and competitions.
+Currently embeding theCrag stuff is limited to theCrag photos, competitions and ascent facets.
 
 `http://www.thecrag.com/photo/*`
 
 `http://www.thecrag.com/competition/*`  [under development]
+
+`http://www.thecrag.com/*/ascents/*`  [under development]
+
+A demonstration of each of these in action on a WordPress site can be seen here:
+
+http://www.simon-dale.com/demo-of-thecrag-photo-embeding-on-wordpress/
+
+http://www.simon-dale.com/demo-of-thecrag-competitions-embeding-of-wordpress/
+
+http://www.simon-dale.com/demo-of-thecrag-ascents-logbook-embeding-in-wordpress/
 
 Note that if you are embedding through an https page then you should call the above urls using https, which tells theCrag oEmbed service to return https resource references.
 
@@ -28,7 +38,7 @@ Further resources will be developed. Please let us know if you have a good idea 
 
 The latest WordPress releases have significant embeding capability, but it will not embed theCrag conent without you making some amendments. To make it easier we have written a WordPress plugin ('WP theCrag oEmbed', current version 1.1.1) which you can manually install from your WordPress dashboard. Unfortunately we have not yet registered this plugin with WordPress so you cannot search and install.
 
-Instructions for manually installing the 'WP theCrag oEmbed' plugin:
+Instructions for manually installing the 'WP theCrag oEmbed' plugin (requires WordPress 4.0):
 
   1. Download the <a href="/static/wp/wp-thecrag-oembed.zip">wp-thecrag-oembed.zip</a> to your computer.
   2. Login to your WordPress site dashboad as administrator.
@@ -47,14 +57,6 @@ Please note that WordPress caches the oEmbed results so even if you deactivate t
 Content on theCrag is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons - Attribution Non-Commercial Share Alike</a>. If you want to use this content commercially then you will have to contact us to negotiate the terms, otherwise you should attribute content to theCrag. If in doubt please just contact us.
 
 Note that content provided under an alternate publisher copyright may not be returned. 
-
-For an example of emeding a theCrag photo on a WordPress site see the following post:
-
-http://www.simon-dale.com/demo-of-thecrag-photo-embeding-on-wordpress/
-
-For an example of emeding a theCrag competition on a WordPress iste see the following post:
-
-http://www.simon-dale.com/demo-of-thecrag-competitions-embeding-of-wordpress/
 
 
 # DIY oEmbed
@@ -79,8 +81,18 @@ Returns json resource as per oEmbed standard.
 
 The url regular expressions that are currently accepted are:
 
-  * https?:\\/\\/(www\.)?thecrag\\.com\\/photo\\/\\d+
-  * https?:\\/\\/(www\\.)?thecrag\\.com\\/competition\\/\\d+
+EOF
+</%perl>
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+<ul>
+  <li>https?:\/\/(www\.)?thecrag\.com\/photo\/\d+
+  <li>https?:\/\/(www\.)?thecrag\.com\/competition\/.+
+  <li>https?:\/\/(www\.)?thecrag\.com\/(.*\/)?ascents(\/.*)?
+</ul>
+
+<%perl>
+$markdown = <<EOF;
 
 In accordance with the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons - Attribution Non-Commercial Share Alike</a> license please attribute the author for photos which will be returned in the json. If you want to use this commercially then please contact us to negotiate the terms.
 
@@ -101,7 +113,7 @@ EOF
 </%perl>
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<blockquote>
+<code>
  &lt;script><br>
  $(function(){<br>
    $('iframe.thecrag-oembed').iFrameResize({<br>
@@ -109,6 +121,6 @@ EOF
    });<br>
  });<br>
  &lt;/script><br>
-</blockquote>
+</code>
 
 
