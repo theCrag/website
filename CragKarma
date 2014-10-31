@@ -24,6 +24,7 @@
 
 <table>
 % foreach my $activity ( sort {$karma->{$b}<=>$karma->{$a}} keys %{$karma} )   {
+%   next unless $karma->{$activity};
   <tr>
     <td>
        <% $activity %>
