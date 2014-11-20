@@ -680,13 +680,15 @@ sub isVis {
 % }
 %#<pre><% Dumper ($country) %></pre>
     <td>
-% my $co = $country->{countryCode};
+% my $co = $country->{countryCode}||'';
  <% $co %>
     <td>
 % if ($country->{id}){
 <a href='<% CIDS::Application::WebHelpers::indexURL($country,type=>'area') %>'>
 % }
+% if ($co){
 <img class="flag country" src="<% static "flags/png/".lc($co).".png" %>">
+% }
 <% $country->{name} %>
 % if ($country->{id}){
 </a>
