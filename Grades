@@ -84,55 +84,15 @@ sub isVis {
 }
 </%perl>
 
-<table class="gradesystem">
-% my $type = '';
-% my $typeC = 0;
-% my $prevType = '';
-<tr>
-% foreach my $system ( @{ $data->{systems} } ){
-%   if (!isVis $system ){ next; }
-%   if ($system->{abbreviatedName} eq 'Class' ){ next; }
-%   $type = $system->{type};
-%   if ($prevType ne $type){
-%     if ($prevType){
-%       if ($prevType eq 'Band'){
-<td>
-%       } else {
-<th colspan=<% $typeC %> class=<% $prevType eq 'Free' ? 'trad' : lc $prevType %>><% uc $prevType %>
-%       }
-%       $typeC = 1;
-%     }
-%   } else {
-%     $typeC++;
-%   }
-%   $prevType = $type;
-% }
-<th colspan=<% $typeC %> class=<% lc $type %>><% uc $type %>
-</tr>
-<tr>
-% foreach my $system ( @{ $data->{systems} } ){
-%   if (!isVis $system ){ next; }
-%   if ($system->{abbreviatedName} eq 'Class' ){ next; }
-<th title="<% $system->{name} |h %>"><% $system->{abbreviatedName}  %></th>
-% }
-</tr>
-<tr>
-% my $scale = 3;
-% foreach my $system ( @{ $data->{systems} } ){
-%   if (!isVis $system ){ next; }
-%   if ($system->{abbreviatedName} eq 'Class' ){ next; }
-<td>
-<div class="grades">
-%   foreach my $grade ( @{ $system->{grade} } ){
-%     if ($grade->{label} eq '--' || !defined $grade->{score}){ next; }
-%     my $size = $grade->{score}[2] - $grade->{score}[1] +1;
-%     my $gb = int(($grade->{score}[1]-1) / 100) +1 ;
-<div class="gb<% $gb %>" style="top:<% $grade->{score}[1] * $scale %>px;line-height:<% $size * $scale %>px;height:<% $size * $scale %>px"><% $grade->{label} %></div>\
-%   }
-</div>
-% }
-</tr>
-</table>
+<h2>Free climbing grading systems</h2>
+<& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Free' &>
+
+<h2>Aid climbing grading systems</h2>
+<& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Aid', scale => .7 &>
+
+<h2>Bouldering grading systems</h2>
+<& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Boulder', scale => 1 &>
+
 
 &nbsp;<br>
 
