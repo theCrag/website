@@ -75,23 +75,26 @@ my %icons = (
 </style>
 <%perl>
 sub isVis {
-	my ($system) = @_;
-	if ($system->{label} ne 'BAND' && (
-		$system->{displayable} eq 0
-		|| $system->{priority} >= 28
-		|| defined $system->{mergeOverridenBy}) ){ return 0; }
-	return 1;
+  my ($system) = @_;
+  return 1 if $system->{label} eq 'BAND';
+  return 0 if $system->{label} eq 'FB_ALT';
+  return 0 if $system->{abbreviatedName} eq 'Class';
+  return 0 if $system->{displayable} eq 0;
+  return 0 if $system->{type} =~ /^(Alpine|Jump)$/;
+  return 0 if $system->{type} ne 'Boulder' and defined $system->{mergeOverridenBy};
+  return 1;
 }
 </%perl>
 
 <h2>Free climbing grading systems</h2>
 <& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Free' &>
 
-<h2>Aid climbing grading systems</h2>
-<& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Aid', scale => .7 &>
-
 <h2>Bouldering grading systems</h2>
-<& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Boulder', scale => 1 &>
+<& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Boulder', scale => 2 &>
+
+<h2>Other climbing grading systems</h2>
+<& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Aid|Ice|Mixed', scale => 1.5 &>
+
 
 
 &nbsp;<br>
