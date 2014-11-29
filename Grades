@@ -75,12 +75,14 @@ my %icons = (
 </style>
 <%perl>
 sub isVis {
-	my ($system) = @_;
-	if ($system->{label} ne 'BAND' && (
-		$system->{displayable} eq 0
-		|| $system->{priority} >= 28
-		|| defined $system->{mergeOverridenBy}) ){ return 0; }
-	return 1;
+  my ($system) = @_;
+  return 1 if $system->{label} eq 'BAND';
+  return 0 if $system->{label} eq 'FB_ALT';
+  return 0 if $system->{abbreviatedName} eq 'Class';
+  return 0 if $system->{displayable} eq 0;
+  return 0 if $system->{type} =~ /^(Alpine|Jump)$/;
+  return 0 if $system->{type} ne 'Boulder' and defined $system->{mergeOverridenBy};
+  return 1;
 }
 </%perl>
 
@@ -90,8 +92,8 @@ sub isVis {
 % my $prevType = '';
 <tr>
 % foreach my $system ( @{ $data->{systems} } ){
+%#<pre><% $system->{label} . ":" . isVis($system) . ":" . Data::Dumper::Dumper($system) %></pre>
 %   if (!isVis $system ){ next; }
-%   if ($system->{abbreviatedName} eq 'Class' ){ next; }
 %   $type = $system->{type};
 %   if ($prevType ne $type){
 %     if ($prevType){
@@ -112,15 +114,13 @@ sub isVis {
 <tr>
 % foreach my $system ( @{ $data->{systems} } ){
 %   if (!isVis $system ){ next; }
-%   if ($system->{abbreviatedName} eq 'Class' ){ next; }
-<th title="<% $system->{name} |h %>"><% $system->{abbreviatedName}  %></th>
+<th title="<% $system->{name} |h %>"><% $system->{type} eq 'Aid' ? $system->{name} : $system->{abbreviatedName}  %></th>
 % }
 </tr>
 <tr>
 % my $scale = 3;
 % foreach my $system ( @{ $data->{systems} } ){
 %   if (!isVis $system ){ next; }
-%   if ($system->{abbreviatedName} eq 'Class' ){ next; }
 <td>
 <div class="grades">
 %   foreach my $grade ( @{ $system->{grade} } ){
