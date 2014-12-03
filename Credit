@@ -19,14 +19,17 @@
 		<li><a href="http://vadikom.com/tools/poshy-tip-jquery-plugin-for-stylish-tooltips/">PoshyTip</a>
 		<li><a href="http://abeautifulsite.net/blog/2008/09/jquery-context-menu-plugin/">jQuery Context Menu</a>
 		<li><a href="http://plugins.jquery.com/project/NobleCount">NobleCount</a>
-		<li><a href="https://github.com/defunkt/jquery-pjax">pjax</a>
-		<li><a href="https://github.com/iamvery/jquery.multisortable">multisortable</a>
+		<li><a href="https://github.com/defunkt/jquery-pjax">defunkt/jquery-pjax</a>
+		<li><a href="https://github.com/iamvery/jquery.multisortable">iamvery/jquery.multisortable</a>
 		<li><a href="https://github.com/furf/jquery-ui-touch-punch/">furf/jquery-ui-touch-punch</a>
 	</ul></li>
-	<li><a href="http://twitter.github.com/bootstrap/">Bootstrap</a><ul>
+	<li><a href="http://twitter.github.com/bootstrap/">twitter/bootstrap</a><ul>
 		<li><a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a>
 	</ul>
-	<li><a href="https://github.com/ftlabs/fastclick">FastClick by FT Labs</a>
+	<li><a href="https://github.com/ftlabs/fastclick">ftlabs/fastclick</a>
+	<li><a href="https://ellekasai.github.io/twemoji-awesome/">ellekasai/twemoji-awesome</a>
+	<li><a href="http://ichord.github.io/At.js/">ichord/At.js</a>
+	<li><a href="http://ichord.github.io/Caret.js/">ichord/Caret.js</a>
 	<li><a href="http://www.plupload.com/">Plupload</a>
 	<li><a href="http://raphaeljs.com/">Raphael</a>
 	<li><a href="http://tinymce.moxiecode.com/">TinyMCE</a>
