@@ -93,7 +93,7 @@ sub isVis {
 <& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Boulder', scale => 2 &>
 
 <h2>Other climbing grading systems</h2>
-<& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Aid|Ice|Mixed', scale => 1.5 &>
+<& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Aid|Ice|Mixed|Via ferrata', scale => 1.5 &>
 
 
 
