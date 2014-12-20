@@ -1,4 +1,4 @@
-4 Climb - 1 Logging ascents - Tick Types
+4 Climb - 2 Tick Types
 <%perl>
 use CIDS::Application::StaticVersions;
 </%perl>

@@ -4,6 +4,8 @@
 % $data->{profileMessage} = 'test';
 % $data->{profileMessageRaw} = 'Introducing a revolutionary new way to connect with climbers offline at the cliff!';
 
+<p><small>Released April 1st 2014</small>
+
 <p>At thecrag.com, we see our mission as two fold; to help climbers make and share climbing guides, and to help connect climbers with each other. One big challenge we face is that the rock that we all love is often far away from technology with no network. So we are always looking for ways to reach beyond a mere website.
 
 <p>On the guide front, we think we make some of the best collaborative editing tools around, but we don’t stop there, we let you download it to PDF, print it and take it to the rock. On the social side you can follow other climbers, share your climbing pursuits and profile and discuss stuff in our forums - but until now these connections have been restricted to the online world...
@@ -73,4 +75,3 @@ Introducing theCrag personalised climbers business cards:
 <p>Got an idea for a new feature or improvement? We’d love to hear it:
 <a href="ContactUs">contact us</a>
 
-<p><small>Released April 1st 2014</small>
