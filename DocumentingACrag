@@ -1,4 +1,4 @@
-7 Add areas and crags - 01 Documenting a new crag
+7 Add areas and crags - 01 Creating a new crag
 <%perl>
 my $markdown = <<EOF;
 
