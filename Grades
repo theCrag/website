@@ -1,4 +1,4 @@
-2 Explore - 2 Grades
+2 Getting started - 2 Grades
 <%perl>
 my %icons = (
 	'US'   => 'us',

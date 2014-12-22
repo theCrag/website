@@ -1,4 +1,4 @@
-6 Contribute - 14 Hash tagging
+6 Add routes & crags - 14 Hash tagging
 <%perl>
 my $markdown = <<EOF;
 

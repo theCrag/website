@@ -1,4 +1,4 @@
-6 Contribute - 01 Documenting a crag
+6 Add routes & crags - 09 Documenting a new crag
 <%perl>
 my $markdown = <<EOF;
 

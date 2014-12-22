@@ -1,4 +1,4 @@
-7 Extend - 3 Exporting your logbook
+4 Ticking & logbooks - 5 Export your logbook
 <%perl>
 use CIDS::Application::StaticVersions;
 my $account = $ARGS{account};

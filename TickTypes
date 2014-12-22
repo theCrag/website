@@ -1,4 +1,4 @@
-4 Climb - 2 Tick Types
+4 Ticking & logbooks - 2 Tick types
 <%perl>
 use CIDS::Application::StaticVersions;
 </%perl>
