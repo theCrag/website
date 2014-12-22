@@ -1,4 +1,4 @@
-6 Add routes & crags - 13 Structured tagging
+7 Add areas and crags - 13 Structured tagging
 <%perl>
 use CIDS::Application::StaticVersions;
 my $tags = $ARGS{data}->{tags};

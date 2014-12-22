@@ -1,4 +1,4 @@
-7 Advanced editing - 1 Merging routes & areas
+7 Advanced editing - 04 Merging routes & areas
 
 <p>Merging routes or areas is extremely complex. This article is written in order to make our business rules transparent. In that way, if you think something is unusual, you can work out whether or not there is a bug in the process or we are just simply missing some logic.</p>
 

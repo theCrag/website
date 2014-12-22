@@ -1,4 +1,4 @@
-7 Advanced editing - 15 Embedding photos and videos
+7 Advanced editing - 02 Embedding photos and videos
 <%perl>
 my $markdown = <<EOF;
 
