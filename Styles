@@ -59,7 +59,7 @@
     </tbody>
   </table>
 
-<p>So what about 'mixed' routes? ie a route that needs trad gear and also has bolts. By our definition a mixed route need's trad gear so it should be marked as trad AND also have the number of bolts needed for the route.</p>
+<p>So what about 'mixed' routes? ie a route that needs trad gear and also has bolts. By our definition a mixed route need's trad gear so it should be marked as trad AND also have the number of bolts needed for the route and this will get shown automatically as <span class="tags trad">mixed</span>.</p>
 
 <p><span class="label label-info">Note</span> This is not an exhaustive list of equipment you will need. This list is just to demonstrate the core differences between the gear used in each style.</p>
 
