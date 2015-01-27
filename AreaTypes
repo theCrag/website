@@ -91,7 +91,7 @@
   <table>
     <thead>
       <tr>
-        <th scope="col">Field</th>
+        <th scope="col"></th>
         <th scope="col">Area</th>
         <th scope="col">Region</th>
         <th scope="col">Crag</th>
@@ -106,7 +106,7 @@
       <tr>
         <td>Access Issues</td>
         <td>Inherit</td>
-        <td>.</td>
+        <td>Inherit</td>
         <td>Inherit</td>
         <td>Inherit</td>
         <td>Inherit</td>
@@ -116,8 +116,8 @@
       </tr>
       <tr>
         <td>Approach</td>
-        <td>.</td>
-        <td>.</td>
+        <td>Yes</td>
+        <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
@@ -150,7 +150,7 @@
       <tr>
         <td>Ethic</td>
         <td>Inherit</td>
-        <td>.</td>
+        <td>Inherit</td>
         <td>Inherit</td>
         <td>Inherit</td>
         <td>Inherit</td>
@@ -160,8 +160,8 @@
       </tr>
       <tr>
         <td>Unique Features And Strength</td>
-        <td>.</td>
-        <td>.</td>
+        <td>Yes</td>
+        <td>Yes</td>
         <td>Yes</td>
         <td>.</td>
         <td>.</td>
@@ -171,8 +171,8 @@
       </tr>
       <tr>
         <td>Where To Stay</td>
-        <td>.</td>
-        <td>.</td>
+        <td>Yes</td>
+        <td>Yes</td>
         <td>Yes</td>
         <td>.</td>
         <td>.</td>
@@ -182,9 +182,9 @@
       </tr>
       <tr>
         <td>History</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
         <td>Yes</td>
