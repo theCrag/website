@@ -1,9 +1,33 @@
-1 About theCrag - 2 About supporter donations
+1 About theCrag - 2 Supporter donations
+<%perl>
+my $account = $ARGS{account};
+</%perl>
 
-<h1 id="what">What is the pay-as-you-feel Supporter program</h1>
+<h1 id="what">What is the pay-as-you-feel Supporter program?</h1>
+
+<div style="float:right;margin:0 20px;">
+<span class="avatar sponsor"><& /html/thecrag/minor/avatar, climber => $account, scale => 160 &></span>
+<p style="line-height: 12px;font-size: 10px; text-align: center;">Supporters have<br>a purple border.
+</div>
+
+<p>theCrag Supporter program is a way to make sure theCrag stays alive and keeps getting better. The site costs a lot of money to run.
+
+<p>Pay-as-you-feel let's you decide how much you want to contribute.
+
+<p>Pay <a href="#once-off">once-off</a> for 12 months supporter status or become a ongoing supporter with <a href="#monthly">monthly</a> payment plan. 
+
+<p>To take part in the support program go to the following page:
+
+<p><a href="https://www.thecrag.com/donate">https://www.thecrag.com/donate</a>
+
+
+
 
 
 <h1 id="once-off">Making a once-off payment</h1>
+
+<p>Go to your <a href="/donate">donate page</a>, choose your currency, the amount you want to contribute, your credit card details and click the donate button.
+
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -12,10 +36,20 @@
   </div>
 </div>
 
+<p>Upon successfull payment we will email you a receipt, or a GST receipt if you are paying in Australian dollars.
+
+<p>You credit card statement will be clearly identifiable as being from theCrag.
+
+<p>Please read the section below <a href="#about-payment-gateway">about the payment gateway used by theCrag</a> for credit card security.
+
+
 
 
 
 <h1 id="review-history">Reviewing your payment history</h1>
+
+<p>You can review all your past payments from your <a href="/donate">donate page</a>.
+
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -28,7 +62,13 @@
 
 
 
+
+
 <h1 id="same-card">Making a subsequent payment on the same card as last time</h1>
+
+<p>Hopefully you love the site enough to make more than one donation. If you have previously donated then the last card you used is available to make a subsequent payment. This makes it quick and painless.
+
+
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -37,8 +77,23 @@
   </div>
 </div>
 
+<p>Please note that credit card details are not stored on theCrag servers, but rather go directly to an accredited gateway. theCrag only knows the last four digits of your credit card and your expiry date, the full number and security code is never seen by theCrag servers.
+
+<p>You may remove your credit card from the gateway from the same page.
+
+<p>Please read the section below <a href="#about-payment-gateway">about the payment gateway used by theCrag</a> for credit card security.
+
+
+
+
+
 
 <h1 id="monthly">Making automated monthly payments</h1>
+
+<p>Signing up for a monthly payment plan is really cool for the ongoing developement of theCrag.
+
+<p>Go to your <a href="/donate">donate page</a>, click monthly payment radio button, select the amount, complete your credit card details and click the subscribe button.
+
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -47,8 +102,27 @@
   </div>
 </div>
 
+<p>Upon successfull payment we will email you a receipt, or a GST receipt if you are paying in Australian dollars. Each month from the first payment date you will charged the same amount automatically and emailed a receipt.
+
+<p>You credit card statement will be clearly identifiable as being from theCrag.
+
+<p>You may cancel your plan whenever you want from the same page.
+
+<p>Please note that credit card details are not stored on theCrag servers, but rather go directly to an accredited gateway. theCrag only knows the last four digits of your credit card and your expiry date, the full number and security code is never seen by theCrag servers.
+
+<p>Please read the section below <a href="#about-payment-gateway">about the payment gateway used by theCrag</a> for credit card security.
+
+
+
+
+
 
 <h1 id="cancel">Canceling a monthly plan</h1>
+
+<p>You can cancel your monthly payment plan yourself at any point.
+
+<p>Go to your <a href="/donate">donate page</a>, select the cancel subscription radio button then click the cancel subscription button at the bottom of the page.
+
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -57,8 +131,19 @@
   </div>
 </div>
 
+<p>You may also cancel your payment plan by removing your credit card details.
+
+
+
+
+
 
 <h1 id="change-plan-amount">Changing a plan payment amount</h1>
+
+<p>You may change the amount you want to pay each month at anytime.
+
+<p>Go to your <a href="/donate">donate page</a>, select the new amount and click the change plan button.
+
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -67,8 +152,21 @@
   </div>
 </div>
 
+<p>You will be charged the new amount at the next payment due date.
+
+
+
+
+
 
 <h1 id="change-plan-card">Changing a plan credit card</h1>
+
+<p>You may change credit cards on a plan.
+
+<p>Go to your <a href="/donate">donate page</a>, select to swap to another card, complete the card details and click the change credit card button.
+
+<p>Note that if your credit card is about to expire then you will have to do this.
+
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -78,7 +176,15 @@
 </div>
 
 
+
+
+
 <h1 id="remove">Removing a credit card</h1>
+
+<p>You may remove your credit card yourself at any point.
+
+<p>Go to your <a href="/donate">donate page</a> and click the 'remove this card' link on the form.
+
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -86,6 +192,10 @@
     </div>
   </div>
 </div>
+
+<p>Note that if you are on a plan then removing your credit card also cancels your plan.
+
+
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -95,6 +205,22 @@
 </div>
 
 
+
+
 <h1 id="expire">What happens when my credit card expires</h1>
 
-<h1 id="about-payment-gateway">About theCrag payment gateway</h1>
+<p>Currently we do not have any process to remind you that your credit card is about to expire. If it does expire then it will no longer be available to charge and your plan will be cancelled.
+
+
+
+
+<h1 id="about-payment-gateway">About the payment gateway used by theCrag</h1>
+
+<p>Secure Credit Card payments on theCrag are made through <a href="https://www.stripe.com">Stripe.com</a> payment gateway.
+
+<p>Your submitted Credit Card information goes directly to the Stripe payment gateway.
+ Your full card number and CVC is not stored or even seen by theCrag servers.
+ theCrag only has access to the last 4 digits of your credit card and the expiry date.
+ You can read about Stripe's security here:
+<p><a target="_black" href="https://stripe.com/help/security">https://stripe.com/help/security <i class="icon-external-link"></i></a></p>
+
