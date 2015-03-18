@@ -1,5 +1,8 @@
 2 Getting started - 2 Grades
 <%perl>
+my $data = $ARGS{data};
+my %sysHash = map {($_->{label},$_)} @{$data->{systems}};
+
 my %icons = (
 	'US'   => 'us',
 	'AU'   => 'au',
@@ -12,7 +15,20 @@ my %icons = (
 	'NWG'  => 'no',
 	'POL'  => 'pl',
 	'SA'   => 'za',
+	'HK'   => 'hk',
+	'BRZ'  => 'br',
 );
+
+sub isVis {
+  my ($system) = @_;
+  return 1 if $system->{label} eq 'BAND';
+  return 0 if $system->{label} eq 'FB_ALT';
+  return 0 if $system->{abbreviatedName} eq 'Class';
+  return 0 if $system->{displayable} eq 0;
+  return 0 if $system->{type} =~ /^(Alpine|Jump)$/;
+  return 0 if $system->{type} ne 'Boulder' and defined $system->{mergeOverridenBy};
+  return 1;
+}
 
 </%perl>
 
@@ -28,13 +44,11 @@ my %icons = (
   <li><a href="#s6">Country context's</a></li>
 </ol>
 
-<h2><a name="s1" href="#s1">1. Grade conversions</a></h2>
+<h2><a name="s1" href="#s1"></a>1. Grade conversions</h2>
 
 <p>thecrag.com can automatically convert grades to a different system according to the table below. If you can suggest a better translation please log an issue in <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a>.</p>
 
 <p>Note the coloured <a href="#s2">grade bands</a> which are used throughout the site as a quick way to gauge the difficulty of a route or area.</p>
-
-% my $data = $ARGS{data};
 
 
 <style>
@@ -73,18 +87,6 @@ my %icons = (
 	padding: 0;
 }
 </style>
-<%perl>
-sub isVis {
-  my ($system) = @_;
-  return 1 if $system->{label} eq 'BAND';
-  return 0 if $system->{label} eq 'FB_ALT';
-  return 0 if $system->{abbreviatedName} eq 'Class';
-  return 0 if $system->{displayable} eq 0;
-  return 0 if $system->{type} =~ /^(Alpine|Jump)$/;
-  return 0 if $system->{type} ne 'Boulder' and defined $system->{mergeOverridenBy};
-  return 1;
-}
-</%perl>
 
 <h2>Free climbing grading systems</h2>
 <& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Free' &>
@@ -110,7 +112,7 @@ sub isVis {
 
 
 
-<h2><a name="s2" href="#s2">2. Grade bands</a></h2>
+<h2><a name="s2" href="#s2"></a>2. Grade bands</h2>
 
 <p>For use on thecrag.com we have divided climb difficulty ratings into 5 segments - Beginner, Intermediate, Experienced, Expert and Elite. These definitions are somewhat arbitrary, but they are based on many years of climbing experience and there are also some statistical reasons for breaking climbing into these segments.</p>
 
@@ -153,16 +155,18 @@ sub isVis {
 
 
 
-<h2><a name="s3" href="#s3">3. How are grades asigned to routes?</a></h2>
+<h2><a name="s3" href="#s3"></a>3. How are grades asigned to routes?</h2>
 
-<p>Routes have a registered grade and a list of independent user and publisher grade contributions (a publisher contribution is a citation from a publication). The user and publisher grade contributions are displayed on the route page. The official grade of the route is given by the registered grade.</p>
+<p>Routes have a registered community grade and a list of independent user and publisher grade contributions (a publisher contribution is a citation from a publication). The user and publisher grade contributions are displayed on the route page. The official grade of the route used by theCrag is given by the registered grade.</p>
+
+<p>Please consider the registered community grade as the grade that has been accepted by the community. This may change over time.<p>
 
 
-<h3>3.1 Registered grade</h3>
+<h3>3.1 Registered community grade</h3>
 
-<p>The registered grade is the official grade of the route, and is used through out the website and publications.</p>
+<p>The registered community grade is the official grade of the route, and is used through out the website and publications.</p>
 
-<p>A registered grade may have multiple components, for example:</p>
+<p>A registered community grade may have multiple components, for example:</p>
 <ul>
   <li>A free climbing grade (5.12a) and an aid grade (A3), combined would read <span itemprop="contentRating" class="grade gb3">5.12a A3</span>.</li>
   <li>British technical (4a) and adjectival (MS), combined would read <span itemprop="contentRating" class="grade gb2">MS 4a</span>.</li>
@@ -199,66 +203,61 @@ sub isVis {
 
 <p>A route may orinally be a 5.10b A4, then later somebody may climb it as a 5.11a A0, then later as a 5.12c. In this scenario the route should have the cleanest grade as its registered grade, but may have all the other grades listed as grade contributions.</p>
 
+<div class="alert alert-info">
+  Note we have plans to make some changes here to cater for multiple whole grades, so all aid eliminates can be created as alternate registered grades and available for selection when ticking.
+</div>
+
 
 <h3>3.5 Special rating systems</h3>
+
+<p>You may use the <a href="http://en.wikipedia.org/wiki/Grade_%28climbing%29#YDS_protection_rating">YDS protection rating</a> in your grade contribution or registered grade. For example <span itemprop="contentRating" class="grade gb3">5.10d X</span>.</p> 
+
+<p>On some pages the system does not display the mild ratings to avoid clutter.</p>
+
+
+<h3>3.6 Special rating systems</h3>
 
 <p>Although not part of the registered grade you can include some additional rating systems in your grade contributions. These include:</p>
 
 <ul>
   <li>Stars</li>
-  <li>Protection rating</li>
 </ul>
 
 <p>If you add a *, ** or *** to the end of your grade contribution the system will recognise this a star rating. See <a href="/article/Stars">how stars work</a>.</p>
 
-<p>You may also use the <a href="http://en.wikipedia.org/wiki/Grade_%28climbing%29#YDS_protection_rating">YDS protection rating</a> in your grade contribution. The system will assign the worst case protection rating to the route and display that alongside the registered grade if it is a R or X protection rating. For example if you made a grade contribution of "5.10d X" then the route will be displayed as <span itemprop="contentRating" class="grade gb3">5.10d X</span>.</p> 
 
 
 
+<h2><a name="s4" href="#s4"></a>4. How are grades asigned to ascents?</h2>
 
+<p>Currently when you log an ascent the asent will automatically take up to two of route's registered grade components as the ascent grade. If there are two grade components (eg British Adjectival and Technical or Free and Aid) then both will be catered for. If there are more than two (eg Free, Aid and Protection), then one will be dropped.</p>
 
-<h2><a name="s4" href="#s4">4. How are grades asigned to ascents?</a></h2>
-
-<p>This area needs a complete rethink because the system is a little restrictive. If you want to contribute to a community discussion see the following issue in our issues list:</p> 
-
-<ul>
-  <li><a href="https://github.com/theCrag/website/issues/304"><img src="/static/silk/bug.png" width="16" height="16"/> Complexity of grades respective logging of ascents</a></li>
-</ul>
-
-<p>Currently when you log an ascent the asent will automatically take the route's registered grade as the ascent grade. If there are multiple registered grades (eg British Adjectival and Technical or Free and Aid) then the system will ask you to choose one of these to be associated with the ascent.</p>
-
-<p>A logged ascent has a single grade independent of the route's grade. This has the following implications:</p>
-
-<ul>
-  <li>You may update your ascent to any grade you want, such as a different grading system or different grade to the route.</li>
-  <li>If it is an aid climb you have to choose whether you log the Aid component or the Free component (currently you cannot have both).</li>
-  <li>Similarily if it is a British climb have to choose whether you log the Adjectival or Technical grade.</li>
-</ul>
+<p>A logged ascent has a primary grade and secondary grade independent of the route's grade. This means you may update your ascent to any grade you want, such as a different grading system or different grade to the route.</p>
 
 <p>To adjust your ascent's grade after you have logged the ascent follow the following procedure:</p>
 
 <ul>
-  <li>Log your ascent with the grade from the route.</li>
-  <li>Go to your Account page ('My Account' tab) and click on Logbook tab.</li>
-  <li>In the ascent you just logged click on the name link under the 'Ascent Label' column.</li>
-  <li>Click 'edit' ascent.</li>
-  <li>Click 'Update Ascent Grade' button at bottom of screen.</li>
-  <li>Select the grading system you want to use for your ascent.</li>
-  <li>Select the grade.</li>
-  <li>And yes you are done, easy eh - not (we will have to make this simpler at some point, but mostly you will not need this procedure).</li>
+  <li>Log in to theCrag.</li>
+  <li>Go to your dashboard page.</li>
+  <li>In the Logbook top level tab navigation click 'All your ascents' dropdown.</li>
+  <li>Look for the ascent you want to update. There is a down arrow on the right, click it then click the 'Edit' dropdown.</li>
+  <li>Select the new grades.</li>
 </ul>
 
+<div class="alert alert-info">
+  Note that ascent logging grades is a little restrictive and we plan to bring this in-line with the full route grade capability.</p> 
+</div>
 
 
 
 
-<h2><a name="s5" href="#s5">5. Grade contexts and parsing</a></h2>
+<h2><a name="s5" href="#s5"></a>5. Grade contexts and parsing</h2>
 
 <p>Our aim is for you to contribute grades as you see them in guidebooks and for the platform to be smart enough to work out what you mean.</p>
 
 <h3>5.1 Grade contexts</h3>
 
-<p>What does it mean if you type in the grade '5c'? If you were in Britian you would think it was the Experienced British grade <span itemprop="contentRating" class="grade gb3">5c</span>, but if you were in France you would think it was the Intermediate French grade <span itemprop="contentRating" class="grade gb2">5c</span>. Interpretation of grades is dependent on where you are, this is what we term grade context.</p>
+<p>What does it mean if you type in the grade '5c'? If you were in Britian you would think it was the Experienced British grade <span itemprop="contentRating" class="grade gb3">5c</span>, but if you were in France you would think it was the Intermediate French grade <span itemprop="contentRating" class="grade gb2">5c</span>. If it was a bouldering route in Fontainebleau then you would think it is the Experienced Fontainebleau bouldering grade <span itemprop="contentRating" class="grade gb3">5C</span>. Interpretation of grades is dependent on where you are and the style of route, this is what we term grade context.</p>
 
 <p>A Grade context is a way of the platform working out how to interpret potentially conficting grades written in plain text, and we set a grade context at the country level.</p>
 
@@ -302,20 +301,32 @@ sub isVis {
 </a>\
 %     }
 %   }
-<p><b>Priority grade systems:</b>
+<p><b>General grade systems:</b>
 % $shown = 0;
-%#<pre><% Dumper( $context ) %></pre>
 % foreach my $sys ( @{ $context->{parseSystems} } ){
-%   foreach my $system ( @{ $data->{systems} } ){
-%     if ($system->{label} ne $sys ){ next; }
-%     if ($system->{label} =~ /ALT/ ){ next; }
-%     if ($system->{displayable} ne 1 ){ next; }
-%     if ($system->{displayable} ne 1 ){ next; }
-%#     if ($system->{abbreviatedName} eq 'Class' ){ next; }
+%   my $system = $sysHash{$sys};
+%   if ( defined $system )  {
+%     next if $system->{label} =~ /ALT/;
+%     next unless $system->{displayable};
 <% $shown++ ? ', ' : '' %>
 %     my $type = lc $system->{type};
-%     if ($type eq 'free'){ $type = 'trad'; }
-<span class="nowrap" title="Abbrev: <% $system->{abbreviatedName} %>,  Type: <% $system->{type} %>"><b class="bullet <% $type %>"></b> <% $system->{name} %></span>\
+%     $type = 'trad' if $type eq 'free';
+<span class="nowrap" title="Label: <% $system->{label} %>, Abbrev: <% $system->{abbreviatedName} %>,  Type: <% $system->{type} %>"><b class="bullet <% $type %>"></b> <% $system->{name} %></span>\
+%   }
+% }
+% foreach my $style ( keys %{ $context->{parseStyles} } ){
+<p><b><% $style %> grade systems:</b>
+%   $shown = 0;
+%   foreach my $sys ( @{ $context->{parseStyles}->{$style} } ){
+%     my $system = $sysHash{$sys};
+%     if ( defined $system )  {
+%       next if $system->{label} =~ /ALT/;
+%       next unless $system->{displayable};
+<% $shown++ ? ', ' : '' %>
+%       my $type = lc $system->{type};
+%       $type = 'trad' if $type eq 'free';
+<span class="nowrap" title="Label: <% $system->{label} %>, Abbrev: <% $system->{abbreviatedName} %>,  Type: <% $system->{type} %>"><b class="bullet <% $type %>"></b> <% $system->{name} %></span>\
+%     }
 %   }
 % }
 <td>
@@ -330,6 +341,27 @@ sub isVis {
 <p> You may change the context of a particular route when you add or update that route.</p>
 
 
+<script type="text/javascript">
+$(function(){
+  $(".example-result").each(function(){
+    var elem = $(this);
+    var collector = elem.parent();
+    var context = collector.find(".example-context").html();
+    var style = collector.find(".example-style").html();
+    var text = collector.find(".example-text").html();
+%#    alert("DEBUG:"+context+":"+style+":"+text+":");
+    var obj={data:{text:text,context:context,style:style}};
+    var json=JSON.stringify(obj);
+    postAPIWithPromise('/api/grade',json)
+    .done(function(data) {
+      if ( data && data.data && data.data.grade && data.data.grade.length ) {
+        elem.html('<span class="grade gb' + (data.data.gradeBand ? data.data.gradeBand : '0') + '" title="' + (data.data.systemText ? data.data.systemText : '') + '">' + data.data.gradeInContext + '</span>');
+      }
+    });
+  });
+});
+</script>
+
 <h3>5.2 Examples</h3>
 
 <p>The best way to explain how the system converts the plain text you enter into grades is to look at some examples.</p>
@@ -337,287 +369,517 @@ sub isVis {
 <table class="data">
   <tr>
     <th>Context</th>
+    <th>Style</th>
     <th>Text entered</th>
     <th>Grade</th>
+%#    <th>????</th>
     <th>Comment</th>
   </tr>
   <tr>
-    <td>US</td>
-    <td>5.12a</td>
-    <td><span itemprop="contentRating" class="grade gb3">5.12a</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.12a</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">5.12a</span></td>
     <td></td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>5.12</td>
-    <td><span itemprop="contentRating" class="grade gb3">5.12</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.12</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">5.12</span></td>
     <td>The system has a grade system where grades are expressed as 5.12-, 5.12 and 5.12+.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>12a</td>
-    <td><span itemprop="contentRating" class="grade gb3">5.12a</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.12+</td>
+    <td class="example-result"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.12a+</td>
+    <td class="example-result"></td>
+    <td>Note that + does not always form part of the offial grade, in which case it is ignored.</td>
+  </tr>
+  <tr>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">12a</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">5.12a</span></td>
     <td>The system is able to work out common partial grades.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>12</td>
-    <td><span itemprop="contentRating" class="grade gb3">5.12</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">12</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">5.12</span></td>
     <td>partial grades can be very dependent on the context (in US context this is 5.12, in AU context this is 12).</td>
   </tr>
   <tr>
-    <td>AU</td>
-    <td>12</td>
-    <td><span itemprop="contentRating" class="grade gb1">12</span></td>
+    <td class="example-context">AU</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">12</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb1">12</span></td>
     <td>Compare to above example</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>5.12a-5.12c</td>
-    <td><span itemprop="contentRating" class="grade gb3">5.12a to 5.12c</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.12a-5.12c</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">5.12a to 5.12c</span></td>
     <td>This is interpreted as a grade range.<b/td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>5.12a-b</td>
-    <td><span itemprop="contentRating" class="grade gb3">5.12a to 5.12b</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.12a-b</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">5.12a to 5.12b</span></td>
     <td>Common abbreviated grade ranges</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>5.12a/b</td>
-    <td><span itemprop="contentRating" class="grade gb4">5.12b</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.12a/b</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb4">5.12b</span></td>
     <td>The forward slash '/' is interpreted as an or, in which case the system assigns the highest single grade.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>5.10,5.12d,5.9</td>
-    <td><span itemprop="contentRating" class="grade gb4">5.12d</span></td>
+    <td class="example-context">AU</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">17/18</td>
+    <td class="example-result"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.10,5.12d,5.9</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb4">5.12d</span></td>
     <td>Commas used to indicate multi-pitch, in which case the system will assign the highest grade.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>5.9 S</td>
-    <td><span itemprop="contentRating" class="grade gb2">5.9 S</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.9 S</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb2">5.9 S</span></td>
     <td>Protection rating is displayed as part of the grade.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>5.10a X,5.12</td>
-    <td><span itemprop="contentRating" class="grade gb3">5.12 X</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.10a X,5.12</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">5.12 X</span></td>
     <td>Multipitch may include protection rating.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>5.9**</td>
-    <td><span itemprop="contentRating" class="grade gb2">5.9</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.10a,5.10b M1,5.9 M4</td>
+    <td class="example-result"></td>
+    <td>The multipitch may include aid grades.</td>
+  </tr>
+  <tr>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.9**</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb2">5.9</span></td>
     <td>The contribution will also be attributed with <img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16">. Learn more about <a href="/article/Stars">quality ratings</a>.</td>
   </tr>
   <tr>
-    <td>FR</td>
-    <td>5c</td>
-    <td><span itemprop="contentRating" class="grade gb2">5c</span></td>
+    <td class="example-context">FR</td>
+    <td class="example-style">Sport</td>
+    <td class="example-text">5c</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb2">5c</span></td>
     <td>The French grade.</td>
   </tr>
   <tr>
-    <td>UK</td>
-    <td>5c</td>
-    <td><span itemprop="contentRating" class="grade gb3">5c</span></td>
+    <td class="example-context">UK</td>
+    <td class="example-style">Sport</td>
+    <td class="example-text">5c</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">5c</span></td>
     <td>The British technical grade.</td>
   </tr>
   <tr>
-    <td>UK</td>
-    <td>E2 5c</td>
-    <td><span itemprop="contentRating" class="grade gb3">E2 5c</span></td>
+    <td class="example-context">FR</td>
+    <td class="example-style">Boulder</td>
+    <td class="example-text">5C</td>
+    <td class="example-result"></td>
+    <td>The Fontainebleau bouldering grade.</td>
+  </tr>
+  <tr>
+    <td class="example-context">FR</td>
+    <td class="example-style">Boulder</td>
+    <td class="example-text">5c</td>
+    <td class="example-result"></td>
+    <td>The Fontainebleau bouldering grade can also be written in lower case.</td>
+  </tr>
+  <tr>
+    <td class="example-context">UK</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">E2 5c</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">E2 5c</span></td>
     <td>The British adjectival and technical grade.</td>
   </tr>
   <tr>
-    <td>UK</td>
-    <td>D</td>
-    <td><span itemprop="contentRating" class="grade gb1">D</span></td>
+    <td class="example-context">UK</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">D</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb1">D</span></td>
     <td>The British adjectival.</td>
   </tr>
   <tr>
-    <td>UK</td>
-    <td>Difficult</td>
-    <td><span itemprop="contentRating" class="grade gb1">D</span></td>
+    <td class="example-context">UK</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">Difficult</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb1">D</span></td>
     <td>Yup, according to the British adjectival system, difficult is a beginner's route - go figure. I think climbing developed faster than they could keep up.</td>
   </tr>
   <tr>
-    <td>AU</td>
-    <td>19</td>
-    <td><span itemprop="contentRating" class="grade gb3">19</span></td>
+    <td class="example-context">AU</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">19</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">19</span></td>
     <td>Australian Ewbanks grade.</td>
   </tr>
   <tr>
-    <td>SA</td>
-    <td>19</td>
-    <td><span itemprop="contentRating" class="grade gb2">19</span></td>
+    <td class="example-context">SA</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">19</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb2">19</span></td>
     <td>South African grade (compare to level of difficulty for an Australian Ewbanks grade 19 above)</td>
   </tr>
   <tr>
-    <td>AU</td>
-    <td>21 (S)</td>
-    <td><span itemprop="contentRating" class="grade gb3">21</span></td>
+    <td class="example-context">AU</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">21 (S)</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">21</span></td>
     <td>Australian Ewbanks grade with a sport route indicator. This is in for historical reasons (common for Australian guidebooks to use this notation), but because of it's potential confusion with the protection rating S we don't want it to be used anymore. For sport routes just tick the sport route indicator. Note the sport indicator must have brackets.</td>
   </tr>
   <tr>
-    <td>AU</td>
-    <td>21 M2</td>
-    <td><span itemprop="contentRating" class="grade gb3">21 M2</span></td>
+    <td class="example-context">AU</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">21 M2</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">21 M2</span></td>
     <td>Australian Ewbanks grade with an Australian aid grade.</td>
   </tr>
   <tr>
-    <td>AU</td>
-    <td>M2</td>
-    <td><span itemprop="contentRating" class="grade gb0">M2</span></td>
+    <td class="example-context">AU</td>
+    <td class="example-style">Aid</td>
+    <td class="example-text">M2</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb0">M2</span></td>
     <td>Australian aid grade (we should probably colorize this).</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>Class 2</td>
-    <td><span itemprop="contentRating" class="grade gb1">Class 2</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">Class 2</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb1">Class 2</span></td>
     <td></td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>Class IV</td>
-    <td><span itemprop="contentRating" class="grade gb1">Class 4</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">Class IV</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb1">Class 4</span></td>
     <td></td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>F6</td>
-    <td><span itemprop="contentRating" class="grade gb2">F6</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">F6</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb2">F6</span></td>
     <td>NCCS Scale.</td>
   </tr>
   <tr>
-    <td>UIAA</td>
-    <td>11-</td>
-    <td><span itemprop="contentRating" class="grade gb5">11-</span></td>
+    <td class="example-context">UIAA</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">11-</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb5">11-</span></td>
     <td>UIAA grade.</td>
   </tr>
   <tr>
-    <td>SA</td>
-    <td>D3</td>
-    <td><span itemprop="contentRating" class="grade gb1">D3</span></td>
+    <td class="example-context">SA</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">D3</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb1">D3</span></td>
     <td>Old South African grade.</td>
   </tr>
   <tr>
-    <td>SX</td>
-    <td>VIIa</td>
-    <td><span itemprop="contentRating" class="grade gb1">VIIa</span></td>
+    <td class="example-context">SX</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">VIIa</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb1">VIIa</span></td>
     <td>Saxon grade.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>5.6A1+</td>
-    <td><span itemprop="contentRating" class="grade gb1">5.6 A1+</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5.6A1+</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb1">5.6 A1+</span></td>
     <td>Free plus Aid grade.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>5.6C1+</td>
-    <td><span itemprop="contentRating" class="grade gb1">5.6 C1+</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Aid</td>
+    <td class="example-text">5.6C1+</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb1">5.6 C1+</span></td>
     <td>Free plus hammerless Aid grade.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>A1+</td>
-    <td><span itemprop="contentRating" class="grade gb0">A1+</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Aid</td>
+    <td class="example-text">A1+</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb0">A1+</span></td>
     <td>Straight Aid grade.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>V4</td>
-    <td><span itemprop="contentRating" class="grade gb3">V4</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Boulder</td>
+    <td class="example-text">V4</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">V4</span></td>
     <td>Vermin V-Scale for bouldering.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>B5.6</td>
-    <td><span itemprop="contentRating" class="grade gb1">B5.6</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Boulder</td>
+    <td class="example-text">B5.6</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb1">B5.6</span></td>
     <td>The little more obscure Expanded Gill B-Scale for bouldering.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>B2-</td>
-    <td><span itemprop="contentRating" class="grade gb4">B2-</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Boulder</td>
+    <td class="example-text">B2-</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb4">B2-</span></td>
     <td>And another B-Scale.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>S4-</td>
-    <td><span itemprop="contentRating" class="grade gb4">S4-</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Boulder</td>
+    <td class="example-text">S4-</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb4">S4-</span></td>
     <td>Bouldering Smith Rocks S-Scale.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>P10</td>
-    <td><span itemprop="contentRating" class="grade gb4">P10</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Boulder</td>
+    <td class="example-text">P10</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb4">P10</span></td>
     <td>Bouldering Phoenix P-Scale.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>C+</td>
-    <td><span itemprop="contentRating" class="grade gb4">C+</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Boulder</td>
+    <td class="example-text">C+</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb4">C+</span></td>
     <td>Bouldering Joshua Tree Scale.</td>
   </tr>
   <tr>
-    <td>AU</td>
-    <td>V0+</td>
-    <td><span itemprop="contentRating" class="grade gb2">V0+</span></td>
+    <td class="example-context">AU</td>
+    <td class="example-style">Boulder</td>
+    <td class="example-text">V0+</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb2">V0+</span></td>
     <td>But really the bouldering V-Scale is accepted everywhere, so just use that.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>AI5-</td>
-    <td><span itemprop="contentRating" class="grade gb3">AI5-</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Ice</td>
+    <td class="example-text">AI5-</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">AI5-</span></td>
     <td>Alpine Ice.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>WI5-</td>
-    <td><span itemprop="contentRating" class="grade gb3">WI5-</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Ice</td>
+    <td class="example-text">WI5-</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">WI5-</span></td>
     <td>Water Ice.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>M3</td>
-    <td><span itemprop="contentRating" class="grade gb2">M3</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Ice</td>
+    <td class="example-text">M3</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb2">M3</span></td>
     <td>Mixed rock and ice.</td>
   </tr>
   <tr>
-    <td>FR</td>
-    <td>PD</td>
-    <td><span itemprop="contentRating" class="grade gb0">PD</span></td>
+    <td class="example-context">FR</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">PD</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb0">PD</span></td>
     <td>IFAS (International French Adjectival System) - nothing in the conversion table.</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>VI</td>
-    <td><span itemprop="contentRating" class="grade gb0">VI</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Alpine</td>
+    <td class="example-text">VI</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb0">VI</span></td>
     <td>National Climbing Classification System (NCCS) Alpine Grade (no conversions).</td>
   </tr>
   <tr>
-    <td>US</td>
-    <td>VI 5.11c A2+</td>
-    <td><span itemprop="contentRating" class="grade gb3">5.11c A2+ VI</span></td>
+    <td class="example-context">US</td>
+    <td class="example-style">Alpine</td>
+    <td class="example-text">VI 5.11c A2+</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb3">5.11c A2+ VI</span></td>
     <td>Alpine route with free and aid climbing.</td>
   </tr>
   <tr>
-    <td>AU</td>
-    <td>12 # i think</td>
-    <td><span itemprop="contentRating" class="grade gb1">12</span></td>
+    <td class="example-context">UIAA</td>
+    <td class="example-style">Via ferrata</td>
+    <td class="example-text">E</td>
+    <td class="example-result"></td>
+    <td>Via ferrata Schall.</td>
+  </tr>
+  <tr>
+    <td class="example-context">UIAA</td>
+    <td class="example-style">Via ferrata</td>
+    <td class="example-text">4</td>
+    <td class="example-result"></td>
+    <td>Via ferrata numeric.</td>
+  </tr>
+  <tr>
+    <td class="example-context">UIAA</td>
+    <td class="example-style">Via ferrata</td>
+    <td class="example-text">TD</td>
+    <td class="example-result"></td>
+    <td>Via ferrata french.</td>
+  </tr>
+  <tr>
+    <td class="example-context">UIAA</td>
+    <td class="example-style">Via ferrata</td>
+    <td class="example-text">Difficile</td>
+    <td class="example-result"></td>
+    <td>Via ferrata french using words.</td>
+  </tr>
+  <tr>
+    <td class="example-context">AU</td>
+    <td class="example-style">Sport</td>
+    <td class="example-text">12 # i think</td>
+    <td class="example-result"></td>
+%#    <td><span itemprop="contentRating" class="grade gb1">12</span></td>
     <td>You can add comments to your grade contribution by using "#".</td>
+  </tr>
+  <tr>
+    <td class="example-context">FR</td>
+    <td class="example-style">Sport</td>
+    <td class="example-text">UKT:5c+</td>
+    <td class="example-result"></td>
+    <td>You can force a grading system in a foreign context by appending the gradings system label (note that it must be the explicit grading system label, not a context label).</td>
+  </tr>
+  <tr>
+    <td class="example-context">HK</td>
+    <td class="example-style">Sport</td>
+    <td class="example-text">5c</td>
+    <td class="example-result"></td>
+    <td>Hong Kong uses French grading system for sport routes.</td>
+  </tr>
+  <tr>
+    <td class="example-context">HK</td>
+    <td class="example-style">Trad</td>
+    <td class="example-text">5c</td>
+    <td class="example-result"></td>
+    <td>Hong Kong uses UK technical system for trad routes.</td>
+  </tr>
+  <tr>
+    <td class="example-context">HK</td>
+    <td class="example-style">Boulder</td>
+    <td class="example-text">5c</td>
+    <td class="example-result"></td>
+    <td>Hong Kong uses UK technical system for boulder routes.</td>
+  </tr>
+  <tr>
+    <td class="example-context">UIAA</td>
+    <td class="example-style">Boulder</td>
+    <td class="example-text">5</td>
+    <td class="example-result"></td>
+    <td>UIAA uses UIAA system for bouldering sometimes.</td>
+  </tr>
+  <tr>
+    <td class="example-context">UIAA</td>
+    <td class="example-style">Boulder</td>
+    <td class="example-text">5c</td>
+    <td class="example-result"></td>
+    <td>UIAA uses Fontainebleau system for bouldering sometimes.</td>
   </tr>
 </table>
 
 <p>If you see a way of writing a grade in a guidebook then test it out and if it does not work then please contact us so we can enhance the system.</p>
 
+<h3>Test it yourself</h3>
+
+<div class="route-grade-grouper">
+
+<p>Context: 
+  <select size="1" class="route-grade-dependency route-grade-input-context">
+% foreach my $context (sort { $a->{label} cmp $b->{label} }  @{ $data->{contexts} } ){
+  <option selected value="<% $context->{label} %>"><% $context->{label} %>: <% $context->{name} %>
+% }
+  </select>
+
+<p>Style: 
+  <select size="1" class="route-grade-dependency route-grade-input-gear-style">
+% foreach my $style (sort { $a->{label} cmp $b->{label} }  @{ $data->{gearStyles} } ){
+  <option <% $style->{name} eq 'Trad' ? 'selected' : '' %> value="<% $style->{name} %>"><% $style->{name} %>
+% }
+  </select>
+
+<p>Your test input: 
+  <input type=text class="route-grade-dependency route-grade-input-text-grade" />
+
+<p>System output: 
+  <span class="route-grade-output"></span>
+
+</div>
 
 
-<h2><a name="s6" href="#s6">6. Country context's</a></h2>
+
+<h2><a name="s6" href="#s6"></a>6. Country context's</h2>
 
 <p>The following table shows the current system settings for country context. Please raise an issue in our <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a> if you think we need to make some adjustments.</p>
 
