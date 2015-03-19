@@ -315,7 +315,7 @@ sub isVis {
 %   }
 % }
 % foreach my $style ( keys %{ $context->{parseStyles} } ){
-<p><b><% $style %> grade systems:</b>
+<p><b>Additional <% lc $style %> systems:</b>
 %   $shown = 0;
 %   foreach my $sys ( @{ $context->{parseStyles}->{$style} } ){
 %     my $system = $sysHash{$sys};
