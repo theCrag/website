@@ -851,7 +851,7 @@ $(function(){
 
 <p>If you see a way of writing a grade in a guidebook then test it out and if it does not work then please contact us so we can enhance the system.</p>
 
-<h3>Test it yourself</h3>
+<h3>5.3 Try it yourself</h3>
 
 <div class="route-grade-grouper">
 
@@ -877,6 +877,12 @@ $(function(){
 
 </div>
 
+
+<h3>5.3 Grades in a Gym</h3>
+
+<p>Gyms being managed by the gym owner may opt for their own color codes. See the <a href="/article/GymPartner">Gym Partner</a> article for more information about setting up gyms on theCrag.</p>
+
+<p>For gyms configured this way then theCrag color scheme does not apply to routes in the crag, but rather the color specified against that route.</p>
 
 
 <h2><a name="s6" href="#s6"></a>6. Country context's</h2>
