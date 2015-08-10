@@ -13,13 +13,17 @@ If you want to read about embeding external photos and videos into theCrag descr
 
 This article is a technical how to article for people who have either got expertise in WordPress or in setting up client side oEmbed.
 
-Currently embeding theCrag stuff is limited to theCrag photos, competitions and ascent facets.
+Currently embeding theCrag stuff is limited to theCrag photos, competitions, ascent facets and streams.
 
 `http://www.thecrag.com/photo/*`
 
 `http://www.thecrag.com/competition/*`  [under development]
 
 `http://www.thecrag.com/*/ascents/*`  [under development]
+
+`http://www.thecrag.com/*/stream`  [under development]
+
+`http://www.thecrag.com/climber/*/stream/mine`  [under development]
 
 A demonstration of each of these in action on a WordPress site can be seen here:
 
@@ -89,6 +93,8 @@ EOF
   <li>https?:\/\/(www\.)?thecrag\.com\/photo\/\d+
   <li>https?:\/\/(www\.)?thecrag\.com\/competition\/.+
   <li>https?:\/\/(www\.)?thecrag\.com\/(.*\/)?ascents(\/.*)?
+  <li>https?:\/\/(www\.)?thecrag\.com\/climbing\/(.+)\/stream
+  <li>https?:\/\/(www\.)?thecrag\.com\/climber\/([^\/\?]+)\/stream\/mine
 </ul>
 
 <%perl>
