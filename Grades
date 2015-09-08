@@ -349,7 +349,6 @@ $(function(){
     var context = collector.find(".example-context").html();
     var style = collector.find(".example-style").html();
     var text = collector.find(".example-text").html();
-%#    alert("DEBUG:"+context+":"+style+":"+text+":");
     var obj={data:{text:text,context:context,style:style}};
     var json=JSON.stringify(obj);
     postAPIWithPromise('/api/grade',json)
@@ -362,7 +361,28 @@ $(function(){
 });
 </script>
 
-<h3>5.2 Examples</h3>
+<h3>5.2 Force grading system</h3>
+
+<p>You can force a grading system when you input a grade by starting with the grading system label followed by a colon then the grade. For example "FR:6a+". The table below shows grading system labels that you can use.</p>
+
+<table class="data">
+  <tr>
+    <th>Label</th>
+    <th>Grading System</th>
+  </tr>
+% foreach my $label ( keys %sysHash ){
+%   my $system = $sysHash{$label};
+%   next if $system->{label} =~ /ALT/;
+%   next unless $system->{displayable};
+  <tr>
+    <td><% $label %></td>
+    <td><% $system->{name} %></td>
+  </tr>
+% }
+</table>
+
+
+<h3>5.3 Examples</h3>
 
 <p>The best way to explain how the system converts the plain text you enter into grades is to look at some examples.</p>
 
@@ -372,7 +392,6 @@ $(function(){
     <th>Style</th>
     <th>Text entered</th>
     <th>Grade</th>
-%#    <th>????</th>
     <th>Comment</th>
   </tr>
   <tr>
@@ -380,7 +399,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">5.12a</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">5.12a</span></td>
     <td></td>
   </tr>
   <tr>
@@ -388,7 +406,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">5.12</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">5.12</span></td>
     <td>The system has a grade system where grades are expressed as 5.12-, 5.12 and 5.12+.</td>
   </tr>
   <tr>
@@ -410,7 +427,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">12a</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">5.12a</span></td>
     <td>The system is able to work out common partial grades.</td>
   </tr>
   <tr>
@@ -418,7 +434,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">12</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">5.12</span></td>
     <td>partial grades can be very dependent on the context (in US context this is 5.12, in AU context this is 12).</td>
   </tr>
   <tr>
@@ -426,7 +441,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">12</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb1">12</span></td>
     <td>Compare to above example</td>
   </tr>
   <tr>
@@ -434,7 +448,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">5.12a-5.12c</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">5.12a to 5.12c</span></td>
     <td>This is interpreted as a grade range.<b/td>
   </tr>
   <tr>
@@ -442,7 +455,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">5.12a-b</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">5.12a to 5.12b</span></td>
     <td>Common abbreviated grade ranges</td>
   </tr>
   <tr>
@@ -450,7 +462,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">5.12a/b</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb4">5.12b</span></td>
     <td>The forward slash '/' is interpreted as an or, in which case the system assigns the highest single grade.</td>
   </tr>
   <tr>
@@ -465,7 +476,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">5.10,5.12d,5.9</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb4">5.12d</span></td>
     <td>Commas used to indicate multi-pitch, in which case the system will assign the highest grade.</td>
   </tr>
   <tr>
@@ -473,7 +483,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">5.9 S</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb2">5.9 S</span></td>
     <td>Protection rating is displayed as part of the grade.</td>
   </tr>
   <tr>
@@ -481,7 +490,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">5.10a X,5.12</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">5.12 X</span></td>
     <td>Multipitch may include protection rating.</td>
   </tr>
   <tr>
@@ -496,7 +504,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">5.9**</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb2">5.9</span></td>
     <td>The contribution will also be attributed with <img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16">. Learn more about <a href="/article/Stars">quality ratings</a>.</td>
   </tr>
   <tr>
@@ -504,7 +511,6 @@ $(function(){
     <td class="example-style">Sport</td>
     <td class="example-text">5c</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb2">5c</span></td>
     <td>The French grade.</td>
   </tr>
   <tr>
@@ -512,7 +518,6 @@ $(function(){
     <td class="example-style">Sport</td>
     <td class="example-text">5c</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">5c</span></td>
     <td>The British technical grade.</td>
   </tr>
   <tr>
@@ -534,7 +539,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">E2 5c</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">E2 5c</span></td>
     <td>The British adjectival and technical grade.</td>
   </tr>
   <tr>
@@ -542,7 +546,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">D</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb1">D</span></td>
     <td>The British adjectival.</td>
   </tr>
   <tr>
@@ -550,7 +553,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">Difficult</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb1">D</span></td>
     <td>Yup, according to the British adjectival system, difficult is a beginner's route - go figure. I think climbing developed faster than they could keep up.</td>
   </tr>
   <tr>
@@ -558,7 +560,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">19</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">19</span></td>
     <td>Australian Ewbanks grade.</td>
   </tr>
   <tr>
@@ -566,7 +567,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">19</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb2">19</span></td>
     <td>South African grade (compare to level of difficulty for an Australian Ewbanks grade 19 above)</td>
   </tr>
   <tr>
@@ -574,7 +574,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">21 (S)</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">21</span></td>
     <td>Australian Ewbanks grade with a sport route indicator. This is in for historical reasons (common for Australian guidebooks to use this notation), but because of it's potential confusion with the protection rating S we don't want it to be used anymore. For sport routes just tick the sport route indicator. Note the sport indicator must have brackets.</td>
   </tr>
   <tr>
@@ -582,7 +581,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">21 M2</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">21 M2</span></td>
     <td>Australian Ewbanks grade with an Australian aid grade.</td>
   </tr>
   <tr>
@@ -590,7 +588,6 @@ $(function(){
     <td class="example-style">Aid</td>
     <td class="example-text">M2</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb0">M2</span></td>
     <td>Australian aid grade (we should probably colorize this).</td>
   </tr>
   <tr>
@@ -598,7 +595,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">Class 2</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb1">Class 2</span></td>
     <td></td>
   </tr>
   <tr>
@@ -606,7 +602,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">Class IV</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb1">Class 4</span></td>
     <td></td>
   </tr>
   <tr>
@@ -614,7 +609,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">F6</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb2">F6</span></td>
     <td>NCCS Scale.</td>
   </tr>
   <tr>
@@ -622,7 +616,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">11-</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb5">11-</span></td>
     <td>UIAA grade.</td>
   </tr>
   <tr>
@@ -630,7 +623,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">D3</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb1">D3</span></td>
     <td>Old South African grade.</td>
   </tr>
   <tr>
@@ -638,7 +630,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">VIIa</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb1">VIIa</span></td>
     <td>Saxon grade.</td>
   </tr>
   <tr>
@@ -646,7 +637,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">5.6A1+</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb1">5.6 A1+</span></td>
     <td>Free plus Aid grade.</td>
   </tr>
   <tr>
@@ -654,7 +644,6 @@ $(function(){
     <td class="example-style">Aid</td>
     <td class="example-text">5.6C1+</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb1">5.6 C1+</span></td>
     <td>Free plus hammerless Aid grade.</td>
   </tr>
   <tr>
@@ -662,7 +651,6 @@ $(function(){
     <td class="example-style">Aid</td>
     <td class="example-text">A1+</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb0">A1+</span></td>
     <td>Straight Aid grade.</td>
   </tr>
   <tr>
@@ -670,7 +658,6 @@ $(function(){
     <td class="example-style">Boulder</td>
     <td class="example-text">V4</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">V4</span></td>
     <td>Vermin V-Scale for bouldering.</td>
   </tr>
   <tr>
@@ -678,7 +665,6 @@ $(function(){
     <td class="example-style">Boulder</td>
     <td class="example-text">B5.6</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb1">B5.6</span></td>
     <td>The little more obscure Expanded Gill B-Scale for bouldering.</td>
   </tr>
   <tr>
@@ -686,7 +672,6 @@ $(function(){
     <td class="example-style">Boulder</td>
     <td class="example-text">B2-</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb4">B2-</span></td>
     <td>And another B-Scale.</td>
   </tr>
   <tr>
@@ -694,7 +679,6 @@ $(function(){
     <td class="example-style">Boulder</td>
     <td class="example-text">S4-</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb4">S4-</span></td>
     <td>Bouldering Smith Rocks S-Scale.</td>
   </tr>
   <tr>
@@ -702,7 +686,6 @@ $(function(){
     <td class="example-style">Boulder</td>
     <td class="example-text">P10</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb4">P10</span></td>
     <td>Bouldering Phoenix P-Scale.</td>
   </tr>
   <tr>
@@ -710,7 +693,6 @@ $(function(){
     <td class="example-style">Boulder</td>
     <td class="example-text">C+</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb4">C+</span></td>
     <td>Bouldering Joshua Tree Scale.</td>
   </tr>
   <tr>
@@ -718,7 +700,6 @@ $(function(){
     <td class="example-style">Boulder</td>
     <td class="example-text">V0+</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb2">V0+</span></td>
     <td>But really the bouldering V-Scale is accepted everywhere, so just use that.</td>
   </tr>
   <tr>
@@ -726,7 +707,6 @@ $(function(){
     <td class="example-style">Ice</td>
     <td class="example-text">AI5-</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">AI5-</span></td>
     <td>Alpine Ice.</td>
   </tr>
   <tr>
@@ -734,7 +714,6 @@ $(function(){
     <td class="example-style">Ice</td>
     <td class="example-text">WI5-</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">WI5-</span></td>
     <td>Water Ice.</td>
   </tr>
   <tr>
@@ -742,7 +721,6 @@ $(function(){
     <td class="example-style">Ice</td>
     <td class="example-text">M3</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb2">M3</span></td>
     <td>Mixed rock and ice.</td>
   </tr>
   <tr>
@@ -750,7 +728,6 @@ $(function(){
     <td class="example-style">Trad</td>
     <td class="example-text">PD</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb0">PD</span></td>
     <td>IFAS (International French Adjectival System) - nothing in the conversion table.</td>
   </tr>
   <tr>
@@ -758,7 +735,6 @@ $(function(){
     <td class="example-style">Alpine</td>
     <td class="example-text">VI</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb0">VI</span></td>
     <td>National Climbing Classification System (NCCS) Alpine Grade (no conversions).</td>
   </tr>
   <tr>
@@ -766,7 +742,6 @@ $(function(){
     <td class="example-style">Alpine</td>
     <td class="example-text">VI 5.11c A2+</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb3">5.11c A2+ VI</span></td>
     <td>Alpine route with free and aid climbing.</td>
   </tr>
   <tr>
@@ -802,7 +777,6 @@ $(function(){
     <td class="example-style">Sport</td>
     <td class="example-text">12 # i think</td>
     <td class="example-result"></td>
-%#    <td><span itemprop="contentRating" class="grade gb1">12</span></td>
     <td>You can add comments to your grade contribution by using "#".</td>
   </tr>
   <tr>
@@ -847,11 +821,18 @@ $(function(){
     <td class="example-result"></td>
     <td>UIAA uses Fontainebleau system for bouldering sometimes.</td>
   </tr>
+  <tr>
+    <td class="example-context">UK</td>
+    <td class="example-style">Sport</td>
+    <td class="example-text">FR:4c</td>
+    <td class="example-result"></td>
+    <td>4c would normally covert to the British Technical grade in UK context, however the override sets the system to French.</td>
+  </tr>
 </table>
 
 <p>If you see a way of writing a grade in a guidebook then test it out and if it does not work then please contact us so we can enhance the system.</p>
 
-<h3>5.3 Try it yourself</h3>
+<h3>5.4 Try it yourself</h3>
 
 <div class="route-grade-grouper">
 
@@ -878,7 +859,7 @@ $(function(){
 </div>
 
 
-<h3>5.3 Grades in a Gym</h3>
+<h3>5.5 Grades in a Gym</h3>
 
 <p>Gyms being managed by the gym owner may opt for their own color codes. See the <a href="/article/GymPartner">Gym Partner</a> article for more information about setting up gyms on theCrag.</p>
 
