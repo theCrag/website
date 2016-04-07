@@ -2559,7 +2559,16 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 <p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution</a></li>
 
+<h3>Geo location of all areas</h3>
+
+<p>The geolocation of all areas is available in the queries above. However there will be a lot of extra information which is not needed. The following filter will get the geo location of all areas in the world:
+
+<p><a href="http://dev.thecrag.com/api/index/detail/world?key=abc&withdata=">http://dev.thecrag.com/api/index/detail/world?withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point&to=arealeaf</a>
+
+<p>And this one will get all the geo locations of areas in a Arapiles:
+
+<p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point&to=arealeaf</a>
+
 <h3>TODO</h3>
 
-<p>Restrict the results to the areas
 <p>Get the nodes that have chanced since a particular date. 
