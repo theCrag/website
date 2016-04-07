@@ -2533,20 +2533,33 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 <h2>8.1 Bulk index queries</h2>
 
-<p>Generally speaking an app needs the worldwide structure down to crag level, in a single call. (TO BE DEVELOPED)
+<p>Generally speaking an app needs the worldwide structure down to crag level, in a single call. Then from crag to routes in subsequent calls.
 
-<p>There is a call to get the whole index structure, but it is flawed because it is too large a query, and the index will grow too large to be able to support this.
+<h3>Index structure only</h3>
 
-%# <p>For testing purposes only this call is:
+<p>If you just want index level information then use the following workflow.
 
-%# <p><a href="http://dev.thecrag.com/api/index/summary/full?key=abc">http://dev.thecrag.com/api/index/summary/full</a></li>
+<p>1. Get the top level structure (index level information to top level crag):
 
-%# (Please note this may take several minutes and is many dozens of megabytes).
+<p><a href="http://dev.thecrag.com/api/index/summary/world?key=abc">http://dev.thecrag.com/api/index/summary/world</a>
 
-<p>Once an app has the structure down to crag level, the actual crag detail can be retrieved in bulk using the following query:
+<p>2. For each crag, get the index level information. For example Arapiles:
+
+<p><a href="http://dev.thecrag.com/api/index/summary/11740915?key=abc">http://dev.thecrag.com/api/index/summary/11740915</a>
+
+<h3>Index detail</h3>
+
+<p>1. Get index detail down to top level crag
+
+<p><a href="http://dev.thecrag.com/api/index/detail/world?key=abc&withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,Tag">http://dev.thecrag.com/api/index/detail/world?withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,Tag</a>
+
+<p>Note that you should just query for the information you want to reduce bandwidth and processing time.
+
+<p>2. For each crag, get the index detail. For example Arapiles:
 
 <p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution</a></li>
 
-<p>Further development may be required, but the intention is that you can get every piece of information (excluding images) from a crag with a single call.<p>
+<h3>TODO</h3>
 
-<p>Further development is required to get just the nodes that have chanced since a particular date. This will further reduce the amount of data down the wire.
+<p>Restrict the results to the areas
+<p>Get the nodes that have chanced since a particular date. 
