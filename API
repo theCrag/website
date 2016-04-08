@@ -346,6 +346,9 @@ table {
   <li><a href="http://dev.thecrag.com/api/config/grade/context?key=abc">http://dev.thecrag.com/api/config/grade/context</a></li>
   <li><a href="http://dev.thecrag.com/api/config/grade/type?key=abc">http://dev.thecrag.com/api/config/grade/type</a></li>
   <li><a href="http://dev.thecrag.com/api/config/grade/system?key=abc">http://dev.thecrag.com/api/config/grade/system</a></li>
+  <li><a href="http://dev.thecrag.com/api/config/ascent/ticktypes?key=abc">http://dev.thecrag.com/api/config/ascent/ticktypes</a></li>
+  <li><a href="http://dev.thecrag.com/api/config/ascent/relativedifficulty?key=abc">http://dev.thecrag.com/api/config/ascent/relativedifficulty</a></li>
+  <li><a href="http://dev.thecrag.com/api/config/ascent/quality?key=abc">http://dev.thecrag.com/api/config/ascent/quality</a></li>
 </ul>
 
 <p>Grade context configuration is essentially used to resolve conflicts when parsing grades into potentially conflicting grades from grading systems around the world.</p>
