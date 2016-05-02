@@ -2670,7 +2670,6 @@ The bbox returns the node(s) that fully contain the bounded box.
   <li>objects to be drawn on topo
   <li>width of the original topo upload
   <li>height of the original topo upload
-removeTrailingNulls([asNumber($topoID),\@objects,asNumber($rec->{W}),asNumber($rec->{H}),$rec->{Hs},asNumber($rec->{R}),asNumber($rec->{S}),asNumber($rec->{P}),asNumber($rec->{A})])
   <li>hash ID, used to generate the static image lookup
   <li>rotation, used as part of image url generation
   <li>submittor user id
