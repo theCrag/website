@@ -2538,9 +2538,14 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 <p>Some of these are partially covered in other parts of this document, but some have not been developed. This section requires significant development, prototyping and testing.
 
+
+
+
 <h2>8.1 Bulk index queries</h2>
 
 <p>Generally speaking an app needs the worldwide structure down to crag level, in a single call. Then from crag to routes in subsequent calls.
+
+
 
 <h3>Index structure only</h3>
 
@@ -2554,6 +2559,8 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 <p><a href="http://dev.thecrag.com/api/index/summary/11740915?key=abc">http://dev.thecrag.com/api/index/summary/11740915</a>
 
+
+
 <h3>Index detail</h3>
 
 <p>1. Get index detail down to top level crag
@@ -2566,6 +2573,125 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 <p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution</a></li>
 
+
+
+<h3>Abbreviations</h3>
+
+<p>In order to save bandwidth some fields have been abbreviated.
+
+<p><strong>Node type</strong>
+<ul>
+ <li>l: Link (not currently in use)
+ <li>m: Merged (the node has been merged with another node)
+ <li>w: Root (root node, without a parent - typically this is the worldID, but could be extensible in the future)
+ <li>n: Annotation (text between routes, the node name can be ignored or used as a sub heading)
+ <li>a: Area (see area type for further discrimination)
+ <li>r: Climb (route node, these are always leaf nodes)
+ <li>p: Article (page arcticle - this is proposed, but yet to be implemented node type)
+</ul>
+
+<p><strong>Area type</strong>
+<ul>
+ <li>U: Unknown
+ <li>Fi: Field
+ <li>Fe: Feature
+ <li>G: Gym
+ <li>B: Boulder
+ <li>S: Sector
+ <li>Cl: Cliff
+ <li>Cr: Crag
+ <li>R: Region
+ <li>A: Area
+</ul>
+
+<p><strong>Gear style</strong>
+<ul>
+ <li>U: Unknown
+ <li>Tr: Trad
+ <li>To: Top rope
+ <li>Tr: Traverse
+ <li>S: Sport
+ <li>D: DWS
+ <li>Ai: Aid
+ <li>Al: Alpine
+ <li>V: Via ferrata
+ <li>B: Boulder
+ <li>I: Ice
+</ul>
+
+<p><strong>Route history type</strong>
+<ul>
+ <li>fa: First Ascent
+ <li>ffa: First Free Ascent
+ <li>rs: Route Setter
+</ul>
+
+<p><strong>Node name designation</strong>
+<ul>
+ <li>S: Short
+ <li>P: Principle
+ <li>O: Offensive
+ <li>L: Language
+ <li>H: Historical
+ <li>A: Alternative
+</ul>
+
+<p><strong>Description fields</strong>
+<ul>
+ <li>Ac: Access
+ <li>Ap: Approach
+ <li>U: Unique Features And Strengths
+ <li>W: Where To Stay
+ <li>De: Descent Notes
+ <li>E: Ethic
+ <li>H: History
+ <li>D: Description
+</ul>
+
+<h3>Field notes</h3>
+
+<p><strong>Grade</strong>: Returns the grade according to the systems 500 point grades scale. This is an absolute scale that grading systems map to in order to translate the actual difficulty from one grading system to another. All grading systems in theCrag are treated as a range. For translations to specific grading systems see:
+
+<p><a href="https://www.thecrag.com/api/config/grade/system">https://www.thecrag.com/api/config/grade/system</a>
+
+<p>If you want to use the actual grade & grading system assinged to the route then use Grade Contributions.
+
+<p><strong>Stars</strong>: Returns two fields, 0-3 star rating and a 0-100 quality rating for further discimination.
+
+<p><strong>Popularity</strong>: For routes returns one field (0-100 busyness score) and for areas two fields (average busyness score for all routes and max busyness score for any route).
+
+<p><strong>TLC</strong>: Top Level Crag. Pragmatically the index is divided into two levels - firstly everything from world down to top level crag and secondly everything from top level crag to routes. The index is far to big to deal with as a single entity. All queries must take this into account or the system/app is going to have problems. Please note that top level crags change all the time and is technically defined as the first area which is not a region, area or unknown area type. 
+
+<p><strong>Descriptions</strong>: x fields
+
+<p><strong>Descriptions</strong>: 9 fields
+<ul>
+  <li>topo ID
+  <li>objects to be drawn on topo
+  <li>width of the original topo upload
+  <li>height of the original topo upload
+removeTrailingNulls([asNumber($topoID),\@objects,asNumber($rec->{W}),asNumber($rec->{H}),$rec->{Hs},asNumber($rec->{R}),asNumber($rec->{S}),asNumber($rec->{P}),asNumber($rec->{A})])
+  <li>hash ID, used to generate the static image lookup
+  <li>rotation, used as part of image url generation
+  <li>submittor user id
+  <li>publisher id - must refer to copyright before using if set
+  <li>attribution id - TODO
+</ul>
+
+<p>Generating an image url is done as follows: TODO
+
+<p><strong>Grade Contributions</strong>: 6 fields
+<ul>
+  <li>primary flag (0/1), indicates whether the grade is a primary (ie official system registered grade) or a user contribution.
+  <li>publication source, the id of the guidebook / website where the publication came from. Note that you should not use any contributions with this set without getting the copyright terms from the publication source.
+  <li>citation, the page number or url where you find the grade cited
+  <li>user, the account id of the user who made the contribution.
+  <li>grade system
+  <li>grade
+</ul>
+
+<p>Mostly you could just skip the non-primary fields. Also note that star contributions are seen by the system as another rating system so user star contributions are also included here.
+
 <h3>Geo location of all areas</h3>
 
 <p>The geolocation of all areas is available in the queries above. However there will be a lot of extra information which is not needed. The following filter will get the geo location of all areas in the world:
@@ -2575,6 +2701,7 @@ The bbox returns the node(s) that fully contain the bounded box.
 <p>And this one will get all the geo locations of areas in a Arapiles:
 
 <p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point&to=arealeaf</a>
+
 
 <h3>TODO</h3>
 
