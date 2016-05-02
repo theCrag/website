@@ -15,7 +15,7 @@ my $account = $ARGS{account};
 </ul>
 
 
-<div class="alert alert-error"><b>In beta test phase!</b> Please note that the importing logbook service is in beta test phase, but is relatively stable. We have had at least two climbers import three logbooks from different sources totalling over 3000 ascents. See the section on <a href="#beta">beta test testamonials</a> below for initial impressions. If you are interested then please contact us so we can work with you to get your import completed.</div>
+<div class="alert alert-error"><b>In beta test phase!</b> Please note that the importing logbook service is in beta test phase, but is relatively stable. See the section on <a href="#beta">beta test testamonials</a> below for initial impressions. If you are interested then please contact us so we can work with you to get your import completed.</div>
 
 <p>thecrag.com has been around since 1999, so we are committed to provide an enduring service. From the beginning we have had a unique approach to our logbook service in that your logbook must be linked to registered routes in our community database. This means you cannot put any old rubbish in your logbook.</p>
 
@@ -23,7 +23,7 @@ my $account = $ARGS{account};
 
 <p>thecrag.com also has an <a href="/article/api">API</a>, meaning logbook data can be accessed programatically for third party applications. If you are a climbing business and you want to provide value add logbook services then please contact us.</p>
 
-<p>We have got the worlds biggest community routes database with over 250k routes registered. However we are the first to admit we have not yet completed the journey of registering a comprehensive list of routes from around the world. This means you should be able to easily import a large portion of your logbook, but you may have to create routes for the ones that don't exist in our database. Don't worry even if the routes are not in our database then the imported ascent is kept in a separate record so that it can me matched later.</p>
+<p>We have got the worlds biggest community routes database with over 350k routes registered. However we are the first to admit we have not yet completed the journey of registering a comprehensive list of routes from around the world. This means you should be able to easily import a large portion of your logbook, but you may have to create routes for the ones that don't exist in our database. Don't worry even if the routes are not in our database then the imported ascent is kept in a separate record so that it can me matched later.</p>
 
 <p>To be honest, importing is quiet complex. Firstly you have to work out how to get your logbook from your current provider - not every provider has such open policies. You then have to know how to create a CSV file format saved using UTF8 encoding. This needs to be uploaded to your account and you need to confirm the matches to routes in the system.</p>
 
@@ -33,46 +33,120 @@ my $account = $ARGS{account};
 
 <h1>How to import your logbook</h1>
 
-<p>We would encourage you to trial the import process on our develompent system first - <a href="http://dev.thecrag.com/">dev.thecrag.com</a> - to make sure the process works as you expect. It is difficult to 'undo' an import.</p>
+<p>Note that you can have a break from this process at any point and come back to it later - even months later if you wanted to. The system rembers where you were up to.</p>
 
-<p>Note that you can have a break from this process at any point and come back to it later - even months later if you wanted to.</p>
+<h2>Step 1: Prepare Import File</h2>
 
 <p>If you cannot get your logbook from your current provider then review the section below on <a href="#providers">hints to exporting from other providers</a>.</p>
 
-<ol>
 
-  <li>Prepare your logbook on your computer in an CSV file format using UTF8 character encoding. At a bare minimum you need crag and route columns, but also country is highly recommended. We can help with this if you want.</li>
-
-  <li>Log into thecrag.com and from the dashboard click the "Action -> Import Logbook" link.<% defined $account ? " Or <a href=\"/processmap/importlogbook/$account->{id}\">click here</a> to start the import procedure." : '' %></li>
-
-  <li>Click the 'Upload CSV File' button.</li>
-
-  <li>Select your file and click 'Next'. If successful you will be taken to a screen displaying the first 10 lines of your logbook.</li>
-
-  <li>You have to configure the import to tell the system how to interpret the CSV file. Assign data fields to various columns, indicate whether there is a header row or not, tell the system which grading system context you want to use for interpretting grades you import and set up the date format. If this is too much we can log into your account and do this for you. When done select 'Confirm Configuration' radio button and click 'Next'.</li>
-
-  <li>You will be taken back to the import control panel. Here you need to decide whether you want to do one line at a time (very slow, not recommended) or do some bulk assessment (highly recommended). In fact the one-line-at-a-time mode should only be really used after you have done as much as you can with the bulk assessment.</li>
-
-  <li>To start the bulk assessment click the 'Start Bulk Assessment' button. The sytem has to do a lot of number crunching so this will take some time (maybe an hour or more depending on the size of the input file). You should just go away and do something else. When the system has finished it's number crunching it will email you - click the link provided in the email or the 'Report Bulk Assessment' button from the control page.</li>
-
-  <li>You should get a page with a filter near the top with import route assessments below that. The idea is that you need to confirm what the system thinks is the best match for each of your ascents you are importing. The system does a reasonable job at pre-selecting the most likely match so this is actually quite quick. Before you go on you might want to read the section on <a href="#filter">understanding assessment filters</a> before you go on.</li>
-
-  <li>Decide whether you want to save your ascent grades from the assigned route or you want them to be the same as the import file - set the 'Local grade' checkbox accordingly then scroll down the bottom and click the 'Refresh with filter' button to update the screen layout.</li>
-
-  <li>Make a filter selection, click 'Refresh with filter', review system assignments, and once you are happy click the 'Confirm update' checkbox and then the 'Save and continue' button. This will iterate you through the remaining routes of the filter selection.</li>
-
-  <li>Note that if you 'Skip assignment' for a particular ascent line then no changes are made to the database for that record and subsequent filter settings will find it again.</li>
-
-  <li>Repeat with different filter selections if necessarily working down to the harder cases.</li>
-
-  <li>Once you have confirmed everything you can you should be left with ascents that could not be matched to a route. See the section below on <a href="#unmatched">what to do about unmatched routes</a>. Basically you wait until the index has been updated rerun the "Start Bulk Assessment" process and see what new routes have been matched.</li>
-
-  <li>Your done for now.</li>
-
-</ol>
+<p>Prepare your logbook on your computer in an CSV file format using UTF8 character encoding. At a bare minimum you need crag and route columns, but also country is highly recommended. We can help with this if you want.</p>
 
 
-<p>Please note there are some additional tricks to import individual lines using the one-at-a-time form.</p>
+<h2>Step 2: Upload File to theCrag</h2>
+
+<p>Log into thecrag.com and from the dashboard click the "Action -> Import Logbook" link.<% defined $account ? " Or <a href=\"/processmap/importlogbook/$account->{id}\">click here</a> to start the import procedure." : '' %></p>
+
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-import-menu-a.png" />
+    </div>
+  </div>
+</div>
+
+
+<p>This will take you to the import manager page. Click the 'Upload CSV File' button.</p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-import-upload-start-a.png" />
+    </div>
+  </div>
+</div>
+
+
+<p>Select your file and click 'Next'.</p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-import-upload-file-a.png" />
+    </div>
+  </div>
+</div>
+
+
+<p>If successful you will be taken to a screen displaying the first 10 lines of your logbook.</p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-import-upload-config1-a.png" />
+    </div>
+  </div>
+</div>
+
+<p>... and the page continues ... </p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-import-upload-config2-a.png" />
+    </div>
+  </div>
+</div>
+
+<p>Here you need to tell the system how to interpret the CSV file. Based on the header row and the first content row the system will guess the format and there is a good chance you will not have to change the configuration at all. Assign data fields to various columns, indicate whether there is a header row or not, tell the system which grading system context you want to use for interpretting grades you import and set up the date format. When done select 'Confirm Configuration' radio button and click 'Next'.</p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-import-filelist-a.png" />
+    </div>
+  </div>
+</div>
+
+<p>You will be taken back to the import control panel. <p>
+
+<div class="alert alert-error"><b>Note on cancelling:</b> You can 'cancel' an file upload and import at any time and start again (eg bad file format), which will remove all the unassigned import lines from being processed.</div>
+
+<p>Here you need to decide whether you want to do one line at a time (time consuming) or do some bulk assessment (highly recommended). In fact the one-line-at-a-time mode should only be really used after you have done as much as you can with the bulk assessment. Note that you can do some one at a time, then do bulk or vice versa.</p>
+
+<p>The one line at a time process is actually worth looking at the first line because it gives you a summary of the tick mappings, used to interpret the file. You should review this to make sure you are happy with how the tick types are being mapped.</p>
+
+<h2>Step 2a: One Line At A Time Entry</h2>
+
+<div class="alert alert-error"><b>Note:</b> You can come back to this process anytime you want. It is highly likely that you will not be able to finish the process in one sitting because of missing routes in the database.</div>
+
+<p>From the import control panel, click the 'Next Pending Line' button. You should get the following screen.</p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-import-next-assess-a.png" />
+    </div>
+  </div>
+</div>
+
+<p>... and the page continues to show the tick map for the whole file ... </p>
+
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-import-next-assess-tick-map-a.png" />
+    </div>
+  </div>
+</div>
+
+<p>By default you the system is configured to use the grade of the route, but a checkbox can be updated to change that. If there are multiple matching routes then you have to select one. You also have to tell the system if you want assign to node, skip (just go to the next line) or put the decision into a defered bucket.</p>
+
+<p>If the system grade for the route is close to the grade in the import file line then a tick is shown next to the route name, otherwise a cross. This should help aid your decision or to import.</p>
+
+<p>Please note there are some additional hints to import individual lines using the one-at-a-time form.</p>
 <ul>
   <li>To access the one-at-a-time form click the 'Next Pending Line' from the import dashboard.</li>
   <li>If you cannot find a match in the list of system candidates then you can do a manual search by clicking on 'none' radio button and a manual search box should appear. If you select a result from this search it will be added to the list of candidates.</li>
@@ -80,6 +154,104 @@ my $account = $ARGS{account};
   <li>You may revert a 'skipped' or 'deferred' line back to pending status by clicking on the 'report' link in the table of the main import dashboard screen, then find the line and click on the 'revert' link.</li>
   <li>You may jump to a particular pending or deferred line by clicking on the line status in the import report, as above.</li>
 </ul>
+
+
+<h2>Step 2b: Bulk Entry</h2>
+
+<p>Bulk entry still requires you to assess each csv line, however all the system number crunching is done in bulk and multiple lines are presented for assessment on one page.</p>
+
+<p>From the import control panel click the start the bulk assessment click the 'Start Bulk Assessment' button. The sytem has to do a lot of number crunching so this will take some time (maybe an hour or more depending on the size of the input file).</p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-upload-bulk-processing-a.png" />
+    </div>
+  </div>
+</div>
+
+
+<p>You should just go away and do something else. When the system has finished it's number crunching it will email you - click the link provided in the email or the 'Report Bulk Assessment' button from the control page.</p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-upload-report-bulk-a.png" />
+    </div>
+  </div>
+</div>
+
+
+<p>You should get a page with a filter near the top with import route assessments below that. The idea is that you need to confirm what the system thinks is the best match for each of your ascents you are importing. The system does a reasonable job at pre-selecting the most likely match so this is actually quite quick. Before you go on you might want to read the section on <a href="#filter">understanding assessment filters</a> before you go on.</p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-upload-confirm-bulk1-a.png" />
+    </div>
+  </div>
+</div>
+
+<p>... and assessment report continues ... </p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-upload-confirm-bulk2-a.png" />
+    </div>
+  </div>
+</div>
+
+<p>... and assessment report continues ... </p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-upload-confirm-bulk3-a.png" />
+    </div>
+  </div>
+</div>
+<p>... and assessment report continues ... </p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-upload-confirm-bulk4-a.png" />
+    </div>
+  </div>
+</div>
+
+
+<p>Decide whether you want to save your ascent grades from the assigned route or you want them to be the same as the import file - set the 'Local grade' checkbox accordingly then scroll down the bottom and click the 'Refresh with filter' button to update the screen layout.</p>
+
+<p>Review system assignments, and once you are happy click the 'Confirm update' checkbox and then the 'Save and continue' button. This will iterate you through the remaining routes of the filter selection.</p>
+
+<p>Note that if you 'Skip assignment' for a particular ascent line then no changes are made to the database for that record and subsequent filter settings will find it again.</p>
+
+<p>Repeat with different filter selections if necessarily working down to the harder cases.</p>
+
+<p>Once you have confirmed everything you can you should be left with ascents that could not be matched to a route. See the section below on <a href="#unmatched">what to do about unmatched routes</a>. Basically you wait until the index has been updated rerun the "Start Bulk Assessment" process and see what new routes have been matched.</p>
+
+<p>Your done for now.</p>
+
+<h2>Step 3: Review Report</h2>
+
+<p>At any stage you can review your progress and ascent assignments. </p>
+
+<p>From the import control panel click 'report' link next to the csv file line. It should take you to a report looking like this.</p>
+
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-upload-report-a.png" />
+    </div>
+  </div>
+</div>
+
+<p>If you click on the pending status link you will be taken directly to the assessment for that line entry.</p>
+<p>If the ascent assignment has been made then the line item links to that ascent.</p>
+
+
 
 
 
