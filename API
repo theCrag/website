@@ -2577,17 +2577,18 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 <h3>Abbreviations</h3>
 
-<p>In order to save bandwidth some fields have been abbreviated.
+<p>In order to save bandwidth some fields have been abbreviated. The saving is probably not significant so you can not use abbreviations by setting parameter abbr=0.
 
 <p><strong>Node type</strong>
 <ul>
- <li>l: Link (not currently in use)
- <li>m: Merged (the node has been merged with another node)
- <li>w: Root (root node, without a parent - typically this is the worldID, but could be extensible in the future)
- <li>n: Annotation (text between routes, the node name can be ignored or used as a sub heading)
- <li>a: Area (see area type for further discrimination)
- <li>r: Climb (route node, these are always leaf nodes)
- <li>p: Article (page arcticle - this is proposed, but yet to be implemented node type)
+ <li>l: link (not currently in use)
+ <li>m: merged (the node has been merged with another node)
+ <li>d: deleted (the node has been merged with another node)
+ <li>w: root (root node, without a parent - typically this is the worldID, but could be extensible in the future)
+ <li>n: annotation (text between routes, the node name can be ignored or used as a sub heading)
+ <li>a: area (see area type for further discrimination)
+ <li>r: route (route node, these are always leaf nodes)
+ <li>p: article (page arcticle - this is proposed, but yet to be implemented node type)
 </ul>
 
 <p><strong>Area type</strong>
