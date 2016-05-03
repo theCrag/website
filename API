@@ -2565,13 +2565,13 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 <p>1. Get index detail down to top level crag
 
-<p><a href="http://dev.thecrag.com/api/index/detail/world?key=abc&withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,Tag">http://dev.thecrag.com/api/index/detail/world?withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,Tag</a>
+<p><a href="http://dev.thecrag.com/api/index/detail/world?key=abc&withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,Tag">http://dev.thecrag.com/api/index/detail/world?withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,Tag</a>
 
 <p>Note that you should just query for the information you want to reduce bandwidth and processing time.
 
 <p>2. For each crag, get the index detail. For example Arapiles:
 
-<p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution</a></li>
+<p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades</a></li>
 
 
 
@@ -2664,7 +2664,7 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 <p><strong>Descriptions</strong>: x fields
 
-<p><strong>Descriptions</strong>: 9 fields
+<p><strong>Topos</strong>: 9 fields
 <ul>
   <li>topo ID
   <li>objects to be drawn on topo
@@ -2679,17 +2679,29 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 <p>Generating an image url is done as follows: TODO
 
-<p><strong>Grade Contributions</strong>: 6 fields
+<p><strong>Grade Contributions</strong>: 7 fields
 <ul>
   <li>primary flag (0/1), indicates whether the grade is a primary (ie official system registered grade) or a user contribution.
   <li>publication source, the id of the guidebook / website where the publication came from. Note that you should not use any contributions with this set without getting the copyright terms from the publication source.
   <li>citation, the page number or url where you find the grade cited
   <li>user, the account id of the user who made the contribution.
   <li>grade system
-  <li>grade
+  <li>lower grade
+  <li>upper grade (mostly this will be null, but all grades in the system are defined as ranges)
 </ul>
 
-<p>Mostly you could just skip the non-primary fields. Also note that star contributions are seen by the system as another rating system so user star contributions are also included here.
+
+<p>Mostly you could just skip the non-primary fields. Also note that star contributions are seen by the system as another rating system so user star contributions are also included here. If you are not interested in all user and publisher contributions then just stick to the registered grades below.
+
+<p><strong>Registered Grades</strong>: 3 fields
+<ul>
+  <li>grade system
+  <li>lower grade
+  <li>upper grade (mostly this will be null, but all grades in the system are defined as ranges)
+</ul>
+
+<p>Note that there may be multiple registered grades because a grade may have multiple components (eg aid grades '12 M1') or multiple grading systems are registered for that route. 
+
 
 <h3>Geo location of all areas</h3>
 
@@ -2702,6 +2714,8 @@ The bbox returns the node(s) that fully contain the bounded box.
 <p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,NodeType,Name,Point&to=arealeaf</a>
 
 
-<h3>TODO</h3>
+<h3>Incremental update</h3>
 
-<p>Get the nodes that have chanced since a particular date. 
+<p>The system is set up so that you can get just changed data since your last query. To do that pass in the 'since' parameter using the unix epoch timestamp. You can use the LastUpdated field in a previous call to get this value. For example, incremental update of Arapiles:
+
+<p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades&since=1459146212">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades&since=1459146212</a></li>
