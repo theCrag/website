@@ -2,7 +2,7 @@
 
 <p>thecrag.com uses a <img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"> star system for routes in their publications.</p>
 
-<p>Stars are community rated and are derived from user feedback.</p>
+<p>Stars are community rated and are derived from user feedback. No individual can control the star rating for a particular route.</p>
 
 
 <p>This document covers the following topics:<p>
@@ -20,16 +20,11 @@
 
 <p>Route stars are assigned by the system according to the following rules:</p>
 <ul>
-  <li>If there are no ascents logged for the climb then the stars come from the average of the stars in the user and publisher grade contributions (these can be found on the route page).</li>
-  <li>If there are more than 20 ascents logged with quality ratings then the stars come entirely from the user quality ratings.</li>
-  <li>Otherwise stars come from the weighted average quality ratings, user contributions and publisher contributions; where a user contribution is weighted twice as much as a quality rating and a publisher rating is weighted five times as much as a quality rating.</li>
+  <li>Star ratings come equally from ascent quality rating, user provided star rating and publisher star rating.</li>
+  <li>For ascent quality we have a one user one vote policy. This means that if you climb a route several times then we will only take the last rating.</li>
 </ul>
 
-<p>The implications of these rules are:</p>
-<ul>
-  <li>If a route has no stars then this does not mean that the route is not worthy of stars. It could just mean there have not been enough ascents to assess the stars.</li>
-  <li>Once a route has had sufficient ascents then no individual will be able to set the stars. This is a true community rating.</li>
-</ul>
+<p>If a route has no stars then this does not mean that the route is not worthy of stars. It could just mean there have not been any ascents to assess the stars.</p>
 
 
 
@@ -68,10 +63,10 @@
   <li>Crap</li>
   <li>Don't Bother</li>
   <li>Average</li>
-  <li>Good</li>
-  <li>Very Good</li>
-  <li>Classic</li>
-  <li>Mega Classic</li>
+  <li>Good - <img src="/static/silk/star.png" height="16" width="16"></li>
+  <li>Very Good - <img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"></li>
+  <li>Classic - <img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"></li>
+  <li>Mega Classic - <img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"></li>
 </ul>
 
 <p>Combining the ratings from multiple ascents you can get an overall feel for what the rock climbing community think of the route. For example the graph below shows combined quality ratings from for routes (from left to right: 245 ascents from a <img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"> route, 139 ascents from a <img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"> route, 155 ascents from a <img src="/static/silk/star.png" height="16" width="16"> route and 127 ascents from a zero star route.</p>
@@ -94,12 +89,12 @@
 
 <p>For example if the users have made three quality ratings of Good, Good and Very Good then this would be 100*(3+3+4)/6*3 = 56 Quality Score. As more user rate a route the more reliable the Quality Score becomes. If there is less than three quality ratings we do not calculate a Quality Score.</p>
 
-<p>The final thing you need to know is how we determined the Quality Score thresholds for one, two and tree star climbs. To do this we calculated the average Quality Score from the one, two and three star climbs from 200 published guidebooks (about 100,000 routes). This came up with the following thresholds:</p>
+<p>The final thing you need to know is how we determined the Quality Score thresholds for one, two and tree star climbs:</p>
 
 <ul>
-  <li><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"> maps to a Quality Score of 72.</li>
-  <li><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"> maps to a Quality Score of 62.</li>
-  <li><img src="/static/silk/star.png" height="16" width="16"> maps to a Quality Score of 55.</li>
+  <li><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"> maps to a Quality Score of 75.</li>
+  <li><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"> maps to a Quality Score of 58.3.</li>
+  <li><img src="/static/silk/star.png" height="16" width="16"> maps to a Quality Score of 41.7.</li>
 </ul>
 
 <p>In order to know which is the better route within a particular star group we also show the Quality Score in the tooltips as you hover the mouse over the stars. For example hover the mouse over the following stars <span title="Quality: 89%"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16"></span>.</p>
