@@ -618,7 +618,7 @@ The bbox returns the node(s) that fully contain the bounded box.
   <li>routes</li>
   <li>areas</li>
   <li>nodes</li>
-  <li>ascents</li>
+  <li>ascents (thin facet available)</li>
   <li>favorites</li>
   <li>photos</li>
   <li>topos</li>
@@ -648,6 +648,30 @@ The bbox returns the node(s) that fully contain the bounded box.
 <p>The sortby parameter is a comma separated list of pairs (field,asc/desc), for example 'at,desc'.</p>
 
 <p>Before you start using these please be aware that some faceted searches may be very resource intensive. Please discuss with site management the queries you intend to use, otherwise we may have to disable your key.</p>
+
+<p>Some of the facet queries have a thin format where the data returned is as an array and referenced resources in a inflate hash, for example:
+
+<pre>
+data:
+  ascents : []
+  inflate : {}
+</pre>
+
+<p>To enable thin format use thin=1 parameter which changes the return format to an array. The 'withdata' parameter tells the system which fields to return in the array. Also use the 'inflate' parameter to tell the system to include inflated resources. The format for the inflate parameter is comma separted list of resource type with a level scope. For example:</p>
+
+
+<ul>
+  <li>inflate=account:skeleton,node:summary</li>
+  <li>inflate=account,node:summary</li>
+</ul>
+
+<p>The idea of the level is to return the level of detail you want to inflate resources. Levels will default to skeleton if not specified. Generally the following levels are accepted.</a>
+
+<ul>
+  <li>skeleton</li>
+  <li>summary</li>
+  <li>full</li>
+</ul>
 
 <h3>Routes</h3>
 
@@ -789,9 +813,40 @@ The bbox returns the node(s) that fully contain the bounded box.
   <li>route-bolts</li>
 </ul>
 
+<p>The ascents filter has a thin mode available, use thin=1 paramenter to enable and withdata=field1,field2,field3,... to specify which data fields to return. The fields available are:</p>
+
+<ul>
+  <li>AscentID</li>
+  <li>CreateDate</li>
+  <li>Date</li>
+  <li>LastUpdated</li>
+  <li>AccountID: If inflate=account is specified each account is inflated.</li>
+  <li>NodeID: The route associated with the ascent. If inflate=node is specified each node is inflated.</li>
+  <li>Tick</li>
+  <li>Label</li>
+  <li>Ancestors: list of ancestor ids in depth order. If inflate=node is specified each id is inflated.</li>
+  <li>Historical: A flag which indicates if the tick was logged historically (used in streams).</li>
+  <li>Artificial: A flag which indicates if the route is in a gym.</li>
+  <li>Grade: array of grade id, grade and grading system.</li>
+  <li>AltGrade: array of grade id, grade and grading system.</li>
+  <li>Band: experience band of route as an integer</li>
+  <li>Height: in meters</li>
+  <li>GradeScore: internal grade score for the route 0-500 (actually it may be open ended).</li>
+  <li>Comment: use parameter markupType=text for text markup or markupType=html markup. If you want to markup keywords use keywordMarkup=1.</li>
+  <li>With: Array of with string followed my account ids. Use parameter markupType=text for text markup or markupType=html markup. If inflate=account is specified each id is inflated.</li>
+  <li>Pitch: array of pitches, each pitch is an array of [number,leadby,rating system,grade,alt rating system,alt grade,linkup].</li>
+  <li>Quality</li>
+  <li>Channel: the channel used to log the ascent. Eg the app will have it's own channel id.</li>
+  <li>Competition: the competition the ascent was logged in.</li>
+  <li>Shot</li>
+  <li>Trip</li>
+  <li>RelativeDifficulty</li>
+</ul>
+
 <p>For example:</p>
 <ul>
   <li><a href="http://dev.thecrag.com/api/facet/ascents/at/11740915/by/9068185/?key=abc&sortby=route-grade,desc">http://dev.thecrag.com/api/facet/ascents/at/11740915/by/9068185/?sortby=route-grade,desc</a></li>
+  <li><a href="http://dev.thecrag.com/at/11740915/by/scd?key=abc&thin=1&withdata=AscentID,CreateDate,Date,LastUpdated,AccountID,NodeID,Tick,Label,Ancestors,Historical,Artificial,Grade,AltGrade,Band,Height,GradeScore,Comment,With,Pitch,Quality,Channel,Competition,Shot,Trip,RelativeDifficulty&inflate=node:skeleton,account:skeleton&markupType=text">http://dev.thecrag.com/at/11740915/by/scd?key=abc&thin=1&withdata=AscentID,CreateDate,Date,LastUpdated,AccountID,NodeID,Tick,Label,Ancestors,Historical,Artificial,Grade,AltGrade,Band,Height,GradeScore,Comment,With,Pitch,Quality,Channel,Competition,Shot,Trip,RelativeDifficulty&inflate=node:skeleton,account:skeleton&markupType=text</a></li>
 </ul>
 
 
