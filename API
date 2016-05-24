@@ -2626,7 +2626,7 @@ data:
 
 <p>1. Get index detail down to top level crag
 
-<p><a href="http://dev.thecrag.com/api/index/detail/world?key=abc&withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,Tag">http://dev.thecrag.com/api/index/detail/world?withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,Tag</a>
+<p><a href="http://dev.thecrag.com/api/index/detail/world?key=abc&withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,BandProfile,AscentBandProfile,AlternateName,Description,Tag">http://dev.thecrag.com/api/index/detail/world?withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,BandProfile,AscentBandProfile,AlternateName,Description,Tag</a>
 
 <p>Note that you should just query for the information you want to reduce bandwidth and processing time.
 
