@@ -780,6 +780,7 @@ data:
   <li>at</li>
   <li>by-friends-of</li>
   <li>at-followed-by</li>
+  <li>since</li>
   <li>after</li>
   <li>before</li>
   <li>between</li>
@@ -801,6 +802,7 @@ data:
 
 <p>The following sort by:</p>
 <ul>
+  <li>since</li>
   <li>when</li>
   <li>when-climbed</li>
   <li>by</li>
@@ -812,6 +814,10 @@ data:
   <li>route-gear-style</li>
   <li>route-bolts</li>
 </ul>
+
+<p>Note that the since facet returns any ascents that have been created or updated since the epoch provided. You can also edit sort by since.</p>
+
+<p>The format for the since parameter is unix epoch. The format for other date fields is '2014-12-19' where day or day and month can be '00' for searches based on day or month.</p>
 
 <p>The ascents filter has a thin mode available, use thin=1 paramenter to enable and withdata=field1,field2,field3,... to specify which data fields to return. The fields available are:</p>
 
@@ -846,7 +852,7 @@ data:
 <p>For example:</p>
 <ul>
   <li><a href="http://dev.thecrag.com/api/facet/ascents/at/11740915/by/9068185/?key=abc&sortby=route-grade,desc">http://dev.thecrag.com/api/facet/ascents/at/11740915/by/9068185/?sortby=route-grade,desc</a></li>
-  <li><a href="http://dev.thecrag.com/at/11740915/by/scd?key=abc&thin=1&withdata=AscentID,CreateDate,Date,LastUpdated,AccountID,NodeID,Tick,Label,Ancestors,Historical,Artificial,Grade,AltGrade,Band,Height,GradeScore,Comment,With,Pitch,Quality,Channel,Competition,Shot,Trip,RelativeDifficulty&inflate=node:skeleton,account:skeleton&markupType=text">http://dev.thecrag.com/at/11740915/by/scd?key=abc&thin=1&withdata=AscentID,CreateDate,Date,LastUpdated,AccountID,NodeID,Tick,Label,Ancestors,Historical,Artificial,Grade,AltGrade,Band,Height,GradeScore,Comment,With,Pitch,Quality,Channel,Competition,Shot,Trip,RelativeDifficulty&inflate=node:skeleton,account:skeleton&markupType=text</a></li>
+  <li><a href="http://dev.thecrag.com/api/facet/ascents/at/11740915/by/scd?key=abc&thin=1&withdata=AscentID,CreateDate,Date,LastUpdated,AccountID,NodeID,Tick,Label,Ancestors,Historical,Artificial,Grade,AltGrade,Band,Height,GradeScore,Comment,With,Pitch,Quality,Channel,Competition,Shot,Trip,RelativeDifficulty&inflate=node:skeleton,account:skeleton&markupType=text">http://dev.thecrag.com/api/facet/ascents/at/11740915/by/scd?key=abc&thin=1&withdata=AscentID,CreateDate,Date,LastUpdated,AccountID,NodeID,Tick,Label,Ancestors,Historical,Artificial,Grade,AltGrade,Band,Height,GradeScore,Comment,With,Pitch,Quality,Channel,Competition,Shot,Trip,RelativeDifficulty&inflate=node:skeleton,account:skeleton&markupType=text</a></li>
 </ul>
 
 
