@@ -16,7 +16,7 @@
 
 <p>Oliver Story and the Canberra Climbers’ Association have done a nice little piece of work to use thecrag.com API to track new routes at their local crags.</p>
 
-<p>The CCA <a href="http://canberraclimbing.org.au/routes--guides/booroomba.aspx">The Booroomba</a> page makes a query of our database and brings back any routes that have been put up since the last guidebook was published. Same thing has been done for Bungonia, Orroral Ridge and All ACT.</p>
+<p>The CCA <a href="http://www.canberraclimbing.org.au/routes--guides/climbing-guides/booroomba-rocks.aspx">The Booroomba</a> page makes a query of our database and brings back any routes that have been put up since the last guidebook was published. Same thing has been done for Bungonia, Orroral Ridge and All ACT.</p>
 
 <p>If you’re interested in how this was done or using the code for your own project you can download the code from</p>
 
