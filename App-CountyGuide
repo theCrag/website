@@ -1,0 +1,138 @@
+8 Embed & API - 3 App Case Study: Country guide to climbing areas
+% my $markdown;
+
+<%perl>
+$markdown = <<EOF;
+
+# Intro
+
+This case study covers third party organisations wanting to provide high level 
+climbing area information via a mobile app where the organisation wants to leverage
+information already in theCrag.
+
+High level information includes:
+
+* Climbing areas
+* Geo locations 
+* Area descriptions
+* Various area stats
+
+If your organisation wants to include high level climbing information in a country adventure
+app then you should contact theCrag. It will save you a lot of time and money collating
+this information as well as keeping it up-to-date.
+
+# Type of agreement
+
+The nature of the agreement for this type of arrangement will be an ongoing monthly fee
+which includes:
+
+  * API key to access theCrag data programatically
+  * Commercial license to use the data in the app
+
+You will have to negotiate a commecial agreement with us.
+
+# Access to data
+
+Access to the data is via our API. You will require a valid API key and we will have to document
+all the endpoints you require. You will need somebody technical on your end.
+
+The API returns JSON formatted data.
+
+# API calls
+
+All theCrag API end points are documented in:
+
+https://www.thecrag.com/article/API
+
+What follows are the end points that are required for this case study. 
+
+Getting high level climbing area information can be achieved with a single API call.
+
+ * index/detail/{nodeid}
+
+For example (using curl) we can get this info for, say Australia, with the API key in the header:
+
+EOF
+</%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+<pre>
+curl -H "X-CData-Key:key=API_KEY;" "https://www.thecrag.com/api/index/detail/11737699?pretty=1&abbr=0&withdata=NodeID,ParentID,LastUpdated,NodeType,AreaType,Name,TLC,NumberRoutes,NumberAscents,Popularity,Kudos,Point,Tag,Description&to=arealeaf"
+</pre>
+<%perl>
+$markdown = <<EOF;
+
+Or we can get this info for, say New Zealand, with the API key in the url arguments:
+
+EOF
+</%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+<pre>
+curl "https://www.thecrag.com/api/index/detail/11737723?key=API_KEY&pretty=1&abbr=0&withdata=NodeID,ParentID,LastUpdated,NodeType,AreaType,Name,TLC,NumberRoutes,NumberAscents,Popularity,Kudos,Point,Tag,Description&to=arealeaf"
+</pre>
+<%perl>
+$markdown = <<EOF;
+
+Note that the nodeid for Australia is 11737699 and New Zealand is 11737723. While it may be more convienent to use the API key in the url arguments it is more secure to use it in the header.
+
+The result of this api call will look something like:
+
+EOF
+</%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+<pre>
+{
+   "data" : [
+      [
+         11737699,
+         7546063,
+         1476584303,
+         "area",
+         "Region",
+         "Australia",
+         null,
+         60535,
+         545823,
+         [
+            19.8,
+            100
+         ],
+         1029723,
+         "137.2016923,-27.10729777",
+         null,
+         [
+            [
+               {
+                  "Description" : "I love a sunburnt country, A land of sweeping plains,\r\n\r\nOf ragged mountain ranges, Of droughts and flooding rains.\r\n\r\nI love her far horizons, I love her jewel-sea,\r\n\r\nHer beauty and her terror – The wide brown land for me!"
+               },
+               11183449
+            ]
+         ]
+      ],
+      [
+         11738035,
+         11737699,
+         1476583903,
+         "area",
+         "Region",
+         "Victoria",
+         null,
+         16136,
+         124500,
+         [
+            18.4,
+            100
+         ],
+         281879,
+         "144.38412486,-36.97375357"
+      ],
+      ... more
+}
+</pre>
+<%perl>
+$markdown = <<EOF;
+
+In otherwords a JSON array of arrays is returned. The fields of the inner array correspond to the arguments provided by the url parameters.
+
+The returned index is a heirachy down to the lowest area level. You are most likely interested in the top level crags, which are the first non-region climbing areas. Below that only areas of area type 'Crag' are probably of interest at a high level.
+
+Most of the fields are fairly self explainatory. Note that TLC stands for Top Level Crag. Also Kudos is an internal measure of the total utility of a crag (how much joy the are brings to the climbing community).
+
+EOF
+</%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
