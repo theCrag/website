@@ -134,5 +134,23 @@ The returned index is a heirachy down to the lowest area level. You are most lik
 
 Most of the fields are fairly self explainatory. Note that TLC stands for Top Level Crag. Also Kudos is an internal measure of the total utility of a crag (how much joy the are brings to the climbing community).
 
+
+# Caching the result
+
+The information returned by this end point is fairly long lasting. Imagine there are 100,000 app installs all quering this end point continuously. theCrag service is currently not dimensioned to hanlded this kind of traffic. Traffic overload from one particular api key would mean that we would have to disable this key.
+
+It is therefore important to cache the result and then decide when to get new data. Eg user triggered request, or monthly for example.
+
+While caching and serving data on a third party server is generally not permitted for various reasons, it is ok to cache on a particular app install.
+
+
+# End point failure
+
+It is the Internet, so occasionally the end points fail for various reasons. We also do not guarentee theCrag server is 100% available. There are times where we take it down for maintenance. Your app must be able to deal with this 
+
+# Attribution and branding
+
+It is important that you make mention that the data is sourced from theCrag. This is part of the terms of use of the data. Please do not make your app look like it is a theCrag app though. The data being sourced from theCrag is different from a theCrag app.
+
 EOF
 </%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
