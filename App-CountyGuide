@@ -54,7 +54,7 @@ For example (using curl) we can get this info for, say Australia, with the API k
 
 EOF
 </%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
-<pre>
+<pre class="code">
 curl -H "X-CData-Key:key=API_KEY;" "https://www.thecrag.com/api/index/detail/11737699?pretty=1&abbr=0&withdata=NodeID,ParentID,LastUpdated,NodeType,AreaType,Name,TLC,NumberRoutes,NumberAscents,Popularity,Kudos,Point,Tag,Description&to=arealeaf"
 </pre>
 <%perl>
@@ -64,7 +64,7 @@ Or we can get this info for, say New Zealand, with the API key in the url argume
 
 EOF
 </%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
-<pre>
+<pre class="code">
 curl "https://www.thecrag.com/api/index/detail/11737723?key=API_KEY&pretty=1&abbr=0&withdata=NodeID,ParentID,LastUpdated,NodeType,AreaType,Name,TLC,NumberRoutes,NumberAscents,Popularity,Kudos,Point,Tag,Description&to=arealeaf"
 </pre>
 <%perl>
@@ -76,7 +76,7 @@ The result of this api call will look something like:
 
 EOF
 </%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
-<pre>
+<pre class="code">
 {
    "data" : [
       [

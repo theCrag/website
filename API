@@ -149,7 +149,7 @@ table {
 
 <p>If the api key is supplied as a URL parameter the API call would look something like:</p>
 
-<pre>
+<pre class="code">
   www.thecrag.com/api/area/id/1234?key=abc
 </pre>
 
@@ -158,7 +158,7 @@ table {
 
 <p>If the api key is supplied as a HTTP header then the http GET call would look something like:</p>
 
-<pre>
+<pre class="code">
   GET www.thecrag.com/api/area/id/1234 HTTP/1.1
   X-CData-Key: key=abc;
 </pre>
@@ -201,7 +201,7 @@ table {
 
 <p>When you apply for an API access key you will be given the Application key and secret. Use these as the consumer_key and consumer_secret for getting temporary token.</p>
 
-<pre>
+<pre class="code">
   http://www.thecrag.com/oauth/request_token
   (note that Authorization fields must be included in the HTTP header request)
 </pre>
@@ -219,7 +219,7 @@ table {
 
 <p>A temporary oauth_token and oauth_secret will be returned if the signature is verified.</p>
 
-<pre>
+<pre class="code">
   HTTP/1.1 200 OK
   Content-Type: application/x-www-form-urlencoded
 
@@ -231,7 +231,7 @@ table {
 
 <p>After you are given temporary credentials the client application must redirect to thecrag.com’s authorization URL using the oauth_token (returned by the Temporary Credentials step above) as a URL parameter. You may also supply the user login if this is already known. For example:</p>
 
-<pre>
+<pre class="code">
   http://www.thecrag.com/oauth/authorize?oauth_token=abc&login=XYZ
 </pre>
 
@@ -239,7 +239,7 @@ table {
 
 <p>The user will be prompted for an account login name and a password. If the login and password are successfully verified by thecrag.com server then the client will be redirected to the oauth_callback (supplied in the Temporary Credentials step) using with URL parameters oauth_token, oauth_verifier and accountID.</p>
 
-<pre>
+<pre class="code">
   oauth_callback_url?oauth_token=abc&oauth_verifier=efg&accountID=1234
 </pre>
 
@@ -250,7 +250,7 @@ table {
 
 <p>After the user has authorized access then the client API can get an access token for ongoing access to the account data.</p>
 
-<pre>
+<pre class="code">
   http://www.thecrag.com/oauth/access_token
   (note that Authorization fields must be included in the HTTP header request)
 </pre>
@@ -269,7 +269,7 @@ table {
 
 <p>A full oauth_token and oauth_secret will be returned if the signature is verified.</p>
 
-<pre>
+<pre class="code">
   HTTP/1.1 200 OK
   Content-Type: application/x-www-form-urlencoded
 
@@ -281,7 +281,7 @@ table {
 
 <p>Once a client app has the full access token the client will be able to access the protected resource (ie private account data associated with the account) by using the token in the Authorization header. For example</p>
 
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/account/id/1234
   (with the Authorization item included in the header)
 </pre>
@@ -305,7 +305,7 @@ table {
 
 <p>The API top level access point is:</p>
 
-<pre>
+<pre class="code">
   http://www.thecrag.com/api
 </pre>
 
@@ -322,14 +322,14 @@ table {
 <p>The API returns JSON data (mime type of application/json). If you are using Firefox then you may find a plugin which displays this nicely.</p>
 
 <p>If you wish to return JSONP for a javascript function you use the URL paramater jsonp=myFunction. If JSONP is used then the API will return MIME type text/javascript. For example:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/area/id/1234?jsonp=processArea
 </pre>
 <p>Some of the read api functions return JSON data which contains <a href="http://www.thecrag.com/article/UpdatingDescriptions#section3">thecrag flavored markdown</a>. Normally for the website this markdown text is automatically marked up to HTML for website display, however with the API you may sometimes want it marked up as text or as html. For thecrag flavored markdown to be marked up as text use the URL parameter markupType=text, otherwise use markupType=html. Please note that the default is 'none' (ie the API does not do any conversion of markdown text and leaves that up to the client.<p>
 
 <p>For example if you wanted to convert area beta markdown into HTML you would use:</p>
 
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/area/id/1234/beta?markupType=html
 </pre>
 
@@ -337,7 +337,7 @@ table {
 
 <p>If general error was encountered with the API call then JSON data is returned indicating what the error was, for example:</p>
 
-<pre>
+<pre class="code">
   {
     error: "bad uri",
   }
@@ -571,7 +571,7 @@ The bbox returns the node(s) that fully contain the bounded box.
 <h2>5.12 Markup</h2>
 
 <p>You may POST a thecrag flavoured markdown string to an endpoint to have it marked up including internal links. The POST end point is:</p>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/markup HTTP/1.1
   === header stuff === 
 
@@ -629,7 +629,7 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 <p>The API facet search has the following generic endpoint structure:</p>
 
-<pre>
+<pre class="code">
   /api/facet/{entity}/url/query/language  # where entity is as listed above.
 </pre>
 
@@ -651,7 +651,7 @@ The bbox returns the node(s) that fully contain the bounded box.
 
 <p>Some of the facet queries have a thin format where the data returned is as an array and referenced resources in a inflate hash, for example:
 
-<pre>
+<pre class="code">
 data:
   ascents : []
   inflate : {}
@@ -1071,7 +1071,7 @@ data:
 
 <p>This section describes how you can use the 'flatten' parameter to better optimise the data transfer over the wire. The flatten variable turns the result hash structures into an array only including values associated with keys you specified. The flatten spec can be nested so you can flatten sub hashes.</p>
 
-<pre>
+<pre class="code">
   flatten=key1,key2[subKeyA,subKeyB]
 </pre>
 
@@ -1090,7 +1090,7 @@ data:
 
 <p>The update API end points require an application/json MIME type POST, with the POST content being json formatted utf8 text. The post can be a single update or multiple update. The format of a single update is:</p>
 
-<pre>
+<pre class="code">
   data: {
    …
   }
@@ -1098,7 +1098,7 @@ data:
 
 <p>The format of a multiple update is:</p>
 
-<pre>
+<pre class="code">
   data: [{
      …
    },{
@@ -1110,7 +1110,7 @@ data:
 
 <p>If an error was encountered the error message has the same structure as the data field, for example:</p>
 
-<pre>
+<pre class="code">
   error: [{
    loginError: “not unique”,
   }]
@@ -1120,7 +1120,7 @@ data:
 
 <p>If the update was successful then an ‘ok’ field is returned, for example:</p>
 
-<pre>
+<pre class="code">
   ok: [{
    accountID: 1234
    uri: ‘/climber/1234’
@@ -1146,7 +1146,7 @@ data:
 <h2>6.1 Create Climber</h2>
 
 <p><strong>Access points</strong>:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/climber/create
   http://www.thecrag.com/api/climber/create/validate
 </pre>
@@ -1167,7 +1167,7 @@ data:
 
 <p>The countryID is the country identifier in the system. This is not the node identifier associated with the country. You may get a list of country identifiers by using the following API call (also see examples above):</p>
 
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/country/list
 </pre>
 
@@ -1181,7 +1181,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/climber/create/validate HTTP/1.1
   === header stuff === 
 
@@ -1196,7 +1196,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "error": {
      "loginError" : "login already in use"
@@ -1214,7 +1214,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/climber/create/validate HTTP/1.1
   === header stuff === 
 
@@ -1229,7 +1229,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "error": [{
       "loginError" : "mandatory field",
@@ -1250,7 +1250,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/climber/create HTTP/1.1
   === header stuff === 
 
@@ -1267,7 +1267,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "accountID" : "1234",
@@ -1291,7 +1291,7 @@ data:
 <h2>6.2 Update Climber</h2>
 
 <p><strong>Access points</strong>:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/climber/update
   http://www.thecrag.com/api/climber/update/validate
 </pre>
@@ -1306,7 +1306,7 @@ data:
 <p>The update climber accessp point is under development. Currently you can only (un)link to other accounts and (de)select shortcuts.</p>
 
 <p>To (de)select a node as a shortcut use the favorite variable, which has the following format:</p>
-<pre>
+<pre class="code">
   node: 1234,
   status: 0/1
 </pre>
@@ -1314,7 +1314,7 @@ data:
 <p>Set status to 1 to select as favorite, set to 0 to deselect as favorite.</p>
 
 <p>To (un)link to another account use the follow variable, which has the following format:</p>
-<pre>
+<pre class="code">
   account: 1234,
   status: 0/1
 </pre>
@@ -1329,7 +1329,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/climber/update HTTP/1.1
   === header stuff === 
 
@@ -1345,7 +1345,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "uri" : "/climber/1234"
@@ -1364,7 +1364,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/climber/update HTTP/1.1
   === header stuff === 
 
@@ -1380,7 +1380,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "uri" : "/climber/1234"
@@ -1403,7 +1403,7 @@ data:
 <h2>6.3 Create Area</h2>
 
 <p><strong>Access points</strong>:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/area/create
   http://www.thecrag.com/api/area/create/validate
 </pre>
@@ -1434,7 +1434,7 @@ data:
 </ul>
 
 <p>The alternateNames variable is a hash with the following format:</p>
-<pre>
+<pre class="code">
   type: string,
   name: string
 </pre>
@@ -1448,7 +1448,7 @@ data:
 </ul>
 
 <p>The beta variable is a hash with the following format:</p>
-<pre>
+<pre class="code">
   type: string,
   description: string
 </pre>
@@ -1474,7 +1474,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/area/create HTTP/1.1
   === header stuff === 
 
@@ -1497,7 +1497,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "nodeID" : "1234",
@@ -1528,7 +1528,7 @@ data:
 <h2>6.4 Update Area</h2>
 
 <p><strong>Access points</strong>:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/area/update
   http://www.thecrag.com/api/area/update/validate
 </pre>
@@ -1558,7 +1558,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/area/update HTTP/1.1
   === header stuff === 
 
@@ -1572,7 +1572,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "uri" : "/area/1234"
@@ -1589,7 +1589,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/area/update HTTP/1.1
   === header stuff === 
 
@@ -1607,7 +1607,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "uri" : "/area/1234"
@@ -1632,7 +1632,7 @@ data:
 <h2>6.5 Create Route</h2>
 
 <p><strong>Access points</strong>:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/route/create
   http://www.thecrag.com/api/route/create/validate
 </pre>
@@ -1663,7 +1663,7 @@ data:
 
 <p>The context variable sets the context for the system to parse grades. Note that globally some grading systems confict. You may get the context from the country and the country from the ancestor list. For example:</a>.
 
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/area/id/11740915/ancestors
   http://www.thecrag.com/api/country/id/7478254
 </pre>
@@ -1683,7 +1683,7 @@ data:
 </ul>
 
 <p>The history variable is a hash with the following format:</p>
-<pre>
+<pre class="code">
   type: string,
   date: YYYY-MM-DD
   climbers: string,
@@ -1723,7 +1723,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/route/create HTTP/1.1
   === header stuff === 
 
@@ -1760,7 +1760,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "nodeID" : "1234",
@@ -1805,7 +1805,7 @@ data:
 <h2>6.6 Update Route</h2>
 
 <p><strong>Access points</strong>:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/route/create
   http://www.thecrag.com/api/route/create/validate
 </pre>
@@ -1839,14 +1839,14 @@ data:
 <p>Updating gradeText will not update the registered grade for the climb unless there are no existing grade contributions.<p>
 
 <p>To update the registered grade for a route you must use the registeredGrade variable. This will not be associated with a user or publisher. The registeredGrade hash has the following format:<p>
-<pre>
+<pre class="code">
   system: string,
   lower: grade,
   upper: grade
 </pre>
 
 <p>The system sub-variable should be one the system labels defined by the following configuration end point:</p>
-<pre>
+<pre class="code">
   http://dev.thecrag.com/api/config/grade/system
 </pre>
 
@@ -1866,7 +1866,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/route/update HTTP/1.1
   === header stuff === 
 
@@ -1883,7 +1883,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "uri" : "/route/1234"
@@ -1903,7 +1903,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/route/update HTTP/1.1
   === header stuff === 
 
@@ -1918,7 +1918,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "uri" : "/route/1234"
@@ -1939,7 +1939,7 @@ data:
 <h2>6.7 Create Ascent</h2>
 
 <p><strong>Access points</strong>:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/ascent/create
   http://www.thecrag.com/api/ascent/create/validate
 </pre>
@@ -2021,7 +2021,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/ascent/create HTTP/1.1
   === header stuff === 
 
@@ -2034,7 +2034,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "ascentID" : "3344"
@@ -2051,7 +2051,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/ascent/create HTTP/1.1
   === header stuff === 
 
@@ -2066,7 +2066,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "ascentID" : "3344"
@@ -2089,7 +2089,7 @@ data:
 <h2>6.8 Send message</h2>
 
 <p><strong>Access points</strong>:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/message/send
   http://www.thecrag.com/api/message/send/validate
 </pre>
@@ -2122,7 +2122,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/message/send HTTP/1.1
   === header stuff === 
 
@@ -2136,7 +2136,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "messageID=>1234,
@@ -2156,7 +2156,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/message/create HTTP/1.1
   === header stuff === 
 
@@ -2172,7 +2172,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "messageID=>1234,
@@ -2194,7 +2194,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/message/create HTTP/1.1
   === header stuff === 
 
@@ -2208,7 +2208,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok": {
      "messageID=>1234,
@@ -2234,7 +2234,7 @@ data:
 <p>Thecrag offers third party apps an account subscription service for app charging. The third party app creates the subscription record. Subscriptions may be associated with a node. Account subscriptions can be queried by the app, which allows a developer to refresh an account or share subscriptions between apps.</p>
 
 <p><strong>Access points</strong>:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/subscribe/create
   http://www.thecrag.com/api/subscribe/create/validate
   http://www.thecrag.com/api/subscribe/update
@@ -2269,7 +2269,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/subscribe/create HTTP/1.1
   === header stuff === 
 
@@ -2292,7 +2292,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok" : {
       "subscriptionID" : 209424667
@@ -2335,7 +2335,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/subscribe/update HTTP/1.1
   === header stuff === 
 
@@ -2349,7 +2349,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok" : {
       "subscriptionID" : 251188651
@@ -2371,7 +2371,7 @@ data:
 <h2>6.10 Register Webhook Callbacks</h2>
 
 <p>You may register webhook callbacks. This is where thecrag server tells you about changes to the database. The following webhook samples are currently available for developers:</p>
-<pre>
+<pre class="code">
   /climber/1234/profile
   /climber/1234/messages/involved/all
   /climber/1234/ascent
@@ -2406,7 +2406,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  POST http://www.thecrag.com/api/subscribe/create HTTP/1.1
   === header stuff === 
 
@@ -2423,7 +2423,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok" : {},
    "data" : {
@@ -2454,12 +2454,12 @@ data:
 <h3>Uploading the image file</h3>
 
 <p>This may be done by using a standard web POST with 'name' and 'file' form parameters to the following end point:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/upload
 </pre>
 
 <p>For example you could use curl to upload the file like following:
-<pre>
+<pre class="code">
   curl --form name=some-rand-name --form file=@topo-test-file.jpg http://www.thecrag.com/upload
 </pre>
 
@@ -2468,7 +2468,7 @@ data:
 <p>The 'name' parameter will be used in the JSON data for creating the actual topo record.</p>
 
 <p>The upload endpoint returns JSON, you should check for error messages. For example if the upload was unsuccessful it may look like:</p>
-<pre>
+<pre class="code">
 {
   "jsonrpc": "2.0",
   "error" : {
@@ -2483,7 +2483,7 @@ data:
 <h3>Creating the topo record</h3>
 
 <p><strong>Access points</strong>:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/topo/create
   http://www.thecrag.com/api/topo/create/validate
 </pre>
@@ -2506,7 +2506,7 @@ data:
 <h3>Updating the topo record</h3>
 
 <p><strong>Access points</strong>:</p>
-<pre>
+<pre class="code">
   http://www.thecrag.com/api/topo/update
   http://www.thecrag.com/api/topo/update/validate
 </pre>
@@ -2531,7 +2531,7 @@ data:
 
   <tr>
     <td>
-<pre>
+<pre class="code">
  curl --form name=some-rand-name --form file=@topo-test-file.jpg http://www.thecrag.com/upload
  POST http://www.thecrag.com/api/topo/create HTTP/1.1
   === header stuff === 
@@ -2552,7 +2552,7 @@ data:
 </pre>
     </td>
     <td>
-<pre>
+<pre class="code">
  {
    "ok" : {
      "topoID" : "210081091",
