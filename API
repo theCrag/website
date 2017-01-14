@@ -2632,7 +2632,7 @@ data:
 
 <p>2. For each crag, get the index detail. For example Arapiles:
 
-<p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades</a></li>
+<p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,BoundedBox,Fence,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,BoundedBox,Fence,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades</a></li>
 
 
 
