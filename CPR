@@ -1,0 +1,8 @@
+4 Ticking and logbooks - 2 Climber Performance Rating (CPR)
+<%perl>
+my $data = $ARGS{data};
+</%perl>
+
+<pre>
+<% Data::Dumper::Dumper($data) %>
+</pre>
