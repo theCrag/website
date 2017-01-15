@@ -25,6 +25,7 @@ sub isVis {
   return 0 if $system->{label} eq 'FB_ALT';
   return 0 if $system->{label} eq 'FB_TRAV_ALT';
   return 0 if $system->{label} eq 'BRZ_DEG';
+  return 0 if $system->{label} eq 'UK';
   return 0 if $system->{abbreviatedName} eq 'Class';
   return 0 if $system->{displayable} eq 0;
   return 0 if $system->{type} =~ /^(Alpine|Jump)$/;
