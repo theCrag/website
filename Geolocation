@@ -14,13 +14,9 @@
 
 <h2 id="addtracks">How do I add tracks to a map?</h2>
 
-<p>We've put a lot of thought into this, and our philosophy is that things like tracks are not purely climbing data, they are used by bush walkers, mountain bikers etc. The best place for this data isn't with us, it's actually in google maps. You may not be aware but anyone can edit google maps and add new tracks and other features like building and lookouts. This is a relatively recent feature google has added called MapMaker:
-
-<p><a href="https://www.google.com.au/mapmaker">https://www.google.com.au/mapmaker</a>
-
-<p>Not only can you add walking tracks to cliffs you can also fix up approach firetrails and even roads and highways and driving directions. I've added data for a bunch of my local crags and I can now get walking directions to a specific cliff. If you have GPS trails you can overlay these in mapmaker to help trace or align tracks when editing. Google has a system like us where as you make more edits you get greater permissions. Initially your changes will be approved by google staff, but the turn around time is quite quick often hours. 
-
-<p>We encourage you to check out MapMaker and start improving your local maps. And if Google ever gives you bad driving directions, or has a wrong road label, go fix it!
+<p>Right now you can't sorry! We previously encouraged editors to add information to Google Maps using MapMaker but Google has since watered down and abandonded this project. Many other climbers have requested we also use OpenStreetMap or other sources. We have on our roadmap to re-think our maps tools which will enable both easier inclusion of third party maps and also the ability to draw some key features such as car parks and walking tracks inside theCrag.</p>
+<p>Please add your votes and comments to our todo list here:<br>
+<a href="https://github.com/theCrag/website/issues?q=is%3Aopen+maps+sort%3Acomments-desc">Github issues related to maps</a></p>
 
 
 <h1>How this data is used</h1>
