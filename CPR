@@ -1,8 +1,133 @@
-4 Ticking and logbooks - 2 Climber Performance Rating (CPR)
+4 Ticking and logbooks - 2 Climber Performance Rating
 <%perl>
 my $data = $ARGS{data};
+my $perf;
+my @show;
+my @overlays;
+my $shift = $data->{tickShift};
 </%perl>
 
+
+<h2>Trad tick shifts</h2>
+
+<%perl>
+$perf = 230; # This simulates a typical trad climber
+@show = ('AU', 'FR', 'UKT', 'YDS');
+@overlays = (
+    {
+        title => 'Onsight',
+        low   => $perf - 100,
+        high  => $perf - $shift->{Trad}->{'Onsight'} - 1,
+    },
+    {
+        title => 'Flash',
+        low   => $perf - $shift->{Trad}->{'Onsight'},
+        high  => $perf - $shift->{Trad}->{'Flash'} - 1,
+    },
+    {
+        title => 'Red point',
+        low   => $perf - $shift->{Trad}->{'Flash'},
+        high  => $perf - $shift->{Trad}->{'Red point'} - 1,
+    },
+    {
+        title => 'Pink',
+        low   => $perf - $shift->{Trad}->{'Red point'},
+        high  => $perf - $shift->{Trad}->{'Pink point'} - 1,
+    },
+);
+
+</%perl>
+<& /html/thecrag/minor/gradeSlider,
+    systems => $data->{systems},
+    showSystems => \@show,
+    gradeStart => $perf - 100,
+    gradeEnd   => $perf + 100,
+    overlays => \@overlays,
+&>
+
+
+
+<h2>Sport tick shifts</h2>
+
+<%perl>
+$perf = 260; # This simulates a sport climber
+@show = ('AU', 'FR', 'YDS');
+@overlays = (
+    {
+        title => 'Onsight',
+        low   => $perf - 100,
+        high  => $perf - $shift->{Sport}->{'Onsight'} - 1,
+        background => 'rgba(0,0,255,.05)',
+        border     => 'rgba(0,0,255,.4)',
+    },
+    {
+        title => 'Flash',
+        low   => $perf - $shift->{Sport}->{'Onsight'},
+        high  => $perf - $shift->{Sport}->{'Flash'} - 1,
+        background => 'rgba(255,0,0,.2)',
+        border     => 'rgba(255,0,0,.4)',
+    },
+    {
+        title => 'Red point',
+        low   => $perf - $shift->{Sport}->{'Flash'},
+        high  => $perf - $shift->{Sport}->{'Red point'} - 1,
+        background => 'rgba(255,0,0,.2)',
+        border     => 'rgba(255,0,0,.4)',
+    },
+    {
+        title => 'Pink',
+        low   => $perf - $shift->{Sport}->{'Red point'},
+        high  => $perf - $shift->{Sport}->{'Pink point'} - 1,
+        background => 'rgba(255,90,90,.2)',
+        border     => 'rgba(255,90,90,.4)',
+    },
+);
+</%perl>
+<& /html/thecrag/minor/gradeSlider,
+    systems => $data->{systems},
+    showSystems => \@show,
+    gradeStart => $perf - 100,
+    gradeEnd   => $perf + 50,
+    overlays => \@overlays,
+&>
+
+
+<h2>Boulder tick shifts</h2>
+
+<%perl>
+$perf = 260; # This simulates a sport climber
+@show = ('BLDV', 'FB');
+@overlays = (
+    {
+        title => 'Onsight',
+        low   => $perf - 50,
+        high  => $perf - $shift->{Boulder}->{'Onsight'} - 1,
+    },
+    {
+        title => 'Flash',
+        low   => $perf - $shift->{Boulder}->{'Onsight'},
+        high  => $perf - $shift->{Boulder}->{'Flash'} - 1,
+    },
+    {
+        title => 'Red point',
+        low   => $perf - $shift->{Boulder}->{'Flash'},
+        high  => $perf - $shift->{Boulder}->{'Red point'} - 1,
+    },
+);
+</%perl>
+<& /html/thecrag/minor/gradeSlider,
+    systems => $data->{systems},
+    showSystems => \@show,
+    gradeStart => $perf - 50,
+    gradeEnd   => $perf + 40,
+    overlays => \@overlays,
+&>
+
 <pre>
-<% Data::Dumper::Dumper($data) %>
+<% Data::Dumper::Dumper($data->{gradeFactor}) %>
+<% Data::Dumper::Dumper($data->{decayShift}) %>
+<% Data::Dumper::Dumper($data->{tickShift}) %>
+<% Data::Dumper::Dumper($data->{gearStyles}) %>
+<% Data::Dumper::Dumper($data->{tickGroups}) %>
+ Data::Dumper::Dumper($data) 
 </pre>
