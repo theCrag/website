@@ -11,7 +11,7 @@ my $shift = $data->{tickShift};
 <h2>Trad tick shifts</h2>
 
 <%perl>
-$perf = 230; # This simulates a typical trad climber
+$perf = 260; # This simulates a typical trad climber
 @show = ('AU', 'FR', 'UKT', 'YDS');
 @overlays = (
     {
@@ -41,7 +41,7 @@ $perf = 230; # This simulates a typical trad climber
     systems => $data->{systems},
     showSystems => \@show,
     gradeStart => $perf - 100,
-    gradeEnd   => $perf + 100,
+    gradeEnd   => $perf + 50,
     overlays => \@overlays,
 &>
 
@@ -50,7 +50,7 @@ $perf = 230; # This simulates a typical trad climber
 <h2>Sport tick shifts</h2>
 
 <%perl>
-$perf = 260; # This simulates a sport climber
+$perf = 279; # This simulates a sport climber
 @show = ('AU', 'FR', 'YDS');
 @overlays = (
     {
@@ -95,12 +95,12 @@ $perf = 260; # This simulates a sport climber
 <h2>Boulder tick shifts</h2>
 
 <%perl>
-$perf = 260; # This simulates a sport climber
+$perf = 320; # This simulates a boulder climber
 @show = ('BLDV', 'FB');
 @overlays = (
     {
         title => 'Onsight',
-        low   => $perf - 50,
+        low   => $perf - 100,
         high  => $perf - $shift->{Boulder}->{'Onsight'} - 1,
     },
     {
@@ -118,8 +118,8 @@ $perf = 260; # This simulates a sport climber
 <& /html/thecrag/minor/gradeSlider,
     systems => $data->{systems},
     showSystems => \@show,
-    gradeStart => $perf - 50,
-    gradeEnd   => $perf + 40,
+    gradeStart => $perf - 100,
+    gradeEnd   => $perf + 50,
     overlays => \@overlays,
 &>
 
