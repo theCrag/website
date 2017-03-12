@@ -227,6 +227,26 @@ $perf = 320; # This simulates a boulder climber
 
 
 
+<h2><% getText 'article.cpr.section.implementation.sub-header.flexible' %></h2>
+
+% $markdown = getText('article.cpr.section.implementation.section.flexible');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-trad-cpr/with-route-gear-style/trad/at/11740915?embed=html"></iframe>
+      <p><% getText 'article.cpr.section.implementation.figure.flexible.crag-profile' %></p>
+    </div>
+  </div>
+</div>
+
+
+<h2><% getText 'article.cpr.section.implementation.sub-header.embeding' %></h2>
+% $markdown = getText('article.cpr.section.implementation.section.embeding');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
 
 <h1><% getText 'article.cpr.header.conclusion' %></h1>
 
