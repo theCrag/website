@@ -5,11 +5,65 @@ my $perf;
 my @show;
 my @overlays;
 my $shift = $data->{tickShift};
+my $markdown;
 </%perl>
 
 
-<h2>Trad tick shifts</h2>
 
+% $markdown = getText('article.cpr.intro');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+
+<h1><% getText 'article.cpr.header.why' %></h1>
+
+% $markdown = getText('article.cpr.section.why');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+
+<h1><% getText 'article.cpr.header.goals' %></h1>
+
+% $markdown = getText('article.cpr.section.goals');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+<h1><% getText 'article.cpr.header.model' %></h1>
+
+% $markdown = getText('article.cpr.section.model.intro');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+<h2><% getText 'article.cpr.section.model.sub-header.power-factor' %></h2>
+
+% $markdown = getText('article.cpr.section.model.section.power-factor',{ewbanksGradeFactor=>$data->{ewbanksGradeFactor}});
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/leecujes/?embed=html"></iframe>
+      <p><% getText 'article.cpr.section.model.figure.power-factor' %></p>
+    </div>
+  </div>
+</div>
+
+
+<h2><% getText 'article.cpr.section.model.sub-header.solidifying' %></h2>
+
+% $markdown = getText('article.cpr.section.model.section.solidifying',{solidifyAscents=>$data->{solidifyAscents}});
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+<h2><% getText 'article.cpr.section.model.sub-header.tick-shift' %></h2>
+
+% $markdown = getText('article.cpr.section.model.section.tick-shift',{ewbanksSportOnsightShift=>$data->{ewbanksSportOnsightShift},ewbanksTradPinkPointShift=>$data->{ewbanksTradPinkPointShift}});
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+
+<div class="row-fluid">
+  <div class="span12 centering">
 <%perl>
 $perf = 260; # This simulates a typical trad climber
 @show = ('AU', 'FR', 'UKT', 'YDS');
@@ -37,6 +91,7 @@ $perf = 260; # This simulates a typical trad climber
 );
 
 </%perl>
+    <div class="sd-image-caption">
 <& /html/thecrag/minor/gradeSlider,
     systems => $data->{systems},
     showSystems => \@show,
@@ -44,10 +99,11 @@ $perf = 260; # This simulates a typical trad climber
     gradeEnd   => $perf + 50,
     overlays => \@overlays,
 &>
+      <p><% getText 'article.cpr.section.model.figure.tick-shift.trad' %></p>
+    </div>
 
 
 
-<h2>Sport tick shifts</h2>
 
 <%perl>
 $perf = 279; # This simulates a sport climber
@@ -83,6 +139,7 @@ $perf = 279; # This simulates a sport climber
     },
 );
 </%perl>
+    <div class="sd-image-caption">
 <& /html/thecrag/minor/gradeSlider,
     systems => $data->{systems},
     showSystems => \@show,
@@ -90,9 +147,8 @@ $perf = 279; # This simulates a sport climber
     gradeEnd   => $perf + 50,
     overlays => \@overlays,
 &>
-
-
-<h2>Boulder tick shifts</h2>
+      <p><% getText 'article.cpr.section.model.figure.tick-shift.sport' %></p>
+    </div>
 
 <%perl>
 $perf = 320; # This simulates a boulder climber
@@ -115,6 +171,7 @@ $perf = 320; # This simulates a boulder climber
     },
 );
 </%perl>
+    <div class="sd-image-caption">
 <& /html/thecrag/minor/gradeSlider,
     systems => $data->{systems},
     showSystems => \@show,
@@ -122,12 +179,70 @@ $perf = 320; # This simulates a boulder climber
     gradeEnd   => $perf + 50,
     overlays => \@overlays,
 &>
+      <p><% getText 'article.cpr.section.model.figure.tick-shift.boulder' %></p>
+    </div>
+
+  </div>
+</div>
+
+
+
+<h2><% getText 'article.cpr.section.model.sub-header.decay' %></h2>
+
+% $markdown = getText('article.cpr.section.model.section.decay',{ewbanksDecay=>$data->{ewbanksDecay}});
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+
+<h1><% getText 'article.cpr.header.implementation' %></h1>
+
+% $markdown = getText('article.cpr.section.implementation.intro');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+
+<h2><% getText 'article.cpr.section.implementation.sub-header.realization' %></h2>
+
+% $markdown = getText('article.cpr.section.implementation.section.realization');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+<h2><% getText 'article.cpr.section.implementation.sub-header.ranking' %></h2>
+
+% $markdown = getText('article.cpr.section.implementation.section.ranking');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      xxxx
+      <p><% getText 'article.cpr.section.implementation.figure.ranking.global-sport' %></p>
+    </div>
+    <div class="sd-image-caption">
+      xxxx
+      <p><% getText 'article.cpr.section.implementation.figure.ranking.arapiles-trad-female' %></p>
+    </div>
+  </div>
+</div>
+
+
+
+
+<h1><% getText 'article.cpr.header.conclusion' %></h1>
+
+% $markdown = getText('article.cpr.section.conclusion');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+
+
 
 <pre>
-<% Data::Dumper::Dumper($data->{gradeFactor}) %>
-<% Data::Dumper::Dumper($data->{decayShift}) %>
-<% Data::Dumper::Dumper($data->{tickShift}) %>
-<% Data::Dumper::Dumper($data->{gearStyles}) %>
-<% Data::Dumper::Dumper($data->{tickGroups}) %>
- Data::Dumper::Dumper($data) 
+%# <% Data::Dumper::Dumper($data->{systems}) %>
+%# <% Data::Dumper::Dumper($data->{gradeFactor}) %>
+%# <% Data::Dumper::Dumper($data->{decayShift}) %>
+%# <% Data::Dumper::Dumper($data->{tickShift}) %>
+%# <% Data::Dumper::Dumper($data->{gearStyles}) %>
+%# <% Data::Dumper::Dumper($data->{tickGroups}) %>
+%#  Data::Dumper::Dumper($data) 
 </pre>
