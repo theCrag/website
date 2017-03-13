@@ -1,12 +1,22 @@
 4 Ticking and logbooks - 2 Climber Performance Rating
 <%perl>
 my $data = $ARGS{data};
+my $perfBase = 260;
 my $perf;
 my @show;
 my @overlays;
 my $shift = $data->{tickShift};
 my $markdown;
 </%perl>
+
+<script src="<% static 'iframe-resizer/iframeResizer.min.js' %>" type="text/javascript"></script>
+<script>
+jQuery(function($) {
+  $('iframe.thecrag-oembed').iFrameResize({
+    checkOrigin: false
+  });
+});
+</script>
 
 
 
@@ -65,7 +75,7 @@ my $markdown;
 <div class="row-fluid">
   <div class="span12 centering">
 <%perl>
-$perf = 260; # This simulates a typical trad climber
+$perf = $perfBase;
 @show = ('AU', 'FR', 'UKT', 'YDS');
 @overlays = (
     {
@@ -106,7 +116,9 @@ $perf = 260; # This simulates a typical trad climber
 
 
 <%perl>
-$perf = 279; # This simulates a sport climber
+  # perf is the diff between trad and sport pink point because pink points should be equivalent across these two styles
+$perf = $perfBase - $shift->{Trad}->{'Pink point'} + $shift->{Sport}->{'Pink point'};
+#$perf = 279; # This simulates a sport climber
 @show = ('AU', 'FR', 'YDS');
 @overlays = (
     {
@@ -151,7 +163,9 @@ $perf = 279; # This simulates a sport climber
     </div>
 
 <%perl>
-$perf = 320; # This simulates a boulder climber
+  # perf is trad pink point plus some
+$perf = $perfBase - $shift->{Trad}->{'Pink point'} + 10;
+#$perf = 320; # This simulates a boulder climber
 @show = ('BLDV', 'FB');
 @overlays = (
     {
@@ -215,12 +229,16 @@ $perf = 320; # This simulates a boulder climber
 <div class="row-fluid">
   <div class="span12 centering">
     <div class="sd-image-caption">
-      xxxx
+      <iframe width=520 height=50 border=0 class="thecrag-oembed" src="/climbing/world/climbers/using-stat/sport-rating/?embed=ranking-graph"></iframe>
       <p><% getText 'article.cpr.section.implementation.figure.ranking.global-sport' %></p>
     </div>
     <div class="sd-image-caption">
-      xxxx
+      <iframe width=520 height=50 border=0 class="thecrag-oembed" src="/climbing/australia/arapiles/climbers/using-stat/trad-rating/of-gender/female/?embed=ranking-graph"></iframe>
       <p><% getText 'article.cpr.section.implementation.figure.ranking.arapiles-trad-female' %></p>
+    </div>
+    <div class="sd-image-caption">
+      <iframe width=520 height=50 border=0 class="thecrag-oembed" src="/climbing/world/climbers/using-stat/boulder-rating/from-country/australia/?pageSize=40&embed=ranking-graph"></iframe>
+      <p><% getText 'article.cpr.section.implementation.figure.ranking.global-boulder-from-australia' %></p>
     </div>
   </div>
 </div>
