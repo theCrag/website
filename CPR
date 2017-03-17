@@ -200,6 +200,10 @@ $perf = $perfBase - $shift->{Trad}->{'Pink point'} + 10;
 </div>
 
 
+% $markdown = getText('article.cpr.section.model.section.tick-shift-chart-explained');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
 
 <h2><% getText 'article.cpr.section.model.sub-header.decay' %></h2>
 
