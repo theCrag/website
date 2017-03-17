@@ -10,7 +10,7 @@ my $markdown;
   <div class="span12 centering">
     <div class="sd-image-caption">
       <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/leecujes/?embed=html"></iframe>
-      <p><% getText 'article.cpr.section.why.figure.example-timeseries' %></p>
+      <p><a href="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/leecujes/"><% getText 'article.cpr.section.why.figure.example-timeseries' %></a></p>
     </div>
   </div>
 </div>
@@ -30,7 +30,7 @@ my $markdown;
   <div class="span12 centering">
     <div class="sd-image-caption">
       <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/vwills/?embed=html"></iframe>
-      <p><% getText 'article.cprtimeline.floating-cpr.figure' %></p>
+      <p><a href="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/vwills/"><% getText 'article.cprtimeline.floating-cpr.figure' %></a></p>
     </div>
   </div>
 </div>
@@ -45,7 +45,7 @@ my $markdown;
   <div class="span12 centering">
     <div class="sd-image-caption">
       <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/jjobrien/?embed=html"></iframe>
-      <p><% getText 'article.cprtimeline.grit.figure' %></p>
+      <p><a href="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/jjobrien/"><% getText 'article.cprtimeline.grit.figure' %></a></p>
     </div>
   </div>
 </div>
@@ -60,7 +60,7 @@ my $markdown;
   <div class="span12 centering">
     <div class="sd-image-caption">
       <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/mattbrooks1/?embed=html"></iframe>
-      <p><% getText 'article.cprtimeline.decay.figure' %></p>
+      <p><a href="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/mattbrooks1/"><% getText 'article.cprtimeline.decay.figure' %></a></p>
     </div>
   </div>
 </div>
