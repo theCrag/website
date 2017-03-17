@@ -1,0 +1,174 @@
+4 Ticking and logbooks - 4 Calculating tick shift
+<%perl>
+my $data = $ARGS{data};
+my $perfBase = 260;
+my $perf;
+my @show;
+my @overlays;
+my $shift = $data->{tickShift};
+my $markdown;
+</%perl>
+
+
+% $markdown = getText('article.tickshift.intro');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/tickshift-1.1.0/tickshift-trad.png" />
+      <p><% getText 'article.tickshift.analysis-trad' %></p>
+    </div>
+  </div>
+</div>
+
+
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/tickshift-1.1.0/tickshift-sport.png" />
+      <p><% getText 'article.tickshift.analysis-sport' %></p>
+    </div>
+  </div>
+</div>
+
+
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <img src="/static/cids/images/tickshift-1.1.0/tickshift-boulder.png" />
+      <p><% getText 'article.tickshift.analysis-boulder' %></p>
+    </div>
+  </div>
+</div>
+
+% $markdown = getText('article.tickshift.analysis-explained');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+<div class="row-fluid">
+  <div class="span12 centering">
+<%perl>
+$perf = $perfBase;
+@show = ('AU', 'FR', 'UKT', 'YDS');
+@overlays = (
+    {
+        title => 'Onsight',
+        low   => $perf - 100,
+        high  => $perf - $shift->{Trad}->{'Onsight'} - 1,
+    },
+    {
+        title => 'Flash',
+        low   => $perf - $shift->{Trad}->{'Onsight'},
+        high  => $perf - $shift->{Trad}->{'Flash'} - 1,
+    },
+    {
+        title => 'Red point',
+        low   => $perf - $shift->{Trad}->{'Flash'},
+        high  => $perf - $shift->{Trad}->{'Red point'} - 1,
+    },
+    {
+        title => 'Pink',
+        low   => $perf - $shift->{Trad}->{'Red point'},
+        high  => $perf - $shift->{Trad}->{'Pink point'} - 1,
+    },
+);
+
+</%perl>
+    <div class="sd-image-caption">
+<& /html/thecrag/minor/gradeSlider,
+    systems => $data->{systems},
+    showSystems => \@show,
+    gradeStart => $perf - 100,
+    gradeEnd   => $perf + 50,
+    overlays => \@overlays,
+&>
+      <p><% getText 'article.cpr.section.model.figure.tick-shift.trad' %></p>
+    </div>
+
+
+
+
+<%perl>
+  # perf is the diff between trad and sport pink point because pink points should be equivalent across these two styles
+$perf = $perfBase - $shift->{Trad}->{'Pink point'} + $shift->{Sport}->{'Pink point'};
+#$perf = 279; # This simulates a sport climber
+@show = ('AU', 'FR', 'YDS');
+@overlays = (
+    {
+        title => 'Onsight',
+        low   => $perf - 100,
+        high  => $perf - $shift->{Sport}->{'Onsight'} - 1,
+        background => 'rgba(0,0,255,.05)',
+        border     => 'rgba(0,0,255,.4)',
+    },
+    {
+        title => 'Flash',
+        low   => $perf - $shift->{Sport}->{'Onsight'},
+        high  => $perf - $shift->{Sport}->{'Flash'} - 1,
+        background => 'rgba(255,0,0,.2)',
+        border     => 'rgba(255,0,0,.4)',
+    },
+    {
+        title => 'Red point',
+        low   => $perf - $shift->{Sport}->{'Flash'},
+        high  => $perf - $shift->{Sport}->{'Red point'} - 1,
+        background => 'rgba(255,0,0,.2)',
+        border     => 'rgba(255,0,0,.4)',
+    },
+    {
+        title => 'Pink',
+        low   => $perf - $shift->{Sport}->{'Red point'},
+        high  => $perf - $shift->{Sport}->{'Pink point'} - 1,
+        background => 'rgba(255,90,90,.2)',
+        border     => 'rgba(255,90,90,.4)',
+    },
+);
+</%perl>
+    <div class="sd-image-caption">
+<& /html/thecrag/minor/gradeSlider,
+    systems => $data->{systems},
+    showSystems => \@show,
+    gradeStart => $perf - 100,
+    gradeEnd   => $perf + 50,
+    overlays => \@overlays,
+&>
+      <p><% getText 'article.cpr.section.model.figure.tick-shift.sport' %></p>
+    </div>
+
+<%perl>
+  # perf is trad pink point plus some
+$perf = $perfBase - $shift->{Trad}->{'Pink point'} + 10;
+#$perf = 320; # This simulates a boulder climber
+@show = ('BLDV', 'FB');
+@overlays = (
+    {
+        title => 'Onsight',
+        low   => $perf - 100,
+        high  => $perf - $shift->{Boulder}->{'Onsight'} - 1,
+    },
+    {
+        title => 'Flash',
+        low   => $perf - $shift->{Boulder}->{'Onsight'},
+        high  => $perf - $shift->{Boulder}->{'Flash'} - 1,
+    },
+    {
+        title => 'Red point',
+        low   => $perf - $shift->{Boulder}->{'Flash'},
+        high  => $perf - $shift->{Boulder}->{'Red point'} - 1,
+    },
+);
+</%perl>
+    <div class="sd-image-caption">
+<& /html/thecrag/minor/gradeSlider,
+    systems => $data->{systems},
+    showSystems => \@show,
+    gradeStart => $perf - 100,
+    gradeEnd   => $perf + 50,
+    overlays => \@overlays,
+&>
+      <p><% getText 'article.cpr.section.model.figure.tick-shift.boulder' %></p>
+    </div>
+
+  </div>
+</div>

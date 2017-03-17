@@ -78,7 +78,8 @@ my $markdown;
 
 <h2><% getText 'article.cpr.section.model.sub-header.tick-shift' %></h2>
 
-% $markdown = getText('article.cpr.section.model.section.tick-shift',{ewbanksSportOnsightShift=>$data->{ewbanksSportOnsightShift},ewbanksTradPinkPointShift=>$data->{ewbanksTradPinkPointShift}});
+%# $markdown = getText('article.cpr.header.why.figure.further-text',{cprTimelineLink => '<a href="/article/cprtimeline">' . getText('article.cprtimeline.title') . '</a>'});
+% $markdown = getText('article.cpr.section.model.section.tick-shift',{ewbanksSportOnsightShift=>$data->{ewbanksSportOnsightShift},ewbanksTradPinkPointShift=>$data->{ewbanksTradPinkPointShift},tickShiftLink=>'<a href="/article/tickshift">'.getText('article.tickshift.title').'</a>'});
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 

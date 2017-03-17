@@ -18,13 +18,13 @@ my $markdown;
 % $markdown = getText('article.cprtimeline.text.explain-general');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<h3><% getText 'article.cprtimeline.grey-tops.header' %></h3>
+<h2><% getText 'article.cprtimeline.grey-tops.header' %></h2>
 
 % $markdown = getText('article.cprtimeline.grey-tops.text');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 
-<h3><% getText 'article.cprtimeline.floating-cpr.header' %></h3>
+<h2><% getText 'article.cprtimeline.floating-cpr.header' %></h2>
 
 <div class="row-fluid">
   <div class="span12 centering">
@@ -39,7 +39,7 @@ my $markdown;
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 
-<h3><% getText 'article.cprtimeline.grit.header' %></h3>
+<h2><% getText 'article.cprtimeline.grit.header' %></h2>
 
 <div class="row-fluid">
   <div class="span12 centering">
@@ -54,7 +54,7 @@ my $markdown;
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 
-<h3><% getText 'article.cprtimeline.decay.header' %></h3>
+<h2><% getText 'article.cprtimeline.decay.header' %></h2>
 
 <div class="row-fluid">
   <div class="span12 centering">
