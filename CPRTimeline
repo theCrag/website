@@ -1,0 +1,69 @@
+4 Ticking and logbooks - 3 CPR Timeline Explained
+<%perl>
+my $markdown;
+</%perl>
+
+% $markdown = getText('article.cprtimeline.intro');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/leecujes/?embed=html"></iframe>
+      <p><% getText 'article.cpr.section.why.figure.example-timeseries' %></p>
+    </div>
+  </div>
+</div>
+
+% $markdown = getText('article.cprtimeline.text.explain-general');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+<h3><% getText 'article.cprtimeline.grey-tops.header' %></h3>
+
+% $markdown = getText('article.cprtimeline.grey-tops.text');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+<h3><% getText 'article.cprtimeline.floating-cpr.header' %></h3>
+
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/vwills/?embed=html"></iframe>
+      <p><% getText 'article.cprtimeline.floating-cpr.figure' %></p>
+    </div>
+  </div>
+</div>
+
+% $markdown = getText('article.cprtimeline.floating-cpr.text');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+<h3><% getText 'article.cprtimeline.grit.header' %></h3>
+
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/jjobrien/?embed=html"></iframe>
+      <p><% getText 'article.cprtimeline.grit.figure' %></p>
+    </div>
+  </div>
+</div>
+
+% $markdown = getText('article.cprtimeline.grit.text');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+<h3><% getText 'article.cprtimeline.decay.header' %></h3>
+
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/mattbrooks1/?embed=html"></iframe>
+      <p><% getText 'article.cprtimeline.decay.figure' %></p>
+    </div>
+  </div>
+</div>
+
+% $markdown = getText('article.cprtimeline.decay.text');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
