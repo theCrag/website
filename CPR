@@ -1,4 +1,4 @@
-4 Ticking and logbooks - 2 Climber Performance Rating
+4 Ticking and logbooks - 3 Climber Performance Rating
 <%perl>
 my $data = $ARGS{data};
 my $perfBase = 260;
@@ -6,12 +6,6 @@ my $shift = $data->{tickShift};
 my $markdown;
 </%perl>
 
-%#<style>
-%#iframe {
-%#  display: block;
-%#  line-height: 0;
-%#}
-%#</style>
 
 % $markdown = getText('article.cpr.intro');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>

@@ -1,4 +1,4 @@
-4 Ticking and logbooks - 5 Tick types
+4 Ticking and logbooks - 2 Tick types
 <%perl>
 use CIDS::Application::StaticVersions;
 </%perl>
