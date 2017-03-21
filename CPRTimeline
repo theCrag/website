@@ -3,7 +3,7 @@
 my $markdown;
 </%perl>
 
-% $markdown = getText('article.cprtimeline.intro');
+% $markdown = getText('article.cprtimeline.intro',{cprLink => '<a href="/article/cpr">' . getText('article.cpr.title') . '</a>'});
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 <div class="row-fluid">
