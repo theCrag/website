@@ -1,33 +1,42 @@
 6 Add routes and topos - 02 Crag Karma
+<%perl>
+my $data = $ARGS{data};
+my $karma = $data->{karma};
+my $perfBase = 260;
+my $shift = $data->{tickShift};
+my $markdown;
+my %accountActivity = (
+  'verify-email' => 1,
+  'profile-description' => 1,
+  'followed-by-account ' => 1,
+  'follow-account' => 1,
+  'login' => 1,
+);
+</%perl>
 
 
-<h1>Introducing Crag Karma</h1>
+% $markdown = getText('article.cragkarma.intro');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
+<h1><% getText 'article.cragkarma.header.crag-activity' %></h1>
 
-<p>Crag Karma is a way of thecrag recognising user contributions to the index.
-</p>
-
-<p>Every time you contribute to the index, you are helping to build and improve this free online guide for the benefit of the whole climbing community. If altruism is not enough then see <a href="/article/CragCredit">Crag Credit</a> article on how Karma can directly benefit you.
-</p>
-
-<p>Karma points are added up across the index to give you a score for each area, up to the World level at the top of the index.
-</p>
-
-<p>Each contribution will add to your Karma points. You currently get points for the following: *
-</p>
+% $markdown = getText('article.cragkarma.content.crag-activity');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 <div class="sd-floater">
   <img width="200" src="http://static.thecrag.com/cids/images/tree-1.1.0.jpg">
 </div>
 
-% my $karma = $ARGS{data}->{karma};
 
 <table>
 % foreach my $activity ( sort {$karma->{$b}<=>$karma->{$a}} keys %{$karma} )   {
 %   next unless $karma->{$activity};
+%   my $label = lc($activity);
+%   $label =~ s/\s/-/g;
+%   next if $accountActivity{$label};
   <tr>
     <td>
-       <% $activity %>
+       <% getText("dbconfig.activity-item.$label") %>
     </td>
     <td>
        <% $karma->{$activity} %>
@@ -36,39 +45,33 @@
 % }
 </table>
 
-<p>
-Please note that we took some coding shortcuts and a couple of the Karma categories have been used for multiple purposes. For example 'Update Annotation' is used for both creating and updating an annotation.
-</p>
 
-<h1>A few details</h1>
-<p>
-For a particular contribution type you will only get the points once for each node in the index. For example, if you upload more than one photo for a particular route you will get <% $karma->{'Upload Photo'} %> points in total for all uploaded photos for that route.
-</p>
+<h1><% getText 'article.cragkarma.header.account-activity' %></h1>
 
-<p>
-More than one person can get points for contributions to a particular node in the index.
-</p>
+% $markdown = getText('article.cragkarma.content.account-activity');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<p>
-In order to help prevent people gaming the system Karma is not assigned immediately to your account, but put into a pending queue. After about a week, it will be assigned to your account. During that week we may alter the amount of Karma that will be assigned.
-</p>
+<table>
+% foreach my $activity ( sort {$karma->{$b}<=>$karma->{$a}} keys %{$karma} )   {
+%   next unless $karma->{$activity};
+%   my $label = lc($activity);
+%   $label =~ s/\s/-/g;
+%   next unless $accountActivity{$label};
+  <tr>
+    <td>
+       <% getText("dbconfig.activity-item.$label") %>
+    </td>
+    <td>
+       <% $karma->{$activity} %>
+    </td>
+  </tr>
+% }
+</table>
 
-<p>
-While it is cool to do genuine updates to the database for the purposes of gaining Karma, it is not cool to make rubish updates. Luckily there is so much to do, nobody seems to be making rubish updates.
-</p>
+<h1><% getText 'article.cragkarma.header.a-few-details' %></h1>
 
-<p>
-Please note that the algorithms are quite involved for assigning karma and because of this there may be cases that we accidently miss assigning karma. If this happens then please contact us so we can fix it for the future, but be aware that we will not be able to back date the karma even if you were entitled to it.
-</p>
-
-
-<p>
-<a href="/climbers/at/7546063/using-stat/karma">Click here</a> for site wide Karma leaderboard.
-</p>
-
-<p>
-* These may change from time to time.
-</p>
-
-
-
+% $markdown = getText('article.cragkarma.content.a-few-details',{
+%   uploadPhotoPoints => $karma->{'Upload Photo'},
+%   karmaLeaderboardLink => '<a href="/climbers/at/7546063/using-stat/karma">'.getText('article.cragkarma.link.karma-leaderboard').'</a>',
+% });
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
