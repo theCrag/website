@@ -8,7 +8,7 @@ my $markdown;
 my %accountActivity = (
   'verify-email' => 1,
   'profile-description' => 1,
-  'followed-by-account ' => 1,
+  'followed-by-account' => 1,
   'follow-account' => 1,
   'login' => 1,
 );
