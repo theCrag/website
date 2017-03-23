@@ -67,3 +67,9 @@ my $markdown;
 
 % $markdown = getText('article.cprtimeline.decay.text');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
+
+<h2><% getText 'article.cprtimeline.zooming.header' %></h2>
+
+% $markdown = getText('article.cprtimeline.zooming.text');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
