@@ -1,11 +1,11 @@
-**What actually happened**
+**What you expected:**
 
 
-**What did you expect**
+**What actually happened:**
 
 
-**Urls where we can see an example**
+**Urls where we can see an example:**
 
 
-**Screen shots**
+**Screen shots:**
 
