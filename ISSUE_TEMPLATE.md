@@ -1,11 +1,7 @@
-**What happened?:**
+**What happened?**
 
+
+(please also provide urls and screen shots)
 
 **What you expected:**
-
-
-**Urls where we can see an example:**
-
-
-**Screen shots:**
 
