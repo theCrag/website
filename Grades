@@ -34,9 +34,15 @@ sub isVis {
   return 1;
 }
 
+my $bugImage = '<img src="/static/silk/bug.png" width="16" height="16" alt="Github" title="Our bugs and feature requests list" />';
+my $markdown;
 </%perl>
 
-<p>We want to work with the rock climbing community to get a comprehensive and intuitive coverage of grades in the system. This is a long term initiative and at times will involve fundamental changes to the way grades work on the site. We welcome feedback on grades, but for this to be useful to the community as a whole it has to go onto our <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a>. We don't promise to fix things straight away, but we will link the discussion into this article so that the whole community can constructively contribute.</p>
+% $markdown = getText('article.grades.intro',{
+%               issuesLink => '<a href="/article/issues">'.$bugImage.getText('article.issues.title').'</a>',
+% });
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
+
 
 <p>This article covers the following topics:</p>
 <ol>

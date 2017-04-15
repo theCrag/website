@@ -1,50 +1,20 @@
 1 About theCrag - 3 Bugs and new features
+<%perl>
+my $markdown;
+my $bugImage = '<img src="/static/silk/bug.png" width="16" height="16" alt="Github" title="Our bugs and feature requests list" />';
+my $issuesListURL = 'https://github.com/theCrag/website/issues';
+my $bugAttributionURL = 'http://www.flickr.com/photos/jpockele/142703141/';
+</%perl>
 
 <div class="sd-floater">
   <img src="/static/cids/images/bugs-ladybug-1.1.0.jpg" width="250" height="250" />
 </div>
 
-<p>We love <a href="http://github.com">github.com</a>! Github is a place where people can share open source code and track bugs and features requests.</p>
-
-<p>Parts of theCrag are released as open source and github is where we will host that code. We are also using github's issue's tracker for all bugs and feature requests related to our general website.</p>
-
-<p class="info_box"><a href="https://github.com/theCrag/website/issues">
-
- <img src="/static/silk/bug.png" width="16" height="16" alt="Github" title="Our bugs and feature requests list" />
-https://github.com/theCrag/website/issues</a></p>
-
-<p>Feel free to browse our issues list and see what bugs have been identified and also see what new features and ideas us and other members have submitted. You can see the planned date for the next release and see what it will include. Feel free to make youself a github account and submit bugs and ideas, we only ask that you stick to a couple simple house rules:</p>
-
-
-
-<h1>House rules for submitting</h1>
-
-<h2>Bug reports:</h2>
-
-<ul class="sd-checklist">
-  <li>Please search the issues first to ensure it isn't already reported</li>
-  <li>Please give the url of the page where the bug happens, even if it looks like the bug is on many pages</li>
-  <li>Please include the browser and version you use (eg Firefox, IE, Chrome, Safari...)</li>
-  <li>If possible take a screen shot and stick it on facebook and provide a link to it</li>
-  <li>Please give a idea of what you consider the correct behaviour or display to be</li>
-  <li>If you have a security concern, please email us directly and do not publish details to the public issue list</li>
-</ul>
-
-
-
-<h2>Feature requests:</h2>
-
-<ul class="sd-checklist">
-  <li>If your idea isn't clearly defined then start a discussion on our facebook page and see what others think first</li>
-  <li>If you have seen a similar idea elsewhere please provide a screen shot or a link to the example</li>
-</ul>
-
-<p>If in doubt, we still defintely want to hear from you so please, please <a href="mailto:support@thecrag.com">email us</a> or start a discussion on our <a href="http://www.facebook.com/thecragcom">facebook page</a>.</p>
-
-<p>Feel free to comment on existing bugs or ideas - we will use the amount of discussion on bugs and ideas to help determine their priority.</p>
-
-<p>Github has great notifications so can 'watch' a bug or idea and be notified when it has been fixed.</p>
-
-
-<p>P.S. Thanks to <a target="_blank" href="http://www.flickr.com/photos/jpockele/142703141/">http://www.flickr.com/photos/jpockele/142703141/</a> for the ladybug pic.</p>
+% $markdown = getText('article.issues.content',{
+%               githubLink => '<a href="https://github.com">github.com</a>',
+%               issuesListLink => '<a href="'.$issuesListURL.'">'.$bugImage.$issuesListURL.'</a>',
+%               contactLink => '<a href="/article/contactus">'.getText('article.contactus.title').'</a>',
+%               bugAttributionLink => '<a href="'.$bugAttributionURL.'">'.$bugAttributionURL.'</a>',
+% });
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
