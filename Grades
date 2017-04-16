@@ -54,7 +54,7 @@ my $markdown;
   <li><a href="#article.grades.header.grades-assigned-to-routes"><% getText('article.grades.header.grades-assigned-to-routes') %></a></li>
   <li><a href="#article.grades.header.grades-assigned-to-ascents"><% getText('article.grades.header.grades-assigned-to-ascents') %></a></li>
   <li><a href="#article.grades.header.grade-contexts"><% getText('article.grades.header.grade-contexts') %></a></li>
-  <li><a href="#article.grades.header.area-contexts"><% getText('article.grades.header.area-contexts') %></a></li>
+  <li><a href="#article.grades.header.country-contexts"><% getText('article.grades.header.country-contexts') %></a></li>
 </ol>
 
 <h2><a name="article.grades.header.grade-conversions"></a><% getText('article.grades.header.grade-conversions') %></h2>
@@ -817,14 +817,16 @@ $(function(){
 <p><% getText 'col-header.context' %>: 
   <select size="1" class="route-grade-dependency route-grade-input-context">
 % foreach my $context (sort { $a->{label} cmp $b->{label} }  @{ $data->{contexts} } ){
-  <option selected value="<% $context->{label} %>"><% $context->{label} %>: <% $context->{name} %>
+  <option selected value="<% $context->{label} %>"><% $context->{label} %>: <% getText 'dbconfig.rating-system-context.'.lc($context->{label}) %>
 % }
   </select>
 
 <p><% getText 'col-header.style' %>: 
   <select size="1" class="route-grade-dependency route-grade-input-gear-style">
 % foreach my $style (sort { $a->{label} cmp $b->{label} }  @{ $data->{gearStyles} } ){
-  <option <% $style->{name} eq 'Trad' ? 'selected' : '' %> value="<% $style->{name} %>"><% $style->{name} %>
+%   my $style_stub = lc($style->{label});
+%   $style_stub =~ s/\s/-/g;
+  <option <% $style->{name} eq 'Trad' ? 'selected' : '' %> value="<% $style->{name} %>"><% ucSentenceFirst(getText 'dbconfig.route-gear-style.'.lc($style_stub)) %>
 % }
   </select>
 
@@ -837,27 +839,29 @@ $(function(){
 </div>
 
 
-<h3>5.5 Grades in a Gym</h3>
+<h3><% getText 'article.grades.header.grade-contexts.sub-header.grades-in-a-gym' %></h3>
 
-<p>Gyms being managed by the gym owner may opt for their own color codes. See the <a href="/article/GymPartner">Gym Partner</a> article for more information about setting up gyms on theCrag.</p>
+% $markdown = getText('article.grades.header.grade-contexts.sub-header.grades-in-a-gym.content',{
+%               gymLink => '<a href="/article/gympartner">'.getText('article.gympartner.title').'</a>',
+% } );
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<p>For gyms configured this way then theCrag color scheme does not apply to routes in the crag, but rather the color specified against that route.</p>
 
+<h2><a name="article.grades.header.country-contexts"></a><% getText('article.grades.header.country-contexts') %></h2>
 
-<h2><a name="article.grades.header.area-contexts"></a><% getText('article.grades.header.area-contexts') %></h2>
+% $markdown = getText('article.grades.content.country-contexts');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<p>The following table shows the current system settings for country context. Please raise an issue in our <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a> if you think we need to make some adjustments.</p>
 
 <div class="map-wrap"><div id="map-canvas" class="google-map"></div></div>
 <table id="countries" class="data">
   <tr>
     <th><i class="icon-map-marker"></i></th>
-    <th>Code</th>
-    <th>Country</th>
-    <th>Grade Context</th>
-    <th>Routes</th>
+    <th><% getText 'col-header.code' %></th>
+    <th><% getText 'col-header.country' %></th>
+    <th><% getText 'col-header.context' %></th>
+    <th><% getText 'col-header.number-routes' %></th>
   </tr>
-% use Data::Dumper;
 % foreach my $country ( @{ $data->{countries} } ){
 % if ( defined $country->{geometry}->{point} ){
   <tr data-ll="<% $country->{geometry}->{point}[1] %>,<% $country->{geometry}->{point}[0] %>">
@@ -868,9 +872,10 @@ $(function(){
 % if ( defined $country->{geometry}->{point} ){
 <i class="icon-map-marker"></i>
 % }
-%#<pre><% Dumper ($country) %></pre>
     <td>
-% my $co = $country->{countryCode}||'';
+% my $co = $country->{countryCode};
+% next unless $co;
+% next if $co eq 'AQ';
  <% $co %>
     <td>
 % if ($country->{id}){
@@ -879,7 +884,7 @@ $(function(){
 % if ($co){
 <img class="flag country" src="<% static "flags/png/".lc($co).".png" %>">
 % }
-<% $country->{name} %>
+<% getText 'dbconfig.country.'.lc($co) %>
 % if ($country->{id}){
 </a>
 % }
@@ -894,7 +899,7 @@ $(function(){
 % }
 <% $ctx %>
     <td>
-<% $country->{routes} %>
+<% formatNumber($country->{routes}) %>
   </tr>
 % }
 </table>
