@@ -35,31 +35,37 @@ sub isVis {
 }
 
 my $bugImage = '<img src="/static/silk/bug.png" width="16" height="16" alt="Github" title="Our bugs and feature requests list" />';
+my $issuesListURL = 'https://github.com/theCrag/website/issues';
 my $markdown;
 </%perl>
 
 % $markdown = getText('article.grades.intro',{
-%               issuesLink => '<a href="/article/issues">'.$bugImage.getText('article.issues.title').'</a>',
+%               issuesLink => '<a href="/article/issues">{bugImage}'.getText('article.issues.title').'</a>',
 % });
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               bugImage => $bugImage,
+ } &>
+
+% $markdown = getText('article.toc.intro');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
-
-
-<p>This article covers the following topics:</p>
 <ol>
-  <li><a href="#s1">Grade conversions</a></li>
-  <li><a href="#s2">Grade bands</a></li>
-  <li><a href="#s3">How are grades assigned to routes?</a></li>
-  <li><a href="#s4">How are grades assigned to ascents?</a></li>
-  <li><a href="#s5">Grade contexts and parsing </a></li>
-  <li><a href="#s6">Country context's</a></li>
+  <li><a href="#article.grades.header.grade-conversions"><% getText('article.grades.header.grade-conversions') %></a></li>
+  <li><a href="#article.grades.header.grade-bands"><% getText('article.grades.header.grade-bands') %></a></li>
+  <li><a href="#article.grades.header.grades-assigned-to-routes"><% getText('article.grades.header.grades-assigned-to-routes') %></a></li>
+  <li><a href="#article.grades.header.grades-assigned-to-ascents"><% getText('article.grades.header.grades-assigned-to-ascents') %></a></li>
+  <li><a href="#article.grades.header.grade-contexts"><% getText('article.grades.header.grade-contexts') %></a></li>
+  <li><a href="#article.grades.header.area-contexts"><% getText('article.grades.header.area-contexts') %></a></li>
 </ol>
 
-<h2><a name="s1" href="#s1"></a>1. Grade conversions</h2>
+<h2><a name="article.grades.header.grade-conversions"></a><% getText('article.grades.header.grade-conversions') %></h2>
 
-<p>thecrag.com can automatically convert grades to a different system according to the table below. If you can suggest a better translation please log an issue in <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a>.</p>
-
-<p>Note the coloured <a href="#s2">grade bands</a> which are used throughout the site as a quick way to gauge the difficulty of a route or area.</p>
-
+% $markdown = getText('article.grades.content.grade-conversions.intro',{
+%               issuesListPage => '<a href="'.$issuesListURL.'">{bugImage}'.getText('article.grades.link.issues-list').'</a>',
+%               gradeBandSection => '<a href="#article.grades.header.grade-bands">'.getText('article.grades.header.grade-bands').'</a>',
+% });
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               bugImage => $bugImage,
+ } &>
 
 <style>
 .nowrap {
@@ -98,22 +104,21 @@ my $markdown;
 }
 </style>
 
-<h2>Free climbing grading systems</h2>
+<h3><% getText 'article.grades.header.grade-conversions.sub-header.trad-and-sport-systems' %></h3>
 <& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Free' &>
 
-<h2>Bouldering grading systems</h2>
+<h3>Bouldering grading systems</h3>
+<h3><% getText 'article.grades.header.grade-conversions.sub-header.bouldering-systems' %></h3>
 <& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Boulder', scale => 2 &>
 
-<h2>Other climbing grading systems</h2>
+<h3><% getText 'article.grades.header.grade-conversions.sub-header.other-systems' %></h3>
 <& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Aid|Ice|Mixed|Via ferrata', scale => 1.5 &>
 
-
-
-&nbsp;<br>
-
-<p>Internally grade conversions work by converting each grade to a fine-grained internal number range between 0-500.</p>
-
-<p>If you would like programatic access to the grades and grade conversions through the <a href="/article/API">API</a> then you should get in contact with us. The programatic version of this table is available through the following API call:</p>
+% $markdown = getText('article.grades.content.grade-conversions.explain',{
+%               apiPage => '<a href="/article/api">'.getText('article.api.title').'</a>',
+%               gradeBandSection => '<a href="#article.grades.header.grade-bands">'.getText('article.grades.header.grade-bands').'</a>',
+% });
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 <div class="alert alert-info">
   http://www.thecrag.com/api/config/grade/system
@@ -121,42 +126,44 @@ my $markdown;
 
 
 
+<h2><a name="article.grades.header.grade-bands"></a><% getText('article.grades.header.grade-bands') %></h2>
 
-<h2><a name="s2" href="#s2"></a>2. Grade bands</h2>
+% my $beginner = getText('system.grade-band.beginner');
+% my $intermediate = getText('system.grade-band.intermediate');
+% my $experienced = getText('system.grade-band.experienced');
+% my $expert = getText('system.grade-band.expert');
+% my $elite = getText('system.grade-band.elite');
+% $markdown = getText('article.grades.content.grade-bands.intro',{
+%               categories => toSentence($beginner,$intermediate,$experienced,$expert,$elite),
+% });
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<p>For use on thecrag.com we have divided climb difficulty ratings into 5 segments - Beginner, Intermediate, Experienced, Expert and Elite. These definitions are somewhat arbitrary, but they are based on many years of climbing experience and there are also some statistical reasons for breaking climbing into these segments.</p>
+<img src="/static/cids/images/difficultybanddemo-1.1.1.gif" width="640" height="180" />
 
-<p>There are two common area difficulty graphs used throughout the site, the grade band and dual grade band.</p>
-
-<img src="/static/cids/images/difficultybanddemo-1.1.1.gif" width="640" height="180" alt="Grade bands summary" />
-
-<p> The grade band chart shows the relative number of climbs at the particular difficuly bands. This is shown at each area and should give you a quick summary of the area's relative difficulty.</p>
-
-<p>The dual grade band shows also what grades people are climbing at an area, based on the number of ascents at each grade. This is interesting, because some areas may have a lot of hard climbs, but the easier climbs are climbed more often (eg Arapiles) and other areas have a lot of easier climbs, but people go there for the hard climbs (eg Grampians).</p>
-
-<p> The table below fives a brief description of each band.</p>
+% $markdown = getText('article.grades.content.grade-bands.explain');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 <table class="data">
   <tbody>
     <tr>
-      <td scope="col" class="gb1">Beginner</td>
-      <td scope="col">The level of difficulty for your first couple of days of climbing (seconding or top roping). Many people may achieve these grades on their first day of climbing. There are still some very scary and/or dangerous climbs at this level (eg Bard). </td>
+      <td scope="col" class="gb1"><% $beginner %></td>
+      <td scope="col"><% getText 'article.grades.grade-bands-beginner-explained' %></td>
     </tr>
     <tr>
-      <td scope="col" class="gb2">Intermediate</td>
-      <td scope="col">Typical grades for people with less than a years climbing. Note that most people cannot climb this level on their first couple of days of climbing. Statistically speaking, most outdoor climbing is done in this band. A lot of experienced climbers end up backing off to this level as they enjoy their climbing into old age.</td>
+      <td scope="col" class="gb2"><% $intermediate %></td>
+      <td scope="col"><% getText 'article.grades.grade-bands-intermediate-explained' %></td>
     </tr>
     <tr>
-      <td scope="col" class="gb3">Experienced</td>
-      <td scope="col">People can achieve these levels if they have been climbing fairly regularily for a couple of years. These grades are where the social climbers start becoming rare.</td>
+      <td scope="col" class="gb3"><% $experienced %></td>
+      <td scope="col"><% getText 'article.grades.grade-bands-experienced-explained' %></td>
     </tr>
     <tr>
-      <td scope="col" class="gb4">Expert</td>
-      <td scope="col">You really need to be training in a focused way to climb at this level. Not so many people reach this level.</td>
+      <td scope="col" class="gb4"><% $expert %></td>
+      <td scope="col"><% getText 'article.grades.grade-bands-expert-explained' %></td>
     </tr>
     <tr>
-      <td scope="col" class="gb5">Elite</td>
-      <td scope="col">You climb for a living, are sponsored and have a full time trainer and massuer looking after you. This is the best of the best. If you are normal, you would not have a hope of even dogging up one of these climbs.</td>
+      <td scope="col" class="gb5"><% $elite %></td>
+      <td scope="col"><% getText 'article.grades.grade-bands-elite-explained' %></td>
     </tr>
   </tbody>
 </table>
@@ -165,122 +172,83 @@ my $markdown;
 
 
 
-<h2><a name="s3" href="#s3"></a>3. How are grades asigned to routes?</h2>
+<h2><a name="article.grades.header.grades-assigned-to-routes"></a><% getText('article.grades.header.grades-assigned-to-routes') %></h2>
 
-<p>Routes have a registered community grade and a list of independent user and publisher grade contributions (a publisher contribution is a citation from a publication). The user and publisher grade contributions are displayed on the route page. The official grade of the route used by theCrag is given by the registered grade.</p>
+% $markdown = getText('article.grades.content.grades-assigned-to-routes.intro');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<p>Please consider the registered community grade as the grade that has been accepted by the community. This may change over time.<p>
+<h3><% getText 'article.grades.header.grades-assigned-to-routes.sub-header.registered-grade' %></h3>
 
-
-<h3>3.1 Registered community grade</h3>
-
-<p>The registered community grade is the official grade of the route, and is used through out the website and publications.</p>
-
-<p>A registered community grade may have multiple components, for example:</p>
-<ul>
-  <li>A free climbing grade (5.12a) and an aid grade (A3), combined would read <span itemprop="contentRating" class="grade gb3">5.12a A3</span>.</li>
-  <li>British technical (4a) and adjectival (MS), combined would read <span itemprop="contentRating" class="grade gb2">MS 4a</span>.</li>
-</ul>
-
-<p>A route may have official grades from several different grading systems (eg in Thailand many routes have an official French and Australian grade). For example:<p>
-<div class="alert alert-info">
-  <a href="http://www.thecrag.com/route/17710201">http://www.thecrag.com/route/17710201</a>
-</div>
-<p>The above route, "Knights In White Satin" has a registered grade of <span itemprop="contentRating" class="grade gb4">7b+</span> French and <span itemprop="contentRating" class="grade gb4">26</span> Australian Ewbanks. Because the Thailand is assigned the French context the French grade will be shown on the site. (Question: Do we want to show the Australian grade to Australian users?)</p>
-
-<p>Once a route has a registered grade it can only be changed by an Editor and is not affected by subsequent user contributions.</p>
+% $markdown = getText('article.grades.header.grades-assigned-to-routes.sub-header.registered-grade.content');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               exampleRouteLink => '<div class="alert alert-info"><a href="https://www.thecrag.com/climbing/thailand/krabi/route/17710201"></a>https://www.thecrag.com/climbing/thailand/krabi/route/17710201</div>',
+               exampleGrade512 => '<span itemprop="contentRating" class="grade gb3">5.12a A3</span>',
+               exampleGrade4a => '<span itemprop="contentRating" class="grade gb2">MS 4a</span>',
+               exampleGrade7b => '<span itemprop="contentRating" class="grade gb4">7b+</span>',
+               exampleGrade26 => '<span itemprop="contentRating" class="grade gb4">26</span>',
+ } &>
 
 
-<h3>3.2 Grade contributions</h3>
+<h3><% getText 'article.grades.header.grades-assigned-to-routes.sub-header.grade-contributions' %></h3>
 
-<p>Anybody may make a grade contribution. A climb may have several grade contributions from users and publishers.</p>
-
-<p>When you add a new route, the grade you enter becomes your grade contribution (unless you are citing a publication, in which case in becomes a publisher contribution). For new routes your grade contribution also becomes the registered grade.<p>
-
-<p>You may add your user grade contribution to an existing route using the update route details process. If the route already has a registered grade then this will not be effected (otherwise your contribution is used to start the registered grade).</p>
+% $markdown = getText('article.grades.header.grades-assigned-to-routes.sub-header.grade-contributions.content');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 
-<h3>3.3 Grade ranges</h3>
+<h3><% getText 'article.grades.header.grades-assigned-to-routes.sub-header.grade-ranges' %></h3>
 
-<p>Behind the scenes everything is a grade range with a minimum grade and maximum grade. Mostly people will use just one grade, but on occasions it is useful to use a grade range for a particular route (eg you may input 5.10a-b, which will be interpreted by the sytem as a grade range and displayed as <span itemprop="contentRating" class="grade gb2">5.10a to 5.10b</span>.</p>
-
-<p>Grade ranges are absolutely necessary for grade conversions. Very few grade conversions match exactly there is usually overlap. For example 5.8 in the Yosemite Decimal System maps to both 15 and 16 in the Australian Ewbanks system.</p>
-
-<p>We are planning a future enhancement where we represent each grade to a probability bell curve because this represents more accurately what a grade is. For example a route usually takes on the grade of the first assentionist, which is subjective. The first assentionist is feeling really strong that day, and they think the route is a 5.10a, when in actual fact most climbers would have though it is a 5.10b. All climbers have come across routes that are easier or harder then the grade suggests. Over time grades which are way off may be corrected, but ultimately if you got a 100 climbers to independently grade a route, you will not get exactly the same answer from each climber (leaving aside arguments about differences between short and tall climbers). This suggests that route grades are probablistic.<p>
-
-
-<h3>3.4 Aid eliminates</h3>
-
-<p>A route may orinally be a 5.10b A4, then later somebody may climb it as a 5.11a A0, then later as a 5.12c. In this scenario the route should have the cleanest grade as its registered grade, but may have all the other grades listed as grade contributions.</p>
-
-<div class="alert alert-info">
-  Note we have plans to make some changes here to cater for multiple whole grades, so all aid eliminates can be created as alternate registered grades and available for selection when ticking.
-</div>
+% $markdown = getText('article.grades.header.grades-assigned-to-routes.sub-header.grade-ranges.content');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               exampleGrade => '<span itemprop="contentRating" class="grade gb2">5.10a to 5.10b</span>',
+ } &>
 
 
-<h3>3.5 Special rating systems</h3>
+<h3><% getText 'article.grades.header.grades-assigned-to-routes.sub-header.aid-eliminates' %></h3>
 
-<p>You may use the <a href="http://en.wikipedia.org/wiki/Grade_%28climbing%29#YDS_protection_rating">YDS protection rating</a> in your grade contribution or registered grade. For example <span itemprop="contentRating" class="grade gb3">5.10d X</span>.</p> 
+% $markdown = getText('article.grades.header.grades-assigned-to-routes.sub-header.aid-eliminates.content');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<p>On some pages the system does not display the mild ratings to avoid clutter.</p>
+<h3><% getText 'article.grades.header.grades-assigned-to-routes.sub-header.special-rating-systems' %></h3>
+
+% $markdown = getText('article.grades.header.grades-assigned-to-routes.sub-header.special-rating-systems.content',{
+%               protectionRatingLink => '<a href="http://en.wikipedia.org/wiki/Grade_%28climbing%29#YDS_protection_rating">'.getText('article.grades.link.yds-protection-rating').'</a>',
+%               starsLink => '<a href="/article/stars">'.getText('article.stars.title').'</a>',
+% } );
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               exampleGrade => '<span itemprop="contentRating" class="grade gb3">5.10d X</span>',
+ } &>
 
 
-<h3>3.6 Special rating systems</h3>
+<h2><a name="article.grades.header.grades-assigned-to-ascents"></a><% getText('article.grades.header.grades-assigned-to-ascents') %></h2>
 
-<p>Although not part of the registered grade you can include some additional rating systems in your grade contributions. These include:</p>
-
-<ul>
-  <li>Stars</li>
-</ul>
-
-<p>If you add a *, ** or *** to the end of your grade contribution the system will recognise this a star rating. See <a href="/article/Stars">how stars work</a>.</p>
+% $markdown = getText('article.grades.content.grades-assigned-to-routes',{
+%                cprLink => '<a href="/article/cpr">'.getText('article.cpr.title').'</a>',
+% } );
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 
 
 
-<h2><a name="s4" href="#s4"></a>4. How are grades asigned to ascents?</h2>
+<h2><a name="article.grades.header.grade-contexts"></a><% getText('article.grades.header.grade-contexts') %></h2>
 
-<p>Currently when you log an ascent the asent will automatically take up to two of route's registered grade components as the ascent grade. If there are two grade components (eg British Adjectival and Technical or Free and Aid) then both will be catered for. If there are more than two (eg Free, Aid and Protection), then one will be dropped.</p>
+% $markdown = getText('article.grades.content.grade-contexts.intro');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<p>A logged ascent has a primary grade and secondary grade independent of the route's grade. This means you may update your ascent to any grade you want, such as a different grading system or different grade to the route.</p>
+<h3><% getText 'article.grades.header.grade-contexts.sub-header.grade-context-meaning' %></h3>
 
-<p>To adjust your ascent's grade after you have logged the ascent follow the following procedure:</p>
-
-<ul>
-  <li>Log in to theCrag.</li>
-  <li>Go to your dashboard page.</li>
-  <li>In the Logbook top level tab navigation click 'All your ascents' dropdown.</li>
-  <li>Look for the ascent you want to update. There is a down arrow on the right, click it then click the 'Edit' dropdown.</li>
-  <li>Select the new grades.</li>
-</ul>
-
-<div class="alert alert-info">
-  Note that ascent logging grades is a little restrictive and we plan to bring this in-line with the full route grade capability.</p> 
-</div>
-
-
-
-
-<h2><a name="s5" href="#s5"></a>5. Grade contexts and parsing</h2>
-
-<p>Our aim is for you to contribute grades as you see them in guidebooks and for the platform to be smart enough to work out what you mean.</p>
-
-<h3>5.1 Grade contexts</h3>
-
-<p>What does it mean if you type in the grade '5c'? If you were in Britian you would think it was the Experienced British grade <span itemprop="contentRating" class="grade gb3">5c</span>, but if you were in France you would think it was the Intermediate French grade <span itemprop="contentRating" class="grade gb2">5c</span>. If it was a bouldering route in Fontainebleau then you would think it is the Experienced Fontainebleau bouldering grade <span itemprop="contentRating" class="grade gb3">5C</span>. Interpretation of grades is dependent on where you are and the style of route, this is what we term grade context.</p>
-
-<p>A Grade context is a way of the platform working out how to interpret potentially conficting grades written in plain text, and we set a grade context at the country level.</p>
-
-<p>A grade context is simply a priority list of which grade systems it should check first when matching a grade. For instance in Australia, you can use a french grade, but it will check it first against the locally used Ewbank, and V-Grade bouldering grade systems first, and then if it doesn't match it will check against all the other grade systems. The platform defines as few contexts as possible in order to eliminate conflicts. In general most countries can use the default context.</p>
-
-<p>Currently the system defines the following contexts:</p>
+% $markdown = getText('article.grades.header.grade-contexts.sub-header.grade-context-meaning.content');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               exampleGradeUK5c => '<span itemprop="contentRating" class="grade gb3">5c</span>',
+               exampleGradeFR5c => '<span itemprop="contentRating" class="grade gb2">5c</span>',
+               exampleGradeFB5c => '<span itemprop="contentRating" class="grade gb3">5C</span>',
+ } &>
 
 
 <table class="data">
 <tr>
-<th style="width: 60px">Code</th>
-<th>Grade context</th>
-<th style="width: 65%">Countries and Grade Systems</th>
+<th style="width: 60px"><% getText 'col-header.code' %></th>
+<th><% getText 'col-header.grade-context' %></th>
+<th style="width: 65%"><% getText 'col-header.countries-and-grade-systems' %></th>
 </tr>
 % foreach my $context (sort { $a->{label} cmp $b->{label} }  @{ $data->{contexts} } ){
 <tr id="context-<% $context->{label} %>">
@@ -294,11 +262,11 @@ my $markdown;
 <img class="flag context" src="<% static "flags/png/$icon".".png" %>">
 % }
  <% $context->{label} %>
-<td><h4><% $context->{name} %></h4>
-<% $context->{description} %>
+<td><h4><% getText 'dbconfig.rating-system-context.'.lc($context->{label}) %></h4>
+<% getText('system.rating-system-context.description.'.lc($context->{label})) %>
 </td>
 <td>
-<p><b>Countries:</b>  
+<p><b><% ucSentenceFirst(getText 'object.country.many') %>:</b>  
 %   my $shown = 0;
 %   foreach my $country ( @{ $data->{countries} } ){
 %     my $ctx = $country->{defaultGrading}->{context} || '';
@@ -307,11 +275,11 @@ my $markdown;
 <a class="nowrap country" href='<% CIDS::Application::WebHelpers::indexURL($country,type=>'area') %>'>
 % my $co = $country->{countryCode};
 <img class="flag country" src="<% static "flags/png/".lc($co).".png" %>">
- <% $country->{name} %>\
+ <% getText 'dbconfig.country.'.lc($co) %>\
 </a>\
 %     }
 %   }
-<p><b>General grade systems:</b>
+<p><b><% getText 'article.grades.label.general-grading-systems' %>:</b>
 % $shown = 0;
 % foreach my $sys ( @{ $context->{parseSystems} } ){
 %   my $system = $sysHash{$sys};
@@ -321,11 +289,13 @@ my $markdown;
 <% $shown++ ? ', ' : '' %>
 %     my $type = lc $system->{type};
 %     $type = 'trad' if $type eq 'free';
-<span class="nowrap" title="Label: <% $system->{label} %>, Abbrev: <% $system->{abbreviatedName} %>,  Type: <% $system->{type} %>"><b class="bullet <% $type %>"></b> <% $system->{name} %></span>\
+<span class="nowrap"><b class="bullet <% $type %>"></b> <% getText('dbconfig.rating-system.'.lc($system->{label})) %></span>\
 %   }
 % }
 % foreach my $style ( keys %{ $context->{parseStyles} } ){
-<p><b>Additional <% lc $style %> systems:</b>
+%   my $style_stub = lc($style);
+%   $style_stub =~ s/\s/-/g;
+<p><b><% getText 'article.grades.label.additional-grading-systems', {style=>getText('dbconfig.route-gear-style.'.$style_stub)} %>:</b>
 %   $shown = 0;
 %   foreach my $sys ( @{ $context->{parseStyles}->{$style} } ){
 %     my $system = $sysHash{$sys};
@@ -335,7 +305,7 @@ my $markdown;
 <% $shown++ ? ', ' : '' %>
 %       my $type = lc $system->{type};
 %       $type = 'trad' if $type eq 'free';
-<span class="nowrap" title="Label: <% $system->{label} %>, Abbrev: <% $system->{abbreviatedName} %>,  Type: <% $system->{type} %>"><b class="bullet <% $type %>"></b> <% $system->{name} %></span>\
+<span class="nowrap"><b class="bullet <% $type %>"></b> <% getText('dbconfig.rating-system.'.lc($system->{label})) %></span>\
 %     }
 %   }
 % }
@@ -343,12 +313,6 @@ my $markdown;
 </tr>
 % }
 </table>
-
-<p>Each country is assigned a context. Hopefully we have got it close to right (see <a href="#s5_3">section 5.3</a>).
- In the table above we only show countries that have routes in them, and new countries default to the US, so if this
- isn't right for a particular country please contact us and we'll fix it. 
-</p>
-<p> You may change the context of a particular route when you add or update that route.</p>
 
 
 <script type="text/javascript">
@@ -371,14 +335,15 @@ $(function(){
 });
 </script>
 
-<h3>5.2 Force grading system</h3>
+<h3><% getText 'article.grades.header.grade-contexts.sub-header.force-grading-system' %></h3>
 
-<p>You can force a grading system when you input a grade by starting with the grading system label followed by a colon then the grade. For example "FR:6a+". The table below shows grading system labels that you can use.</p>
+% $markdown = getText('article.grades.header.grade-contexts.sub-header.force-grading-system.content');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 <table class="data">
   <tr>
-    <th>Label</th>
-    <th>Grading System</th>
+    <th><% getText 'col-header.label' %></th>
+    <th><% getText 'col-header.rating-system' %></th>
   </tr>
 % foreach my $label ( keys %sysHash ){
 %   my $system = $sysHash{$label};
@@ -386,209 +351,213 @@ $(function(){
 %   next unless $system->{displayable};
   <tr>
     <td><% $label %></td>
-    <td><% $system->{name} %></td>
+    <td><% getText 'dbconfig.rating-system.'.lc($system->{label}) %></td>
   </tr>
 % }
 </table>
 
 
-<h3>5.3 Examples</h3>
+<h3><% getText 'article.grades.header.grade-contexts.sub-header.examples' %></h3>
+% $markdown = getText('article.grades.header.grade-contexts.sub-header.examples.content');
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<p>The best way to explain how the system converts the plain text you enter into grades is to look at some examples.</p>
+% my $trad = ucSentenceFirst(getText('dbconfig.route-gear-style.trad'));
+% my $boulder = ucSentenceFirst(getText('dbconfig.route-gear-style.boulder'));
+% my $sport = ucSentenceFirst(getText('dbconfig.route-gear-style.sport'));
 
 <table class="data">
   <tr>
-    <th>Context</th>
-    <th>Style</th>
-    <th>Text entered</th>
-    <th>Grade</th>
-    <th>Comment</th>
+    <th><% getText 'col-header.context' %></th>
+    <th><% getText 'col-header.style' %></th>
+    <th><% getText 'col-header.text-entered' %></th>
+    <th><% getText 'col-header.grade' %></th>
+    <th><% getText 'col-header.comment' %></th>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.12a</td>
     <td class="example-result"></td>
     <td></td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.12</td>
     <td class="example-result"></td>
     <td>The system has a grade system where grades are expressed as 5.12-, 5.12 and 5.12+.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.12+</td>
     <td class="example-result"></td>
     <td></td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.12a+</td>
     <td class="example-result"></td>
     <td>Note that + does not always form part of the offial grade, in which case it is ignored.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">12a</td>
     <td class="example-result"></td>
     <td>The system is able to work out common partial grades.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">12</td>
     <td class="example-result"></td>
     <td>partial grades can be very dependent on the context (in US context this is 5.12, in AU context this is 12).</td>
   </tr>
   <tr>
     <td class="example-context">AU</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">12</td>
     <td class="example-result"></td>
     <td>Compare to above example</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.12a-5.12c</td>
     <td class="example-result"></td>
     <td>This is interpreted as a grade range.<b/td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.12a-b</td>
     <td class="example-result"></td>
     <td>Common abbreviated grade ranges</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.12a/b</td>
     <td class="example-result"></td>
     <td>The forward slash '/' is interpreted as an or, in which case the system assigns the highest single grade.</td>
   </tr>
   <tr>
     <td class="example-context">AU</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">17/18</td>
     <td class="example-result"></td>
     <td></td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.10,5.12d,5.9</td>
     <td class="example-result"></td>
     <td>Commas used to indicate multi-pitch, in which case the system will assign the highest grade.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.9 S</td>
     <td class="example-result"></td>
     <td>Protection rating is displayed as part of the grade.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.10a X,5.12</td>
     <td class="example-result"></td>
     <td>Multipitch may include protection rating.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.10a,5.10b M1,5.9 M4</td>
     <td class="example-result"></td>
     <td>The multipitch may include aid grades.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.9**</td>
     <td class="example-result"></td>
     <td>The contribution will also be attributed with <img src="/static/silk/star.png" height="16" width="16"><img src="/static/silk/star.png" height="16" width="16">. Learn more about <a href="/article/Stars">quality ratings</a>.</td>
   </tr>
   <tr>
     <td class="example-context">FR</td>
-    <td class="example-style">Sport</td>
+    <td class="example-style"><% $sport %></td>
     <td class="example-text">5c</td>
     <td class="example-result"></td>
     <td>The French grade.</td>
   </tr>
   <tr>
     <td class="example-context">UK</td>
-    <td class="example-style">Sport</td>
+    <td class="example-style"><% $sport %></td>
     <td class="example-text">5c</td>
     <td class="example-result"></td>
     <td>The British technical grade.</td>
   </tr>
   <tr>
     <td class="example-context">FR</td>
-    <td class="example-style">Boulder</td>
+    <td class="example-style"><% $boulder %></td>
     <td class="example-text">5C</td>
     <td class="example-result"></td>
     <td>The Fontainebleau bouldering grade.</td>
   </tr>
   <tr>
     <td class="example-context">FR</td>
-    <td class="example-style">Boulder</td>
+    <td class="example-style"><% $boulder %></td>
     <td class="example-text">5c</td>
     <td class="example-result"></td>
     <td>The Fontainebleau bouldering grade can also be written in lower case.</td>
   </tr>
   <tr>
     <td class="example-context">UK</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">E2 5c</td>
     <td class="example-result"></td>
     <td>The British adjectival and technical grade.</td>
   </tr>
   <tr>
     <td class="example-context">UK</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">D</td>
     <td class="example-result"></td>
     <td>The British adjectival.</td>
   </tr>
   <tr>
     <td class="example-context">UK</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">Difficult</td>
     <td class="example-result"></td>
     <td>Yup, according to the British adjectival system, difficult is a beginner's route - go figure. I think climbing developed faster than they could keep up.</td>
   </tr>
   <tr>
     <td class="example-context">AU</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">19</td>
     <td class="example-result"></td>
     <td>Australian Ewbanks grade.</td>
   </tr>
   <tr>
     <td class="example-context">SA</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">19</td>
     <td class="example-result"></td>
     <td>South African grade (compare to level of difficulty for an Australian Ewbanks grade 19 above)</td>
   </tr>
   <tr>
     <td class="example-context">AU</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">21 (S)</td>
     <td class="example-result"></td>
     <td>Australian Ewbanks grade with a sport route indicator. This is in for historical reasons (common for Australian guidebooks to use this notation), but because of it's potential confusion with the protection rating S we don't want it to be used anymore. For sport routes just tick the sport route indicator. Note the sport indicator must have brackets.</td>
   </tr>
   <tr>
     <td class="example-context">AU</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">21 M2</td>
     <td class="example-result"></td>
     <td>Australian Ewbanks grade with an Australian aid grade.</td>
@@ -602,49 +571,49 @@ $(function(){
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">Class 2</td>
     <td class="example-result"></td>
     <td></td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">Class IV</td>
     <td class="example-result"></td>
     <td></td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">F6</td>
     <td class="example-result"></td>
     <td>NCCS Scale.</td>
   </tr>
   <tr>
     <td class="example-context">UIAA</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">11-</td>
     <td class="example-result"></td>
     <td>UIAA grade.</td>
   </tr>
   <tr>
     <td class="example-context">SA</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">D3</td>
     <td class="example-result"></td>
     <td>Old South African grade.</td>
   </tr>
   <tr>
     <td class="example-context">SX</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">VIIa</td>
     <td class="example-result"></td>
     <td>Saxon grade.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5.6A1+</td>
     <td class="example-result"></td>
     <td>Free plus Aid grade.</td>
@@ -665,49 +634,49 @@ $(function(){
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Boulder</td>
+    <td class="example-style"><% $boulder %></td>
     <td class="example-text">V4</td>
     <td class="example-result"></td>
     <td>Vermin V-Scale for bouldering.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Boulder</td>
+    <td class="example-style"><% $boulder %></td>
     <td class="example-text">B5.6</td>
     <td class="example-result"></td>
     <td>The little more obscure Expanded Gill B-Scale for bouldering.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Boulder</td>
+    <td class="example-style"><% $boulder %></td>
     <td class="example-text">B2-</td>
     <td class="example-result"></td>
     <td>And another B-Scale.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Boulder</td>
+    <td class="example-style"><% $boulder %></td>
     <td class="example-text">S4-</td>
     <td class="example-result"></td>
     <td>Bouldering Smith Rocks S-Scale.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Boulder</td>
+    <td class="example-style"><% $boulder %></td>
     <td class="example-text">P10</td>
     <td class="example-result"></td>
     <td>Bouldering Phoenix P-Scale.</td>
   </tr>
   <tr>
     <td class="example-context">US</td>
-    <td class="example-style">Boulder</td>
+    <td class="example-style"><% $boulder %></td>
     <td class="example-text">C+</td>
     <td class="example-result"></td>
     <td>Bouldering Joshua Tree Scale.</td>
   </tr>
   <tr>
     <td class="example-context">AU</td>
-    <td class="example-style">Boulder</td>
+    <td class="example-style"><% $boulder %></td>
     <td class="example-text">V0+</td>
     <td class="example-result"></td>
     <td>But really the bouldering V-Scale is accepted everywhere, so just use that.</td>
@@ -735,7 +704,7 @@ $(function(){
   </tr>
   <tr>
     <td class="example-context">FR</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">PD</td>
     <td class="example-result"></td>
     <td>IFAS (International French Adjectival System) - nothing in the conversion table.</td>
@@ -784,86 +753,85 @@ $(function(){
   </tr>
   <tr>
     <td class="example-context">AU</td>
-    <td class="example-style">Sport</td>
+    <td class="example-style"><% $sport %></td>
     <td class="example-text">12 # i think</td>
     <td class="example-result"></td>
     <td>You can add comments to your grade contribution by using "#".</td>
   </tr>
   <tr>
     <td class="example-context">FR</td>
-    <td class="example-style">Sport</td>
+    <td class="example-style"><% $sport %></td>
     <td class="example-text">UKT:5c+</td>
     <td class="example-result"></td>
     <td>You can force a grading system in a foreign context by appending the gradings system label (note that it must be the explicit grading system label, not a context label).</td>
   </tr>
   <tr>
     <td class="example-context">HK</td>
-    <td class="example-style">Sport</td>
+    <td class="example-style"><% $sport %></td>
     <td class="example-text">5c</td>
     <td class="example-result"></td>
     <td>Hong Kong uses French grading system for sport routes.</td>
   </tr>
   <tr>
     <td class="example-context">HK</td>
-    <td class="example-style">Trad</td>
+    <td class="example-style"><% $trad %></td>
     <td class="example-text">5c</td>
     <td class="example-result"></td>
     <td>Hong Kong uses UK technical system for trad routes.</td>
   </tr>
   <tr>
     <td class="example-context">HK</td>
-    <td class="example-style">Boulder</td>
+    <td class="example-style"><% $boulder %></td>
     <td class="example-text">5c</td>
     <td class="example-result"></td>
     <td>Hong Kong uses UK technical system for boulder routes.</td>
   </tr>
   <tr>
     <td class="example-context">UIAA</td>
-    <td class="example-style">Boulder</td>
+    <td class="example-style"><% $boulder %></td>
     <td class="example-text">5</td>
     <td class="example-result"></td>
     <td>UIAA uses UIAA system for bouldering sometimes.</td>
   </tr>
   <tr>
     <td class="example-context">UIAA</td>
-    <td class="example-style">Boulder</td>
+    <td class="example-style"><% $boulder %></td>
     <td class="example-text">5c</td>
     <td class="example-result"></td>
     <td>UIAA uses Fontainebleau system for bouldering sometimes.</td>
   </tr>
   <tr>
     <td class="example-context">UK</td>
-    <td class="example-style">Sport</td>
+    <td class="example-style"><% $sport %></td>
     <td class="example-text">FR:4c</td>
     <td class="example-result"></td>
     <td>4c would normally covert to the British Technical grade in UK context, however the override sets the system to French.</td>
   </tr>
 </table>
 
-<p>If you see a way of writing a grade in a guidebook then test it out and if it does not work then please contact us so we can enhance the system.</p>
 
-<h3>5.4 Try it yourself</h3>
+<h3><% getText 'article.grades.header.grade-contexts.sub-header.try-it-yourself' %></h3>
 
 <div class="route-grade-grouper">
 
-<p>Context: 
+<p><% getText 'col-header.context' %>: 
   <select size="1" class="route-grade-dependency route-grade-input-context">
 % foreach my $context (sort { $a->{label} cmp $b->{label} }  @{ $data->{contexts} } ){
   <option selected value="<% $context->{label} %>"><% $context->{label} %>: <% $context->{name} %>
 % }
   </select>
 
-<p>Style: 
+<p><% getText 'col-header.style' %>: 
   <select size="1" class="route-grade-dependency route-grade-input-gear-style">
 % foreach my $style (sort { $a->{label} cmp $b->{label} }  @{ $data->{gearStyles} } ){
   <option <% $style->{name} eq 'Trad' ? 'selected' : '' %> value="<% $style->{name} %>"><% $style->{name} %>
 % }
   </select>
 
-<p>Your test input: 
+<p><% getText 'col-header.your-test-input' %>: 
   <input type=text class="route-grade-dependency route-grade-input-text-grade" />
 
-<p>System output: 
+<p><% getText 'col-header.system-output' %>: 
   <span class="route-grade-output"></span>
 
 </div>
@@ -876,7 +844,7 @@ $(function(){
 <p>For gyms configured this way then theCrag color scheme does not apply to routes in the crag, but rather the color specified against that route.</p>
 
 
-<h2><a name="s6" href="#s6"></a>6. Country context's</h2>
+<h2><a name="article.grades.header.area-contexts"></a><% getText('article.grades.header.area-contexts') %></h2>
 
 <p>The following table shows the current system settings for country context. Please raise an issue in our <a href="/article/issues"><img src="/static/silk/bug.png" width="16" height="16"/> issues list</a> if you think we need to make some adjustments.</p>
 
