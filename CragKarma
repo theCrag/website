@@ -1,4 +1,4 @@
-6 Add routes and topos - 02 Crag Karma
+6 Add routes and topos - 02 Karma
 <%perl>
 my $data = $ARGS{data};
 my $karma = $data->{karma};
@@ -11,6 +11,7 @@ my %accountActivity = (
   'followed-by-account' => 1,
   'follow-account' => 1,
   'login' => 1,
+  'upload-avatar' => 1,
 );
 </%perl>
 
