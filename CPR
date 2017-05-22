@@ -31,8 +31,8 @@ my $markdown;
 <div class="row-fluid">
   <div class="span12 centering">
     <div class="sd-image-caption">
-      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/leecujes/?embed=html"></iframe>
-      <p><a href="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/leecujes/"><% getText 'article.cpr.section.why.figure.example-timeseries' %></a></p>
+      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/has/sport-cpr/by/leecujes/?embed=html"></iframe>
+      <p><a href="/ascents/aggregate/graph-sport-cpr/has/sport-cpr/by/leecujes/"><% getText 'article.cpr.section.why.figure.example-timeseries' %></a></p>
     </div>
   </div>
 </div>
@@ -61,8 +61,8 @@ my $markdown;
 <div class="row-fluid">
   <div class="span12 centering">
     <div class="sd-image-caption">
-      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/jakobschubert/?embed=html"></iframe>
-      <p><a href="/ascents/aggregate/graph-sport-cpr/with-route-gear-style/sport/by/jakobschubert/"><% getText 'article.cpr.section.model.figure.power-factor' %></a></p>
+      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-sport-cpr/has/sport-cpr/by/jakobschubert/?embed=html"></iframe>
+      <p><a href="/ascents/aggregate/graph-sport-cpr/has/sport-cpr/by/jakobschubert/"><% getText 'article.cpr.section.model.figure.power-factor' %></a></p>
     </div>
   </div>
 </div>
@@ -172,8 +172,8 @@ my $markdown;
 <div class="row-fluid">
   <div class="span12 centering">
     <div class="sd-image-caption">
-      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-trad-cpr/with-route-gear-style/trad/at/11740915?embed=html"></iframe>
-      <p><a href="/ascents/aggregate/graph-trad-cpr/with-route-gear-style/trad/at/11740915"><% getText 'article.cpr.section.implementation.figure.flexible.crag-profile' %></a></p>
+      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-trad-cpr/has/trad-cpr/at/11740915?embed=html"></iframe>
+      <p><a href="/ascents/aggregate/graph-trad-cpr/has/trad-cpr/at/11740915"><% getText 'article.cpr.section.implementation.figure.flexible.crag-profile' %></a></p>
     </div>
   </div>
 </div>
