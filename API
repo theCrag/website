@@ -2632,7 +2632,7 @@ data:
 
 <p>2. For each crag, get the index detail. For example Arapiles:
 
-<p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,BoundedBox,Fence,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,BoundedBox,Fence,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades</a></li>
+<p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Archived,Point,BoundedBox,Fence,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Archived,Point,BoundedBox,Fence,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades</a></li>
 
 
 
@@ -2781,3 +2781,9 @@ data:
 <p>The system is set up so that you can get just changed data since your last query. To do that pass in the 'since' parameter using the unix epoch timestamp. You can use the LastUpdated field in a previous call to get this value. For example, incremental update of Arapiles:
 
 <p><a href="http://dev.thecrag.com/api/index/detail/11740915?key=abc&withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades&since=1459146212">http://dev.thecrag.com/api/index/detail/11740915?withdata=NodeID,ParentID,LastUpdated,SiblingSequence,NodeType,Name,Point,CountryNodeID,AreaType,Price,GearStyle,Grade,Stars,NumberAscents,NumberRoutes,NumberTopos,Popularity,TLC,AlternateName,Description,History,Topo,Tag,GradeContribution,RegisteredGrades&since=1459146212</a></li>
+
+<h3>Archived, merged and deleted routes</h3>
+
+Archived, merged and deleted routes will not be returned in baseline mode (ie without the since parameter) but will be returned in delta mode (ie with the since parameter). 
+
+This means an app getting a new crag does not have to worry about archived, merged or deleted routes. However if the app is getting updates then the app should check if a route or area meets one of these conditions and remove it from the local data copy. The archived status is determined by the Archived returned field, which is null or has the archived date. The merged and deleted status is discovered by the NodeType field.
