@@ -1,0 +1,40 @@
+7 Add areas and crags - 15 Creating Webcovers
+<%perl>
+
+# the following image was taken from the HTML of the Arapiles page with the webcover installed at the time.
+# https://www.thecrag.com/climbing/australia/arapiles
+my $webcoverIntroLink = 'https://www.thecrag.com/climbing/australia/arapiles';
+my $webcoverIntroImage = '<img src="https://static.thecrag.com/img/1x206:1999x872/fit-in/1200x400/7e/90/7e902dd8845e9452aa0fb2e0cb4e8e70765a932d" srcset="https://static.thecrag.com/img/1x206:1999x872/fit-in/1200x400/7e/90/7e902dd8845e9452aa0fb2e0cb4e8e70765a932d 1000w,https://static.thecrag.com/img/1x206:1999x872/fit-in/600x200/7e/90/7e902dd8845e9452aa0fb2e0cb4e8e70765a932d 800w,https://static.thecrag.com/img/1x206:1999x872/fit-in/324x108/7e/90/7e902dd8845e9452aa0fb2e0cb4e8e70765a932d 320w">';
+
+my $example1Link = 'https://www.thecrag.com/climbing/united-states/st-george/area/14473285';
+my $example1Image = '<img src="https://static.thecrag.com/img/1x285:2047x967/fit-in/1200x400/01/10/01103313dc324a89b08d66f0efd0b2a3be4baaa5" srcset="https://static.thecrag.com/img/1x285:2047x967/fit-in/1200x400/01/10/01103313dc324a89b08d66f0efd0b2a3be4baaa5 1000w,https://static.thecrag.com/img/1x285:2047x967/fit-in/600x200/01/10/01103313dc324a89b08d66f0efd0b2a3be4baaa5 800w,https://static.thecrag.com/img/1x285:2047x967/fit-in/324x108/01/10/01103313dc324a89b08d66f0efd0b2a3be4baaa5 320w">';
+
+my $example2Link = 'https://www.thecrag.com/climbing/greece/kalymnos';
+my $example2Image = '<img src="https://static.thecrag.com/img/0x531:5079x2224/fit-in/1200x400/8a/9c/8a9c884100ff80dd206cf7bc0864ba486a426cfd" srcset="https://static.thecrag.com/img/0x531:5079x2224/fit-in/1200x400/8a/9c/8a9c884100ff80dd206cf7bc0864ba486a426cfd 1000w,https://static.thecrag.com/img/0x531:5079x2224/fit-in/600x200/8a/9c/8a9c884100ff80dd206cf7bc0864ba486a426cfd 800w,https://static.thecrag.com/img/0x531:5079x2224/fit-in/324x108/8a/9c/8a9c884100ff80dd206cf7bc0864ba486a426cfd 320w">';
+
+my $example3Link = 'https://www.thecrag.com/climbing/italy/finale-ligure';
+my $example3Image = '<img src="https://static.thecrag.com/img/1x101:1180x494/fit-in/1179x393/61/56/61569358c2bf51d852bb8d2153177bb669fe9491" srcset="https://static.thecrag.com/img/1x101:1180x494/fit-in/1179x393/61/56/61569358c2bf51d852bb8d2153177bb669fe9491 1000w,https://static.thecrag.com/img/1x101:1180x494/fit-in/600x200/61/56/61569358c2bf51d852bb8d2153177bb669fe9491 800w,https://static.thecrag.com/img/1x101:1180x494/fit-in/324x108/61/56/61569358c2bf51d852bb8d2153177bb669fe9491 320w">';
+
+my $example4Link = 'https://www.thecrag.com/climbing/hong-kong';
+my $example4Image = '<img src="https://static.thecrag.com/img/0x0:4095x1365/fit-in/1200x400/aa/ea/aaea1731ce2edbdb7fa45b7776eaaca47092daad" srcset="https://static.thecrag.com/img/0x0:4095x1365/fit-in/1200x400/aa/ea/aaea1731ce2edbdb7fa45b7776eaaca47092daad 1000w,https://static.thecrag.com/img/0x0:4095x1365/fit-in/600x200/aa/ea/aaea1731ce2edbdb7fa45b7776eaaca47092daad 800w,https://static.thecrag.com/img/0x0:4095x1365/fit-in/324x108/aa/ea/aaea1731ce2edbdb7fa45b7776eaaca47092daad 320w"></a>';
+
+my $worldWebcoversLink = 'https://www.thecrag.com/climbing/world/webcovers';
+
+my $markdown = getText("article.webcovers.body.markdown",{
+               webcoverIntroLink => $webcoverIntroLink,
+               example1Link => $example1Link,
+               example2Link => $example2Link,
+               example3Link => $example3Link,
+               example4Link => $example4Link,
+               worldWebcoversLink => $worldWebcoversLink,
+});
+</%perl>
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               webcoverIntroImage => $webcoverIntroImage,
+               photoIcon => '<i class="icon-camera icon-large"></i>',
+               example1Image => $example1Image,
+               example2Image => $example2Image,
+               example3Image => $example3Image,
+               example4Image => $example4Image,
+ } &>
+
