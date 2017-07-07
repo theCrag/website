@@ -1,83 +1,53 @@
-7 Indoor gyms - 5 How to archive a gym route?
+7 Indoor gyms - 6 How to archive a gym route?
+<%perl>
 
-<p>Rock climbing gym routes listed in thecrag may be archived by the route setter (or administrative account). When gym routes are physically changed they should be archived on thecrag so that the routes listed on thecrag remain current and accurate.</p>
-
-<p>Archived routes are not listed in the index by default. They do not appear in the index statistics (with some exceptions), nor do they appear in the facetted search by default. Ascents already logged against that route are not effected, account ascent statistics are not effected and total gym ascent statistics are not effected.</p>
-
-
-
-<p>This article explains the workflow for <a href="#archive">archiving routes</a>, <a href="#show">showing archived routes</a>, <a href="#unarchive">unarchiving routes</a> and <a href="#search-archived">searching archived routes</a> on thecrag. If you get stuck at any stage of this workflow then please contact us.</p>
-
-<p>This workflow assumes you are an admin account or route setter for the gym and you have been <a href="/article/GymPermissions">granted account permissions</a>. The gym route setters must have Coordinator permissions or greater to undertake this workflow.</p>
-
-<p><strong>Route setter hint:</strong> Favorite your gym page on thecrag to navigate to the gym directly from your dashboard page.</p>
-
-
-<h1 id="archive">Archiving gym routes</h1>
-
-
-<p><strong>Step 1</strong>: Route setter logs into thecrag, and navigates to the gym page, then to the rope page where the route is listed.</p>
-
-
-<p><strong>Step 2</strong>: Hover your mouse over the route on the rope page. The route should highlight with an Edit button appearing (please note that if it says "Cannot edit" then you do not have sufficient permissions). Click the down arrow next to the Edit button and a menu should become visible.</p>
-
-
-<p><strong>Step 3</strong>: Click the 'Archive route' menu item. The route should disappear from the page. If you want to make sure it is archived you should refresh the page.</p>
-
+my $imageGroup1Title = getText('article.gymarchiveroute.image-group1.title');
+my $imageGroup1 = <<IMAGE_GROUP1;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
       <img class="sd-article-img" src="/static/cids/images/gym-1.1.2/thecrag-gym-archive-route.png" />
-      <p>Archive gym route</p>
+      <p>$imageGroup1Title</p>
     </div>
   </div>
 </div>
+IMAGE_GROUP1
 
-
-
-<h1 id="show">Showing archived routes</h1>
-
-<p><strong>Step 1</strong>: Route setter logs into thecrag, and navigates to the gym page, then to the rope page where the route is listed.</p>
-
-<p><strong>Step 2</strong>: On the rope page there should be a green button "Show archived routes" just below the top level page navigation header (please note that if there is no button then you do not have sufficient permissions). Click the "Show archived routes" button. Achived routes will be shown greyed out and labelled.</p>
-
+my $imageGroup2Title = getText('article.gymarchiveroute.image-group2.title');
+my $imageGroup2 = <<IMAGE_GROUP2;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
       <img class="sd-article-img" src="/static/cids/images/gym-1.1.2/thecrag-gym-show-archived-routes.png" />
-      <p>Show archived routes</p>
+      <p>$imageGroup2Title</p>
     </div>
   </div>
 </div>
+IMAGE_GROUP2
 
 
-<h1 id="unarchive">Unarchiving gym routes</h1>
-
-<p><strong>Step 1</strong>: Route setter logs into thecrag, and navigates to the gym page, then to the rope page where the route is listed.</p>
-
-<p><strong>Step 2</strong>: Click the "Show archived routes" button as per <a href="#show">showing archived routes</a> workflow above.
-
-<p><strong>Step 3</strong>: Hover your mouse over the archived route on the rope page. The route should highlight with an Edit button appearing. Click the down arrow next to the Edit button and a menu should become visible.</p>
-
-<p><strong>Step 4</strong>: Click the 'Unarchive route' menu item. The route should appear on the page. If you want to make sure it is unarchived you should refresh the page.</p>
-
+my $imageGroup3Title = getText('article.gymarchiveroute.image-group3.title');
+my $imageGroup3 = <<IMAGE_GROUP3;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
       <img class="sd-article-img" src="/static/cids/images/gym-1.1.2/thecrag-gym-unarchive-route.png" />
-      <p>Unarchiving gym routes</p>
+      <p>$imageGroup3Title</p>
     </div>
   </div>
 </div>
+IMAGE_GROUP3
 
+my $permissionsLink = '<a href="/article/gympermissions">' . getText('article.gympermissions.title') . '</a>';
+my $exampleLink = '<a href="https://www.thecrag.com/climbing/australia/queensland/rockit-climbing-gym/routes/is/archived">https://www.thecrag.com/climbing/australia/queensland/rockit-climbing-gym/routes/is/archived</a>';
 
-<h1 id="search-archived">Seaching archived routes</h1>
-
-<p><strong>Step 1</strong>: This feature requires understanding of URLs in the browser as there are currently no site buttons or links which trigger this functionality.</p>
-
-<p><strong>Step 2</strong>: Go to the gym page and click on the route count statistic near the page title just below the header. A list of all the gym routes should appear.</p>
-
-<p><strong>Step 3</strong>: At the end of the browser URL type in '/is/archived' (followed by keyboard return key to load the page). You should get a list of all the archived routes in the gym. Below is an example url for a particular climbing gym.</p>
-
-<p><a href="http://www.thecrag.com/climbing/australia/queensland/rockit-climbing-gym/routes/is/archived">http://www.thecrag.com/climbing/australia/queensland/rockit-climbing-gym/routes/is/archived</a></p>
-
+my $markdown = getText("article.gymarchiveroute.body.markdown",{
+               permissionsLink => $permissionsLink,
+               exampleLink => $exampleLink,
+});
+</%perl>
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               imageGroup1 => $imageGroup1,
+               imageGroup2 => $imageGroup2,
+               imageGroup3 => $imageGroup3,
+ } &>

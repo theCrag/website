@@ -1,54 +1,30 @@
-7 Indoor gyms - 1 Indoor gym ascents
-% my $markdown;
-
-<h1>Imagine</h1>
-
-<div class="sd-floater">
-<img class="sd-article-img" src="/static/cids/images/gym-1.1.0/thecrag-gym-ticking.png" width="200" height=280" />
-</div>
-
+7 Indoor gyms - 2 Indoor gym ascents
 <%perl>
-$markdown = <<EOF;
 
+my $phoneImage = '<div class="sd-floater"><img class="sd-article-img" src="/static/cids/images/gym-1.1.0/thecrag-gym-ticking.png" width="200" height=280" /></div>';
 
-You nail a difficult route for the first time in a gym, you get out your phone and point it at the barcode at the base of the route. Two clicks later you have logged your ascent in theCrag and shared it on Facebook.
-
-Sweet, what’s next?
-
-
-# Participating gyms
-
-
-You can log your gym ascents on theCrag.com with participating rock climbing gyms.
-
-
-Once a gym has its routes listed in theCrag, you can tick away and get the full benefit of a logbook, charting and sharing.
-
-
-Note that, even though you have one ascent logbook on theCrag, outdoor routes and indoor routes are reported separately.
-
-
-# Help us help you
-
-EOF
-</%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
-
-<div class="sd-floater">
-<img class="sd-article-img" src="/static/cids/images/gym-1.1.0/ask-your-gym-about-ticking.png" width="200" height=205" />
+my $exampleTitle = getText('article.gymticking.example.cpr-title');
+my $exampleGymCPR = <<CPR_EXAMPLE;
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <iframe border=0 width=520 height=350 src="/ascents/aggregate/graph-gym-boulder-cpr/has/gym-boulder-cpr/by/jaka20/?embed=html"></iframe>
+      <p><a href="/ascents/has/gym-boulder-cpr/by/jaka20/">$exampleTitle</a></p>
+    </div>
+  </div>
 </div>
-
-<%perl>
-$markdown = <<EOF;
+CPR_EXAMPLE
 
 
-If you want to log your local gym ascents then pester your gym owner, route setters and employees to get their routes listed on theCrag. Seriously- do not underestimate the influence you can have on your local gym.
+my $gymApplicationLink = '<a href="/article/gymapplication">' . getText('article.gymapplication.title') . '</a>';
+my $gymSolutionLink = '<a href="/article/gymsolution">' . getText('article.gymsolution.title') . '</a>';
 
-
-It is not expensive for a gym to participate in theCrag and there are many benefits for them, including feedback on route grades, quality and freshness.
-
-
-Tell us the gym name and where it is so we can add the gym in the index, but listing the actual routes will require the gym to participate.
-
-EOF
-</%perl><& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
-
+my $markdown = getText("article.gymticking.body.markdown",{
+               gymApplicationLink => $gymApplicationLink,
+               gymSolutionLink => $gymSolutionLink,
+});
+</%perl>
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               phoneImage => $phoneImage,
+               exampleGymCPR => $exampleGymCPR,
+ } &>

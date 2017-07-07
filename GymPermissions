@@ -1,31 +1,8 @@
-7 Indoor gyms - 4 How to manage gym admin permissions
+7 Indoor gyms - 5 How to manage gym admin permissions
+<%perl>
 
-<p>When a climbing gym lists it’s routes on thecrag they can nominate an administrative account which can grant and revoke permissions of other accounts that will be making changes to the route listing and floor plan.</p>
-
-
-<p>This article explains the workflow for the <a href="#grant">granting</a>, <a href="#review">reviewing</a> and <a href="#revoke">revoking</a> permissions on thecrag. If you get stuck at any stage of this process then please contact us.</p>
-
-
-
-
-
-<h1 id="grant">Grant gym permissions</h1>
-
-
-<p><strong>Step 1</strong>: Work out which employees/route setters are going to need access to update thecrag. If they are already members then get them to tell you their login, otherwise get them to create an account on thecrag. (Note we recommend that each of your employees favorite your gym node for quick access - see notes in Step 3).</p>
-
-
-<p><strong>Step 2</strong>: Log into thecrag with your nominated administrative account.</p>
-
-
-<p><strong>Step 3</strong>: Navigate to your gym node. When you are at the gym node we highly recommend that you favorite your gym node so you can navigate directly to your gym node from your login dashboard.</p>
-
-<p>Optionally, to favorite your gym node then click the heart symbol on your gym page to the left of the 'Favorite' count. Once this is done you can then jump directly to you gym node by either:</p>
-<ul>
-  <li>using the favorite links on the left hand column on your dashboard page when you login; or</li>
-  <li>mouse over the home symbol in the header navigation an click on your gym entry in the dropdown.</li>
-</ul>
-
+my $imageGroup1Title = getText('article.gympermissions.image-group1.title');
+my $imageGroup1 = <<IMAGE_GROUP1;
 <div class="row-fluid">
   <div class="span4">
     <div class="sd-image-caption">
@@ -47,15 +24,14 @@
 <div class="row-fluid">
   <div class="span12 centering">
     <div class="sd-image-caption">
-      <p>Favorite your gym node for quick navigation.</p>
+      <p>$imageGroup1Title</p>
     </div>
   </div>
 </div>
+IMAGE_GROUP1
 
-
-<p><strong>Step 4</strong>: Click the Action button followed by Update and “Update area permission” menu items.</p>
-
-
+my $imageGroup2Title = getText('article.gympermissions.image-group2.title');
+my $imageGroup2 = <<IMAGE_GROUP2;
 <div class="row-fluid">
   <div class="offset1 span5">
     <div class="sd-image-caption">
@@ -72,111 +48,85 @@
 <div class="row-fluid">
   <div class="offset1 span10 centering">
     <div class="sd-image-caption">
-      <p>Update area permission menu link</p>
+      <p>$imageGroup2Title</p>
     </div>
   </div>
 </div>
+IMAGE_GROUP2
 
 
-<p><strong>Step 5</strong>: Enter the login (as collected in Step 1) of an employee you want to grant permissions and click the Next button</p>
-
-
+my $imageGroup3Title = getText('article.gympermissions.image-group3.title');
+my $imageGroup3 = <<IMAGE_GROUP3;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
       <img class="sd-article-img" src="/static/cids/images/gym-1.1.1/thecrag-gym-enter-grant-permission-login.png" />
-      <p>Enter thecrag login for account</p>
+      <p>$imageGroup3Title</p>
     </div>
   </div>
 </div>
+IMAGE_GROUP3
 
-
-<p><strong>Step 6</strong>: Assign permissions to ‘Coordinator’ and press the Save button. Please note that your gym should be locked which means that users need at least Coordinator permissions to update route and floor plan info in your gym.</p>
-
-
+my $imageGroup4Title = getText('article.gympermissions.image-group4.title');
+my $imageGroup4 = <<IMAGE_GROUP4;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
       <img class="sd-article-img" src="/static/cids/images/gym-1.1.1/thecrag-gym-select-grant-permission-level.png" />
-      <p>Select Coordinator permission level</p>
+      <p>$imageGroup4Title</p>
     </div>
   </div>
 </div>
+IMAGE_GROUP4
 
-
-<p>Repeat steps 4-6 for each employee who needs permission.</p>
-
-
-
-
-
-<h1 id="review">Review gym permissions</h1>
-
-
-<p><strong>Step 1</strong>: Login to thecrag using your admin account.</p>
-
-
-<p><strong>Step 2</strong>: Navigate to your gym node or use the favorite list on the left of your dashboard to directly.</p>
-
-
-<p><strong>Step 3</strong>: Review who has permissions in your gym node by clicking the Action -> Update -> Review area permissions menu item.</p>
-
-
+my $imageGroup5Title = getText('article.gympermissions.image-group5.title');
+my $imageGroup5 = <<IMAGE_GROUP5;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
       <img class="sd-article-img" src="/static/cids/images/gym-1.1.1/thecrag-gym-review-permission-menu.png" />
-      <p>Review area permission menu link</p>
+      <p>$imageGroup5Title</p>
     </div>
   </div>
 </div>
+IMAGE_GROUP5
 
 
-<p><strong>Step 4</strong>: Anybody who should not have permissions in your gym node should be revoked. If there is anybody you want to revoke then write down their login name and click the Update Permit button.</p>
-
-
+my $imageGroup6Title = getText('article.gympermissions.image-group6.title');
+my $imageGroup6 = <<IMAGE_GROUP6;
 <div class="row-fluid">
   <div class="offset1 span10 centering">
     <div class="sd-image-caption">
       <img class="sd-article-img" src="/static/cids/images/gym-1.1.1/thecrag-gym-review-permission-report.png" />
-      <p>Review gym node permissions report</p>
+      <p>$imageGroup6Title</p>
     </div>
   </div>
 </div>
+IMAGE_GROUP6
 
-
-
-
-
-<h1 id="revoke">Revoke gym permissions</h1>
-
-<p><strong>Step 1</strong>: Follow steps 1-4 of the <a href="#review">review gym permissions</a> process above.</p>
-
-
-<p><strong>Step 2</strong>: Enter the login you want to update and press the Next button. </p>
-
-
-<div class="row-fluid">
-  <div class="offset2 span8 centering">
-    <div class="sd-image-caption">
-      <img class="sd-article-img" src="/static/cids/images/gym-1.1.1/thecrag-gym-enter-grant-permission-login.png" />
-      <p>Enter thecrag login for account</p>
-    </div>
-  </div>
-</div>
-
-
-<p><strong>Step 3</strong>: Reset their permission level by selecting '--' and press the Save button</p>
-
-
+my $imageGroup7Title = getText('article.gympermissions.image-group7.title');
+my $imageGroup7 = <<IMAGE_GROUP7;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
       <img class="sd-article-img" src="/static/cids/images/gym-1.1.1/thecrag-gym-select-revoke-permission-level.png" />
       <p>Clear permission level</p>
+      <p>$imageGroup7Title</p>
     </div>
   </div>
 </div>
+IMAGE_GROUP7
 
 
-<p>Repeat steps for other accounts you want to revoke.</p>
+my $markdown = getText("article.gympermissions.body.markdown",{
+});
+</%perl>
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               imageGroup1 => $imageGroup1,
+               imageGroup2 => $imageGroup2,
+               imageGroup3 => $imageGroup3,
+               imageGroup4 => $imageGroup4,
+               imageGroup5 => $imageGroup5,
+               imageGroup6 => $imageGroup6,
+               imageGroup7 => $imageGroup7,
+ } &>

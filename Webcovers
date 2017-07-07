@@ -37,4 +37,3 @@ my $markdown = getText("article.webcovers.body.markdown",{
                example3Image => $example3Image,
                example4Image => $example4Image,
  } &>
-
