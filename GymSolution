@@ -26,9 +26,15 @@ my $exampleGymCPR = <<CPR_EXAMPLE;
 CPR_EXAMPLE
 
 my $gymApplicationLink = '<a href="/article/gymapplication">' . getText('article.gymapplication.title') . '</a>';
+my $cprLink = '<a href="/article/cpr">' . getText('article.cpr.title') . '</a>';
+my $contactLink = '<a href="/article/contactus">' . getText('article.contactus.title') . '</a>';
+my $gymListLink = '<a href="/article/gymlist">' . getText('article.gymsolution.link.checklist') . '</a>';
 
 my $markdown = getText("article.gymsolution.body.markdown",{
                gymApplicationLink => $gymApplicationLink,
+               cprLink => $cprLink,
+               contactLink => $contactLink,
+               gymListLink => $gymListLink,
 });
 </%perl>
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {

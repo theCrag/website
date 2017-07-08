@@ -1,9 +1,9 @@
-7 Indoor gyms - 1 Gym application
+7 Indoor gyms - 2 Register your Gym
 <%perl>
 
 my $data = $ARGS{data};
-my $success = ($data->{urlParameters} and $data->{urlParameters}->{success});
-my $fail = ($data->{urlParameters} and $data->{urlParameters}->{error});
+my $success = ($data->{urlParameters} and $data->{urlParameters}->{success} and lc($data->{urlParameters}->{success}) eq 'ok');
+my $fail = ($data->{urlParameters} and $data->{urlParameters}->{error}) ? $data->{urlParameters}->{error} : undef;
 
 my $firstName = getText('article.gymapplication.field.first-name');
 my $lastName = getText('article.gymapplication.field.last-name');
@@ -32,13 +32,20 @@ my $markdown = getText("article.gymapplication.body.markdown",{
 
 % if ( $success )   {
   <div class="alert alert-success">
+    <p>
      <b><% ucSentenceFirst(getText('system.success')) %></b>
      <% getText 'article.gymapplication.success-text' %>
+    </p>
   </div>
 % } elsif ( $fail )   {
   <div class="alert alert-error">
+    <p>
      <b><% ucSentenceFirst(getText('system.failure')) %></b>
      <% getText 'article.gymapplication.failure-text' %>
+    </p>
+    <p>
+     <% $fail %>
+    </p>
   </div>
 % }
 
@@ -185,7 +192,7 @@ my $markdown = getText("article.gymapplication.body.markdown",{
       <tr>
         <td><label><% $gymComments %></label></td>
         <td>
-          <input name="cf_1177" data-label="" value="" type="text">
+          <textarea name="cf_1177"></textarea>
         </td>
       </tr>
       <tr>

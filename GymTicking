@@ -1,4 +1,4 @@
-7 Indoor gyms - 2 Indoor gym ascents
+7 Indoor gyms - 3 Indoor Gym Ascents
 <%perl>
 
 my $phoneImage = '<div class="sd-floater"><img class="sd-article-img" src="/static/cids/images/gym-1.1.0/thecrag-gym-ticking.png" width="200" height=280" /></div>';
@@ -18,10 +18,12 @@ CPR_EXAMPLE
 
 my $gymApplicationLink = '<a href="/article/gymapplication">' . getText('article.gymapplication.title') . '</a>';
 my $gymSolutionLink = '<a href="/article/gymsolution">' . getText('article.gymsolution.title') . '</a>';
+my $cprLink = '<a href="/article/cpr">' . getText('article.cpr.title') . '</a>';
 
 my $markdown = getText("article.gymticking.body.markdown",{
                gymApplicationLink => $gymApplicationLink,
                gymSolutionLink => $gymSolutionLink,
+               cprLink => $cprLink,
 });
 </%perl>
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {

@@ -117,8 +117,10 @@ my $imageGroup7 = <<IMAGE_GROUP7;
 </div>
 IMAGE_GROUP7
 
+my $contactLink = '<a href="/article/contactus">' . getText('article.contactus.title') . '</a>';
 
 my $markdown = getText("article.gympermissions.body.markdown",{
+               contactLink => $contactLink,
 });
 </%perl>
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {

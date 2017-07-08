@@ -38,10 +38,12 @@ my $imageGroup3 = <<IMAGE_GROUP3;
 </div>
 IMAGE_GROUP3
 
+my $contactLink = '<a href="/article/contactus">' . getText('article.contactus.title') . '</a>';
 my $permissionsLink = '<a href="/article/gympermissions">' . getText('article.gympermissions.title') . '</a>';
 my $exampleLink = '<a href="https://www.thecrag.com/climbing/australia/queensland/rockit-climbing-gym/routes/is/archived">https://www.thecrag.com/climbing/australia/queensland/rockit-climbing-gym/routes/is/archived</a>';
 
 my $markdown = getText("article.gymarchiveroute.body.markdown",{
+               contactLink => $contactLink,
                permissionsLink => $permissionsLink,
                exampleLink => $exampleLink,
 });
