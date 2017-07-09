@@ -1,0 +1,45 @@
+7 Indoor gyms - 5 Climbing Contests & Competitions on theCrag
+<%perl>
+
+# https://www.thecrag.com/photo/1361039058
+my $image1 = '<img src="https://static.thecrag.com/img/x600/11/f8/11f8541349ab4d5eeaf32a3ef2c5899415050e99" />';
+
+# https://www.thecrag.com/photo/1361039292
+my $image2 = '<img src="https://static.thecrag.com/img/x600/36/8d/368d44ac9ad67c499f2e09c2a51268e60e9de651" />';
+
+my $exampleTitle = getText('article.competitions.link.mile-high');
+my $exampleLeaderboard = <<LEADERBOARD_EXAMPLE;
+<div class="row-fluid">
+  <div class="span12 centering">
+    <div class="sd-image-caption">
+      <iframe border=0 width=520 height=600 src="/competition/rockit-2014-november-comp?leaderboard=592016646&embed=html"></iframe>
+      <p><a href="/competition/rockit-2014-november-comp?leaderboard=592016646">$exampleTitle</a></p>
+    </div>
+  </div>
+</div>
+LEADERBOARD_EXAMPLE
+
+my $gymSolutionLink = '<a href="/article/gymsolution">' . getText('article.gymsolution.title') . '</a>';
+my $contactLink = '<a href="/article/contactus">' . getText('article.contactus.title') . '</a>';
+my $hangmanLink = '<a href="/competition/dach-2017-meetup?leaderboard=1279014471">' . getText('article.competitions.link.hangman') . '</a>';
+my $mileHighLink = '<a href="/competition/rockit-2014-november-comp?leaderboard=592016646">' . getText('article.competitions.link.mile-high') . '</a>';
+my $teamsHeightLink = '<a href="/competition/rocksports-2016-april-teams?leaderboard=867857601">' . getText('article.competitions.link.teams-height') . '</a>';
+my $customCategoryLink = '<a href="/competition/rockit-2015-march-comp?leaderboard=644334216">' . getText('article.competitions.link.custom-category') . '</a>';
+my $ageAndGenderCategoryLink = '<a href="/competition/509783709">' . getText('article.competitions.link.age-and-gender-category') . '</a>';
+
+my $markdown = getText("article.competitions.body.markdown",{
+               gymSolutionLink => $gymSolutionLink,
+               contactLink => $contactLink,
+               hangmanLink => $hangmanLink,
+               mileHighLink => $mileHighLink,
+               teamsHeightLink => $teamsHeightLink,
+               customCategoryLink => $customCategoryLink,
+               ageAndGenderCategoryLink => $ageAndGenderCategoryLink,
+});
+</%perl>
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               image1 => $image1,
+               image2 => $image2,
+               exampleLeaderboard => $exampleLeaderboard,
+ } &>
+

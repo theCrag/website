@@ -1,4 +1,4 @@
-7 Indoor gyms - 5 How to manage gym admin permissions
+7 Indoor gyms - 6 How to manage gym admin permissions
 <%perl>
 
 my $imageGroup1Title = getText('article.gympermissions.image-group1.title');

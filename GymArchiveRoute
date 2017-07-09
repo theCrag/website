@@ -1,4 +1,4 @@
-7 Indoor gyms - 6 How to archive a gym route?
+7 Indoor gyms - 7 How to archive a gym route?
 <%perl>
 
 my $imageGroup1Title = getText('article.gymarchiveroute.image-group1.title');
