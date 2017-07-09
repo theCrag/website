@@ -29,12 +29,14 @@ my $gymApplicationLink = '<a href="/article/gymapplication">' . getText('article
 my $cprLink = '<a href="/article/cpr">' . getText('article.cpr.title') . '</a>';
 my $contactLink = '<a href="/article/contactus">' . getText('article.contactus.title') . '</a>';
 my $gymListLink = '<a href="/article/gymlist">' . getText('article.gymsolution.link.checklist') . '</a>';
+my $competitionsLink = '<a href="/article/competitions">' . getText('article.competitions.title') . '</a>';
 
 my $markdown = getText("article.gymsolution.body.markdown",{
                gymApplicationLink => $gymApplicationLink,
                cprLink => $cprLink,
                contactLink => $contactLink,
                gymListLink => $gymListLink,
+               competitionsLink => $competitionsLink,
 });
 </%perl>
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
