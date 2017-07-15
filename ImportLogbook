@@ -1,8 +1,49 @@
 4 Ticking and logbooks - 7 Import your logbook
 <%perl>
+
 use CIDS::Application::StaticVersions;
 my $account = $ARGS{account};
+
+my $cprLink = '<a href="/article/cpr">' . getText('article.cpr.title') . '</a>';
+my $export8aLink = '<a href="/article/export8a">' . getText('article.export8a.title') . '</a>';
+
+my $leeProfileLink = '<a href="/climber/leecujes">' . getText('article.importlogbook.link.lee-profile') . '</a>';
+
+my $startImportText = '';
+if ( defined $account and defined $account->{id} )   {
+  my $startImportLink = '<a href="/processmap/importlogbook/'.$account->{id}.'">' . getText('article.importlogbook.link.start-import') . '</a>';
+  $startImportText = getText('article.importlogbook.text.start-import',{
+    startImportLink => $startImportLink,
+  });
+}
+
+
+my $imageGroup1 = <<IMAGE_GROUP1;
+<div class="row-fluid">
+  <div class="offset2 span8 centering">
+    <div class="sd-image-caption">
+      <img class="sd-article-img" src="/static/cids/images/import-1.1.0/screenshot-tc-import-menu-a.png" />
+    </div>
+  </div>
+</div>
+IMAGE_GROUP1
+
+
+my $markdown = getText("article.importlogbook.body.markdown",{
+               cprLink => $cprLink,
+               leeProfileLink => $leeProfileLink,
+               export8aLink => $export8aLink,
+});
 </%perl>
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               startImportText => $startImportText,
+               imageGroup1 => $imageGroup1,
+ } &>
+<%perl>
+</%perl>
+
+
+<p>--------------------------------------------------</p>
 
 <p>Liberate your logbook ascent data, whether you want to use it for other purposes or swap logbook providers. To that end we have put work into importing and <a href="/article/exportlogbook">exporting</a> logbook capabilities on the site.</p>
 

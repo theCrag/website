@@ -1,7 +1,6 @@
 4 Ticking and logbooks
 <%perl>
 
-
 my $cprLink = '<a href="/article/cpr">' . getText('article.cpr.title') . '</a>';
 my $exportLogbookLink = '<a href="/article/exportlogbook">' . getText('article.exportlogbook.title') . '</a>';
 my $importLogbookLink = '<a href="/article/importlogbook">' . getText('article.importlogbook.title') . '</a>';
@@ -20,4 +19,3 @@ my $markdown = getText("article.ticking.body.markdown",{
   quote => '<div class="alert alert-info">' .getText('article.ticking.body.quote') . '</div>',
   signupButton => '<a class="btn btn-primary btn-large" href="/processmap/signup">'.getText('template.login-button.signup.title').'</a>',
  } &>
-
