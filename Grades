@@ -57,7 +57,7 @@ my $markdown;
   <li><a href="#article.grades.header.country-contexts"><% getText('article.grades.header.country-contexts') %></a></li>
 </ol>
 
-<h2><a name="article.grades.header.grade-conversions"></a><% getText('article.grades.header.grade-conversions') %></h2>
+<& /html/thecrag/minor/heading, level => 2, title => 'article.grades.header.grade-conversions' &>
 
 % $markdown = getText('article.grades.content.grade-conversions.intro',{
 %               issuesListPage => '<a href="'.$issuesListURL.'">{bugImage}'.getText('article.grades.link.issues-list').'</a>',
@@ -104,14 +104,13 @@ my $markdown;
 }
 </style>
 
-<h3><% getText 'article.grades.header.grade-conversions.sub-header.trad-and-sport-systems' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grade-conversions.sub-header.trad-and-sport-systems' &>
 <& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Free' &>
 
-<h3>Bouldering grading systems</h3>
-<h3><% getText 'article.grades.header.grade-conversions.sub-header.bouldering-systems' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grade-conversions.sub-header.bouldering-systems' &>
 <& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Boulder', scale => 2 &>
 
-<h3><% getText 'article.grades.header.grade-conversions.sub-header.other-systems' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grade-conversions.sub-header.other-systems' &>
 <& /html/thecrag/minor/gradeSystems, data => $data, typeFilter => 'Aid|Ice|Mixed|Via ferrata', scale => 1.5 &>
 
 % $markdown = getText('article.grades.content.grade-conversions.explain',{
@@ -126,7 +125,7 @@ my $markdown;
 
 
 
-<h2><a name="article.grades.header.grade-bands"></a><% getText('article.grades.header.grade-bands') %></h2>
+<& /html/thecrag/minor/heading, level => 2, title => 'article.grades.header.grade-bands' &>
 
 % my $beginner = getText('system.grade-band.beginner');
 % my $intermediate = getText('system.grade-band.intermediate');
@@ -172,12 +171,12 @@ my $markdown;
 
 
 
-<h2><a name="article.grades.header.grades-assigned-to-routes"></a><% getText('article.grades.header.grades-assigned-to-routes') %></h2>
+<& /html/thecrag/minor/heading, level => 2, title => 'article.grades.header.grades-assigned-to-routes' &>
 
 % $markdown = getText('article.grades.content.grades-assigned-to-routes.intro');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<h3><% getText 'article.grades.header.grades-assigned-to-routes.sub-header.registered-grade' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grades-assigned-to-routes.sub-header.registered-grade' &>
 
 % $markdown = getText('article.grades.header.grades-assigned-to-routes.sub-header.registered-grade.content');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
@@ -189,13 +188,13 @@ my $markdown;
  } &>
 
 
-<h3><% getText 'article.grades.header.grades-assigned-to-routes.sub-header.grade-contributions' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grades-assigned-to-routes.sub-header.grade-contributions' &>
 
 % $markdown = getText('article.grades.header.grades-assigned-to-routes.sub-header.grade-contributions.content');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 
-<h3><% getText 'article.grades.header.grades-assigned-to-routes.sub-header.grade-ranges' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grades-assigned-to-routes.sub-header.grade-ranges' &>
 
 % $markdown = getText('article.grades.header.grades-assigned-to-routes.sub-header.grade-ranges.content');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
@@ -203,12 +202,12 @@ my $markdown;
  } &>
 
 
-<h3><% getText 'article.grades.header.grades-assigned-to-routes.sub-header.aid-eliminates' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grades-assigned-to-routes.sub-header.aid-eliminates' &>
 
 % $markdown = getText('article.grades.header.grades-assigned-to-routes.sub-header.aid-eliminates.content');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<h3><% getText 'article.grades.header.grades-assigned-to-routes.sub-header.special-rating-systems' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grades-assigned-to-routes.sub-header.special-rating-systems' &>
 
 % $markdown = getText('article.grades.header.grades-assigned-to-routes.sub-header.special-rating-systems.content',{
 %               protectionRatingLink => '<a href="http://en.wikipedia.org/wiki/Grade_%28climbing%29#YDS_protection_rating">'.getText('article.grades.link.yds-protection-rating').'</a>',
@@ -219,7 +218,7 @@ my $markdown;
  } &>
 
 
-<h2><a name="article.grades.header.grades-assigned-to-ascents"></a><% getText('article.grades.header.grades-assigned-to-ascents') %></h2>
+<& /html/thecrag/minor/heading, level => 2, title => 'article.grades.header.grades-assigned-to-ascents' &>
 
 % $markdown = getText('article.grades.content.grades-assigned-to-routes',{
 %                cprLink => '<a href="/article/cpr">'.getText('article.cpr.title').'</a>',
@@ -229,12 +228,12 @@ my $markdown;
 
 
 
-<h2><a name="article.grades.header.grade-contexts"></a><% getText('article.grades.header.grade-contexts') %></h2>
+<& /html/thecrag/minor/heading, level => 2, title => 'article.grades.header.grade-contexts' &>
 
 % $markdown = getText('article.grades.content.grade-contexts.intro');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
-<h3><% getText 'article.grades.header.grade-contexts.sub-header.grade-context-meaning' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grage-context-meaning' &>
 
 % $markdown = getText('article.grades.header.grade-contexts.sub-header.grade-context-meaning.content');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
@@ -335,7 +334,7 @@ $(function(){
 });
 </script>
 
-<h3><% getText 'article.grades.header.grade-contexts.sub-header.force-grading-system' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grade-contexts.sub-header.force-grading-system' &>
 
 % $markdown = getText('article.grades.header.grade-contexts.sub-header.force-grading-system.content');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
@@ -357,7 +356,7 @@ $(function(){
 </table>
 
 
-<h3><% getText 'article.grades.header.grade-contexts.sub-header.examples' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grade-contexts.sub-header.examples' &>
 % $markdown = getText('article.grades.header.grade-contexts.sub-header.examples.content');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
@@ -810,7 +809,7 @@ $(function(){
 </table>
 
 
-<h3><% getText 'article.grades.header.grade-contexts.sub-header.try-it-yourself' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grade-contexts.sub-header.try-it-yourself' &>
 
 <div class="route-grade-grouper">
 
@@ -839,7 +838,7 @@ $(function(){
 </div>
 
 
-<h3><% getText 'article.grades.header.grade-contexts.sub-header.grades-in-a-gym' %></h3>
+<& /html/thecrag/minor/heading, level => 3, title => 'article.grades.header.grade-contexts.sub-header.grades-in-a-gym' &>
 
 % $markdown = getText('article.grades.header.grade-contexts.sub-header.grades-in-a-gym.content',{
 %               gymLink => '<a href="/article/gympartner">'.getText('article.gympartner.title').'</a>',
@@ -847,7 +846,7 @@ $(function(){
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
 
 
-<h2><a name="article.grades.header.country-contexts"></a><% getText('article.grades.header.country-contexts') %></h2>
+<& /html/thecrag/minor/heading, level => 2, title => 'article.grades.header.country-contexts' &>
 
 % $markdown = getText('article.grades.content.country-contexts');
 <& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
