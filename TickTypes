@@ -7,6 +7,15 @@ use CIDS::Application::StaticVersions;
 
 % my $groups = $ARGS{data}->{tickGroups};
 
+%# Useful for regenning to less css file
+% if (0) {
+%   foreach my $group ( @{$groups} )   {
+%     my $ticks = $group->{ticks};
+%     foreach my $tick ( @{$ticks} )   {
+.tick_<% $tick->{label} %> { background-image:url('/tick/<% $tick->{label} %>?v=1'); }<br>
+%     }
+%   }
+% }
 <table class="tickTable">
   <thead>
     <tr>
@@ -32,7 +41,7 @@ use CIDS::Application::StaticVersions;
 % foreach my $tick ( @{$ticks} )   {
     <tr>
       <td>
-        <img width="20" height="18" src="<% static('cids/images/single_icon_'.$tick->{label}.'.png') %>" title="<% $tick->{name} %>" />
+        <& /html/thecrag/minor/tick, tick => $tick &>
       </td>
       <td nowrap="nowrap">
         <% $tick->{name} %>
