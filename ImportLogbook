@@ -1,53 +1,30 @@
 4 Ticking and logbooks - 7 Import your logbook
 <%perl>
+
 use CIDS::Application::StaticVersions;
 my $account = $ARGS{account};
-</%perl>
 
-<p>Liberate your logbook ascent data, whether you want to use it for other purposes or swap logbook providers. To that end we have put work into importing and <a href="/article/exportlogbook">exporting</a> logbook capabilities on the site.</p>
+my $exportingLink = '<a href="/article/exportlogbook">' . getText('article.importlogbook.link.exporting') . '</a>';
+my $cprLink = '<a href="/article/cpr">' . getText('article.cpr.title') . '</a>';
+my $export8aLink = '<a href="/article/export8a">' . getText('article.export8a.title') . '</a>';
+my $gradeRulesLink = '<a href="/article/grades">' . getText('article.importlogbook.link.grade-rules') . '</a>';
+my $karmaLink = '<a href="/article/cragkarma">' . getText('article.cragkarma.title') . '</a>';
 
-<p>Importing to thecrag.com means:</p>
-<ul>
-  <li>Your logbook gets linked to a registered community index of routes worldwide.</li>
-  <li>Your logbook can use the local grade of the route you climbed.</li>
-  <li>Your logbook is integrated into iPhone and Andriod apps.</li>
-  <li>Cool stats in your profile page (eg look at Lee's <a href="http://www.thecrag.com/climber/manacubus">profile page</a>).</li>
-</ul>
+my $assessmentFiltersLink = '<a href="#assessmentfilters">' . getText('article.importlogbook.link.assessment-filters') . '</a>';
+my $unmatchedRoutesLink = '<a href="#unmatchedroutes">' . getText('article.importlogbook.link.unmatched-routes') . '</a>';
 
+my $leeProfileLink = '<a href="/climber/leecujes">' . getText('article.importlogbook.link.lee-profile') . '</a>';
 
-<div class="alert alert-error"><b>In beta test phase!</b> Please note that the importing logbook service is in beta test phase, but is relatively stable. See the section on <a href="#beta">beta test testamonials</a> below for initial impressions. If you are interested then please contact us so we can work with you to get your import completed.</div>
-
-<p>thecrag.com has been around since 1999, so we are committed to provide an enduring service. From the beginning we have had a unique approach to our logbook service in that your logbook must be linked to registered routes in our community database. This means you cannot put any old rubbish in your logbook.</p>
-
-<p>You should also note that there are no restrictions on users <a href="/article/exportlogbook">exporting</a> their logbook from thecrag.com. This feature is available for both CSV and Excel formats.</p>
-
-<p>thecrag.com also has an <a href="/article/api">API</a>, meaning logbook data can be accessed programatically for third party applications. If you are a climbing business and you want to provide value add logbook services then please contact us.</p>
-
-<p>We have got the worlds biggest community routes database with over 350k routes registered. However we are the first to admit we have not yet completed the journey of registering a comprehensive list of routes from around the world. This means you should be able to easily import a large portion of your logbook, but you may have to create routes for the ones that don't exist in our database. Don't worry even if the routes are not in our database then the imported ascent is kept in a separate record so that it can me matched later.</p>
-
-<p>To be honest, importing is quiet complex. Firstly you have to work out how to get your logbook from your current provider - not every provider has such open policies. You then have to know how to create a CSV file format saved using UTF8 encoding. This needs to be uploaded to your account and you need to confirm the matches to routes in the system.</p>
-
-<p>Don't let this complexity scare you off, contact us and we will do our best to help you through the process.</p>
-
-<p><strong>If you are interested in importing your logbook then please contact us first because everybody seems to have unique issues which we want to understand to improve the import process.</strong></p>
-
-<h1>How to import your logbook</h1>
-
-<p>Note that you can have a break from this process at any point and come back to it later - even months later if you wanted to. The system rembers where you were up to.</p>
-
-<h2>Step 1: Prepare Import File</h2>
-
-<p>If you cannot get your logbook from your current provider then review the section below on <a href="#providers">hints to exporting from other providers</a>.</p>
+my $startImportText = '';
+if ( defined $account and defined $account->{id} )   {
+  my $startImportLink = '<a href="/processmap/importlogbook/'.$account->{id}.'">' . getText('article.importlogbook.link.start-import') . '</a>';
+  $startImportText = getText('article.importlogbook.text.start-import',{
+    startImportLink => $startImportLink,
+  });
+}
 
 
-<p>Prepare your logbook on your computer in an CSV file format using UTF8 character encoding. At a bare minimum you need crag and route columns, but also country is highly recommended. We can help with this if you want.</p>
-
-
-<h2>Step 2: Upload File to theCrag</h2>
-
-<p>Log into thecrag.com and from the dashboard click the "Action -> Import Logbook" link.<% defined $account ? " Or <a href=\"/processmap/importlogbook/$account->{id}\">click here</a> to start the import procedure." : '' %></p>
-
-
+my $imageGroup1 = <<IMAGE_GROUP1;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -55,10 +32,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP1
 
-
-<p>This will take you to the import manager page. Click the 'Upload CSV File' button.</p>
-
+my $imageGroup2 = <<IMAGE_GROUP2;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -66,10 +42,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP2
 
-
-<p>Select your file and click 'Next'.</p>
-
+my $imageGroup3 = <<IMAGE_GROUP3;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -77,10 +52,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP3
 
-
-<p>If successful you will be taken to a screen displaying the first 10 lines of your logbook.</p>
-
+my $imageGroup4 = <<IMAGE_GROUP4;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -88,9 +62,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP4
 
-<p>... and the page continues ... </p>
-
+my $imageGroup5 = <<IMAGE_GROUP5;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -98,9 +72,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP5
 
-<p>Here you need to tell the system how to interpret the CSV file. Based on the header row and the first content row the system will guess the format and there is a good chance you will not have to change the configuration at all. Assign data fields to various columns, indicate whether there is a header row or not, tell the system which grading system context you want to use for interpretting grades you import and set up the date format. When done select 'Confirm Configuration' radio button and click 'Next'.</p>
-
+my $imageGroup6 = <<IMAGE_GROUP6;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -108,21 +82,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP6
 
-<p>You will be taken back to the import control panel. <p>
-
-<div class="alert alert-error"><b>Note on cancelling:</b> You can 'cancel' an file upload and import at any time and start again (eg bad file format), which will remove all the unassigned import lines from being processed.</div>
-
-<p>Here you need to decide whether you want to do one line at a time (time consuming) or do some bulk assessment (highly recommended). In fact the one-line-at-a-time mode should only be really used after you have done as much as you can with the bulk assessment. Note that you can do some one at a time, then do bulk or vice versa.</p>
-
-<p>The one line at a time process is actually worth looking at the first line because it gives you a summary of the tick mappings, used to interpret the file. You should review this to make sure you are happy with how the tick types are being mapped.</p>
-
-<h2>Step 2a: One Line At A Time Entry</h2>
-
-<div class="alert alert-error"><b>Note:</b> You can come back to this process anytime you want. It is highly likely that you will not be able to finish the process in one sitting because of missing routes in the database.</div>
-
-<p>From the import control panel, click the 'Next Pending Line' button. You should get the following screen.</p>
-
+my $imageGroup7 = <<IMAGE_GROUP7;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -130,10 +92,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP7
 
-<p>... and the page continues to show the tick map for the whole file ... </p>
-
-
+my $imageGroup8 = <<IMAGE_GROUP8;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -141,27 +102,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP8
 
-<p>By default you the system is configured to use the grade of the route, but a checkbox can be updated to change that. If there are multiple matching routes then you have to select one. You also have to tell the system if you want assign to node, skip (just go to the next line) or put the decision into a defered bucket.</p>
-
-<p>If the system grade for the route is close to the grade in the import file line then a tick is shown next to the route name, otherwise a cross. This should help aid your decision or to import.</p>
-
-<p>Please note there are some additional hints to import individual lines using the one-at-a-time form.</p>
-<ul>
-  <li>To access the one-at-a-time form click the 'Next Pending Line' from the import dashboard.</li>
-  <li>If you cannot find a match in the list of system candidates then you can do a manual search by clicking on 'none' radio button and a manual search box should appear. If you select a result from this search it will be added to the list of candidates.</li>
-  <li>If you know the route is in the system but the search is still not matching using the manual search then you can put the route id into the search box to be added to the list of candidates.</li>
-  <li>You may revert a 'skipped' or 'deferred' line back to pending status by clicking on the 'report' link in the table of the main import dashboard screen, then find the line and click on the 'revert' link.</li>
-  <li>You may jump to a particular pending or deferred line by clicking on the line status in the import report, as above.</li>
-</ul>
-
-
-<h2>Step 2b: Bulk Entry</h2>
-
-<p>Bulk entry still requires you to assess each csv line, however all the system number crunching is done in bulk and multiple lines are presented for assessment on one page.</p>
-
-<p>From the import control panel click the start the bulk assessment click the 'Start Bulk Assessment' button. The sytem has to do a lot of number crunching so this will take some time (maybe an hour or more depending on the size of the input file).</p>
-
+my $imageGroup9 = <<IMAGE_GROUP9;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -169,10 +112,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP9
 
-
-<p>You should just go away and do something else. When the system has finished it's number crunching it will email you - click the link provided in the email or the 'Report Bulk Assessment' button from the control page.</p>
-
+my $imageGroup10 = <<IMAGE_GROUP10;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -180,10 +122,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP10
 
-
-<p>You should get a page with a filter near the top with import route assessments below that. The idea is that you need to confirm what the system thinks is the best match for each of your ascents you are importing. The system does a reasonable job at pre-selecting the most likely match so this is actually quite quick. Before you go on you might want to read the section on <a href="#filter">understanding assessment filters</a> before you go on.</p>
-
+my $imageGroup11 = <<IMAGE_GROUP11;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -191,9 +132,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP11
 
-<p>... and assessment report continues ... </p>
-
+my $imageGroup12 = <<IMAGE_GROUP12;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -201,9 +142,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP12
 
-<p>... and assessment report continues ... </p>
-
+my $imageGroup13 = <<IMAGE_GROUP13;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -211,8 +152,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
-<p>... and assessment report continues ... </p>
+IMAGE_GROUP13
 
+my $imageGroup14 = <<IMAGE_GROUP14;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -220,26 +162,9 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP14
 
-
-<p>Decide whether you want to save your ascent grades from the assigned route or you want them to be the same as the import file - set the 'Local grade' checkbox accordingly then scroll down the bottom and click the 'Refresh with filter' button to update the screen layout.</p>
-
-<p>Review system assignments, and once you are happy click the 'Confirm update' checkbox and then the 'Save and continue' button. This will iterate you through the remaining routes of the filter selection.</p>
-
-<p>Note that if you 'Skip assignment' for a particular ascent line then no changes are made to the database for that record and subsequent filter settings will find it again.</p>
-
-<p>Repeat with different filter selections if necessarily working down to the harder cases.</p>
-
-<p>Once you have confirmed everything you can you should be left with ascents that could not be matched to a route. See the section below on <a href="#unmatched">what to do about unmatched routes</a>. Basically you wait until the index has been updated rerun the "Start Bulk Assessment" process and see what new routes have been matched.</p>
-
-<p>Your done for now.</p>
-
-<h2>Step 3: Review Report</h2>
-
-<p>At any stage you can review your progress and ascent assignments. </p>
-
-<p>From the import control panel click 'report' link next to the csv file line. It should take you to a report looking like this.</p>
-
+my $imageGroup15 = <<IMAGE_GROUP15;
 <div class="row-fluid">
   <div class="offset2 span8 centering">
     <div class="sd-image-caption">
@@ -247,107 +172,40 @@ my $account = $ARGS{account};
     </div>
   </div>
 </div>
+IMAGE_GROUP15
 
-<p>If you click on the pending status link you will be taken directly to the assessment for that line entry.</p>
-<p>If the ascent assignment has been made then the line item links to that ascent.</p>
-
-
-
-
-
-<h1 id="crunching">System number crunching</h1>
-
-<p>When you start a bulk assessment, the system processes candidate matches for all unassigned import ascents. If you have already assigned a route to an ascent then this is not included in the number crunching.</p>
-
-<p>When the system finishes it's number crunching it sends the user an email saying that bulk assessment is ready.</p>
-
-<p>To find candidate matches the system progressively tries to match countries, crags, sectors, cliffs and routes using system search functionality. In otherwords if you are importing an ascent of 'Bart' in the United States then the system will not match other Bart routes in Australia and New Zealand.</p>
-
-<p>Matching is done based on a fuzzy search logic, the same as index search. This means mispellings are usually matched. The search also takes into account alternate names, so if areas are know by different names then make sure the system knows this.</p>
-
-<p>Finally the system compares grades to see if the grade of the candidate route matches the grade of the ascent. This system uses the standard <a href="/article/grades">grading conversion rules</a>. If it does match then a <img src="/static/silk/tick.png" width="16" height="16" /> is displayed next to the candidate route grade, otherwise a <img src="/static/silk/cross.png" width="16" height="16" /> is displayed.
-
-
-
-
-
-<h1 id="filter">Understanding assessment filters</h1>
-
-<p>The idea of the assessment filters is to make your assessment confirmation easier and quicker.</p>
-
-<p>Whenever you change your assessment filter then scroll to the bottom of the page and click 'Refresh with filter' to get an updated screen.</p>
-
-<ul>
-  <li><strong>Number lines left</strong>: Reports the number of ascent log lines yet to be assigned to a route. Filtering is only ever done on these unassigned ascents.</li>
-  <li><strong>Filter</strong>: You can set this to group by similar matching patterns. It much faster to assess cases if they have the same patterns. Generally speaking you would start with the first filter 'Single candidate match with grade, country and crag matching', and work your way down.</li>
-  <li><strong>Number lines shown</strong>: Number of ascent log lines to report on the assessment screen. For some filters, above, you may want to set this to 100 or more so you can quickly get through lots of matches.</li>
-  <li><strong>Number lines skipped</strong>: This will allow you to start anywhere in a filter list. It is automatically updated when you 'Save and continue' so that you will get the next set of records by default.</li>
-  <li><strong>Tooltips</strong>: This checkbox determines whether or not the matched index path is shown directly in the table or in tooltips that popup when you hover your mouse over the candidate route. Leave this unchecked until you get to the difficult cases.</li>
-  <li><strong>Show stats</strong>: This shows area/route counts from unassigned ascent lines. Useful to know the concentration of routes not in the index.</li>
-  <li><strong>Order by area</strong>: This orders the list by area, which can make assessment confirmation much quicker dealing with things crag by crag.</li>
-  <li><strong>Local grade</strong>: Sets the import to use the grade of the assigned route for the imported ascent. If not set then the imported ascent will use the grade from the import file with an opportunity for you to manually override this.</li>
-</ul>
-
-
-
-
-
-<h1 id="unmatched">What to do about unmatched routes</h1>
-
-<p>Basically you wait until the index has been updated, then re-run "Start Bulk Assessment" which will re-do all the number crunching for unassigned ascents.</p>
-
-<p>Your choices are whether you wait for somebody else to do the work, or you create the missing routes yourself. In case you did not know there are benefits for contributing to the index - see <a href="/article/cragkarma">Crag Karma</a>.</p>
-
-<p>Let us know if you are choosing to update the index yourself and we will do everything we can to support your efforts.</p>
-
-<p>You might be able to make some low hanging fruit corrections to the index by providing some alternate names to areas in the index, if thecrag search simply missed the route because the area is known as something different in the index.</p>
-
-<p>Ultimately if you are left with unassigned rubbish in your logbook which you have no hope of ever working out what route it really was then this will just stay in your unassigned pile.</p>
-
-
-
-
-
-<h1 id="providers">Hints to exporting from other providers</h1>
-
-<p>We want to use this section to share other users experience when importing.</p>
-
-<p>You should not be scared about emailing your current provider and asking them what their process is for exporting your logbook.</p>
-
-<h2>Paper copy</h2>
-
-<p>One of our users had a paper copy of their logbook from an excel spreadsheet which had been lost. He scanned it in with Optical Character Recogition (OCR) technology, created an CSV which was then easliy imported.</p> 
-
-<p>If you don't have OCR technology at your fingertips try your local printers/office shop.</p>
-
-<h2>8a</h2>
-
-<p>Our users report that exporting from 8a is quite difficult.... until now. An independent climber has built a service to export his scorecard from 8a.nu. He has made it freely available for everybody in the google chrome webstore:</p>
-
-<p><a href="https://chrome.google.com/webstore/detail/8a-exporter/hekkfoilcpojpemdamefenfhielmbcen">https://chrome.google.com/webstore/detail/8a-exporter/hekkfoilcpojpemdamefenfhielmbcen</a></p>
-
-<h1 id="beta">Beta test testamonials</h1>
-
-<h2 id="testamonial1">Testamonial 1: Climber who wanted logbook backup using thecrag export.</h2>
-<p>I used to write every climb I did down in a little notepad.  Being able to looks back over what I've climbed my notes for the climbs helps job my shocking memory. I like to look back and reminisce over past ascents.</p>
-
-<p>I spilt a drink of this little notepad one day and nearly lost everything so I decided to convert this little notepad into the digital age.</p>
-
-<p>Rather than just using a spreadsheet I decided that manually inputing my whole log book to the 8a database would be better so that friends and family
-could look at while I'm climbing while I'm away on trips.</p>
-
-<p>I used 8a for a few years but inputting new ascents was a tedious process and there was no backup facility I could use to export my logbook out of 8a (I was worried about the 8a site disappearing) I decided to seek out something new. That's when I found thecrag.</p>
-
-<p>It looked like thecrag had been around for year but I quickly noticed that it was under heavy development, new features being added on a monthly basic (compared to 8a where nothing changed in te 2 years I used it)</p>
-
-<p>My main objects where</p>
-
-<ol>
-  <li>being able to export my logbook (which thecrag had already implemented)</li>
-  <li>being more easily able to log my accents into my logbook (which thecrag already did by simply being able to click on multiple climbs in a crag and clicking Log Ascents)</li>
-  <li>being able to import my 8a logbook into thecrag.</li>
-</ol>
-
-<p>This last objective wasn't available but thecrag was willing to add this feature for me.</p>
-
-<p>In the process of 2 weeks they added the feature, I helped them beta test it and iron out the bugs and now I'm happy to say I have ditched my 8a account and happily using thecrag.</p>
+my $markdown = getText("article.importlogbook.body.markdown",{
+               exportingLink => $exportingLink,
+               cprLink => $cprLink,
+               leeProfileLink => $leeProfileLink,
+               export8aLink => $export8aLink,
+               assessmentFiltersLink => $assessmentFiltersLink,
+               unmatchedRoutesLink => $unmatchedRoutesLink,
+               gradeRulesLink => $gradeRulesLink,
+               karmaLink => $karmaLink,
+});
+</%perl>
+<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1, postSubstitute => {
+               startImportText => $startImportText,
+               noteOnCancelling => '<div class="alert alert-info">' .getText('article.importlogbook.text.note-on-cancelling') . '</div>',
+               noteCanComeBack => '<div class="alert alert-info">' .getText('article.importlogbook.text.note-can-come-back') . '</div>',
+               anchorAssessmentFilters => '<a name="assessmentfilters"></a>',
+               anchorUnmatchedRoutes => '<a name="unmatchedroutes"></a>',
+               tickIcon => '<img src="/static/silk/tick.png" width="16" height="16" />',
+               crossIcon => '<img src="/static/silk/cross.png" width="16" height="16" />',
+               imageGroup1 => $imageGroup1,
+               imageGroup2 => $imageGroup2,
+               imageGroup3 => $imageGroup3,
+               imageGroup4 => $imageGroup4,
+               imageGroup5 => $imageGroup5,
+               imageGroup6 => $imageGroup6,
+               imageGroup7 => $imageGroup7,
+               imageGroup8 => $imageGroup8,
+               imageGroup9 => $imageGroup9,
+               imageGroup10 => $imageGroup10,
+               imageGroup11 => $imageGroup11,
+               imageGroup12 => $imageGroup12,
+               imageGroup13 => $imageGroup13,
+               imageGroup14 => $imageGroup14,
+               imageGroup15 => $imageGroup15,
+ } &>
