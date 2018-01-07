@@ -5,3 +5,5 @@
 
 **What you expected:**
 
+* [ ] item 1
+* [ ] item 2
