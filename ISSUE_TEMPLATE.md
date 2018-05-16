@@ -1,7 +1,10 @@
 **What happened?**
 
+Example url(s) to reproduce the problem:
 
-(please also provide urls and screen shots)
+
+Ideally also provide screenshots:
+
 
 **What you expected:**
 
