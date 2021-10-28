@@ -1,5 +1,0 @@
-7 Add areas and crags - 14 Private, closed and sensitive crags
-<%perl>
-my $markdown = getText("article.sensitivecrags.body.markdown");
-</%perl>
-<& /html/thecrag/minor/markdown, markdown => $markdown, allowHeaders  => 1 &>
